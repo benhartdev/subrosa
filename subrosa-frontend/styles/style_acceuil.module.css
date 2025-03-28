@@ -1,0 +1,1286 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
+
+
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: "Michroma", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+body > header:nth-child(1) {
+    height: 350px;
+  }
+  
+main {
+    flex: 1;
+}
+
+a {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: fit-content;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px; /* Augmente la hauteur minimale */
+  width: 100%;
+  position: absolute; /* Fait en sorte qu’il se superpose à l’image */
+  top: 0; /* Place le header en haut de la page */
+  left: 0;
+  background-color: rgba(170, 170, 170, 0); /* Facultatif */
+  z-index: 9999; /* Passe devant l’image de fond */
+
+}
+.header-border_1 {
+    width: 22%;       /* Largeur totale pour être responsive */
+    height: 5px;       /* Hauteur de la ligne */
+    align-items: center;
+    border-top: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
+    background: transparent;  
+}
+.header-border_2 {
+    width: 20%;       /* Largeur totale pour être responsive */
+    height: 7px;       /* Hauteur de la ligne */
+    align-items: center;
+    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
+    background: transparent;  
+}
+
+.header-svg {
+  
+  width: 700px !important; /* Force une largeur correcte */
+  height: auto !important;
+   z-index: 9995;
+    position: absolute; /* Permet de le positionner librement */
+    top: 60%; /* Place le logo au milieu du header */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Corrige le centrage */
+   
+   
+}
+
+header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.footer-border_5 {
+    width: 100%;       /* Largeur totale pour être responsive */
+    height: 20px;       /* Hauteur de la ligne */
+    align-items: center;
+    border-bottom: 1px solid gray; /* Deuxième ligne */
+    background: transparent;  
+}
+
+#menu {
+    list-style: none;
+    display: none;
+    position: fixed; 
+    right: 100px;
+    top: 5%;
+    background: rgb(0, 0, 0);
+    padding: 14px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+nav ul li {
+    padding: 10px 0;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#menu-toggle {
+    font-size: 48px;
+    cursor: pointer;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgb(255, 255, 255);  
+    position: fixed;
+    z-index: 9999;
+    top: 1%;  /* Ajuste selon la hauteur de ton header */
+    right: 20px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 5em;
+    margin-left: 5%
+}
+
+
+.head-container {
+    font-family: "Michroma", sans-serif;
+    position: relative;
+    width: 100%;
+    max-width: 2500px; /* Ajuste selon ton besoin */
+    margin: 200px auto;
+}
+
+.head-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 1;
+}
+
+.texte-superpose {
+    position: absolute;
+    top: 30%; /* Positionnement vertical */
+    left: 50%; /* Positionnement horizontal */
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.discover-artist {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: "Michroma", sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center; /* Centre le contenu de la barre */
+    align-items: center;
+    position: absolute;
+    top: 45%; /* Positionnement vertical */
+    left: 50%; /* Positionnement horizontal */
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+   font-size: 1.4em;
+   transition: all 0.3s ease-in-out;
+}
+.discover-artist:hover {
+    background: rgb(133, 133, 133);
+    color: black;
+}
+
+.sidebar  {
+    position: fixed;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%); /* Centre la navbar horizontalement */
+    display: flex;
+    justify-content: center; /* Centre le contenu de la barre */
+    align-items: center;     /* Centre les enfants verticalement */
+    width: 100%;             /* Largeur 100% pour qu'elle prenne toute la largeur */
+    max-width: 1300px;       /* Largeur max pour les grands écrans */
+    height: 80px;            /* Hauteur de la navbar */
+    padding: 0;
+    margin: 0;
+    z-index: 9999;           /* Passe devant le contenu */
+}
+
+
+.links {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between; /* Distribue les liens sur toute la largeur */
+    align-items: center;
+    width: 100%; /* Augmente la largeur pour éviter que les liens se cassent */
+    max-width: 1800px; /* Augmente la largeur max */
+    height: 80px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.548);
+    background-color: #000000;
+    z-index: 9998;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+
+
+.nav-link {
+    margin: 0 15px; /* Réduit l’espace entre les liens */
+    font-size: 1.1em; /* Réduit légèrement la taille si nécessaire */
+    text-decoration: none;
+    white-space: nowrap; /* Empêche les liens de se casser en deux lignes */
+}
+
+.nav-link:hover {
+    color: #730303; /* Effet de survol (hover) */
+}
+
+.hamburger-menu {
+    display: none;
+    margin-top: 15%;
+}
+
+.gallery-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    z-index: 9995;
+    margin-top: -35%; /* Remonte légèrement les filtres */
+  }
+  
+  .gallery-content {
+    text-align: center;
+    color: #fff;
+    z-index: 9995;
+  }
+  
+  .gallery-title {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9995;
+  }
+  
+  .gallery-name {
+    font-family: "Michroma", sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    display: block;
+    z-index: 9995;
+  }
+  
+  .gallery-separator {
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 48px;
+    display: block;
+    z-index: 9995;
+  }
+  
+  .gallery-brand {
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 74px;
+    line-height: 1.2;
+    display: block;
+    z-index: 9995;
+  }
+  
+  .gallery-subtitle {
+    font-family: "Michroma", sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin: 0;
+    z-index: 9995;
+  }
+  
+  @media (max-width: 991px) {
+    .gallery-header {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .gallery-name {
+      font-size: 30px;
+    }
+  
+    .gallery-brand {
+      font-size: 60px;
+    }
+  
+    .gallery-subtitle {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .gallery-header {
+      padding: 16px;
+    }
+  
+    .gallery-name {
+      font-size: 24px;
+    }
+  
+    .gallery-brand {
+      font-size: 48px;
+    }
+  
+    .gallery-subtitle {
+      font-size: 28px;
+    }
+  }
+
+
+.navigation-filters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    margin-top: 30px; /* Ajuste l'espace au-dessus */
+    text-align: center;
+    z-index: 9995;
+    
+  }
+  
+  /* Newsletter Button */
+  .newsletter-button {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    text-align: center;
+    width: auto; /* Ajuste selon le contenu */
+    padding: 12px 24px; /* Ajuste la taille */
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    font-family: "Michroma", sans-serif;
+    z-index: 9995;
+  }
+  
+  .newsletter-button__text {
+    align-self: stretch;
+    width: 100%;
+    padding: 10px 24px;
+    gap: 8px;
+    z-index: 9995;
+    height: 100%;
+    font-family: "Michroma", sans-serif;
+  }
+  
+  @media (max-width: 991px) {
+    .newsletter-button__text {
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Category Filters Section */
+  .category-filters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    margin-top: 30px; /* Ajuste l'espace au-dessus */
+    text-align: center;
+    
+  }
+  
+  @media (max-width: 991px) {
+    .category-filters {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  /* Category Buttons */
+  .category-button {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    display: flex;
+    min-height: 30px;
+    min-width: 150px; /* Définit une largeur minimale */
+    padding: 10px;
+    flex-direction: column;
+    
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+   
+    padding: 15px 30px; /* Espacement uniforme autour du texte */
+  }
+  
+  .category-button__text {
+    justify-content: center;
+    width: 100%;
+   
+    
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .category-button {
+      white-space: initial;
+    }
+  
+    .category-button__text {
+      white-space: initial;
+    }
+  }
+  
+  /* Surprise Text */
+  .surprise-text {
+    color: #fff;
+    line-height: 20px;
+    margin-top: 25px;
+    width: 243px;
+  }
+
+  .featured-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10%;
+  }
+  
+  .featured-header {
+    z-index: 10;
+    display: flex;
+    margin-top: 0;
+    align-items: start;
+    gap: 5px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  
+  .decorative-line {
+    aspect-ratio: 23.26;
+    object-fit: contain;
+    object-position: center;
+    width: 233px;
+    margin-top: 13px;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  
+  .featured-title {
+    align-self: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 496px;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .featured-content {
+    align-self: center;
+    margin-top: 4%;
+    width: 100%;
+    max-width: 981px;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 images par ligne */
+    gap: 100px; /* Espacement entre les colonnes et les lignes */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.image-grid .grid-column:last-child {
+    grid-column: span 2; /* La dernière image prend toute la largeur */
+    display: flex;
+    justify-content: center; /* Centre l’image horizontalement */
+}
+  
+  .grid-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tout horizontalement */
+    text-align: center; /* Centre le texte */
+    width: 100%;
+  }
+  
+ 
+  
+  .info {
+    margin-top: 10px; /* Espacement entre l’image et le texte */
+    text-align: center; /* Centre le texte sous l'image */
+}
+
+.info h4 {
+    margin-bottom: 5px; /* Ajuste l’espace sous le titre */
+}
+
+.info .separator {
+    width: 50px; /* Définit une largeur similaire à celle du prix */
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: white; /* Couleur blanche */
+    margin: 10px auto; /* Centre la ligne et ajoute un espace */
+}
+
+.info h5 {
+    
+    margin-bottom: 15px; /* Éloigne un peu plus le prix */
+}
+
+.info p {
+    margin-top: 15px; /* Éloigne encore plus le prix */
+}
+
+  .featured-image {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    
+  }
+  
+  @media (max-width: 991px) {
+    .featured-title {
+      max-width: 100%;
+    }
+  
+    .featured-content {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .image-grid {
+      flex-direction: column;
+      align-items: stretch;
+      
+    }
+  
+    .grid-column {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .grid-column:last-child {
+      margin-left: 0;
+    }
+  
+    .featured-image {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  .artist-container {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    font-family: "Michroma", sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Ajoute un espace entre les images */
+    flex-wrap: wrap; /* Permet l’adaptation en responsive */
+    margin-top: 100px;
+  }
+  
+  @media (max-width: 991px) {
+    .main-container {
+      max-width: 991px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .main-container {
+      max-width: 640px;
+    }
+  }
+  
+  /* Artists Section */
+  
+  
+  @media (max-width: 640px) {
+    .artists-section {
+      padding: 30px 20px;
+    }
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-title {
+    font-family: "Michroma", sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .section-subtitle {
+    font-family: "Michroma", sans-serif;
+    font-size: 36px;
+  }
+  
+  .artists-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 40px;
+    width: 1200px; /* Augmente la taille des images */
+    
+    max-width: none; /* Évite les restrictions de taille */
+    margin-bottom: 20px; /* Ajoute un espace sous les artistes pour éviter le chevauchement */
+    
+  }
+  
+  @media (max-width: 991px) {
+    .artists-grid {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+  }
+  
+  .artist-card {
+    width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .artist-card {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .artist-card {
+      width: 100%;
+    }
+  }
+  
+  .artist-image {
+    width: 100%;
+    height: 341px;
+    object-fit: cover;
+  }
+  
+  .artist-info {
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+  
+  .artist-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .artist-location {
+    font-size: 11px;
+  }
+  
+
+  .artists-button-container {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    margin-top: 30px; /* Réduit l’espace au-dessus du bouton */
+    width: 100%;
+    text-align: center;
+    
+}
+
+.view-all-btn {
+    background: rgb(255, 255, 255);
+    color: black;
+    border: 2px solid white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 50px; /* Supprime l’espace inutile au-dessus */
+}
+ 
+  
+  /* Magazine Section */
+  .magazine-section {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .magazine-title {
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 48px;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-title {
+      font-size: 36px;
+    }
+  }
+  
+  .magazine-subtitle {
+    font-family: "Michroma", sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-subtitle {
+      font-size: 18px;
+    }
+  }
+  
+  .magazine-grid {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .magazine-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .magazine-card {
+    width: 800px;
+    height: 800px;
+    border: 1px solid #fff;
+    background-color: rgba(247, 242, 250, 0);
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-card {
+      width: 90%;
+    }
+  }
+  
+  .card_1 .card_2 {
+    padding: 20px 60px;
+    text-align: center;
+  }
+  
+  .card-date {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .card-category {
+    font-size: 14px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 16px;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Fait en sorte que le contenu prenne tout l'espace disponible */
+  }
+  
+  .card-titles {
+    margin-bottom: 32px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .card-subtitle {
+    font-size: 14px;
+  }
+  
+  .card-description {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  
+  .read-more {
+    padding: 10px 24px;
+    border: 1px solid #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  /* Concept Section */
+  .concept-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #1a1717;
+    width: 100%;
+  }
+  
+  .concept-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .concept-title {
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .concept-heading {
+    font-family: "Michroma", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 640px) {
+    .concept-heading {
+      font-size: 16px;
+    }
+  }
+  
+  .concept-subtitle {
+    font-family: "Michroma", sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .concept-description {
+    font-family: "Michroma", sans-serif;
+    font-size: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .learn-more-btn {
+    padding: 10px 24px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Reviews Section */
+  .reviews-section {
+    padding: 40px 0;
+    background-color: #1a1717;
+  }
+  
+  .reviews-svg {
+    width: 100%;
+    height: 310px;
+  }
+  
+  .testimonial-container {
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: "Michroma", sans-serif;
+    color: white;
+    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
+    margin: auto; /* Centre le bloc */
+    line-height: 1.5; /* Améliore la lisibilité */
+}
+
+.testimonial-title {
+    font-size: 8px; /* Taille correspondant à "EXCELLENT" */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacement entre le titre et le texte */
+}
+
+.testimonial-text {
+    font-size: 12px; /* Taille du texte principal */
+}
+
+/*  FOOTER  */
+
+
+footer {
+   
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  
+
+}
+
+.footer-border_5 {
+    width: 100%;       /* Largeur totale pour être responsive */
+    height: 5px;       /* Hauteur de la ligne */
+    align-items: center;
+    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
+    background: transparent;  
+}
+.newsletter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 50px;
+    border-top: 1px solid rgb(255, 255, 255);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.newsletter-label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-left: 2%;
+}
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.newsletter input {
+    background: black;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    width: 250px;
+    font-size: 1em;
+    margin-right: -5px; /* Supprime l'espace entre l'input et le bouton */
+}
+
+.newsletter button {
+    background: black;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.newsletter button:hover {
+    background: white;
+    color: black;
+}
+
+.subscribe-btn {
+    margin-top:0;
+}
+
+.footer-svg {
+    width: 20%;
+    height: 20%;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+
+
+.info-banner {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background-color: #000;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.info-banner_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 944px;
+  padding: 0 20px;
+}
+
+.info-banner_item {
+  color: #fff;
+  text-align: center;
+  font-family: "Michroma", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  max-width: 226px;
+}
+
+@media (max-width: 991px) {
+  .info-banner {
+    height: auto;
+  }
+
+  .info-banner_container {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .info-banner_item {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .info-banner {
+    height: auto;
+  }
+
+  .info-banner_container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .info-banner_item {
+    font-size: 10px;
+    max-width: 100%;
+  }
+}
+
+
+.footer-links {
+     
+        display: flex;
+        gap: 60px;
+       justify-content: center;
+      margin-top: -5%;
+       
+      }
+
+.footer-column {
+    display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    text-decoration: underline;
+}
+@media (max-width: 991px) {
+    .footer-links {
+       width: 100%;
+        gap: 40px;
+    }
+}
+@media (max-width: 640px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 64px;
+    }
+    .footer-column {
+        align-items: center;
+    }
+}
+
+
+.footer-links_2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: flex-start;
+    max-width: 70%;
+    margin: 0 auto;
+    position: relative;
+    padding: 50px;
+    
+  }
+  
+  .legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .legal-link {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .payment-section {
+    text-align: center;
+  }
+  
+  .payment-text {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  .payment-methods {
+    width: 168px;
+    height: 28px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  
+  .social-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .contact-box {
+    position: relative;
+    width: 229px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-box-border {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 1px solid #fff;
+  }
+  
+  .contact-box-border-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #fff;
+  }
+  
+  .contact-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contact-title {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-subtitle {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-phone {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-hours {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .payment-section {
+      order: 2;
+      width: 100%;
+    }
+  
+    .social-links {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .contact-box {
+      order: 1;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .footer {
+      padding: 20px;
+    }
+  
+    .legal-links {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .social-links {
+      margin-top: 30px;
+    }
+  
+    .contact-box {
+      width: 100%;
+    }
+  
+    .contact-box-border,
+    .contact-box-border-outer {
+      display: none;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    
+  }
