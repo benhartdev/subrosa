@@ -16,8 +16,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
@@ -44,7 +42,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ✔ Page d'accueil immersive : avec une mise en avant des œuvres et artistes.
 ✔ Navigation intuitive : filtres efficaces pour chercher par thème, couleur, prix, support, etc.
 ✔ Pages oeuvres et artistes bien structurées : affichage clair avec descriptions, prix, options d'achat.
-✔ Mode "essayer chez soi" : possibilité de visualiser une oeuvre dans un intérieur via une image de l'utilisateur.
+
 
 		⚙️ Back-end solide et gestion des œuvres
 
@@ -68,21 +66,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 		🛍️ Expérience client et découverte des œuvres
 
-✔ Filtres et recommandations intelligentes :
-
-    Recherche par couleurs dominantes (extraction des couleurs via vision par ordinateur).
-    Recherche par thème, technique, support, taille, prix.
-    Affichage des œuvres similaires ou suggérées.
-
-✔ Fonction "essayer chez soi" :
-
-    Upload d’une photo de son intérieur et insertion d’une œuvre.
-    Ajustement automatique de la perspective.
-
-✔ Abonnement aux artistes :
-
-    Un système de type réseau social pour suivre des artistes et être informé des nouveautés.
-
 ✔ Blog et newsletter :
 
     Articles sur les artistes, tendances en art, événements et promotions.
@@ -90,11 +73,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 		🔗 Services connectés & API
 
-✔ Intégration avec un labo d’impression :
 
-    Envoi automatique de commandes vers un partenaire d’impression.
-    Choix du support d’impression (papier, plexiglas, toile, etc.).
-    API d’un labo photo pour le suivi des impressions.
 
 ✔ SEO & Référencement :
 
@@ -111,13 +90,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 		2️⃣ Priorisation du MVP (Roadmap initiale)
 
 
-💡 L’objectif est d’avoir une première version prête à être testée en quelques mois.
+💡 L’objectif est d’avoir une première version prête à être testée en quelques semaines.
 
 	💎 Phase 1 : Lancement du MVP 
 
-✅ Création d'un front-end élégant avec les pages principales (Accueil, Artistes, Œuvres, Panier).
+✅ Création d'un front-end élégant avec les pages principales (Accueil, Artistes, Œuvres, Panier...).
 ✅ Back-end avec gestion des œuvres et des artistes.
-✅ Filtrage simple des œuvres (par thème, prix, support).
 ✅ Panier et paiement sécurisé (Stripe/PayPal).
 ✅ Système d’inscription et authentification.
 ✅ SEO et intégration des liens des artistes.
@@ -128,29 +106,57 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ✔ Fonction "essayer chez soi" (intégration visuelle des œuvres).
 ✔ Statistiques et suivi pour les artistes.
 ✔ Blog & newsletter avec système d’abonnement aux artistes.
+✔ Filtres et recommandations intelligentes :
+
+    Recherche par couleurs dominantes (extraction des couleurs via vision par ordinateur).
+    Recherche par thème, technique, support, taille, prix.
+    Affichage des œuvres similaires ou suggérées.
+    
+✔ Mode "essayer chez soi" : possibilité de visualiser une oeuvre dans un intérieur via une image de l'utilisateur.
+✔ Fonction "essayer chez soi" :
+
+    Upload d’une photo de son intérieur et insertion d’une œuvre.
+    Ajustement automatique de la perspective.
+
+✔ Abonnement aux artistes :
+
+    Un système de type réseau social pour suivre des artistes et être informé des nouveautés.
 
 	🌟 Phase 3 : Automatisation & mise en relation 
+ 
+ ✔ Intégration avec un labo d’impression :
 
-✔ API vers un labo d’impression pour la production automatisée.
+    Envoi automatique de commandes vers un partenaire d’impression.
+    Choix du support d’impression (papier, plexiglas, toile, etc.).
+    API d’un labo photo pour le suivi des impressions.
+
+ ✔ Suivi des ventes et analytics pour les artistes :
+
+    Dashboard avec statistiques de ventes et de trafic.
+    Création de créneaux de promotion (Noël, fêtes, promos flash).
+
+
+
 ✔ Gestion avancée des abonnements (suivi des artistes, notifications).
 ✔ Système de promo et gestion des ventes optimisées (offres spéciales).
+✔ Filtrage simple des œuvres (par thème, prix, support).
 
 
 
-		3️⃣ Technologies recommandées
+		3️⃣ Technologies 
 
 
 🔹 Front-end (interface utilisateur)
 
     Framework : React.js, Next.js (pour le SEO).
-    UI/UX : Tailwind CSS, Material-UI.
+    UI/UX : CSS, JS
     Effets visuels : Three.js (si besoin de 3D pour visualisation des oeuvres).
 
 🔹 Back-end (gestion des données et API)
 
-    Framework : Node.js avec Express.js ou NestJS.
-    Base de données : PostgreSQL (relations) ou MongoDB (flexibilité).
-    Stockage des images : Cloudinary, AWS S3 ou Firebase Storage.
+    Framework : Node.js avec Express.js 
+    Base de données :  MongoDB
+    Stockage des images : Local storage
 
 🔹 Paiement et Sécurité
 
@@ -163,11 +169,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
     Google Analytics & Matomo pour suivre le trafic.
 
 
+
+
 		🎯 Conclusion
 
 MVP essentiel : 
 
-✅ Une boutique en ligne attrayante et ergonomique.
+✅ Une boutique en ligne attrayante et élegante.
 ✅ Une bonne expérience d’achat avec paiement sécurisé.
 ✅ Un système simple mais efficace pour les artistes.
 ✅ Une première version rapide pour tester le marché avant d’ajouter des fonctionnalités avancées.
