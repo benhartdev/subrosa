@@ -2,8 +2,15 @@ const express = require('express');
 const router = express.Router();
 const artistsController = require('../controllers/artistsController');
 const authController = require('../controllers/authController');
-const { authenticateToken, ensureAdmin } = require('../middlewares/authMiddleware');
+const { authenticateToken, ensureAdmin } = require('../middlewares/authMiddleware.js');
 const session = require('express-session');
+console.log('ensureAdmin:', ensureAdmin);
+console.log('artistsController:', artistsController);
+
+
+
+router.get('/all', ensureAdmin, artistsController.getAllArtists);
+
 
 // Configuration de la session
 router.use(session({
@@ -28,5 +35,8 @@ router.get('/all', ensureAdmin, artistsController.getAllArtists);
 router.post('/', ensureAdmin, artistsController.createArtist);
 router.put('/:id', ensureAdmin, artistsController.updateArtist);
 router.delete('/:id', ensureAdmin, artistsController.deleteArtist);
+router.get('/pending', ensureAdmin, artistsController.getPendingArtists);
+router.put('/:id/status', ensureAdmin, artistsController.updateArtistStatus);
+
 
 module.exports = router;

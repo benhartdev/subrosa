@@ -1,29 +1,20 @@
-const jwt = require('jsonwebtoken');
-
-// Middleware pour vérifier si l'utilisateur est authentifié en tant qu'admin
-exports.authenticateToken = (req, res, next) => {
-    if (req.session && req.session.isAuthenticated) {
-        return next(); // L'utilisateur est déjà authentifié
+// Vérifie si un token est fourni et valide
+const authenticateToken = (req, res, next) => {
+    // ton code précédent ici (si tu veux le garder)
+  };
+  
+  // Vérifie si l'utilisateur est connecté en session admin
+  const ensureAdmin = (req, res, next) => {
+    if (req.session && req.session.isAdmin) {
+      return next();
     }
-
-    const token = req.headers['authorization'];
-    if (!token) return res.status(401).json({ message: "Accès refusé. Token manquant." });
-
-    const tokenValue = token.split(' ')[1];
-
-    jwt.verify(tokenValue, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ message: "Token invalide." });
-        if (user.role !== 'admin') return res.status(403).json({ message: "Accès refusé. Vous n'êtes pas admin." });
-
-        req.session.isAuthenticated = true;
-        next();
+    return res.status(403).json({
+      message: 'Accès interdit. Vous devez être connecté en tant qu\'administrateur.'
     });
-};
-
-// Middleware pour vérifier si la session admin est active
-exports.ensureAdmin = (req, res, next) => {
-    if (req.session && req.session.isAuthenticated) {
-        return next();
-    }
-    return res.status(403).json({ message: "Accès interdit. Vous devez être connecté en tant qu'administrateur." });
-};
+  };
+  
+  module.exports = {
+    authenticateToken,
+    ensureAdmin
+  };
+  
