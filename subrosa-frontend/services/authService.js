@@ -1,27 +1,33 @@
-const BASE_URL = "http://localhost:3000/api/artists";
+const BASE_URL = "http://localhost:5000/api/artists";
 
-// Fonction pour générer un token d'administration
+// Génère un token (ok)
 export const generateToken = async () => {
     const response = await fetch(`${BASE_URL}/generateToken`);
     const data = await response.json();
     return data.token;
 };
 
-// Fonction pour activer le mode CRUD (Connexion)
+// Connexion admin (correctif ici)
 export const login = async (token) => {
     const response = await fetch(`${BASE_URL}/login`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include', // <-- pour envoyer le cookie de session
+      body: JSON.stringify({ token }),
     });
+  
     const data = await response.json();
     return data;
-};
+  };
+  
 
-// Fonction pour quitter le mode CRUD (Déconnexion)
+// Déconnexion
 export const logout = async () => {
-    const response = await fetch(`${BASE_URL}/logout`);
+    const response = await fetch(`${BASE_URL}/logout`, {
+        credentials: 'include' // pour supprimer le cookie
+    });
     const data = await response.json();
     return data;
 };

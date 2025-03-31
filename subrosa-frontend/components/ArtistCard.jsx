@@ -6,7 +6,7 @@ import '../styles/artistCard.css';
 const ArtistCard = ({ name, location, imageUrl, description }) => {
     return (
         <div className="artist-card">
-            <img src={imageUrl} alt={nam} className="artist-image" />
+            <img src={imageUrl} alt={name} className="artist-image" />
             <div className="artist-info">
             <h3>{name}</h3>
             <p>{location}</p>

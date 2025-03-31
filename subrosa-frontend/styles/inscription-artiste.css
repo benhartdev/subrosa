@@ -1,0 +1,117 @@
+/* ========================
+   Style global formulaire
+======================== */
+
+form {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Titre */
+  form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Labels */
+  form label {
+    display: block;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    color: #555;
+  }
+  
+  /* Inputs et textarea */
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  form input:focus,
+  form textarea:focus {
+    border-color: #0070f3;
+    outline: none;
+  }
+  
+  form textarea {
+    min-height: 100px;
+  }
+  
+  /* Boutons */
+  form button {
+    margin-top: 1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  form button:hover {
+    background-color: #005bd1;
+  }
+  
+  /* Listes d'expositions */
+  form ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  form ul li {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 0.3rem;
+  }
+  
+  /* ========================
+     Responsive mobile/tablette
+  ======================== */
+  
+  @media (max-width: 768px) {
+    form {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+  
+    form button {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1.05rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    form {
+      padding: 1rem;
+    }
+  
+    form input,
+    form textarea {
+      font-size: 0.95rem;
+    }
+  
+    form label {
+      font-size: 0.95rem;
+    }
+  
+    form h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
