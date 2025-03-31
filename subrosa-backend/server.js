@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -19,17 +21,18 @@ connectDB();
 
 // ✅ Middleware principal
 app.use(cors({
-  origin: 'http://localhost:3000',     // Autorise uniquement ton frontend
+  origin: 'http://localhost:3000',     // Autorise uniquement le frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Méthodes autorisées
   allowedHeaders: ['Content-Type'],   // Headers autorisés
   credentials: true                   // ✅ Cookies autorisés
 }));
 app.use(session({
-    secret: process.env.JWT_SECRET,
+  secret: process.env.SESSION_SECRET,
+
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-      secure: false, // si tu es en local sans HTTPS
+      secure: false, // ⚠️ true en production HTTPS
       httpOnly: true,
       sameSite: 'lax',
     }
@@ -40,10 +43,7 @@ app.use(session({
 app.use(express.json());
 console.log('📌 Middleware Express chargé.');
 
-// ✅ Connexion MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ Connexion à MongoDB réussie !'))
-  .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
+
 
 // ✅ Routes
 app.use('/api/public/artists', publicArtistsRoutes);  // Route publique

@@ -3,10 +3,12 @@ const nodemailer = require('nodemailer');
 const sendConfirmationEmail = async (toEmail, artistName) => {
   try {
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // ou 'hotmail', ou config SMTP
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: process.env.EMAIL_SECURE === 'true',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        pass: process.env.EMAIL_PASS
       },
     });
 

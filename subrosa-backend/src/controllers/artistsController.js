@@ -102,3 +102,4 @@ exports.getPendingArtists = async (req, res) => {
     }
   };
   
+  
