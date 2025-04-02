@@ -14,6 +14,7 @@ exports.getAllArtists = async (req, res) => {
 
 // Ajouter un nouvel artiste
 exports.createArtist = async (req, res) => {
+    console.log(req.body);
     const artist = new Artist({
         ...req.body,
         old_exhibitions: req.body.old_exhibitions || [],
