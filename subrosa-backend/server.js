@@ -11,6 +11,8 @@ const artistsRoutes = require('./src/routes/Artists');
 const publicArtistsRoutes = require('./src/routes/PublicArtists'); // ✅ Nouveau fichier
 const artworkRoutes = require('./src/routes/Artwork');
 const session = require('express-session');
+const uploadRoutes = require('./src/routes/uploadRoutes');
+
 
 
 dotenv.config(); // Charge les variables d'environnement
@@ -42,14 +44,18 @@ app.use(session({
 
 app.use(express.json());
 console.log('📌 Middleware Express chargé.');
-
-
+app.use('/uploads', express.static('uploads'));
+app.use('/api/uploads', uploadRoutes);
 
 // ✅ Routes
 app.use('/api/public/artists', publicArtistsRoutes);  // Route publique
 app.use('/api/artworks', artworkRoutes);
 app.use('/api/dynamic', dynamicComponentsRouter);
 app.use('/api/artists', artistsRoutes);              // Route protégée par ensureAdmin
+
+
+
+
 
 // ✅ Lancer le serveur
 app.listen(PORT, () => {
