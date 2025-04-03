@@ -5,7 +5,7 @@ const ArtistSchema = new mongoose.Schema({
 
       username: {
           type: String,
-          required: [true, "Le nom de l'artiste est requis."],
+          required: [true, "Le username de l'artiste est requis."],
           match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
@@ -13,7 +13,7 @@ const ArtistSchema = new mongoose.Schema({
 
       password: {
           type: String,
-          required: [true, "Le nom de l'artiste est requis."],
+          required: [true, "Le mdp de l'artiste est requis."],
           match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
@@ -29,7 +29,7 @@ const ArtistSchema = new mongoose.Schema({
 
       country_location: {
           type: String,
-          required: [true, "Le pays est requis."],
+         
           trim: true,
           match: [/^[A-Za-zÀ-ÿ\s\-']+$/, "Le nom du pays contient des caractères invalides."],
           set: (value) => value.toUpperCase()
@@ -37,7 +37,7 @@ const ArtistSchema = new mongoose.Schema({
 
       city_location: {
           type: String,
-          required: [true, "La ville est requise."],
+         
           trim: true,
           match: [/^[A-Za-zÀ-ÿ\s\-']+$/, "Le nom de la ville contient des caractères invalides."],
           set: (value) =>
@@ -48,21 +48,21 @@ const ArtistSchema = new mongoose.Schema({
 
       birthdate: {
           type: String,
-          required: [true, "La date de naissance est requise."],
+         
           match: [/^([0-2][0-9]|(3)[0-1])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/, "Format de date invalide. Utilisez jj/mm/aaaa."],
           trim: true
       },
 
       style: {
           type: String,
-          required: [true, "Le style artistique est requis."],
+         
           enum: ['peinture', 'photographie', 'sculpture', 'illustration', 'autre'],
           trim: true
       },
 
       technical_skills: {
           type: String,
-          required: [true, "Les techniques employées sont requise."],
+         
           trim: true,
           maxlength: [150, "La liste de skills ne peut pas dépasser 150 caractères."]
       },
@@ -128,10 +128,7 @@ const ArtistSchema = new mongoose.Schema({
           trim: true
       },
       
-      date_of_entry: {
-          type: Date,
-          default: Date.now
-      },
+      
 
       numer_of_Artworks: {
           type: Number,
@@ -145,18 +142,14 @@ const ArtistSchema = new mongoose.Schema({
           default: 0
       },
 
-      past_sales: String,
+      
 
-      past_orders: String,
-
-      orders_in_progress: String,
-
-      followers: String,
+      
 
       interviews: {
           type: String,
           trim: true,
-          maxlength: [2000, "L'interview ne peut pas dépasser 2000 caractères."]
+          maxlength: [500, "L'interview ne peut pas dépasser 500 caractères."]
       },
 
       isApproved: { 
@@ -168,7 +161,17 @@ const ArtistSchema = new mongoose.Schema({
           type: String,
           enum: ['pending', 'validated', 'rejected'],
           default: 'pending'
-      }
+      },
+
+          name: String,
+          images: [{
+                    url: String,
+                    alt: String,
+                    uploadedAt: { type: Date, default: Date.now }
+                    }
+  ]
+
+     
     });
     
 
