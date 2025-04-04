@@ -3,17 +3,18 @@ import axios from 'axios';
 
 const ArtistForm = () => {
   const [formData, setFormData] = useState({
+    username: '',
+    password: '',
     name: '',
     Id: '',
-    date_of_birth: '',
+    birthdate: '',
     country_location: '',
     city_location: '',
-    craft: '',
+    style: '',
     technical_skills: '',
     bio: '',
-    description: '',
     email: '',
-    number: '',
+    phone: '',
     website: '',
     facebook: '',
     instagram: '',
@@ -21,6 +22,9 @@ const ArtistForm = () => {
     twitter: '',
     old_exhibitions: [],
     future_exhibitions: [],
+    interviews:'',
+    isApproved:false,
+    status:'',
   });
 
   const [expoInput, setExpoInput] = useState('');
@@ -50,10 +54,28 @@ const ArtistForm = () => {
       await axios.post('http://localhost:5000/api/public/artists', formData);
       alert("Artiste ajouté avec succès !");
       setFormData({
-        name: '', Id: '', date_of_birth: '', country_location: '', city_location: '',
-        craft: '', technical_skills: '', bio: '', description: '', email: '', number: '',
-        website: '', facebook: '', instagram: '', linkedin: '', twitter: '',
-        old_exhibitions: [], future_exhibitions: []
+        username: '',
+        password: '',
+        name: '',
+        Id: '',
+        birthdate: '',
+        country_location: '',
+        city_location: '',
+        style: '',
+        technical_skills: '',
+        bio: '',
+        email: '',
+        phone: '',
+        website: '',
+        facebook: '',
+        instagram: '',
+        linkedin: '',
+        twitter: '',
+        old_exhibitions: [],
+        future_exhibitions: [],
+        interviews:'',
+        isApproved:false,
+        status:'',
       });
     } catch (error) {
         console.error("Erreur complète :", error);
@@ -66,59 +88,69 @@ const ArtistForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Formulaire d'inscription artiste</h2>
 
+    <form onSubmit={handleSubmit}>
+    <h2>Formulaire d'inscription artiste</h2>
+    
+      <label>Nom d'utilisateur :</label>
+      <input name="username" value={formData.username} onChange={handleChange} required />
+    
+      <label>Mot de passe :</label>
+      <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+    
       <label>Nom :</label>
       <input name="name" value={formData.name} onChange={handleChange} required />
-
-      <label>ID (optionnel) :</label>
-      <input name="Id" value={formData.Id} onChange={handleChange} />
-
-      <label>Date de naissance :</label>
-      <input name="date_of_birth" value={formData.date_of_birth} onChange={handleChange} />
-
+    
+      <label>Date de naissance (jj/mm/aaaa) :</label>
+      <input name="birthdate" value={formData.birthdate} onChange={handleChange} placeholder="31/12/1980" />
+    
       <label>Pays :</label>
-      <input name="country_location" value={formData.country_location} onChange={handleChange} />
-
+      <input name="country_location" value={formData.country_location} onChange={handleChange}  />
+    
       <label>Ville :</label>
-      <input name="city_location" value={formData.city_location} onChange={handleChange} />
-
+      <input name="city_location" value={formData.city_location} onChange={handleChange}  />
+    
       <label>Discipline artistique :</label>
-      <input name="craft" value={formData.craft} onChange={handleChange} />
-
+      <select name="style" value={formData.style} onChange={handleChange} >
+        <option value="">-- Choisir --</option>
+        <option value="peinture">Peinture</option>
+        <option value="photographie">Photographie</option>
+        <option value="sculpture">Sculpture</option>
+        <option value="illustration">Illustration</option>
+        <option value="autre">Autre</option>
+      </select>
+    
       <label>Compétences techniques :</label>
-      <input name="technical_skills" value={formData.technical_skills} onChange={handleChange} />
-
-      <label>Description :</label>
-      <textarea name="description" value={formData.description} onChange={handleChange} />
-
+      <input name="technical_skills" value={formData.technical_skills} onChange={handleChange}  />
+    
+      
+    
       <label>Biographie :</label>
       <textarea name="bio" value={formData.bio} onChange={handleChange} />
-
+    
       <label>Email :</label>
-      <input type="email" name="email" value={formData.email} onChange={handleChange} />
-
+      <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+    
       <label>Téléphone :</label>
-      <input name="number" value={formData.number} onChange={handleChange} />
-
+      <input name="phone" value={formData.phone} onChange={handleChange} />
+    
       <label>Site web :</label>
       <input name="website" value={formData.website} onChange={handleChange} />
-
+    
       <label>Facebook :</label>
       <input name="facebook" value={formData.facebook} onChange={handleChange} />
-
+    
       <label>Instagram :</label>
       <input name="instagram" value={formData.instagram} onChange={handleChange} />
-
+    
       <label>LinkedIn :</label>
       <input name="linkedin" value={formData.linkedin} onChange={handleChange} />
-
+    
       <label>Twitter :</label>
       <input name="twitter" value={formData.twitter} onChange={handleChange} />
-
+    
       <hr />
-
+    
       <label>Expositions passées :</label>
       <input
         type="text"
@@ -128,7 +160,7 @@ const ArtistForm = () => {
       />
       <button type="button" onClick={handleAddExhibition}>Ajouter</button>
       <ul>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
-
+    
       <label>Expositions futures :</label>
       <input
         type="text"
@@ -138,10 +170,16 @@ const ArtistForm = () => {
       />
       <button type="button" onClick={handleAddFutureExhibition}>Ajouter</button>
       <ul>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
-
+    
+      <label>Interview (optionnelle) :</label>
+      <textarea name="interviews" value={formData.interviews} onChange={handleChange} />
+    
+      
+    
       <button type="submit">Soumettre</button>
+    
     </form>
-  );
-};
+      );
+    };
 
 export default ArtistForm;
