@@ -10,7 +10,6 @@ const ArtistSchema = new mongoose.Schema({
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
     }, 
-
       password: {
           type: String,
           required: [true, "Le mdp de l'artiste est requis."],
