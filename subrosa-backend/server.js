@@ -12,8 +12,7 @@ const publicArtistsRoutes = require('./src/routes/PublicArtists'); // ✅ Nouvea
 const artworkRoutes = require('./src/routes/Artwork');
 const session = require('express-session');
 const uploadRoutes = require('./src/routes/uploadRoutes');
-
-
+const path = require('path');
 
 dotenv.config(); // Charge les variables d'environnement
 console.log('🔧 Variable d\'environnement :', process.env.MONGO_URI);
@@ -46,6 +45,13 @@ app.use(express.json());
 console.log('📌 Middleware Express chargé.');
 app.use('/uploads', express.static('uploads'));
 app.use('/api/uploads', uploadRoutes);
+// Accès public aux fichiers uploadés
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// ✅ Connexion MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ Connexion à MongoDB réussie !'))
+  .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
 
 // ✅ Routes
 app.use('/api/public/artists', publicArtistsRoutes);  // Route publique
