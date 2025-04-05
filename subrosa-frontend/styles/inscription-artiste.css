@@ -115,3 +115,49 @@ form {
     }
   }
   
+  .upload-box {
+    margin-bottom: 1rem;
+  }
+  
+  .upload-preview {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .placeholder {
+    width: 120px;
+    height: 90px;
+    background-color: #eee;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+  }
+  
+  .upload-input {
+    margin-bottom: 0.5rem;
+  }
+  
+  .upload-alt {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+
+  input[type="file"] {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .upload-preview {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
