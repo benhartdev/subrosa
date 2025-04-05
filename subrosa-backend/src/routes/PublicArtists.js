@@ -73,4 +73,67 @@ router.post('/upload-multiple/:artistId', upload.array('images', 6), async (req,
   }
 });
 
+
+// ✅ Route POST complète : création artiste + upload d'images enrichies
+router.post('/full-create', upload.array('images', 6), async (req, res) => {
+  try {
+    const {
+      username, password, name, birthdate, country_location, city_location,
+      style, technical_skills, bio, email, phone, website, facebook,
+      instagram, linkedin, twitter, interviews, isApproved, status
+    } = req.body;
+
+    // Gérer les expositions (array)
+    const old_exhibitions = req.body.old_exhibitions || [];
+    const future_exhibitions = req.body.future_exhibitions || [];
+
+    // Forcer sous forme de tableaux si single input
+    const normalizedOld = Array.isArray(old_exhibitions) ? old_exhibitions : [old_exhibitions];
+    const normalizedFuture = Array.isArray(future_exhibitions) ? future_exhibitions : [future_exhibitions];
+    const alts = req.body.alts || [];
+    const normalizedAlts = Array.isArray(alts) ? alts : [alts];
+
+    // Construire le tableau d’images enrichies
+    const images = req.files.map((file, index) => ({
+      url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
+      alt: normalizedAlts[index] || '',
+      caption: '' // Tu pourras ajouter les captions plus tard si tu veux
+    }));
+
+    // Création de l'artiste
+    const newArtist = new Artist({
+      username,
+      password,
+      name,
+      birthdate,
+      country_location,
+      city_location,
+      style,
+      technical_skills,
+      bio,
+      email,
+      phone,
+      website,
+      facebook,
+      instagram,
+      linkedin,
+      twitter,
+      interviews,
+      isApproved,
+      status: status || 'pending',
+      old_exhibitions: normalizedOld,
+      future_exhibitions: normalizedFuture,
+      images
+    });
+
+    await newArtist.save();
+    console.log('✅ Artiste bien sauvegardé :', newArtist);
+    res.status(201).json(newArtist);
+  } catch (error) {
+    console.error('Erreur lors de la création de l’artiste complet :', error.message);
+    res.status(500).json({ error: 'Erreur lors de la création complète de l’artiste' });
+  }
+});
+
+
 module.exports = router;
