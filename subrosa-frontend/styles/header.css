@@ -1,0 +1,67 @@
+
+
+/* styles/navbar.css */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    height: 80px;
+    z-index: 9999;
+    
+    gap: 2px;
+  }
+  
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    background-color: black;
+   
+   
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    
+    gap: 1px;
+  }
+  
+  .links li {
+    
+    gap: 2px;
+  }
+  
+  .links li a {
+    color: white;
+    text-decoration: none;
+    
+    display: block;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    gap: 2px;
+  }
+  
+  .links li a:hover {
+    color: #c41c1c;
+  }
+  
+  .sidebar .links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* réduit la distance entre les <li> horizontalement */
+    padding: 0 1rem; /* évite que les bords touchent */
+  }
+  
+  .sidebar .links li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
