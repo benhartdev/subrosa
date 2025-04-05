@@ -29,7 +29,7 @@ const Header = () => {
             <nav id="nav-bar" className="sidebar">
                 <ul className="links">
                     <li><Link href="/">Accueil</Link></li>
-                    <li><Link href="/page_nos_oeuvres">Nos œuvres</Link></li>
+                    <li><Link href="/oeuvres">Nos œuvres</Link></li>
                     <li><Link href="/page_nos_artistes">Nos artistes</Link></li>
                     <li><Link href="/inscription-artiste">Inscription artiste</Link></li>
                     <li><Link href="#">Sub Rosa BLOG</Link></li>
