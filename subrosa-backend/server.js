@@ -39,7 +39,8 @@ app.use(session({
     }
   }));
   
-  
+app.use('/api/public/artists', require('./src/routes/PublicArtists'));
+
 
 app.use(express.json());
 console.log('📌 Middleware Express chargé.');
