@@ -6,9 +6,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
+import '../styles/header.css'; // chargé une fois pour toutes
+
 import ArtistsGallery from '../components/ArtistsGallery';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
 
 const HomePage = () => {
     return (
