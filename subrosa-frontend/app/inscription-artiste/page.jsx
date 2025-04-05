@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 const InscriptionArtistePage = () => {
   return (
     <div>
-      <h1>Inscription Artiste</h1>
+      
       <Header />
       <ArtistFullForm />
       
