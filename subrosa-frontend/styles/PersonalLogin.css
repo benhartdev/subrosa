@@ -1,3 +1,7 @@
+
+ 
+
+
 /* CONTAINER GLOBAL */
 #containerLogin {
     background-color: black;
@@ -84,19 +88,24 @@
     margin-bottom: 0.5rem;
   }
   
-  .input {
-    width: 100%;
-    max-width: 600px; /* plus large */
-    padding: 1rem;
-    font-size: 1rem;
-    background-color: #1a0b0b;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    outline: none;
-  }
+  
+    .input {
+      all: unset;
+      width: 100%;
+      max-width: 500px;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #322d2d !important; /* bordeaux foncé */
+      color: white !important;
+      text-align: center;
+      border: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    
+  
   
   /* BOUTONS */
   .buttonGroup {
@@ -110,7 +119,7 @@
   /* Style commun aux deux boutons */
   .button {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
     padding: 1rem;
     font-size: 0.95rem;
     background-color: black;          /* ✅ fond noir par défaut */
@@ -133,6 +142,13 @@
   .secondary {
     text-decoration: none;
     font-size: 0.85rem;
+    border:none;
+    background: none;
+      background-color: transparent !important;
+      
+      cursor: pointer;
+      outline: none;
+      box-shadow: none;
   }
   
   
@@ -155,14 +171,37 @@
     border-radius: 0 !important;
     box-shadow: none !important;
     border: 0.3px solid white !important;
-   
   }
   
  
-.input,
-.button {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background: rgba(59, 57, 57, 0.521) !important;
+
+  /* Bouton MDP - underline custom */
+
+.button.secondary {
+  position: relative;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* enlever le vrai underline */
+}
+.button.secondary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* 👈 règle la distance entre le texte et la ligne */
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
   
+
+  input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #1f1d1d inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 9999s ease-in-out 0s;
+  caret-color: white !important;
 }
