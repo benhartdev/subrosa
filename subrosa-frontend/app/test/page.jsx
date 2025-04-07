@@ -1,20 +1,20 @@
 "use client";
 
 import React from 'react';
-import PersonalLogin from '../../components/PersonalLogin';
+import ArtistFullForm from '../../components/ArtistFullForm';
 import '../../styles/inscription-artiste.css';
 import Header from '../../components/Header';
 
 
-const ArtistLogin = () => {
+const InscriptionArtistePage = () => {
   return (
     <div>
       
       <Header />
-      <PersonalLogin />
+      <ArtistFullForm />
       
     </div>
   );
 };
 
-export default ArtistLogin;
+export default InscriptionArtistePage;
