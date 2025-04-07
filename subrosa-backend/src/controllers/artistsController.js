@@ -75,8 +75,8 @@ exports.getPendingArtists = async (req, res) => {
       const pendingArtists = await Artist.find({ status: 'pending' });
       res.status(200).json(pendingArtists);
     } catch (error) {
-      console.error("Erreur getPendingArtists :", error);
-      res.status(500).json({ message: 'Erreur lors de la récupération des artistes.' });
+      console.error("Erreur lors de la récupération des artistes en attente :", error);
+      res.status(500).json({ message: 'Erreur serveur' });
     }
   };
   
@@ -103,4 +103,5 @@ exports.getPendingArtists = async (req, res) => {
     }
   };
   
+ 
   

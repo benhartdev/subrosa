@@ -1,8 +1,9 @@
 "use client"; // à garder si tu es dans /app
 
 import Header from "../../components/Header"; // ajuste le chemin si besoin
-import Footer from "../../components/Footer";
+
 import "../../styles/PersonalLogin.css"; // on garde le style élégant
+import PendingArtists from "../../components/admin/PendingArtists";
 
 const AdminPage = () => {
   return (
@@ -14,8 +15,10 @@ const AdminPage = () => {
           <h1 id="personal-space">ESPACE ADMINISTRATEUR</h1>
 
           <p id="text-login">
-            Bienvenue dans l’interface d’administration. Ici, vous pouvez gérer :
+            Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot 
           </p>
+
+          <PendingArtists />
 
           <ul style={{ textAlign: "left", maxWidth: "600px", margin: "2rem auto", lineHeight: "2" }}>
             <li>✅ Les artistes en attente de validation</li>
@@ -33,7 +36,7 @@ const AdminPage = () => {
         </div>
       </main>
 
-      <Footer />
+      
     </>
   );
 };

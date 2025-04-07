@@ -21,9 +21,13 @@
     color: white;
     text-align: center;
     white-space: nowrap;
-    margin: 0;
+    margin: auto;
   }
   
+  #artist-pending {
+    margin: auto;
+    margin-bottom: 30px;
+  }
   /* LIEN */
   #already-client {
     font-size: 1rem;
