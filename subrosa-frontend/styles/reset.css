@@ -1,0 +1,53 @@
+/* === RESET CSS GLOBAL === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Structure globale */
+html,
+body {
+  height: 100%;
+  font-family: "Michroma", sans-serif;
+  background-color: black;
+  color: white;
+  line-height: 1.4;
+}
+
+/* En-têtes, paragraphes */
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: normal;
+}
+
+/* Liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listes */
+ul, ol {
+  list-style: none;
+}
+
+/* Champs de formulaire */
+input,
+button,
+textarea,
+select {
+  all: unset;              /* Réinitialise toutes les propriétés CSS */
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* Boutons : on garde le curseur pointeur */
+button {
+  cursor: pointer;
+}
