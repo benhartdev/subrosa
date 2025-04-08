@@ -3,6 +3,7 @@
     color: white;
     max-width: 1000px;
     margin: auto;
+    height: auto;
   }
   
   h1 {
@@ -14,9 +15,8 @@
   }
   
   .table-wrapper {
-    max-height: 100vh;
-    overflow-y: auto;
-    overflow-x: auto;
+    max-height: none;
+    overflow:visible;
     border: 1px solid #9900cc;
     border-radius: 6px;
     padding: 10px;

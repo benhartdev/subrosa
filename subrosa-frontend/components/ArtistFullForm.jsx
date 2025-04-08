@@ -8,7 +8,7 @@ const ArtistFullForm = () => {
     technical_skills: '', bio: '', email: '', phone: '',
     website: '', facebook: '', instagram: '', linkedin: '',
     twitter: '', old_exhibitions: [], future_exhibitions: [],
-    interviews: '', isApproved: false, status: ''
+    interviews: '', isApproved: false, status: '',newsletter: false
   });
 
   const [expoInput, setExpoInput] = useState('');
@@ -20,7 +20,11 @@ const ArtistFullForm = () => {
   const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, type, checked, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
   };
 
   const handleDynamicImageUpload = (index, file) => {
@@ -103,7 +107,7 @@ const ArtistFullForm = () => {
           technical_skills: '', bio: '', email: '', phone: '',
           website: '', facebook: '', instagram: '', linkedin: '',
           twitter: '', old_exhibitions: [], future_exhibitions: [],
-          interviews: '', isApproved: false, status: ''
+          interviews: '', isApproved: false, status: '',newsletter: false
         });
         setFiles([null]);
         setAlts(['']);
@@ -254,7 +258,10 @@ const ArtistFullForm = () => {
           </div>
         ))}
       </div>
-
+      <div className="checkbox-container">
+        <input type="checkbox" id="newsletter" name="newsletter" checked={formData.newsletter} onChange={handleChange} />
+        <label htmlFor="newsletter">Je souhaite m'inscrire à la newsletter</label>
+      </div>
       <div style={{ textAlign: 'center' }}>
         <button type="submit">Soumettre</button>
       </div>

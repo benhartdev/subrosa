@@ -166,3 +166,32 @@ ul li {
 }
 
 
+#soumettre {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#soumettre:hover {
+  background-color: white;
+  color: black;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: black;
+}

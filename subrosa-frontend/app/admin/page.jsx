@@ -1,7 +1,7 @@
 "use client"; // à garder si tu es dans /app
 
 import Header from "../../components/Header"; // ajuste le chemin si besoin
-import ArtistForm from "../../components/ArtistForm"; // on importe le formulaire
+import ArtistFullForm from "../../components/ArtistFullForm"; // on importe le formulaire
 import "../../styles/PersonalLogin.css"; // on garde le style élégant
 import PendingArtists from "../../components/admin/PendingArtists";
 import { useState } from "react"; // manquait dans ton code !
@@ -46,7 +46,7 @@ const AdminPage = () => {
 
           {showForm && (
             <div className="admin-form-wrapper">
-              <ArtistForm />
+              <ArtistFullForm />
             </div>
           )}
         </div>
