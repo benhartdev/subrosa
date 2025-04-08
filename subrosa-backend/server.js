@@ -14,6 +14,7 @@ const session = require('express-session');
 const uploadRoutes = require('./src/routes/uploadRoutes');
 const path = require('path');
 const adminArtistsRoutes = require('./src/routes/AdminArtists'); // ✅ Nouveau fichier
+const adminRoutes = require('./src/routes/adminRoutes'); // ✅ Nouveau fichier
 
 dotenv.config(); // Charge les variables d'environnement
 console.log('🔧 Variable d\'environnement :', process.env.MONGO_URI);
@@ -61,6 +62,7 @@ app.use('/api/artworks', artworkRoutes);
 app.use('/api/dynamic', dynamicComponentsRouter);
 app.use('/api/artists', artistsRoutes);              // Route protégée par ensureAdmin
 app.use('/api/admin', adminArtistsRoutes); // Route admin
+app.use("/api",  adminRoutes);  // Route admin Stats
 
 
 

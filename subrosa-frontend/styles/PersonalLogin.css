@@ -209,3 +209,46 @@ input:-webkit-autofill:active {
   transition: background-color 9999s ease-in-out 0s;
   caret-color: white !important;
 }
+  /* TABLEAU STATS */
+.admin-stats {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid white;
+  background: #111;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+.admin-stats h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.admin-stats ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: 2;
+}
+
+.recharts-wrapper {
+  background-color: #111;
+  border: 1px solid #ff4cf9;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 76, 249, 0.2);
+}
+
+.admin-dashboard {
+  background-color: #111;
+  border: 1px solid #fff;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto;
+  text-align: center;
+}
