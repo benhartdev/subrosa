@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 
 const express = require('express');
 const app = express();
@@ -15,6 +15,10 @@ const uploadRoutes = require('./src/routes/uploadRoutes');
 const path = require('path');
 const adminArtistsRoutes = require('./src/routes/AdminArtists'); // ✅ Nouveau fichier
 const adminRoutes = require('./src/routes/adminRoutes'); // ✅ Nouveau fichier
+const authRoutes = require('./src/routes/authRoutes'); // ✅ Nouveau fichier
+const userRoutes = require('./src/routes/userRoutes');
+const cookieParser = require('cookie-parser');
+
 
 dotenv.config(); // Charge les variables d'environnement
 console.log('🔧 Variable d\'environnement :', process.env.MONGO_URI);
@@ -40,30 +44,47 @@ app.use(session({
       sameSite: 'lax',
     }
   }));
-  
-app.use('/api/public/artists', require('./src/routes/PublicArtists'));
-
-
+ 
 app.use(express.json());
+app.use(cookieParser());
 console.log('📌 Middleware Express chargé.');
-app.use('/uploads', express.static('uploads'));
-app.use('/api/uploads', uploadRoutes);
 // Accès public aux fichiers uploadés
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.set('trust proxy', 1); // si proxy utilisé
+
 
 // ✅ Connexion MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connexion à MongoDB réussie !'))
   .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
 
-// ✅ Routes
-app.use('/api/public/artists', publicArtistsRoutes);  // Route publique
-app.use('/api/artworks', artworkRoutes);
-app.use('/api/dynamic', dynamicComponentsRouter);
-app.use('/api/artists', artistsRoutes);              // Route protégée par ensureAdmin
-app.use('/api/admin', adminArtistsRoutes); // Route admin
-app.use("/api",  adminRoutes);  // Route admin Stats
 
+// ✅ ROUTES 
+
+  // 🟣 PUBLIC ROUTES 
+   
+  app.use('/api/public/artists', publicArtistsRoutes); // artistes visibles par tous
+
+  // 🟢 AUTHENTICATION 
+  
+   app.use('/api/auth', authRoutes); // connexion / logout
+   app.use('/api/users', userRoutes); // inscription utilisateur
+
+  // 🟡 UPLOADS 
+   
+   app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+   app.use('/api/uploads', uploadRoutes); // upload d'images (admin/artistes)
+
+  // 🔴 ADMIN ROUTES 
+   
+   app.use('/api/admin', adminArtistsRoutes); // gestion artistes côté admin 
+   app.use('/api', adminRoutes); // dashboard admin (stats, etc.)
+
+  // 🔵 PRIVATE PROTECTED ROUTES (nécessite rôle) 
+   app.use('/api/artworks', artworkRoutes); // gestion des œuvres 
+   app.use('/api/artists', artistsRoutes); // gestion des artistes (artiste connecté)
+
+  // 🟤 DYNAMIC COMPONENTS 
+   app.use('/api/dynamic', dynamicComponentsRouter);
 
 
 

@@ -11,10 +11,10 @@ console.log('artistsController:', artistsController);
 router.get('/all', ensureAdmin, artistsController.getAllArtists);
 
 
-
+router.post('/register', artistsController.createArtist);
 
 // Route de connexion admin
-router.post('/login', authController.adminLogin);
+router.post('/login', authController.login);
 
 // Route de déconnexion admin
 router.get('/logout', authController.logout);
