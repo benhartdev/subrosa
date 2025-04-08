@@ -16,7 +16,7 @@ const Header = () => {
   
     return (
 
-<header>
+<header className="header">
             {/* Logo de la galerie */}
         <Image 
             className="header-svg"
@@ -25,6 +25,14 @@ const Header = () => {
             width={200}
             height={100}
         />
+        <div className="auth-buttons">
+        {user ? (
+              <button className="login-button" onClick={logout}>Se déconnecter ({user.role})</button>
+            ) : (
+              <button className="login-button" onClick={() => router.push('/login')}>Se connecter</button>
+            )}
+    <button className="login-button_2" onClick={() => router.push('/inscription-utilisateur')}>S'enregistrer</button>
+  </div>
         <HamburgerMenu /> {/* Affichage du menu hamburger */}
 
             {/* Barre de navigation principale */}
@@ -35,16 +43,10 @@ const Header = () => {
             <li><Link href="/oeuvres" className="nav-link">Nos œuvres</Link></li>
             <li><Link href="/page_nos_artistes" className="nav-link">Nos artistes</Link></li>
             <li><Link href="#" className="nav-link">Sub Rosa BLOG</Link></li>
-            <li><Link href="#" className="nav-link">Qui sommes-nous</Link></li>
-            <li><Link href="#" className="nav-link">Contact</Link></li>
+            <li><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
+            <li><Link href="/contact" className="nav-link">Contact</Link></li>
             <li><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>
-            <li>
-            {user ? (
-              <button className="nav-link" onClick={logout}>Se déconnecter ({user.role})</button>
-            ) : (
-              <button className="nav-link" onClick={() => router.push('/login')}>Se connecter</button>
-            )}
-          </li>
+            
         </ul>
     </nav>
 </header>

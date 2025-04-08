@@ -122,6 +122,7 @@ const ArtistFullForm = () => {
   };
 
   return (
+    <div className="container">
     <form onSubmit={handleSubmit}>
       <h2>Inscription Artiste SUB ROSA</h2>
 
@@ -267,6 +268,7 @@ const ArtistFullForm = () => {
       </div>
       {message && <p>{message}</p>}
     </form>
+    </div>
   );
 };
 

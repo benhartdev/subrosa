@@ -1,6 +1,39 @@
 
 
-/* styles/navbar.css */
+.header {
+  position: relative; /* important pour le placement absolu des boutons */
+  padding: 40px 0;
+  text-align: center; /* pour centrer le logo */
+  background-color: black !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Logo */
+.header-svg {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Boutons de connexion */
+.auth-buttons {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+}
+
+/* Tu peux adapter le style des boutons comme tu veux */
+.login-button,
+.login-button-2 {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
 .sidebar {
     position: fixed;
@@ -14,8 +47,8 @@
     max-width: 1300px;
     height: 80px;
     z-index: 9999;
-    
     gap: 2px;
+    cursor: pointer;
   }
   
   .links {
@@ -65,8 +98,58 @@
     list-style: none;
   }
   
-  header { 
-    background-color: black !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
+  
+
+  * Boutons login/register alignés à droite */
+ .login-buttons, .login-button_2 {
+    display: flex!important;
+    justify-content: flex-end !important;
+    align-items: center!important;
+    gap: 3rem !important; /* espace entre les boutons */
+  }
+  
+  /* Menu hamburger (le bouton) */
+  #menu-toggle {
+    display: none; /* caché par défaut */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Menu déroulant (ul.menu) */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 100%; /* sous les boutons */
+    background-color: black;
+    padding: 10px 20px;
+    z-index: 999;
+  }
+  
+  .menu li {
+    margin: 8px 0;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* RESPONSIVE : uniquement en mobile */
+  @media screen and (max-width: 768px) {
+    #menu-toggle {
+      display: block;
+      margin-left: 10px;
+    }
+  
+    /* facultatif : réorganisation boutons */
+    .auth-buttons {
+      flex-direction: column;
+      align-items: flex-end;
+      
+    }
   }

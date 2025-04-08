@@ -44,7 +44,7 @@ const HomePage = () => {
                 <section className="category-filters">
                     <Link href="/nos_oeuvres"><button className="category-button">TOUTES LES OEUVRES</button></Link>
                     <Link href="/nouveautes"><button className="category-button">NOUVEAUTES</button></Link>
-                    <Link href="/photographie"><button className="category-button">PHOTOGRAPHIES</button></Link>
+                    <Link href="/photography"><button className="category-button">PHOTOGRAPHIES</button></Link>
                     <Link href="/peintures"><button className="category-button">PEINTURES</button></Link>
                     <Link href="/sculptures"><button className="category-button">SCULPTURES</button></Link>
                     <Link href="/edition_art"><button className="category-button">EDITION D_ART</button></Link>

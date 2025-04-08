@@ -54,7 +54,7 @@ const UserForm = () => {
   
 
   return (
-
+    <div className="container">
     <form onSubmit={handleSubmit}>
     <h2>Création de compte utilisateur</h2>
     
@@ -95,6 +95,7 @@ const UserForm = () => {
 
       <button id="soumettre" type="submit">S'inscrire</button>
     </form>
+    </div>
   );
 };
 
