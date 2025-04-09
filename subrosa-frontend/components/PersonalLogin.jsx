@@ -5,7 +5,7 @@ import "../styles/PersonalLogin.css";
 import "../styles/reset.css";
 import { useRouter } from 'next/navigation';
 import axios from "axios";
-import { useAuth } from "../components/context/AuthContext";
+import { useAuth } from "../components/context/AuthContext.jsx";
 
 const PersonalLogin = () => {
   const [email, setEmail] = useState("");
@@ -13,40 +13,33 @@ const PersonalLogin = () => {
   const router = useRouter();
   const { login } = useAuth();
 
-  const handleLogin = async(e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      }, {
-        withCredentials: true,
-      });
+  const handleLogin = async (e) => { e.preventDefault();
 
-      const { role, email: returnedEmail } = res.data || {};
-      if (!role) return alert("Rôle non reconnu");
-
-      localStorage.setItem("userRole", role);
-      login({ role, email: returnedEmail });
-
-      switch (role) {
-        case "admin":
-          router.push("/admin");
-          break;
-        case "user":
-          router.push("/compte");
-          break;
-        case "artist":
-          router.push("/artiste/espace");
-          break;
-        default:
-          router.push("/");
-      }
-
-    } catch (error) {
-      alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue"));
+    try { console.log("Tentative de login avec", email, password);
+    
+    const res = await axios.post(
+      "http://localhost:5000/api/auth/login",
+      { email, password },
+      { withCredentials: true }
+    );
+    
+    if (!res || !res.data) {
+      alert("Réponse invalide du serveur.");
+      return;
     }
-  };
+    
+    const { role } = res.data;
+    
+    login(res.data); // stocke dans AuthContext
+    console.log("✅ Connexion réussie :", res.data);
+    
+    if (role === "admin") {
+      router.push("/admin");
+    } else {
+      router.push("/");
+    }
+    
+    } catch (error) { console.error("❌ Erreur lors de la connexion :", error); alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue")); } };
 
   return (
     <main>

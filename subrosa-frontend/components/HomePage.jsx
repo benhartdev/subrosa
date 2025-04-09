@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
-import ArtistsGallery from './ArtistsGallery';
+import ArtistsGallery from './ArtistsGallery_old';
 import Header from './Header';
 import Footer from './Footer';
 

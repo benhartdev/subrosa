@@ -41,7 +41,7 @@ const Header = () => {
         <ul className="links">
             <li><Link href="/" className="nav-link">Accueil</Link></li>
             <li><Link href="/oeuvres" className="nav-link">Nos œuvres</Link></li>
-            <li><Link href="/page_nos_artistes" className="nav-link">Nos artistes</Link></li>
+            <li><Link href="/artiste" className="nav-link">Nos artistes</Link></li>
             <li><Link href="#" className="nav-link">Sub Rosa BLOG</Link></li>
             <li><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
             <li><Link href="/contact" className="nav-link">Contact</Link></li>
