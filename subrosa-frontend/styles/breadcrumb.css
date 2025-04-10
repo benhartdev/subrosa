@@ -1,6 +1,6 @@
 .breadcrumb-container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 1rem auto;
     color: white;
   }
@@ -14,17 +14,21 @@
   .breadcrumb {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* ← pour les aligner à gauche */
     gap: 0.6rem;
     padding: 0.8rem 0;
     font-size: 0.95rem;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: "Michroma", sans-serif;
+    padding-left: 70px; /* ← ajoute ce padding pour décaler les liens */
   }
   
+  
   .breadcrumb-link {
+    display: flex;
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
+    justify-content: flex-start; /* ← pour les aligner à gauche */
   }
   
   .breadcrumb-link:hover {

@@ -282,7 +282,7 @@
 
 .artist-intro {
   text-align: center;
-  margin: 3rem 0 2rem;
+  margin: 7rem 0 2rem;
 }
 
 .artist-subtitle {
@@ -455,4 +455,9 @@ outline: none;
   max-height: 100%;
   object-fit: contain;
 }
+
+
+
+
+
 

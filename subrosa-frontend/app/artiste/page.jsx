@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ArtistImage from "../../components/ArtistImage";
+import ArtistProfile from "../../components/ArtistProfile";
 import ArtistGallery from "../../components/ArtistGallery";
 import "../../styles/artistGallery.css";
 import Header from '../../components/Header';
@@ -14,7 +14,9 @@ const ArtistPage = () => {
     { src: "/images/indian_express_1.jpg", alt: "Artwork 1", title: "Indian Express 1", price: "1500€" },
     { src: "/images/indian_express_2.jpg", alt: "Artwork 2", title: "Indian Express 2", price: "1500€" },
     { src: "/images/INDIAN_GAME.jpg", alt: "Artwork 3", title: "Indian Game", price: "1500€" },
-    { src: "/images/la_defense.jpg", alt: "Artwork 4",  title: "La Défense", price: "1500€" },
+    { src: "/images/EQUITY.jpg", alt: "Artwork 4",  title: "La Défense", price: "1500€" },
+    { src: "/images/AURORA.jpg", alt: "Artwork 4",  title: "La Défense", price: "1500€" },
+    { src: "/images/FIRST_PRINT.jpg", alt: "Artwork 4",  title: "La Défense", price: "1500€" },
   ];
 
   return (
@@ -45,7 +47,7 @@ const ArtistPage = () => {
   </div>
 </section>
 
-
+<ArtistProfile />
       <Footer />
     </main>
   );

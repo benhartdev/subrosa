@@ -1,0 +1,360 @@
+.artist-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.info-columns {
+  gap: 40px;
+  display: flex;
+ 
+}
+
+.info-column-left {
+  
+  margin-left: 25px;
+}
+
+.info-column-right {
+  display: flex;
+  flex-direction: column;
+ 
+  
+  width: 46%;
+  
+}
+
+.artist-details {
+  height: 200px;
+  padding: 10px 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: rgba(217, 217, 217, 1);
+  color: black;
+}
+
+
+
+.follow-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 1);
+  display: flex;
+  margin-top: 15px;
+  min-height: 30px;
+  width: 100%;
+  padding: 10px;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: stretch;
+  font-family: "Michroma", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1px;
+  line-height: 1;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button-text {
+  align-self: stretch;
+  width: 100%;
+  padding: 10px 24px;
+  gap: 8px;
+  flex: 1;
+  height: 100%;
+}
+
+.artist-bio {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  width: 1000px;
+  justify-content: flex-end;
+}
+
+.spacer {
+  height: 20px;
+}
+
+.content-wrapper {
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+}
+
+
+.feature-image-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.feature-image {
+  height: 500px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+.conteneur_photo {
+ 
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  width: 100%;
+  margin: auto;
+}
+
+/* 💥 Nouveau wrapper indépendant du texte */
+.feature-image-wrapper-global {
+  width: 100vw; /* pleine largeur d’écran */
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.image-full-width {
+  width: 100vw;               /* occupe toute la largeur visible */
+  display: flex;              /* utilise flex pour centrer */
+  justify-content: center;   /* centre horizontalement */
+  margin: 60px 0;             /* espace autour */
+  padding: 0;                 /* aucun décalage */
+  position: relative;         /* pas de conflit avec d'autres blocs */
+  left: 9.9%;
+  border: 2px dashed red;
+}
+
+.image-centered {
+  height: 500px;
+  width: auto;
+  max-width: 1400px;          /* limite de taille */
+  display: block;
+  object-fit: contain;
+}
+
+
+
+
+.interview-section {
+  text-align: center;
+  margin-top: 59px;
+  position: relative;         /* pas de conflit avec d'autres blocs */
+  left: 9.9%;
+}
+
+.interview-label {
+  color: #fff;
+  font-family: "Michroma", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  opacity: 0.5;
+}
+
+.interview-title {
+  color: #fff;
+  font-family: "Michroma", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-top: 13px;
+}
+
+.interview-content {
+  color: #fff;
+  text-align: center;
+  font-family: "Michroma", sans-serif;
+  margin-top: 35px;
+}
+
+.question {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  margin-bottom: 8px;
+}
+
+.answer {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+/* Tablet Styles */
+@media (max-width: 991px) {
+  .content-wrapper {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .info-columns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .info-column-left {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  .info-column-right {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .artist-details {
+    max-width: 100%;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .follow-button {
+    min-height: 44px;
+    margin-top: 24px;
+  }
+
+  .button-text {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .feature-image {
+    max-width: 100%;
+    margin-top: 48px;
+    padding: 0 20px;
+  }
+
+  .interview-section {
+    margin-top: 48px;
+    padding: 0 20px;
+  }
+
+  .interview-content {
+    max-width: 100%;
+  }
+
+  .interview-title {
+    font-size: 28px;
+    margin-top: 16px;
+  }
+
+  .question {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+
+  .answer {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 0 16px;
+  }
+
+  .info-columns {
+    gap: 24px;
+  }
+
+  .artist-details {
+    padding: 20px;
+    font-size: 13px;
+  }
+
+  .follow-button {
+    min-height: 48px;
+    margin-top: 20px;
+  }
+
+  .button-text {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .feature-image {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  .interview-section {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  .interview-title {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+
+  .question {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+
+  .answer {
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 20px;
+  }
+
+  .artist-bio {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 360px) {
+  .content-wrapper {
+    padding: 0 12px;
+  }
+
+  .artist-details {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  .follow-button {
+    min-height: 44px;
+  }
+
+  .button-text {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .interview-title {
+    font-size: 22px;
+  }
+
+  .question {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .answer {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
