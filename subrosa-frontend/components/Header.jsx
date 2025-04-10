@@ -5,6 +5,7 @@ import HamburgerMenu from './HamburgerMenu';
 import '../styles/header.css'; // Importation du fichier CSS pour le style du header
 import { useAuth } from "../components/context/AuthContext";
 import { useRouter } from "next/navigation";
+import NavButton from '../components/NavButton'; 
 
 
 console.log("Header.js est chargé.");
@@ -25,15 +26,22 @@ const Header = () => {
             width={200}
             height={100}
         />
+        
         <div className="auth-buttons">
-        {user ? (
-              <button className="login-button" onClick={logout}>Se déconnecter ({user.role})</button>
-            ) : (
-              <button className="login-button" onClick={() => router.push('/login')}>Se connecter</button>
-            )}
-    <button className="login-button_2" onClick={() => router.push('/inscription-utilisateur')}>S'enregistrer</button>
-  </div>
-        <HamburgerMenu /> {/* Affichage du menu hamburger */}
+  {user ? (
+    <button className="login-button" onClick={logout}>
+      Se déconnecter ({user.role})
+    </button>
+  ) : (
+    <NavButton to="/login" label="Se connecter" className="login-button" />
+  )}
+
+  <HamburgerMenu />  {/* 👈 doit être au même niveau que les autres boutons */}
+
+  <NavButton to="/inscription-utilisateur" label="S'enregistrer" className="login-button_2" />
+</div>
+
+
 
             {/* Barre de navigation principale */}
 
