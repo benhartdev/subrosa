@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema({
 password: {
   type: String,
   required: [true, "Le mdp de l'artiste est requis."],
-  
   minlength: [4, "Le nom doit contenir au moins 4 caractères."]
 },
 email: {

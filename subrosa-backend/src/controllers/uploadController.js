@@ -32,29 +32,31 @@ exports.uploadSingleImage = async (req, res) => {
 // Upload de plusieurs images enrichies
 exports.uploadMultipleImages = async (req, res) => {
   try {
+    const artist = await Artist.findById(req.params.artistId);
+    if (!artist) return res.status(404).json({ error: 'Artiste introuvable' });
+
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'Aucun fichier envoyé' });
     }
 
     const { alts = [] } = req.body;
-    const imageData = req.files.map((file, index) => {
-      return {
-        url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
-        alt: Array.isArray(alts) ? alts[index] || '' : alts,
-      };
-    });
+    const altsArray = Array.isArray(alts) ? alts : [alts];
 
-    const artist = await Artist.findById(req.params.artistId);
-    if (!artist) return res.status(404).json({ error: 'Artiste introuvable' });
+    const imageData = req.files.map((file, index) => ({
+      url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
+      alt: altsArray[index] || '',
+      uploadedAt: new Date(),
+    }));
 
     artist.images.push(...imageData);
     await artist.save();
 
     res.status(200).json({
-      message: 'Images enrichies uploadées et associées à l\'artiste',
-      images: imageData
+      message: 'Images uploadées et associées à l\'artiste avec succès.',
+      artist,
     });
   } catch (err) {
+    console.error('Erreur lors de l’upload multiple :', err);
     res.status(500).json({ error: 'Erreur serveur', details: err.message });
   }
 };

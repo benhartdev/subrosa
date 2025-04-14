@@ -7,7 +7,7 @@ import "../../styles/artistGallery.css";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
-import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumb from '../../components/MiniBarNav';
 
 const ArtistPage = () => {
   const galleryImages = [
@@ -22,7 +22,7 @@ const ArtistPage = () => {
   return (
     <main className="artist-page">
       <Header />
-      <Breadcrumb />
+      
       <section className="artist-intro">
         <p className="artist-subtitle">PORTRAIT</p>
         <h1 className="artist-name-main">Ben H</h1>

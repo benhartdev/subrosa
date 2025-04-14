@@ -1,11 +1,11 @@
 // src/routes/authRoutes.js
 const express = require('express');
 const router = express.Router();
-const { login, logout } = require('../controllers/authController');
+const { loginUser, logout } = require('../controllers/authController');
 
-
-router.post('/login', login);
+router.post('/login', loginUser);
 router.post('/logout', logout);
+
 router.get('/me', (req, res) => {
     if (req.session?.user) {
       res.status(200).json(req.session.user);

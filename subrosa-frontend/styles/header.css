@@ -3,7 +3,7 @@
 .header {
   position: relative; /* important pour le placement absolu des boutons */
   padding: 40px 0;
-  text-align: center; /* pour centrer le logo */
+ 
   background-color: black !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
@@ -23,6 +23,8 @@
   display: flex;
   gap: 10px;
   position: fixed;
+  z-index: 9999;
+ 
 }
 
 /* Tu peux adapter le style des boutons comme tu veux */
@@ -37,6 +39,8 @@
   text-align: center;
   white-space: nowrap;
   box-sizing: border-box;
+  z-index: 9999;
+  background-color: black;
 }
 
 
@@ -111,6 +115,7 @@
     justify-content: flex-end !important;
     align-items: center!important;
     gap: 3rem !important; /* espace entre les boutons */
+    z-index: 9999;
   }
   
   /* Menu hamburger (le bouton) */
@@ -143,6 +148,81 @@
     color: white;
     text-decoration: none;
   }
+  
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ← aligne à gauche */
+    margin-left: 40px;       /* ← espace depuis le bord gauche */
+  }
+  
+  /* MiniBarNav Css */
+  
+  .MiniBarNav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    color: white;
+  }
+  
+  
+  .MiniBarNav-bar_1 {
+    width: 100%; /* longueur du trait superieur de la barre */
+    height: 1px;
+    background-color: #ccc;
+  }
+  .MiniBarNav-bar_2 {
+     width: 90%;  /* longueur du trait inferieur de la barre */
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .MiniBarNav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    padding-left: 70px; /* decalage des liens souhaité */
+  }
+  
+  
+  
+  .MiniBarNav-link {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    justify-content: flex-start; /* ← pour les aligner à gauche */
+  }
+  
+  .MiniBarNav-link:hover {
+    color: #aaa;
+  }
+  
+  .MiniBarNav-separator {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+  
+  .MiniBarNav-current {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .MiniBarNav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .MiniBarNav-current {
+    color: white;
+    font-weight: bold;
+    border: 1px dashed red;
+  }
+  
   
   /* RESPONSIVE : uniquement en mobile */
   @media screen and (max-width: 768px) {

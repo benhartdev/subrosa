@@ -25,7 +25,7 @@ const ArtistProfile = () => {
 
           <div className="info-column-right">
             <div className="artist-bio">
-              <p>
+              <p className="bio-text">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s when an unknown printer took a galley of
                 type and scrambled it to make a type specimen book. It has
@@ -37,17 +37,17 @@ const ArtistProfile = () => {
                 versions of Lorem Ipsum.
               </p>
               <p className="spacer"></p>
-              <p>PARCOURS & EXPOSITIONS</p><br />
-              <p>2020 : salon d'art contemporain, Colombes</p>
-              <p>2019 : salon d'art contemporain, Colombes</p>
-              <p>2019 : salon d'art contemporain, Colombes</p>
-              <p>2019 : salon d'art contemporain, Colombes</p>
-              <p>2018 : salon d'art contemporain, Colombes</p>
-              <p>2017 : salon d'art contemporain, Colombes</p>
-              <p>2017 : salon d'art contemporain, Colombes</p>
-              <p>2016 : salon d'art contemporain, Colombes</p>
-              <p>2016 : salon d'art contemporain, Colombes</p>
-              <p>2016 : salon d'art contemporain, Colombes</p>
+              <p className="expo">PARCOURS & EXPOSITIONS</p><br />
+              <p className="expo">2020 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2019 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2019 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2019 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2018 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2017 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2017 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2016 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2016 : salon d'art contemporain, Colombes</p>
+              <p className="expo">2016 : salon d'art contemporain, Colombes</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../styles/inscription-artiste.css";
+import PopupMessage from "../components/PopupMessage";
 
 const UserForm = () => {
     const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const UserForm = () => {
         phone: '',
         newsletter: false
       });
-
+      const [popup, setPopup] = useState(null);
   
 
       const handleChange = (e) => {
@@ -32,7 +33,7 @@ const UserForm = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:5000/api/users/register', formData);
-      alert("Utilisateur ajouté avec succès !");
+      setPopup({ message: "✅ Utilisateur ajouté avec succès !", type: "success" });
       setFormData({
         username: '',
         password: '',
@@ -47,14 +48,26 @@ const UserForm = () => {
         newsletter: false
       });
     } catch (error) {
-        console.error("Erreur lors de l'enregistrement :", error);
-        alert("Erreur lors de l'enregistrement.");
+      // ✅ Gestion propre de l’erreur venant du backend
+      if (error.response && error.response.status === 400) {
+        setPopup({ message: "⚠️ " + error.response.data.message, type: "error" });
+      } else {
+        console.error("❌ Erreur lors de l'enregistrement :", error);
+        setPopup({ message: "❌ Une erreur serveur est survenue.", type: "error" });
       }
-    };
+    }
+  };
   
 
   return (
     <div className="container">
+       {popup && (
+        <PopupMessage
+          message={popup.message}
+          type={popup.type}
+          onClose={() => setPopup(null)}
+        />
+      )}
     <form onSubmit={handleSubmit}>
     <h2>Création de compte utilisateur</h2>
     

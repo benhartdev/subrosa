@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import HamburgerMenu from './HamburgerMenu';
+import NavButton from '../components/NavButton'; 
+import MiniBarNav from '../components/MiniBarNav'; 
+
 import '../styles/header.css'; // Importation du fichier CSS pour le style du header
 import { useAuth } from "../components/context/AuthContext";
 import { useRouter } from "next/navigation";
-import NavButton from '../components/NavButton'; 
 
 
 console.log("Header.js est chargé.");
@@ -18,15 +20,19 @@ const Header = () => {
     return (
 
 <header className="header">
-            {/* Logo de la galerie */}
-        <Image 
-            className="header-svg"
-            src="/images/gallerie SUB logo.svg"
-            alt="Icône SVG"
-            width={200}
-            height={100}
-        />
-        
+
+       <div className="logo-section">
+  <Image 
+    className="header-svg"
+    src="/images/gallerie SUB logo.svg"
+    alt="Icône SVG"
+    width={200}
+    height={100}
+  />
+
+  <MiniBarNav />
+</div>
+
         <div className="auth-buttons">
   {user ? (
     <button className="login-button" onClick={logout}>
@@ -36,7 +42,7 @@ const Header = () => {
     <NavButton to="/login" label="Se connecter" className="login-button" />
   )}
 
-  <HamburgerMenu />  {/* 👈 doit être au même niveau que les autres boutons */}
+  <HamburgerMenu />
 
   <NavButton to="/inscription-utilisateur" label="S'enregistrer" className="login-button_2" />
 </div>

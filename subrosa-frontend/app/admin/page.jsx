@@ -9,6 +9,7 @@ import "../../styles/inscription-artiste.css";
 import AdminStats from "../../components/admin/AdminStats";
 import AdminDashboardTabs from "../../components/admin/AdminDashboardTabs";
 import { useRef } from "react";
+import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
 
 const AdminPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -57,6 +58,7 @@ const AdminPage = () => {
     </h2>
     <AdminDashboardTabs ref={dashboardRef} />
   </section>
+  <ArtistEditPanel />
       </main>
     </>
   );

@@ -12,6 +12,6 @@ const uploadController = require('../controllers/uploadController');
 router.post( '/upload/:artistId', upload.single('image'), uploadController.uploadSingleImage );
 
 // Route : Upload de plusieurs images avec alt[] et caption[] 
-router.post( '/upload-multiple/:artistId', upload.array('images', 5), uploadController.uploadMultipleImages );
+router.post( '/upload-multiple/:artistId', upload.array('images', 20), uploadController.uploadMultipleImages );
 
 module.exports = router;

@@ -1,17 +1,17 @@
-.breadcrumb-container {
+.MiniBarNav-container {
     width: 100%;
     max-width: 1500px;
     margin: 1rem auto;
     color: white;
   }
   
-  .breadcrumb-bar {
+  .MiniBarNav-bar {
     height: 1px;
     background-color: #ccc;
     margin: 0;
   }
   
-  .breadcrumb {
+  .MiniBarNav {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* ← pour les aligner à gauche */
@@ -23,7 +23,7 @@
   }
   
   
-  .breadcrumb-link {
+  .MiniBarNav-link {
     display: flex;
     color: white;
     text-decoration: none;
@@ -31,16 +31,16 @@
     justify-content: flex-start; /* ← pour les aligner à gauche */
   }
   
-  .breadcrumb-link:hover {
+  .MiniBarNav-link:hover {
     color: #aaa;
   }
   
-  .breadcrumb-separator {
+  .MiniBarNav-separator {
     color: #aaa;
     font-size: 0.9rem;
   }
   
-  .breadcrumb-current {
+  .MiniBarNav-current {
     color: #fff;
     font-weight: bold;
   }

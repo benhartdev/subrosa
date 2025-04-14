@@ -21,7 +21,12 @@ export default function GestionUtilisateurs() {
       {users.length === 0 && <p>Aucun utilisateur</p>}
       {users.map(user => (
         <div key={user._id} style={{ border: "1px solid white", padding: "1rem", marginBottom: "1rem" }}>
+          <p>{user.username}</p>
           <p>{user.email}</p>
+          <p>{user.phone}</p>
+          <p>{user.newsletterSubscribed}</p>
+          
+          
           <button>Supprimer</button>
         </div>
       ))}

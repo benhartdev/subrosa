@@ -8,18 +8,18 @@ import axios from "axios";
 import { useAuth } from "../components/context/AuthContext.jsx";
 
 const PersonalLogin = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   const { login } = useAuth();
 
   const handleLogin = async (e) => { e.preventDefault();
 
-    try { console.log("Tentative de login avec", email, password);
+    try { console.log("Tentative de login avec", username, password);
     
     const res = await axios.post(
       "http://localhost:5000/api/auth/login",
-      { email, password },
+      { username, password },
       { withCredentials: true }
     );
     
@@ -28,12 +28,12 @@ const PersonalLogin = () => {
       return;
     }
     
-    const { role } = res.data;
+    const { user } = res.data;
     
-    login(res.data); // stocke dans AuthContext
+    login(user); // stocke dans AuthContext
     console.log("✅ Connexion réussie :", res.data);
     
-    if (role === "admin") {
+    if (user.role === "admin") {
       router.push("/admin");
     } else {
       router.push("/");
@@ -66,10 +66,10 @@ const PersonalLogin = () => {
 
           <form className="form" onSubmit={handleLogin}>
             <FormInput
-              label="Identifiant ou e-mail *"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              label="Nom d'utilisateur *"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
 

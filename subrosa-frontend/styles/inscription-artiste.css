@@ -199,3 +199,13 @@ ul li {
 .container {
   margin-top: -9rem;
 }
+
+.button.danger {
+  border: 1px solid red;
+  color: red;
+  background-color: transparent;
+}
+
+.form-edit {
+  margin-top: 3rem;
+}
