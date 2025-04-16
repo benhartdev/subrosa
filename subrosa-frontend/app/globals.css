@@ -1,5 +1,5 @@
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
 }
 
@@ -13,7 +13,7 @@
 html,
 body {
   max-width: 100vw;
-  font-family: "Michroma", sans-serif;
+  font-family: Michroma, sans-serif;
 }
 
 * {
@@ -21,21 +21,23 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  height: 100%;
   background: var(--background);
-  font-family: "Michroma", sans-serif;
+  color: var(--foreground);
+  font-family: Michroma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: auto;
-  height: 100%;
 }
+
 html {
   height: 100%;
 }
+
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -50,11 +52,11 @@ a {
 }
 
 
-@import '../styles/style_acceuil.css';
-@import '../styles/header.css';
-@import '../styles/page_artiste_solo_benH.css';
-@import '../styles/page_artiste_solo_cat.css';
-@import '../styles/page_nos_artistes.css';
-@import '../styles/page_nos_oeuvres.css';
-@import '../styles/page_oeuvre_unique.css';
-@import '../styles/contact.css';
+@import url('../styles/style_acceuil.css');
+@import url('../styles/header.css');
+@import url('../styles/page_artiste_solo_benH.css');
+@import url('../styles/page_artiste_solo_cat.css');
+@import url('../styles/page_nos_artistes.css');
+@import url('../styles/page_nos_oeuvres.css');
+@import url('../styles/page_oeuvre_unique.css');
+@import url('../styles/contact.css');

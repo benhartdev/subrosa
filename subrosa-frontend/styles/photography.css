@@ -1,41 +1,42 @@
 .photographyContainer {
-  background-color: #000;
-  width: 100%;
-  padding-top: 16px;
-  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  background-color: #000;
+  padding-top: 16px;
+  padding-bottom: 30px;
   overflow: hidden;
 }
 
 .photographyPage {
   background-color: #000;
 }
+
 .headerSection {
   display: flex;
   flex-direction: column;
+  z-index: 10;
   width: 100%;
   max-width: 1138px;
   margin-right: 22px;
   align-self: flex-end;
-  z-index: 10;
 }
 
 .headerContent {
   display: flex;
   flex-direction: column;
-  font-family: "Michroma", sans-serif;
-  font-size: 20px;
   color: #fff;
+  font-size: 20px;
+  font-family: Michroma, sans-serif;
   font-weight: 400;
 }
 
 .titleWrapper {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .subTitle {
@@ -55,17 +56,17 @@
 
 
 .galleryTitle {
-  z-index: 10;
   display: flex;
-  width: 262px;
-  max-width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  font-family: "Michroma", sans-serif;
-  font-size: 18px;
+  z-index: 10;
+  width: 262px;
   color: #fff;
-  font-weight: 400;
+  font-size: 18px;
   text-align: center;
+  max-width: 100%;
+  font-family: Michroma, sans-serif;
+  font-weight: 400;
 }
 
 .gallerieText {
@@ -82,17 +83,17 @@
 }
 
 .galleryContainer {
-  background-color: #000;
-  z-index: 10;
   display: flex;
-  margin: auto;
-  width: 100%;
-  max-width: 1225px;
   flex-direction: column;
   align-items: stretch;
+  z-index: 10;
+  width: 100%;
+  margin: auto;
+  padding: 50;
+  background-color: #000;
+  max-width: 1225px;
   align-self: center;
   gap: 50px;
-  padding: 50;
 }
 
 .galleryHeader {
@@ -103,25 +104,25 @@
   align-self: center;
   max-width: 1098px;
 }
+
 .catalogueTitle {
-  margin-top: 30px;
+  width: 100%;
+  margin: 30px auto;
   font-size: 18px;
   text-align: center;
-  margin: 30px auto;
-  width: 100%;
+  margin-top: 30px;
 }
 
 
 .photographieTitle {
+  width: 100%;
+  margin: 30px auto;
   color: #fff;
   font-size: 48px;
-  font-family: "Michroma", sans-serif;
+  text-align: center;
+  font-family: Michroma, sans-serif;
   font-weight: 400;
-  text-align: center;
   align-self: center;
-  text-align: center;
-  margin: 30px auto;
-  width: 100%;
 }
 
 .galleryGrid {
@@ -132,54 +133,52 @@
 }
 
 .galleryItem {
-  width: 40%;
-  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
+  max-width: 400px;
 }
 
 .galleryImage {
- 
   object-fit: contain;
   object-position: center;
   width: 100%;
 }
 
 .itemTitle {
-  font-size: 24px;
-  font-family: "Michroma", sans-serif;
   color: #fff;
+  font-size: 24px;
   text-align: center;
+  font-family: Michroma, sans-serif;
   margin-top: 26px;
 }
 
 .itemPrice {
-  font-size: 18px;
-  font-family: "Michroma", sans-serif;
   color: #fff;
+  font-size: 18px;
   text-align: center;
+  font-family: Michroma, sans-serif;
  
 }
 
 .addToCartButton {
-  background-color: transparent;
+  width: 189px;
+  padding: 12px;
   border: 1px solid #770606;
   color: #fff;
-  font-family: "Michroma", sans-serif;
   font-size: 12px;
-
-  padding: 12px;
-  width: 189px;
-  margin-top: 50px;
   text-align: center;
+  background-color: transparent;
+  font-family: Michroma, sans-serif;
+  margin-top: 50px;
   cursor: pointer;
   
   
 }
 
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .photographyContainer {
     padding-top: 12px;
     padding-bottom: 20px;
@@ -258,7 +257,7 @@
 
   
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .subTitle,
   .rosaTitle {
     font-size: 32px;

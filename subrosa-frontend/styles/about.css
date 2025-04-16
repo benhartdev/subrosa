@@ -1,15 +1,16 @@
 main {
-  background-color: #000000;
+  background-color: #000;
 }
+
 .about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  background-color: #000000;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #000;
 }
 
 .header-image {
@@ -22,8 +23,12 @@ main {
 }
 
 .about-title {
-  color: #ffffff;
+  width: fit-content;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  color: #fff;
   font-size: clamp(32px, 5vw, 64px);
+  text-align: center;
   font-family:
     Afacad,
     -apple-system,
@@ -31,16 +36,14 @@ main {
     Helvetica,
     sans-serif;
   font-weight: 400;
-  text-align: center;
-  border: 1px solid #000000;
   margin-top: 83px;
-  padding: 10px 20px;
-  width: fit-content;
 }
 
 .about-description {
-  color: #ffffff;
+  padding: 0 20px;
+  color: #fff;
   font-size: clamp(14px, 1.6vw, 16px);
+  text-align: center;
   font-family:
     Afacad,
     -apple-system,
@@ -48,15 +51,17 @@ main {
     Helvetica,
     sans-serif;
   font-weight: 400;
-  text-align: center;
   margin-top: clamp(40px, 5vw, 77px);
-  padding: 0 20px;
   line-height: 1.6;
 }
 
 .team-title {
-  color: #ffffff;
+  width: fit-content;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  color: #fff;
   font-size: clamp(20px, 2.4vw, 24px);
+  text-align: center;
   font-family:
     Afacad,
     -apple-system,
@@ -64,19 +69,15 @@ main {
     Helvetica,
     sans-serif;
   font-weight: 400;
-  text-align: center;
-  border: 1px solid #000000;
   margin-top: clamp(60px, 8vw, 113px);
-  padding: 10px 20px;
-  width: fit-content;
 }
 
 .divider {
-  border: 1px solid #ffffff;
+  width: 100%;
+  margin: clamp(40px, 5vw, 65px) 0;
+  border: 1px solid #fff;
   align-self: stretch;
   min-height: 1px;
-  margin: clamp(40px, 5vw, 65px) 0;
-  width: 100%;
 }
 
 .team-section {
@@ -96,8 +97,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: normal;
   width: 100%;
+  color: #fff;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: normal;
   max-width: 40%;
   font-family:
     Afacad,
@@ -105,8 +108,6 @@ main {
     Roboto,
     Helvetica,
     sans-serif;
-  font-size: clamp(14px, 1.6vw, 16px);
-  color: #ffffff;
   font-weight: 400;
   margin-top: 80px;
 }
@@ -121,11 +122,11 @@ main {
 }
 
 .member-role {
-  border: 1px solid #000000;
-  margin-top: clamp(20px, 2.5vw, 33px);
-  padding: 15px;
-  text-align: center;
   width: 255px;
+  padding: 15px;
+  border: 1px solid #000;
+  text-align: center;
+  margin-top: clamp(20px, 2.5vw, 33px);
 }
 
 .team-member-info {
@@ -138,7 +139,9 @@ main {
 }
 
 .member-description {
-  color: #ffffff;
+  padding: 20px;
+  border: 1px solid #000;
+  color: #fff;
   font-size: clamp(14px, 1.6vw, 16px);
   font-family:
     Afacad,
@@ -147,13 +150,11 @@ main {
     Helvetica,
     sans-serif;
   font-weight: 400;
-  border: 1px solid #000000;
-  padding: 20px;
   line-height: 1.6;
 }
 
 /* Tablet Breakpoint */
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .about-container {
     padding: 15px;
   }
@@ -174,7 +175,7 @@ main {
 }
 
 /* Mobile Breakpoint */
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .about-container {
     padding: 10px;
   }
@@ -203,7 +204,7 @@ main {
 }
 
 /* Small Mobile Breakpoint */
-@media (max-width: 375px) {
+@media (width <= 375px) {
   .about-container {
     padding: 8px;
   }

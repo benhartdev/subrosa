@@ -1,0 +1,43 @@
+
+
+.coverflow-scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 4rem 0;
+  perspective: 2000px;
+  width:1000px;
+  position: relative;
+  margin: auto;
+}
+
+.coverflow-wrapper {
+  display: flex;
+  gap: -200px;
+  padding: 0 4rem;
+  min-width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.coverflow-img {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transform-origin: center;
+  transition: transform 0.3s ease-out, z-index 0.3s ease-out, filter 0.3s ease-out;
+  border-radius: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  will-change: transform, filter;
+  transform: perspective(1px) rotateY(0deg) scale(1);
+  z-index: 1;
+  margin-right: -165px;
+}
+
+.coverflow-img.active {
+  filter: none;
+  box-shadow: 0 16px 40px rgba(255, 255, 255, 0.3);
+  z-index: 1000 !important;
+  transform: perspective(1px) rotateY(0deg) translateY(-150px) scale(1,5);
+  margin-right: 0;
+}

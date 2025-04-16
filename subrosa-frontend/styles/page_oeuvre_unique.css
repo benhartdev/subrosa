@@ -9,15 +9,16 @@ html, body {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family: "Michroma", sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(0 0 0);
+    font-family: Michroma, sans-serif;
     min-height: 100vh;
 }
+
 body > header:nth-child(1) {
     height: 350px;
   }
@@ -32,58 +33,58 @@ header {
 
 
 }
+
 .header-border_1 {
+    align-items: center;
     width: 30%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-top: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-top: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
+
 .header-border_2 {
+    align-items: center;
     width: 28%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
 
 .header-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     height: 100%;
    margin-top: 15%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin-left: 5%;
     scale:0.5;
 }
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 20px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid gray; /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid gray; /* Deuxième ligne */  
 }
 
 .nav-simple {
-    
     display: flex;
-    margin-left: 5%;
     align-items: center;
-   
-    text-align: left;
     padding: 10px 0;
-    font-size: 1.2em;
-    background: rgba(0, 0, 0, 0);
+    background: rgb(0 0 0 / 0%);
     color: white;
+    font-size: 1.2em;
+    text-align: left;
+    margin-left: 5%;
 }
 
 .nav-simple a {
+    margin: 0 5px;
     color: white;
     text-decoration: none;
-    margin: 0 5px;
 }
 
 .nav-simple .current-page {
@@ -93,20 +94,20 @@ header {
 
 
 #menu {
-    list-style: none;
     display: none;
-    position: fixed; 
+    position: fixed;
+    top: 5%; 
     right: 100px;
-    top: 5%;
-    background: rgb(0, 0, 0);
     padding: 14px;
-    border-radius: 5px;
+    background: rgb(0 0 0);
     text-align: center;
+    list-style: none;
+    border-radius: 5px;
 }
 
 nav ul li {
-    padding: 10px 0;
     align-items: center;
+    padding: 10px 0;
 }
 
 nav ul li a {
@@ -115,16 +116,16 @@ nav ul li a {
 }
 
 #menu-toggle {
-    font-size: 48px;
-    cursor: pointer;
-    display: flex;
-    padding: 10px;
-    border-bottom: 1px solid gray;  
+    display: flex;  
     position: fixed;
-    z-index: 9999;
     top: 0;  /* Ajuste selon la hauteur de ton header */
     right: 20px;
+    z-index: 9999;
+    padding: 10px;
     background: black;
+    font-size: 48px;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
     border-radius: 5px;
 }
 
@@ -140,8 +141,8 @@ nav ul li a {
 }
 
 .art-item {
-    position: relative; /* Positionne les infos par rapport à l'image */
     display: inline-block; /* Évite que l’image prenne toute la largeur */
+    position: relative; /* Positionne les infos par rapport à l'image */
 }
 
 .image {
@@ -161,7 +162,7 @@ nav ul li a {
     justify-content: space-between;
     padding: 20px;
     color: #fff;
-    font-family: "Afacad", sans-serif;
+    font-family: Afacad, sans-serif;
     background-color: #000;
   }
   
@@ -170,19 +171,19 @@ nav ul li a {
     flex-direction: column;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
+    width: 20%;
     text-align: center;
     border-right: 1px solid #fff;
-    width: 20%;
     margin-left: 40%;
   }
   
   .artwork-details-container {
     display: flex; /* Place les éléments côte à côte */
-    
     align-items: flex-start; /* Alignement en haut */
     gap: 100px; /* Espacement entre les deux blocs */
     margin-top: 20px; /* Ajustement selon le design */
   }
+
   .artwork-header {
     display: grid;
     position: relative;
@@ -192,9 +193,9 @@ nav ul li a {
   }
   
   .artwork-title {
+    margin: 0;
     font-size: inherit;
     font-weight: normal;
-    margin: 0;
   }
   
   .artwork-specs {
@@ -211,7 +212,8 @@ nav ul li a {
 
 .purchase-section {
     display: flex;
-    
+  color: rgb(255 255 255 / 100%);
+  font-size: 16px;
   max-width: 380px;
   font-family:
     Afacad,
@@ -219,107 +221,105 @@ nav ul li a {
     Roboto,
     Helvetica,
     sans-serif;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 1);
   font-weight: 400;
 }
 
 .purchase-container {
-  background-color: rgba(34, 34, 34, 1);
-  display: flex;
-  width: 100%;
-  padding: 35px 22px 12px;  
+  display: flex;  
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 35px 22px 12px;
+  background-color: rgb(34 34 34 / 100%);
 }
 
 .purchase-price {
+  margin: 0;
   font-size: 64px;
   text-align: center;
-  margin: 0;
   font-weight: 400;
 }
 
 .purchase-divider {
-  border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 1);
-  margin: 58px 0 0;
   width: 93px;
+  margin: 58px 0 0;
+  border: 0;
+  border-top: 1px solid rgb(255 255 255 / 100%);
 }
 
 .purchase-button {
   width: 100%;
-  background-color: rgba(186, 181, 181, 0.16);
-  border: 1px solid rgba(255, 255, 255, 1);
-  margin-top: 30px;
   padding: 12px;
+  border: 1px solid rgb(255 255 255 / 100%);
+  color: #fff;
+  transition: background-color 0.3s ease;
+  background-color: rgb(186 181 181 / 16%);
+  margin-top: 30px;
   font-family:
     Inter,
     -apple-system,
     Roboto,
     Helvetica,
     sans-serif;
-  color: #fff;
   line-height: 1;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .purchase-button:hover {
-  background-color: rgba(186, 181, 181, 0.25);
+  background-color: rgb(186 181 181 / 25%);
 }
 
 .purchase-info {
-  list-style: none;
-  text-align: center;
+  width: 333px;
   margin: 30px 0 0;
   padding: 0;
-  width: 333px;
+  text-align: center;
+  list-style: none;
   line-height: 1.5;
 }
 
 .contact-button {
-  background-color: rgba(186, 181, 181, 0.16);
-  border: 1px solid rgba(255, 255, 255, 1);
-  margin-top: 29px;
-  min-height: 71px;
   width: 224px;
   padding: 12px;
+  border: 1px solid rgb(255 255 255 / 100%);
+  color: #fff;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  background-color: rgb(186 181 181 / 16%);
+  margin-top: 29px;
+  min-height: 71px;
   font-family:
     Inter,
     -apple-system,
     Roboto,
     Helvetica,
     sans-serif;
-  color: #fff;
-  text-align: center;
   line-height: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .contact-button:hover {
-  background-color: rgba(186, 181, 181, 0.25);
+  background-color: rgb(186 181 181 / 25%);
 }
 
 .wishlist-button {
-  background-color: rgba(186, 181, 181, 0.16);
-  border: 1px solid rgba(255, 255, 255, 1);
   display: flex;
-  margin-top: 51px;
-  min-height: 70px;
+  justify-content: center;
+  align-items: center;
   width: 225px;
   padding: 20px 12px;
-  align-items: center;
+  border: 1px solid rgb(255 255 255 / 100%);
   font-size: 20px;
   text-align: center;
-  justify-content: center;
-  cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: rgb(186 181 181 / 16%);
+  margin-top: 51px;
+  min-height: 70px;
+  cursor: pointer;
 }
 
 .wishlist-button:hover {
-  background-color: rgba(186, 181, 181, 0.25);
+  background-color: rgb(186 181 181 / 25%);
 }
 
 .wishlist-icon {
@@ -331,8 +331,8 @@ nav ul li a {
 }
 
 .wishlist-text {
-  margin: auto 0;
   width: 175px;
+  margin: auto 0;
   color: #fff;
 }
 
@@ -349,34 +349,32 @@ nav ul li a {
 .contact-button,
 .wishlist-button {
   user-select: none;
-  -webkit-user-select: none;
+  user-select: none;
 }
 
 
 .artwork-details-bis {
     display: flex;
     flex-direction: column;
-   
-
     width: 100%;
   }
   
   .artwork-details-bis__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;  /* Permet de déplacer l'élément */
     top: -450px;         /* Déplacement vers le bas */
     left: 450px;       /* Déplacement vers la gauche */
     width: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   .artwork-details-bis__description {
     width: 100%;
     color: #fff;
-    text-align: center;
-    font-family: "Afacad", sans-serif;
     font-size: 20px;
+    text-align: center;
+    font-family: Afacad, sans-serif;
     line-height: 1.5;
     margin-bottom: 24px;
   }
@@ -389,27 +387,27 @@ nav ul li a {
   }
   
   .artwork-details-bis__ask-button {
-    color: #fff;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    line-height: 100%;
     width: 336px;
     height: 40px;
     border: 1px solid #fff;
-    background-color: rgba(186, 181, 181, 0.16);
-    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
     transition: background-color 0.3s ease;
+    font-family: Inter, sans-serif;
+    line-height: 100%;
+    background-color: rgb(186 181 181 / 16%);
+    cursor: pointer;
   }
   
   .artwork-details-bis__ask-button:hover {
-    background-color: rgba(186, 181, 181, 0.25);
+    background-color: rgb(186 181 181 / 25%);
   }
   
   .artwork-details-bis__share-title {
     color: #fff;
-    text-align: center;
-    font-family: "Afacad", sans-serif;
     font-size: 20px;
+    text-align: center;
+    font-family: Afacad, sans-serif;
     line-height: 1.5;
     margin-bottom: 16px;
   }
@@ -422,8 +420,8 @@ nav ul li a {
   
   .social-link {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     transition: opacity 0.3s ease;
   }
   
@@ -431,13 +429,13 @@ nav ul li a {
     opacity: 0.8;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artwork-details__container {
       width: 90%;
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .artwork-details__container {
       width: 95%;
     }
@@ -468,7 +466,7 @@ nav ul li a {
     font-size: 24px;
     text-align: center;
     margin-bottom: 40px;
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
   }
   
   .image-grid {
@@ -488,7 +486,7 @@ nav ul li a {
     object-fit: cover;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artwork-section {
       padding: 32px;
     }
@@ -499,7 +497,7 @@ nav ul li a {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .artwork-section {
       padding: 24px;
     }
@@ -510,27 +508,26 @@ nav ul li a {
   }
 
   .artist-profile {
-    position: relative; /* Important : pour que les enfants en absolute se positionnent par rapport à lui */
-    min-height: 100vh; /* Au moins la hauteur de l'écran */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative; /* Important : pour que les enfants en absolute se positionnent par rapport à lui */
+    min-height: 100vh; /* Au moins la hauteur de l'écran */
   }
   
   .artist-profile__container {
-    
-    gap: 20px;
-    position: absolute; /* Permet de positionner précisément */
-    bottom: -10%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centre précisément */
-    width: 100%; /* Ajustable selon tes besoins */
-    max-width: 1200px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: absolute; /* Permet de positionner précisément */
+    bottom: -10%;
+    left: 50%;
+    width: 100%; /* Ajustable selon tes besoins */
+    gap: 20px;
+    transform: translate(-50%, -50%); /* Centre précisément */
+    max-width: 1200px;
    
   }
   
@@ -562,33 +559,33 @@ nav ul li a {
   
   .artist-profile__content-wrapper {
     display: flex;
-    margin-top: -9px;
-    width: 100%;
-    padding-bottom: 7px;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    color: rgb(255 255 255 / 100%);
+    font-size: 20px;
+    margin-top: -9px;
+    padding-bottom: 7px;
     font-family:
       Afacad,
       -apple-system,
       Roboto,
       Helvetica,
       sans-serif;
-    font-size: 20px;
-    color: rgba(255, 255, 255, 1);
     font-weight: 400;
   }
   
   .artist-profile__header {
-    align-self: stretch;
     display: flex;
-    width: 100%;
-    padding-left: 25px;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    align-self: stretch;
+    padding-left: 25px;
   }
   
   .artist-profile__label {
-    color: rgba(116, 114, 114, 1);
+    color: rgb(116 114 114 / 100%);
     font-size: 24px;
     text-align: center;
     margin-left: 87px;
@@ -604,17 +601,17 @@ nav ul li a {
   
   .follow-button {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 12px;
+    border: none;
+    background: none;
+    color: rgb(255 255 255 / 100%);
+    text-align: center;
     margin-top: 113px;
     min-height: 64px;
-    padding: 17px 12px;
-    align-items: center;
     overflow: hidden;
-    text-align: center;
-    justify-content: center;
-    background: none;
-    border: none;
     cursor: pointer;
-    color: rgba(255, 255, 255, 1);
   }
   
   
@@ -631,7 +628,6 @@ nav ul li a {
   }
   
   .follow-button__text {
-
     margin-top: auto;
     margin-bottom: auto;
     width: 200px;
@@ -645,15 +641,15 @@ nav ul li a {
   }
   
   .interview-button {
+    padding: 12px;
+    border: none;
+    background: none;
+    color: rgb(255 255 255 / 100%);
+    font-size: 25px;
     align-self: stretch;
     margin-top: 39px;
-    padding: 12px;
     overflow: hidden;
-    background: none;
-    border: none;
     cursor: pointer;
-    color: rgba(255, 255, 255, 1);
-    font-size: 25px;
     font-family:
       Afacad,
       -apple-system,
@@ -664,15 +660,15 @@ nav ul li a {
   }
   
   .artist-profile__divider {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 1);
     z-index: 10;
-    margin: -8px 0 0 35px;
     width: 824px;
     height: 1px;
+    margin: -8px 0 0 35px;
+    border: none;
+    border-top: 1px solid rgb(255 255 255 / 100%);
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artist-profile__container {
       flex-direction: column;
       align-items: stretch;
@@ -731,45 +727,44 @@ nav ul li a {
       Roboto,
       Helvetica,
       sans-serif;
-    color: rgba(255, 255, 255, 1);
+    color: rgb(255 255 255 / 100%);
     font-weight: 400;
   }
   
   .product-actions__container {
-    background-color: rgba(50, 50, 50, 0.82);
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 25px 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: rgb(50 50 50 / 82%);
   }
   
   .product-actions__content {
     display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-items: center;
     width: 811px;
     max-width: 100%;
-    align-items: stretch;
     gap: 14px;
-    align-items: center;
-    justify-content: center;
   }
   
   .product-actions__title {
-    font-size: 32px;
-    text-align: center;
     align-items: center;
-    
-    flex-grow: 1;
-    flex-shrink: 1;
     width: 278px;
     margin: 0;
+    font-size: 32px;
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 1;
     font-weight: 400;
   }
   
   .product-actions__button {
-    background-color: rgba(186, 181, 181, 0.16);
-    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgb(186 181 181 / 16%);
+    border: 1px solid rgb(255 255 255 / 100%);
     color: #fff;
     cursor: pointer;
   }
@@ -791,12 +786,12 @@ nav ul li a {
   
   .product-actions__button--wishlist {
     display: flex;
-    min-height: 70px;
-    padding: 20px 12px;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 20px 12px;
     font-size: 20px;
     text-align: center;
+    min-height: 70px;
     overflow: hidden;
   }
   
@@ -811,12 +806,12 @@ nav ul li a {
   }
   
   .product-actions__wishlist-text {
-    align-self: stretch;
-    margin: auto 0;
     width: 175px;
+    margin: auto 0;
+    align-self: stretch;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .product-actions__container {
       max-width: 100%;
       padding-left: 20px;
@@ -826,10 +821,10 @@ nav ul li a {
 
 
 button {
-    background: transparent;
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 255, 255);
     padding: 8px 12px;
+    border: 1px solid rgb(255 255 255);
+    background: transparent;
+    color: rgb(255 255 255);
     cursor: pointer;
     
 }
@@ -849,9 +844,9 @@ button {
   
   .gallery-title {
     color: #fff;
+    font-size: 36px;
     text-align: center;
     font-family: Afacad;
-    font-size: 36px;
     font-weight: 400;
     margin-bottom: 60px;
   }
@@ -909,21 +904,21 @@ button {
   
   .artwork-title {
     color: #fff;
+    font-size: 36px;
     text-align: center;
     font-family: Afacad;
-    font-size: 36px;
     font-weight: 400;
   }
   
   .artwork-price {
     color: #fff;
+    font-size: 20px;
     text-align: center;
     font-family: Afacad;
-    font-size: 20px;
     font-weight: 400;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .gallery-container {
       padding-left: 40px;
       padding-right: 40px;
@@ -947,7 +942,7 @@ button {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .gallery-container {
       padding-left: 20px;
       padding-right: 20px;
@@ -965,51 +960,52 @@ button:hover {
 }
 
 h1 {
-    text-align: center;
-    margin-top: 5%;
+    color:#9d9d9d;
     font-size: 2.5em;
-    color:#9d9d9d
+    text-align: center;
+    margin-top: 5%
     
 }
+
 h2 {
+    font-size: 4em;
     text-align: center;
     margin-top: -2%;
-    font-size: 4em;
 }
 
 .sidebar  {
-    position: fixed;
-    top: 0;
-    left: 50%; 
-    transform: translateX(-50%); /* Centre la navbar horizontalement */
     display: flex;
     justify-content: center; /* Centre le contenu de la barre */
     align-items: center;     /* Centre les enfants verticalement */
+    position: fixed;
+    top: 0;
+    left: 50%;
     width: 100%;             /* Largeur 100% pour qu'elle prenne toute la largeur */
-    max-width: 1300px;       /* Largeur max pour les grands écrans */
     height: 80px;            /* Hauteur de la navbar */
-    padding: 0;
     margin: 0;
+    padding: 0; 
+    transform: translateX(-50%); /* Centre la navbar horizontalement */
+    max-width: 1300px;       /* Largeur max pour les grands écrans */
 }
 
 
 .links {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: space-between; /* Distribue les liens sur toute la largeur */
     align-items: center;
-    width: 100%; /* Augmente la largeur pour éviter que les liens se cassent */
-    max-width: 1800px; /* Augmente la largeur max */
-    height: 80px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.548);
-    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 50%;
     z-index: 9998;
-    padding: 0;
+    width: 100%; /* Augmente la largeur pour éviter que les liens se cassent */
+    height: 80px;
     margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 10px rgb(255 255 255 / 54.8%);
+    transform: translateX(-50%);
+    max-width: 1800px; /* Augmente la largeur max */
+    border-radius: 5px;
+    background-color: #000;
     list-style: none;
 }
 
@@ -1048,14 +1044,14 @@ h2 {
   .contact-btn,
   .wishlist-btn {
     width: 100%;
+    margin: 10px 0;
     padding: 12px;
     border: 1px solid #fff;
     color: #fff;
-    font-family: "Inter", sans-serif;
     font-size: 16px;
-    margin: 10px 0;
+    font-family: Inter, sans-serif;
     cursor: pointer;
-    background-color: rgba(186, 181, 181, 0.16);
+    background-color: rgb(186 181 181 / 16%);
   }
   
   .social-links {
@@ -1076,11 +1072,11 @@ h2 {
   }
   
   .purchase-details {
-    flex: 1;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px;
+    flex: 1;
     max-width: 380px;
     background-color: #222;
   }
@@ -1100,12 +1096,12 @@ h2 {
   }
   
   .benefits-list {
-    text-align: center;
-    font-size: 16px;
     margin: 20px 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: center;
     line-height: 1.5;
     list-style: none;
-    padding: 0;
   }
   
   .contact-btn {
@@ -1126,7 +1122,7 @@ h2 {
     height: 20px;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artwork-details {
       max-width: 991px;
       flex-direction: column;
@@ -1141,7 +1137,7 @@ h2 {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .artwork-details {
       max-width: 640px;
     }
@@ -1172,11 +1168,11 @@ h2 {
   }
   
   .testimonial-container {
-    text-align: center; /* Centre le texte horizontalement */
-    font-family: "Michroma", sans-serif;
-    color: white;
-    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     margin: auto; /* Centre le bloc */
+    color: white;
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: Michroma, sans-serif;
+    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     line-height: 1.5; /* Améliore la lisibilité */
 }
 
@@ -1194,29 +1190,29 @@ h2 {
 
 
 footer {
-   
-    background-color: black;
+    padding: 10px;
     color: white;
     text-align: center;
-    padding: 10px;
+    background-color: black;
   
 
 }
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
+
 .newsletter-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
     margin: 50px;
-    border-top: 1px solid rgb(255, 255, 255);
+    border-top: 1px solid rgb(255 255 255);
     margin-left: 0;
     margin-right: 0;
 }
@@ -1235,22 +1231,22 @@ footer {
 }
 
 .newsletter input {
-    background: black;
-    border: 1px solid white;
-    color: white;
-    padding: 10px;
     width: 250px;
+    padding: 10px;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
     margin-right: -5px; /* Supprime l'espace entre l'input et le bouton */
 }
 
 .newsletter button {
-    background: black;
-    border: 1px solid white;
-    color: white;
     padding: 10px 15px;
-    cursor: pointer;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .newsletter button:hover {
@@ -1263,23 +1259,23 @@ footer {
 }
 
 .footer-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 20%;
     height: 20%;
     margin-right: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin-left: 50px;
 }
 
 
 .info-banner {
-  width: 100%;
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 80px;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   background-color: #000;
@@ -1298,14 +1294,14 @@ footer {
 
 .info-banner_item {
   color: #fff;
-  text-align: center;
-  font-family: "Michroma", sans-serif;
   font-size: 12px;
+  text-align: center;
+  font-family: Michroma, sans-serif;
   font-weight: 400;
   max-width: 226px;
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .info-banner {
     height: auto;
   }
@@ -1321,7 +1317,7 @@ footer {
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .info-banner {
     height: auto;
   }
@@ -1340,7 +1336,6 @@ footer {
 
 
 .footer-links {
-     
         display: flex;
         gap: 60px;
        justify-content: center;
@@ -1351,15 +1346,15 @@ footer {
 .footer-column {
     display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
   gap: 12px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .footer-link {
-    font-size: 16px;
     color: #fff;
+    font-size: 16px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -1367,17 +1362,18 @@ footer {
 .footer-link:hover{
     text-decoration: underline;
 }
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .footer-links {
        width: 100%;
         gap: 40px;
     }
 }
-@media (max-width: 640px) {
+@media (width <= 640px) {
     .footer-links {
         flex-direction: column;
         gap: 64px;
     }
+
     .footer-column {
         align-items: center;
     }
@@ -1387,12 +1383,12 @@ footer {
 .footer-links_2 {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
     align-items: flex-start;
-    max-width: 70%;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
     padding: 50px;
+    gap: 60px;
+    max-width: 70%;
     
   }
   
@@ -1404,7 +1400,7 @@ footer {
   
   .legal-link {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 11px;
     font-weight: 400;
     line-height: 16px;
@@ -1419,7 +1415,7 @@ footer {
   
   .payment-text {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -1456,19 +1452,13 @@ footer {
   
   .contact-box-border {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
+    inset: 3px;
     border: 1px solid #fff;
   }
   
   .contact-box-border-outer {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border: 1px solid #fff;
   }
   
@@ -1479,7 +1469,7 @@ footer {
   
   .contact-title {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1487,7 +1477,7 @@ footer {
   
   .contact-subtitle {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1495,7 +1485,7 @@ footer {
   
   .contact-phone {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1503,12 +1493,12 @@ footer {
   
   .contact-hours {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 10px;
     font-weight: 400;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .footer-links {
       flex-wrap: wrap;
       gap: 30px;
@@ -1520,9 +1510,9 @@ footer {
     }
   
     .social-links {
-      order: 3;
-      width: 100%;
       justify-content: center;
+      width: 100%;
+      order: 3;
     }
   
     .contact-box {
@@ -1531,7 +1521,7 @@ footer {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .footer {
       padding: 20px;
     }

@@ -4,15 +4,16 @@
 
 
 body {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family: "Michroma", sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(0 0 0);
+    font-family: Michroma, sans-serif;
     min-height: 100vh;
 }
+
 body > header:nth-child(1) {
     height: 350px;
   }
@@ -27,58 +28,61 @@ header {
     
 
 }
+
 .header-border_1 {
-    width: 80%;       /* Largeur totale pour être responsive */
-    height: 5px;       /* Hauteur de la ligne */
     align-items: center;
-    border-top: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    width: 80%;       /* Largeur totale pour être responsive */
+    height: 5px;       /* Hauteur de la ligne */  
     margin: auto;
+    background: transparent;
+    border-top: 1px solid rgb(255 255 255); /* Deuxième ligne */
 }
+
 .header-border_2 {
-    width: 80%;       /* Largeur totale pour être responsive */
-    height: 5px;       /* Hauteur de la ligne */
     align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    width: 80%;       /* Largeur totale pour être responsive */
+    height: 5px;       /* Hauteur de la ligne */  
     margin: auto;
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */
 }
 
 .header-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     height: 100%;
    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  
     scale: 0.5;
     
 }
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 20px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid gray; /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid gray; /* Deuxième ligne */  
 }
 
 
 
 h1 {
-    text-align: center;
-    margin-top: 5%;
+    margin: 0; /* Réduit l'espace vertical */
     font-size: 2.5em;
-    margin: 0; /* Réduit l'espace vertical */
-}
-h2 {
     text-align: center;
     margin-top: 5%;
-    font-size: 3em;
-    margin: 0; /* Réduit l'espace vertical */
 }
+
+h2 {
+    margin: 0; /* Réduit l'espace vertical */
+    font-size: 3em;
+    text-align: center;
+    margin-top: 5%;
+}
+
 .artiste_header_p {
     color: #a1a1a1;
 }
@@ -92,30 +96,28 @@ h2 {
 }
 
 .artiste_header h1, .artiste_header h2, .artiste_header {
-   
-   
     display: flex;
     flex-direction: column;
-    gap: 0px; /* Ajuste l'espacement entre les éléments */
+    gap: 0; /* Ajuste l'espacement entre les éléments */
     text-align: center;
    
 }
 
 .artiste_photo {
-    width: 100%; /* Remplit la largeur du parent */
-    height: auto; /* Ajuste la hauteur en conséquence */
     display: flex;
     justify-content: center;
+    width: 100%; /* Remplit la largeur du parent */
+    height: auto; /* Ajuste la hauteur en conséquence */
     margin-top: 2%;
 }
 
 .separator_1 {
+    display: flex;
+    justify-content: center;
     width: 50%;
     height: 1px;
     background-color: white;
     margin-top: 2%;
-    display: flex;
-    justify-content: center;
     margin-left: 25%;
 }
 
@@ -129,69 +131,61 @@ h2 {
 }
 
 .h3_title {
-    background-color: #000000;
-    width: 600px;
-    text-align: center;
-    font-size: 2em;
     z-index: 9991;
+    width: 600px;
+    font-size: 2em;
+    text-align: center;
+    background-color: #000;
 }
 
 .separator_2 {
+    display: flex;
+    justify-content: center;
     width: 20%;
     height: 1px;
     background-color: white;
     margin-top: 2%;
-    display: flex;
-    justify-content: center;
    
 }
 
 .oeuvres-box {
     position: relative;
     width: 60%;
+    margin: auto;
     padding: 20px;
     text-align: center;
     margin-top: 5%;
-    margin: auto;
   }
   
   .oeuvres-box-border {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
+    inset: 5px;
     border: 1px solid #fff;
   }
   
   .oeuvres-box-border-outer {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border: 1px solid #fff;
   }
 
      /* BARRE NAV ET MENU HAMBURGER */
 
      .nav-simple {
-    
         display: flex;
-        margin-left: 13%;
         align-items: center;
-       
-        text-align: left;
         padding: 10px 0;
-        font-size: 1.2em;
-        background: rgba(0, 0, 0, 0);
+        background: rgb(0 0 0 / 0%);
         color: white;
+        font-size: 1.2em;
+        text-align: left;
+        margin-left: 13%;
     }
     
     .nav-simple a {
+        margin: 0 5px;
         color: white;
         text-decoration: none;
-        margin: 0 5px;
     }
     
     .nav-simple .current-page {
@@ -201,20 +195,20 @@ h2 {
     
     
     #menu {
-        list-style: none;
         display: none;
-        position: fixed; 
+        position: fixed;
+        top: 5%; 
         right: 100px;
-        top: 5%;
-        background: rgb(0, 0, 0);
         padding: 14px;
-        border-radius: 5px;
+        background: rgb(0 0 0);
         text-align: center;
+        list-style: none;
+        border-radius: 5px;
     }
     
     nav ul li {
-        padding: 10px 0;
         align-items: center;
+        padding: 10px 0;
     }
     
     nav ul li a {
@@ -223,67 +217,67 @@ h2 {
     }
     
     #menu-toggle {
-        font-size: 48px;
-        cursor: pointer;
-        display: flex;
-        padding: 10px;
-        border-bottom: 1px solid gray;  
+        display: flex;  
         position: fixed;
-        z-index: 9999;
         top: 0;  /* Ajuste selon la hauteur de ton header */
         right: 20px;
+        z-index: 9999;
+        padding: 10px;
         background: black;
+        font-size: 48px;
+        cursor: pointer;
+        border-bottom: 1px solid gray;
         border-radius: 5px;
     }
     
     button {
-        background: transparent;
-        color: rgb(255, 255, 255);
-        border: 1px solid rgb(255, 255, 255);
         padding: auto;
+        border: 1px solid rgb(255 255 255);
+        background: transparent;
+        color: rgb(255 255 255);
         cursor: pointer;
         margin-top: 10px;
     }
     
     button:hover {
-        background: rgb(163, 0, 0);
+        background: rgb(163 0 0);
         color: white;
     }
 
 .sidebar  {
-    position: fixed;
-    top: 0;
-    left: 50%; 
-    transform: translateX(-50%); /* Centre la navbar horizontalement */
     display: flex;
     justify-content: center; /* Centre le contenu de la barre */
     align-items: center;     /* Centre les enfants verticalement */
-    width: 100%;             /* Largeur 100% pour qu'elle prenne toute la largeur */
-    max-width: 1300px;       /* Largeur max pour les grands écrans */
-    height: 80px;            /* Hauteur de la navbar */
-    padding: 0;
-    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 50%;
     z-index: 9998;
+    width: 100%;             /* Largeur 100% pour qu'elle prenne toute la largeur */
+    height: 80px;            /* Hauteur de la navbar */
+    margin: 0;
+    padding: 0; 
+    transform: translateX(-50%); /* Centre la navbar horizontalement */
+    max-width: 1300px;       /* Largeur max pour les grands écrans */
 }
 
 
 .links {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: space-between; /* Distribue les liens sur toute la largeur */
     align-items: center;
-    width: 100%; /* Augmente la largeur pour éviter que les liens se cassent */
-    max-width: 1800px; /* Augmente la largeur max */
-    height: 80px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.548);
-    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 50%;
     z-index: 9998;
-    padding: 0;
+    width: 100%; /* Augmente la largeur pour éviter que les liens se cassent */
+    height: 80px;
     margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 10px rgb(255 255 255 / 54.8%);
+    transform: translateX(-50%);
+    max-width: 1800px; /* Augmente la largeur max */
+    border-radius: 5px;
+    background-color: #000;
     list-style: none;
 }
 
@@ -308,11 +302,11 @@ h2 {
 
 .artiste_oeuvres {
     display: grid;
+    margin: auto;
+    padding: 20px;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 50px;
-    padding: 20px;
     max-width: 1200px;
-    margin: auto;
     
 }
 
@@ -321,25 +315,25 @@ h2 {
     flex-direction: column;
     justify-content: space-between; /* Répartit le contenu */
     align-items: center;
-    background: #000000;
-    padding: 15px;
-    border-radius: 8px;
-    height: 100%; /* Garde toutes les cartes de la même hauteur */
     position: relative;
+    height: 100%; /* Garde toutes les cartes de la même hauteur */
+    padding: 15px;
+    background: #000;
+    border-radius: 8px;
 }
 
 
-.artiste_items img {
-    width: 100%;    
+.artiste_items img {    
     justify-content: center;
+    width: 100%;
     object-fit: cover;
     margin-top: auto;
 }
+
 .artiste_items .info {
     display: grid;
     flex-direction: column;
-    justify-items: center;
-    align-items: center; /* Centre les éléments horizontalement */
+    place-items: center center; /* Centre les éléments horizontalement */
     
     width: 100%;
     margin-top: auto; /* Pousse la div en bas */
@@ -349,18 +343,17 @@ h2 {
 
 
 .body_bio {
-        background-color: #000000;
-        color: #fff;
         position: relative;
     width: 60%;
-    text-align: center;
-   
     margin: 5% auto;
+        color: #fff;
+    text-align: center;
+        background-color: #000;
 }
+
 .artist-profile {
     width: 1574.2px;
-    
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
   }
 
 
@@ -380,35 +373,35 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     margin: 0;
+    color: #000;
     font-size: 12px;
     line-height: 0;
-    color: #000;
     
   }
 
   .follow-button {
     width: 504px;
     height: 30px;
+    padding: auto;
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
-    font-family: "Roboto", sans-serif;
     font-size: 14px;
+    text-transform: uppercase;
+    font-family: Roboto, sans-serif;
     font-weight: 500;
     cursor: pointer;
-    text-transform: uppercase;
-    padding: auto;
     margin-top: 15px;
   }
 
   .biography-section {
+    align-items: left;
     width: 678px;
     color: #fff;
     font-size: 12px;
     line-height: 1.5;
     margin-left: 790px;
     margin-top: -250px;
-    align-items: left;
   }
 
   .biography-p {
@@ -417,11 +410,12 @@ h2 {
    white-space: pre-line;
   
   }
+
   .exhibitions-title {
-    font-size: 12px;
     margin: 20px 0;
-    text-transform: uppercase;
+    font-size: 12px;
     text-align: left;
+    text-transform: uppercase;
   }
 
   .exhibition-item {
@@ -435,15 +429,14 @@ h2 {
   }
 
   .artist-image {
+    display: block;
     width: 1078px;
     height: 719px;
-    object-fit: cover;
     margin: 100px auto;
-   
-    display: block;
+    object-fit: cover;
   }
 
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artist-profile {
       padding: 15px;
     }
@@ -475,7 +468,7 @@ h2 {
     }
   }
 
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .bio-section {
       padding: 20px;
     }
@@ -485,8 +478,8 @@ h2 {
     }
 
     .follow-button {
-      font-size: 12px;
       height: 40px;
+      font-size: 12px;
     }
 
     .biography-section {
@@ -498,20 +491,20 @@ h2 {
   /* INTERVIEW */
 
   .interview-container {
-    width: 1534.2px;
-    padding: 0;
     position: relative;
+    width: 1534.2px;
     margin: 0 auto;
+    padding: 0;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .interview-container {
       width: 100%;
       padding: 0 20px;
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .interview-container {
       padding: 0 16px;
     }
@@ -522,17 +515,17 @@ h2 {
     justify-content: center;
     width: 200px;
     height: 25px;
+    margin: auto;
     color: #fff;
+    font-size: 14px;
     text-align: center;
     font-family: Roboto, sans-serif;
-    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     opacity: 0.5;
-    margin: auto;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .interview-header {
       width: 100%;
     }
@@ -541,23 +534,23 @@ h2 {
   .interview-title {
     width: 500px;
     height: 50px;
+    margin: 17px auto 22px;
     color: #fff;
+    font-size: 32px;
     text-align: center;
     font-family: Inter, sans-serif;
-    font-size: 32px;
     font-weight: 400;
     line-height: 120%;
-    margin: 17px auto 22px;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .interview-title {
       width: 100%;
       font-size: 28px;
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .interview-title {
       font-size: 24px;
     }
@@ -566,11 +559,11 @@ h2 {
   .interview-content {
     width: 715px;
     margin: 0 auto;
-    text-align: center;
     color: #fff;
+    text-align: center;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .interview-content {
       width: 100%;
       max-width: 715px;
@@ -578,16 +571,15 @@ h2 {
   }
   
   .question {
-    font-family: Roboto, sans-serif;
+    color: #aaa;
     font-size: 18px;
-    font-weight: 400;
+    font-family: Roboto, sans-serif;
     line-height: 16px;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #aaaaaa;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .question {
       font-size: 13px;
     }
@@ -602,7 +594,7 @@ h2 {
     margin-bottom: 16px;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .answer {
       font-size: 10px;
     }
@@ -630,11 +622,11 @@ h2 {
   }
   
   .testimonial-container {
-    text-align: center; /* Centre le texte horizontalement */
-    font-family: "Michroma", sans-serif;
-    color: white;
-    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     margin: auto; /* Centre le bloc */
+    color: white;
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: Michroma, sans-serif;
+    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     line-height: 1.5; /* Améliore la lisibilité */
 }
 
@@ -652,29 +644,29 @@ h2 {
 
 
 footer {
-   
-    background-color: black;
+    padding: 10px;
     color: white;
     text-align: center;
-    padding: 10px;
+    background-color: black;
   
 
 }
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
+
 .newsletter-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
     margin: 50px;
-    border-top: 1px solid rgb(255, 255, 255);
+    border-top: 1px solid rgb(255 255 255);
     margin-left: 0;
     margin-right: 0;
 }
@@ -693,22 +685,22 @@ footer {
 }
 
 .newsletter input {
-    background: black;
-    border: 1px solid white;
-    color: white;
-    padding: 10px;
     width: 250px;
+    padding: 10px;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
     margin-right: -5px; /* Supprime l'espace entre l'input et le bouton */
 }
 
 .newsletter button {
-    background: black;
-    border: 1px solid white;
-    color: white;
     padding: 10px 15px;
-    cursor: pointer;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .newsletter button:hover {
@@ -721,23 +713,23 @@ footer {
 }
 
 .footer-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 20%;
     height: 20%;
     margin-right: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin-left: 50px;
 }
 
 
 .info-banner {
-  width: 100%;
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 80px;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   background-color: #000;
@@ -756,14 +748,14 @@ footer {
 
 .info-banner_item {
   color: #fff;
-  text-align: center;
-  font-family: "Michroma", sans-serif;
   font-size: 12px;
+  text-align: center;
+  font-family: Michroma, sans-serif;
   font-weight: 400;
   max-width: 226px;
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .info-banner {
     height: auto;
   }
@@ -779,7 +771,7 @@ footer {
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .info-banner {
     height: auto;
   }
@@ -798,7 +790,6 @@ footer {
 
 
 .footer-links {
-     
         display: flex;
         gap: 60px;
        justify-content: center;
@@ -809,15 +800,15 @@ footer {
 .footer-column {
     display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
   gap: 12px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .footer-link {
-    font-size: 16px;
     color: #fff;
+    font-size: 16px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -825,17 +816,18 @@ footer {
 .footer-link:hover{
     text-decoration: underline;
 }
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .footer-links {
        width: 100%;
         gap: 40px;
     }
 }
-@media (max-width: 640px) {
+@media (width <= 640px) {
     .footer-links {
         flex-direction: column;
         gap: 64px;
     }
+
     .footer-column {
         align-items: center;
     }
@@ -845,12 +837,12 @@ footer {
 .footer-links_2 {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
     align-items: flex-start;
-    max-width: 70%;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
     padding: 50px;
+    gap: 60px;
+    max-width: 70%;
     
   }
   
@@ -862,7 +854,7 @@ footer {
   
   .legal-link {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 11px;
     font-weight: 400;
     line-height: 16px;
@@ -877,7 +869,7 @@ footer {
   
   .payment-text {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -914,19 +906,13 @@ footer {
   
   .contact-box-border {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
+    inset: 3px;
     border: 1px solid #fff;
   }
   
   .contact-box-border-outer {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border: 1px solid #fff;
   }
   
@@ -937,7 +923,7 @@ footer {
   
   .contact-title {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -945,7 +931,7 @@ footer {
   
   .contact-subtitle {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -953,7 +939,7 @@ footer {
   
   .contact-phone {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -961,12 +947,12 @@ footer {
   
   .contact-hours {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 10px;
     font-weight: 400;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .footer-links {
       flex-wrap: wrap;
       gap: 30px;
@@ -978,9 +964,9 @@ footer {
     }
   
     .social-links {
-      order: 3;
-      width: 100%;
       justify-content: center;
+      width: 100%;
+      order: 3;
     }
   
     .contact-box {
@@ -989,7 +975,7 @@ footer {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .footer {
       padding: 20px;
     }

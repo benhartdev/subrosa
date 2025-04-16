@@ -2,24 +2,23 @@
 
 
 .contact-container {
-  
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Michroma", sans-serif;
+  color: rgb(255 255 255 / 100%);
   font-size: 16px;
-  color: rgba(255, 255, 255, 1);
+  font-family: Michroma, sans-serif;
   font-weight: 400;
 }
 
 .contact-title {
+  margin: 30px 0 0;
   font-size: 64px;
   text-align: center;
-  border-color: rgba(0, 0, 0, 1);
+  border-color: rgb(0 0 0 / 100%);
   border-style: solid;
   border-width: 1px;
-  margin: 30px 0 0 0;
-  font-family: "Michroma", sans-serif;
+  font-family: Michroma, sans-serif;
 }
 
 .contact-info {
@@ -34,17 +33,16 @@
 }
 
 .contact-form {
-
-  background-color: rgb(0, 0, 0);
-  border: 1px solid rgba(68, 68, 68, 1);
-  min-width: 320px;
-  margin: 67px 0 200px 0;
-  min-height: 315px;
   width: 718px;
-  max-width: 100%;
+  margin: 67px 0 200px;
   padding: 22px 24px;
-  font-family: "Michroma", sans-serif;
-  color: #ffffff;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(0 0 0);
+  min-width: 320px;
+  min-height: 315px;
+  max-width: 100%;
+  font-family: Michroma, sans-serif;
   line-height: 1;
 }
 
@@ -59,13 +57,12 @@
 }
 
 .form-input {
- 
-  background-color: rgba(30, 30, 30, 1);
-  border: 1px solid rgba(68, 68, 68, 1);
-  min-width: 240px;
   width: 100%;
   padding: 12px 16px;
-  color: #ffffff;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(30 30 30 / 100%);
+  min-width: 240px;
   font-family: inherit;
   box-sizing: border-box;
 }
@@ -78,63 +75,62 @@
 }
 
 .textarea-wrapper {
-  position: relative;
   display: flex;
-  min-height: 80px;
+  position: relative;
   width: 100%;
+  min-height: 80px;
 }
 
 .form-textarea {
-
-  background-color: rgba(30, 30, 30, 1);
-  border: 1px solid rgba(68, 68, 68, 1);
-  min-width: 240px;
   width: 100%;
   padding: 12px 16px;
-  color: #ffffff;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(30 30 30 / 100%);
+  min-width: 240px;
   font-family: inherit;
   resize: vertical;
 }
 
 .textarea-icon {
-  aspect-ratio: 1;
-  object-fit: contain;
-  object-position: center;
-  width: 7px;
   position: absolute;
   right: 5px;
   bottom: 6px;
+  width: 7px;
   height: 7px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
 }
 
 .button-group {
   display: flex;
-  margin-top: 24px;
-  width: 100%;
   align-items: center;
+  width: 100%;
+  margin-top: 24px;
   gap: 16px;
 }
 
 .submit-button {
-  align-self: stretch;
-  background-color: rgba(245, 245, 245, 1);
-  border: 1px solid rgba(245, 245, 245, 1);
-  min-width: 240px;
   width: 100%;
   padding: 12px;
+  border: 1px solid rgb(245 245 245 / 100%);
   color: #1e1e1e;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  align-self: stretch;
+  background-color: rgb(245 245 245 / 100%);
+  min-width: 240px;
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  text-align: center;
 }
 
 .submit-button:hover {
-  background-color: rgba(225, 225, 225, 1);
+  background-color: rgb(225 225 225 / 100%);
 }
 
 /* Tablet Devices */
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .contact-container {
     padding: 0 20px;
   }
@@ -144,10 +140,10 @@
   }
 
   .contact-title {
+    padding: 15px;
+    font-size: 40px;
     max-width: 100%;
     margin-top: 40px;
-    font-size: 40px;
-    padding: 15px;
   }
 
   .contact-info {
@@ -158,9 +154,9 @@
   }
 
   .contact-form {
+    width: 100%;
     padding: 20px;
     margin-top: 40px;
-    width: 100%;
   }
 
   .input-field,
@@ -182,15 +178,15 @@
 }
 
 /* Mobile Devices */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .contact-container {
     padding: 0 15px;
   }
 
   .contact-title {
+    padding: 10px;
     font-size: 32px;
     margin-top: 30px;
-    padding: 10px;
   }
 
   .contact-info {
@@ -207,8 +203,8 @@
 
   .form-input,
   .form-textarea {
-    font-size: 16px; /* Prevent zoom on iOS */
     padding: 10px 12px;
+    font-size: 16px; /* Prevent zoom on iOS */
   }
 
   .textarea-field {
@@ -221,7 +217,7 @@
 }
 
 /* Small Mobile Devices */
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .contact-title {
     font-size: 28px;
     margin-top: 25px;

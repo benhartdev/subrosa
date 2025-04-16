@@ -1,26 +1,26 @@
 .pending-container {
+    height: auto;
+    margin: auto;
     padding: 20px;
     color: white;
     max-width: 1000px;
-    margin: auto;
-    height: auto;
   }
   
   h1 {
+    margin: auto;
+    color: fuchsia;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
-    color: fuchsia;
-    margin: auto;
   }
   
   .table-wrapper {
+    padding: 10px;
+    border: 1px solid #90c;
+    box-shadow: 0 0 10px rgb(255 0 255 / 30%);
     max-height: none;
     overflow:visible;
-    border: 1px solid #9900cc;
     border-radius: 6px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
   }
   
   .pending-table {
@@ -32,26 +32,26 @@
   
   .pending-table th,
   .pending-table td {
-    border: 1px solid #9900cc;
     padding: 8px 12px;
+    border: 1px solid #90c;
     text-align: center;
   }
   
   .validate-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
     padding: 6px 12px;
+    border: none;
+    color: white;
+    background-color: #28a745;
     margin-right: 5px;
     cursor: pointer;
     border-radius: 4px;
   }
   
   .reject-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
     padding: 6px 12px;
+    border: none;
+    color: white;
+    background-color: #dc3545;
     cursor: pointer;
     border-radius: 4px;
   }

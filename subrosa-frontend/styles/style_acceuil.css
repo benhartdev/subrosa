@@ -4,14 +4,14 @@
 
 
 
-Body {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family: "Michroma", sans-serif;
-    margin: 0;
-    padding: 0;
+body {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(0 0 0);
+    font-family: Michroma, sans-serif;
     min-height: 100vh;
 }
 
@@ -21,26 +21,26 @@ Body {
 
 
 .header-border_1 {
+    align-items: center;
     width: 22%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-top: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-top: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
+
 .header-border_2 {
+    align-items: center;
     width: 20%;       /* Largeur totale pour être responsive */
     height: 7px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
 
 .header-svg {
-  
+    position: relative; /* Permet de le positionner librement */
+   z-index: 9995;
   width: 900px !important; /* Force une largeur correcte */
   height: auto !important;
-   z-index: 9995;
-    position: relative; /* Permet de le positionner librement */
     margin: auto;
     margin-top: 2em;
    
@@ -49,11 +49,11 @@ Body {
 
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 20px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid gray; /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid gray; /* Deuxième ligne */  
 }
 
 
@@ -62,42 +62,42 @@ Body {
 
 /* Bouton hamburger */
 #menu-toggle {
-  font-size: 30px;
-  cursor: pointer;
   display: flex;
-  padding: 10px;
-  border-bottom: 1px solid rgb(255, 255, 255); 
-  background: black;
-  color: white;
-  border-radius: 5px;
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 10000;
+  padding: 10px; 
+  background: black;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(255 255 255);
+  border-radius: 5px;
  
 }
 
 /* Menu */
 #menu {
-  list-style: none;
   position: fixed;
-  right: 80px;
   top: 70px;
-  background-color: rgb(0, 0, 0);
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  right: 80px;
   z-index: 9999;
-  border: 1px solid rgb(255, 255, 255);
-  color: #ffffff;
+  padding: 10px;
+  border: 1px solid rgb(255 255 255);
+  color: #fff;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  list-style: none;
+  background-color: rgb(0 0 0);
+  border-radius: 5px;
 }
 
 #menu li a {
-  text-decoration: none;
+  padding: 10px;
   color: white;
   font-size: 18px;
   transition: color 0.3s;
-  padding: 10px;
+  text-decoration: none;
 }
 
 #menu li a:hover {
@@ -135,15 +135,15 @@ Body {
 } */
 
 h1 {
+    font-size: 5em;
     text-align: center;
     margin-top: 5%;
-    font-size: 5em;
     margin-left: 5%
 }
 
 
 .head-container {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     position: relative;
     width: 100%;
     max-width: 2500px; /* Ajuste selon ton besoin */
@@ -151,44 +151,45 @@ h1 {
 }
 
 .head-container img {
-    width: 100%;
-    height: auto;
     display: block;
     z-index: 1;
+    width: 100%;
+    height: auto;
 }
 
 .texte-superpose {
     position: absolute;
     top: 30%; /* Positionnement vertical */
     left: 50%; /* Positionnement horizontal */
-    transform: translate(-50%, -50%); /* Centre parfaitement */
+    padding: 10px 20px;
     color: white;
     font-size: 4em;
     text-align: center;
-    padding: 10px 20px;
+    transform: translate(-50%, -50%); /* Centre parfaitement */
     border-radius: 8px;
 }
 
 .discover-artist {
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(255, 255, 255);
-    padding: 12px 24px;
-    cursor: pointer;
-    font-family: "Michroma", sans-serif;
-    text-transform: uppercase;
     display: flex;
     justify-content: center; /* Centre le contenu de la barre */
     align-items: center;
     position: absolute;
     top: 45%; /* Positionnement vertical */
     left: 50%; /* Positionnement horizontal */
-    transform: translate(-50%, -50%); /* Centre parfaitement */
+    padding: 12px 24px;
+    border: 1px solid rgb(255 255 255);
+    background: rgb(255 255 255);
+    color: rgb(0 0 0);
    font-size: 1.4em;
+    text-transform: uppercase;
    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-family: Michroma, sans-serif;
+    transform: translate(-50%, -50%); /* Centre parfaitement */
 }
+
 .discover-artist:hover {
-    background: rgb(133, 133, 133);
+    background: rgb(133 133 133);
     color: black;
 }
 
@@ -203,59 +204,58 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    
     z-index: 9995;
+    text-align: center;
     margin-top: -35%; /* Remonte légèrement les filtres */
   }
   
   .gallery-content {
-    text-align: center;
-    color: #fff;
     z-index: 9995;
+    color: #fff;
+    text-align: center;
   }
   
   .gallery-title {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 9995;
+    margin: 0;
+    padding: 0;
   }
   
   .gallery-name {
-    font-family: "Michroma", sans-serif;
-    font-size: 36px;
-    font-weight: 400;
     display: block;
     z-index: 9995;
+    font-size: 36px;
+    font-family: Michroma, sans-serif;
+    font-weight: 400;
   }
   
   .gallery-separator {
-    font-family: "Protest Revolution", sans-serif;
-    font-size: 48px;
     display: block;
     z-index: 9995;
+    font-size: 48px;
+    font-family: "Protest Revolution", sans-serif;
   }
   
   .gallery-brand {
-    font-family: "Protest Revolution", sans-serif;
-    font-size: 74px;
-    line-height: 1.2;
     display: block;
     z-index: 9995;
+    font-size: 74px;
+    font-family: "Protest Revolution", sans-serif;
+    line-height: 1.2;
   }
   
   .gallery-subtitle {
-    font-family: "Michroma", sans-serif;
-    font-size: 48px;
-    font-weight: 400;
-    margin: 0;
     z-index: 9995;
+    margin: 0;
+    font-size: 48px;
+    font-family: Michroma, sans-serif;
+    font-weight: 400;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .gallery-header {
       width: 100%;
       height: auto;
@@ -275,7 +275,7 @@ h1 {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .gallery-header {
       padding: 16px;
     }
@@ -298,12 +298,12 @@ h1 {
     display: flex;
     justify-content: center; /* Centre la barre horizontalement */
     align-items: center; /* Centre verticalement */
-    flex-wrap: wrap; /* Permet de s'adapter en responsive */
-    width: 100%; /* Assure que le conteneur prenne toute la largeur */
-    margin-top: 30px; /* Ajuste l'espace au-dessus */
-    text-align: center;
+    position: relative;
     z-index: 9995;
-    position: relative
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    text-align: center;
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    margin-top: 30px /* Ajuste l'espace au-dessus */
   }
   
   /* Newsletter Button */
@@ -311,34 +311,34 @@ h1 {
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    text-align: center;
+    position: relative;
+    z-index: 9995;
     width: auto; /* Ajuste selon le contenu */
     padding: 12px 24px; /* Ajuste la taille */
     border: 2px solid white;
     background: transparent;
     color: white;
     font-size: 1.2em;
+    text-align: center;
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    font-family: "Michroma", sans-serif;
-    z-index: 9995;
-    position: relative
+    font-family: Michroma, sans-serif
   }
   
   .newsletter-button__text {
-    align-self: stretch;
-    width: 100%;
-    padding: 10px 24px;
-    gap: 8px;
+    position: relative;
     z-index: 9995;
+    width: 100%;
     height: 100%;
-    font-family: "Michroma", sans-serif;
-    position: relative
+    padding: 10px 24px;
+    align-self: stretch;
+    gap: 8px;
+    font-family: Michroma, sans-serif
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .newsletter-button__text {
       padding: 10px 20px;
     }
@@ -349,14 +349,14 @@ h1 {
     display: flex;
     justify-content: center; /* Centre la barre horizontalement */
     align-items: center; /* Centre verticalement */
-    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    position: relative;
     width: 100%; /* Assure que le conteneur prenne toute la largeur */
-    margin-top: 30px; /* Ajuste l'espace au-dessus */
     text-align: center;
-    position: relative
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    margin-top: 30px /* Ajuste l'espace au-dessus */
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .category-filters {
       max-width: 100%;
       margin-top: 40px;
@@ -365,33 +365,29 @@ h1 {
   
   /* Category Buttons */
   .category-button {
-    background-color: transparent;
-    border: 1px solid #ffffff;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    padding: 15px 30px; /* Espacement uniforme autour du texte */
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
     min-height: 30px;
     min-width: 150px; /* Définit une largeur minimale */
-    padding: 10px;
-    flex-direction: column;
-    
-    justify-content: center;
-    color: #ffffff;
     cursor: pointer;
     white-space: nowrap;
-   
-    padding: 15px 30px; /* Espacement uniforme autour du texte */
   }
   
   .category-button__text {
-    justify-content: center;
-    width: 100%;
-   
-    
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100%;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .category-button {
       white-space: initial;
     }
@@ -403,10 +399,10 @@ h1 {
   
   /* Surprise Text */
   .surprise-text {
+    width: 243px;
     color: #fff;
     line-height: 20px;
     margin-top: 25px;
-    width: 243px;
   }
 
   .featured-section {
@@ -417,15 +413,15 @@ h1 {
   }
   
   .featured-header {
-    z-index: 10;
     display: flex;
-    margin-top: 0;
     align-items: start;
-    gap: 5px;
+    z-index: 10;
+    color: rgb(255 255 255 / 100%);
     font-size: 24px;
-    color: rgba(255, 255, 255, 1);
-    font-weight: 400;
     text-align: center;
+    margin-top: 0;
+    gap: 5px;
+    font-weight: 400;
     flex-wrap: wrap;
   }
   
@@ -440,21 +436,21 @@ h1 {
   }
   
   .featured-title {
+    width: 496px;
+    margin: 0;
+    font-size: 24px;
     align-self: stretch;
     flex-grow: 1;
     flex-shrink: 1;
-    width: 496px;
-    font-size: 24px;
-    margin: 0;
   }
   
   .featured-content {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centre le contenu horizontalement */
     justify-content: center; /* Centre verticalement */
-    margin: auto;
+    align-items: center;  /* Centre le contenu horizontalement */
     width: 100%;
+    margin: auto;
     max-width: 1200px; /* Largeur maximale pour éviter que ça déborde */
   }
   
@@ -479,8 +475,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centre tout horizontalement */
-    text-align: center; /* Centre le texte */
     width: 100%;
+    text-align: center; /* Centre le texte */
   }
   
  
@@ -502,7 +498,6 @@ h1 {
 }
 
 .info h5 {
-    
     margin-bottom: 15px; /* Éloigne un peu plus le prix */
 }
 
@@ -518,7 +513,7 @@ h1 {
     
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .featured-title {
       max-width: 100%;
     }
@@ -550,26 +545,26 @@ h1 {
   }
   
   .artist-container {
+    display: flex;
+    justify-content: center;
+    color: #fff;
     max-width: none;
     margin-left: auto;
     margin-right: auto;
-    color: #fff;
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     background-color: #000;
-    display: flex;
-    justify-content: center;
     gap: 50px; /* Ajoute un espace entre les images */
     flex-wrap: wrap; /* Permet l’adaptation en responsive */
     margin-top: 100px;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .main-container {
       max-width: 991px;
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .main-container {
       max-width: 640px;
     }
@@ -578,7 +573,7 @@ h1 {
   /* Artists Section */
   
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .artists-section {
       padding: 30px 20px;
     }
@@ -590,29 +585,27 @@ h1 {
   }
   
   .section-title {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 16px;
     margin-bottom: 10px;
   }
   
   .section-subtitle {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 36px;
   }
   
   .artists-grid {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
     gap: 40px;
     width: 1200px; /* Augmente la taille des images */
-    
     max-width: none; /* Évite les restrictions de taille */
     margin-bottom: 20px; /* Ajoute un espace sous les artistes pour éviter le chevauchement */
     
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artists-grid {
       flex-wrap: wrap;
       gap: 20px;
@@ -624,13 +617,13 @@ h1 {
     width: 100%;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .artist-card {
       width: calc(50% - 10px);
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .artist-card {
       width: 100%;
     }
@@ -668,16 +661,16 @@ h1 {
 }
 
 .view-all-btn {
-    background: rgb(255, 255, 255);
-    color: black;
-    border: 2px solid white;
+    display: inline-block;
     padding: 15px 30px;
+    border: 2px solid white;
+    background: rgb(255 255 255);
+    color: black;
     font-size: 1.2em;
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
     margin-top: 50px; /* Supprime l’espace inutile au-dessus */
 }
  
@@ -689,24 +682,24 @@ h1 {
   }
   
   .magazine-title {
-    font-family: "Protest Revolution", sans-serif;
+    color: #fff;
     font-size: 48px;
-    color: #ffffff;
+    font-family: "Protest Revolution", sans-serif;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .magazine-title {
       font-size: 36px;
     }
   }
   
   .magazine-subtitle {
-    font-family: "Michroma", sans-serif;
+    color: #fff;
     font-size: 24px;
-    color: #ffffff;
+    font-family: Michroma, sans-serif;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .magazine-subtitle {
       font-size: 18px;
     }
@@ -720,7 +713,7 @@ h1 {
     width: 100%;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .magazine-grid {
       flex-direction: column;
       align-items: center;
@@ -731,10 +724,10 @@ h1 {
     width: 800px;
     height: 800px;
     border: 1px solid #fff;
-    background-color: rgba(247, 242, 250, 0);
+    background-color: rgb(247 242 250 / 0%);
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .magazine-card {
       width: 90%;
     }
@@ -785,24 +778,24 @@ h1 {
   }
   
   .read-more {
+    display: block;
     padding: 10px 24px;
     border: 1px solid #fff;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: right;
-    display: block;
     color: #fff;
+    font-size: 14px;
+    text-align: right;
+    font-weight: 500;
     text-decoration: none;
     margin-bottom: 20px;
   }
   
   /* Concept Section */
   .concept-section {
+   width: 1323px;
+   margin: auto;
     padding: 60px 0;
     text-align: center;
     background-color: #1a1717;
-   width: 1323px;
-   margin: auto;
   }
   
   .concept-content {
@@ -811,49 +804,49 @@ h1 {
   }
   
   .concept-title {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 12px;
     margin-bottom: 20px;
   }
   
   .concept-heading {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 20px;
     margin-bottom: 20px;
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .concept-heading {
       font-size: 16px;
     }
   }
   
   .concept-subtitle {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 12px;
     margin-bottom: 10px;
   }
   
   .concept-description {
-    font-family: "Michroma", sans-serif;
+    font-family: Michroma, sans-serif;
     font-size: 10px;
     margin-bottom: 30px;
   }
   
   .learn-more-btn {
     padding: 10px 24px;
+    border: none;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
     background-color: #000;
-    border: none;
     cursor: pointer;
   }
   
   /* Reviews Section */
   .reviews-section {
     padding: 40px 0;
-    background-color: #000000;
+    background-color: #000;
   }
   
   .reviews-svg {
@@ -862,11 +855,11 @@ h1 {
   }
   
   .testimonial-container {
-    text-align: center; /* Centre le texte horizontalement */
-    font-family: "Michroma", sans-serif;
-    color: white;
-    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     margin: auto; /* Centre le bloc */
+    color: white;
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: Michroma, sans-serif;
+    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
     line-height: 1.5; /* Améliore la lisibilité */
 }
 
@@ -884,29 +877,29 @@ h1 {
 
 
 footer {
-   
-    background-color: black;
+    padding: 10px;
     color: white;
     text-align: center;
-    padding: 10px;
+    background-color: black;
   
 
 }
 
 .footer-border_5 {
+    align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
     height: 5px;       /* Hauteur de la ligne */
-    align-items: center;
-    border-bottom: 1px solid rgb(255, 255, 255); /* Deuxième ligne */
-    background: transparent;  
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
+
 .newsletter-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
     margin: 50px;
-    border-top: 1px solid rgb(255, 255, 255);
+    border-top: 1px solid rgb(255 255 255);
     margin-left: 0;
     margin-right: 0;
 }
@@ -925,22 +918,22 @@ footer {
 }
 
 .newsletter input {
-    background: black;
-    border: 1px solid white;
-    color: white;
-    padding: 10px;
     width: 250px;
+    padding: 10px;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
     margin-right: -5px; /* Supprime l'espace entre l'input et le bouton */
 }
 
 .newsletter button {
-    background: black;
-    border: 1px solid white;
-    color: white;
     padding: 10px 15px;
-    cursor: pointer;
+    border: 1px solid white;
+    background: black;
+    color: white;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .newsletter button:hover {
@@ -953,23 +946,23 @@ footer {
 }
 
 .footer-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 20%;
     height: 20%;
     margin-right: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin-left: 50px;
 }
 
 
 .info-banner {
-  width: 100%;
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 80px;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   background-color: #000;
@@ -988,14 +981,14 @@ footer {
 
 .info-banner_item {
   color: #fff;
-  text-align: center;
-  font-family: "Michroma", sans-serif;
   font-size: 12px;
+  text-align: center;
+  font-family: Michroma, sans-serif;
   font-weight: 400;
   max-width: 226px;
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .info-banner {
     height: auto;
   }
@@ -1011,7 +1004,7 @@ footer {
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .info-banner {
     height: auto;
   }
@@ -1030,7 +1023,6 @@ footer {
 
 
 .footer-links {
-     
         display: flex;
         gap: 60px;
        justify-content: center;
@@ -1041,15 +1033,15 @@ footer {
 .footer-column {
     display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
   gap: 12px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .footer-link {
-    font-size: 16px;
     color: #fff;
+    font-size: 16px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -1057,17 +1049,18 @@ footer {
 .footer-link:hover{
     text-decoration: underline;
 }
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .footer-links {
        width: 100%;
         gap: 40px;
     }
 }
-@media (max-width: 640px) {
+@media (width <= 640px) {
     .footer-links {
         flex-direction: column;
         gap: 64px;
     }
+
     .footer-column {
         align-items: center;
     }
@@ -1077,12 +1070,12 @@ footer {
 .footer-links_2 {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
     align-items: flex-start;
-    max-width: 70%;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
     padding: 50px;
+    gap: 60px;
+    max-width: 70%;
     
   }
   
@@ -1094,7 +1087,7 @@ footer {
   
   .legal-link {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 11px;
     font-weight: 400;
     line-height: 16px;
@@ -1109,7 +1102,7 @@ footer {
   
   .payment-text {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -1146,19 +1139,13 @@ footer {
   
   .contact-box-border {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
+    inset: 3px;
     border: 1px solid #fff;
   }
   
   .contact-box-border-outer {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border: 1px solid #fff;
   }
   
@@ -1169,7 +1156,7 @@ footer {
   
   .contact-title {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1177,7 +1164,7 @@ footer {
   
   .contact-subtitle {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1185,7 +1172,7 @@ footer {
   
   .contact-phone {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 2px;
@@ -1193,12 +1180,12 @@ footer {
   
   .contact-hours {
     color: #fff;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 10px;
     font-weight: 400;
   }
   
-  @media (max-width: 991px) {
+  @media (width <= 991px) {
     .footer-links {
       flex-wrap: wrap;
       gap: 30px;
@@ -1210,9 +1197,9 @@ footer {
     }
   
     .social-links {
-      order: 3;
-      width: 100%;
       justify-content: center;
+      width: 100%;
+      order: 3;
     }
   
     .contact-box {
@@ -1221,7 +1208,7 @@ footer {
     }
   }
   
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .footer {
       padding: 20px;
     }

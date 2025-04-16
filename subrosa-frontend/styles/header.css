@@ -3,7 +3,6 @@
 .header {
   position: relative; /* important pour le placement absolu des boutons */
   padding: 40px 0;
- 
   background-color: black !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
@@ -17,45 +16,45 @@
 
 /* Boutons de connexion */
 .auth-buttons {
+  display: flex;
   position: absolute;
+  position: fixed;
   top: 90px;
   right: 20px;
-  display: flex;
-  gap: 10px;
-  position: fixed;
   z-index: 9999;
+  gap: 10px;
  
 }
 
 /* Tu peux adapter le style des boutons comme tu veux */
 .login-button,
 .login-button_2 {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 16px;
-  font-size: 0.9rem;
+  z-index: 9999;
   width: 150px;        /* 👈 même taille */
+  padding: 8px 16px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  font-size: 0.9rem;
   text-align: center;
   white-space: nowrap;
   box-sizing: border-box;
-  z-index: 9999;
   background-color: black;
 }
 
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 1300px;
-    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 50%;
     z-index: 9999;
+    width: 100%;
+    height: 80px;
+    transform: translateX(-50%);
+    max-width: 1300px;
     gap: 2px;
     cursor: pointer;
   }
@@ -67,26 +66,21 @@
     width: 100%;
     list-style: none;
     background-color: black;
-   
-   
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 10px rgb(255 255 255 / 20%);
     border-radius: 4px;
-    
     gap: 1px;
   }
   
   .links li {
-    
     gap: 2px;
   }
   
   .links li a {
-    color: white;
-    text-decoration: none;
-    
     display: block;
+    color: white;
     font-size: 0.95rem;
     transition: color 0.3s ease;
+    text-decoration: none;
     gap: 2px;
   }
   
@@ -121,8 +115,8 @@
   /* Menu hamburger (le bouton) */
   #menu-toggle {
     display: none; /* caché par défaut */
-    background: none;
     border: none;
+    background: none;
     color: white;
     font-size: 24px;
     cursor: pointer;
@@ -133,11 +127,11 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0;
     top: 100%; /* sous les boutons */
-    background-color: black;
-    padding: 10px 20px;
+    right: 0;
     z-index: 999;
+    padding: 10px 20px;
+    background-color: black;
   }
   
   .menu li {
@@ -172,6 +166,7 @@
     height: 1px;
     background-color: #ccc;
   }
+
   .MiniBarNav-bar_2 {
      width: 90%;  /* longueur du trait inferieur de la barre */
     height: 1px;
@@ -180,10 +175,10 @@
   
   .MiniBarNav {
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    gap: 1rem;
+    align-items: center;
     padding: 0.8rem 0;
+    gap: 1rem;
     padding-left: 70px; /* decalage des liens souhaité */
   }
   
@@ -191,10 +186,10 @@
   
   .MiniBarNav-link {
     display: flex;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
     justify-content: flex-start; /* ← pour les aligner à gauche */
+    color: white;
+    transition: color 0.3s ease;
+    text-decoration: none;
   }
   
   .MiniBarNav-link:hover {
@@ -218,14 +213,14 @@
   }
 
   .MiniBarNav-current {
+    border: 1px dashed red;
     color: white;
     font-weight: bold;
-    border: 1px dashed red;
   }
   
   
   /* RESPONSIVE : uniquement en mobile */
-  @media screen and (max-width: 768px) {
+  @media screen and (width <= 768px) {
     #menu-toggle {
       display: block;
       margin-left: 10px;
@@ -237,16 +232,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
-      margin: 1rem auto;
       width: 100%;
+      margin: 1rem auto;
+      gap: 1rem;
     }
     
     .auth-buttons > * {
       background: transparent;
-      
       color: white;
-     
       font-size: 0.85rem;
       min-width: 110px;
       text-align: center;
@@ -261,11 +254,13 @@
     .login-button_2 {
       width: 150px;
     }
+
     .header-svg {
       display: none;
       pointer-events: none;
   user-select: none;
     }
+
     .sidebar {
       display: none !important;
     }
