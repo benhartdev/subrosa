@@ -179,6 +179,17 @@ const getRandomArtworks = async (req, res) => {
   }
 };
 
+const getFeaturedArtists = async (req, res) => {
+  try {
+    // Utilise l'agrégation MongoDB pour récupérer 4 artistes de manière aléatoire
+    const featuredArtists = await Artist.aggregate([{ $sample: { size: 4 } }]);
+    res.status(200).json(featuredArtists);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des artistes en vedette :", error);
+    res.status(500).json({ message: "Erreur serveur lors de la récupération des artistes" });
+  }
+};
+
 module.exports = {
   updateArtist,
   getAllArtists,
@@ -186,5 +197,6 @@ module.exports = {
   deleteArtist,
   getPendingArtists,
   updateArtistStatus,
-  getRandomArtworks
+  getRandomArtworks,
+  getFeaturedArtists
 };
