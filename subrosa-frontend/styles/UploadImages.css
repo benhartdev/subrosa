@@ -1,19 +1,19 @@
-.upload-container { max-width: 800px; margin: 3rem auto; background-color: #000; padding: 2rem; border-radius: 1rem; border: 1px solid #d4af37; box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); font-family: 'Georgia', serif; }
+.upload-container { max-width: 800px; margin: 3rem auto; background-color: #000; padding: 2rem; border-radius: 1rem; border: 1px solid #d4af37; box-shadow: 0 0 12px rgb(212 175 55 / 20%); font-family: Georgia, serif; }
 
 .upload-title { color: #d4af37; font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid #d4af37; padding-bottom: 0.5rem; }
 
 .upload-form { display: flex; flex-direction: column; gap: 1.5rem; }
 
-.upload-input { background: #111; color: #fff; border: 1px solid #d4af37; padding: 0.5rem 1rem; border-radius: 0.5rem; }
+.upload-input { padding: 0.5rem 1rem; border: 1px solid #d4af37; background: #111; color: #fff; border-radius: 0.5rem; }
 
 .upload-item { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid #333; padding-bottom: 1rem; }
 
-.upload-preview { width: 100px; height: 100px; object-fit: cover; border-radius: 0.5rem; border: 1px solid #d4af37; box-shadow: 0 0 8px rgba(212, 175, 55, 0.2); }
+.upload-preview { width: 100px; height: 100px; object-fit: cover; border-radius: 0.5rem; border: 1px solid #d4af37; box-shadow: 0 0 8px rgb(212 175 55 / 20%); }
 
 .upload-alt { flex: 1; padding: 0.5rem; border: 1px solid #555; background-color: #000; color: #fff; border-radius: 0.5rem; font-size: 0.95rem; }
 
-.upload-button { background-color: #d4af37; color: #000; font-weight: bold; padding: 0.75rem; border: none; border-radius: 0.5rem; cursor: pointer; transition: background 0.3s ease; }
+.upload-button { padding: 0.75rem; border: none; color: #000; transition: background 0.3s ease; background-color: #d4af37; font-weight: bold; border-radius: 0.5rem; cursor: pointer; }
 
 .upload-button:hover { background-color: #ffdf76; }
 
-.upload-message { text-align: center; color: #d4af37; font-style: italic; margin-top: 1rem; }
+.upload-message { color: #d4af37; text-align: center; font-style: italic; margin-top: 1rem; }

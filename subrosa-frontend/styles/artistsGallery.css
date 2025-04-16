@@ -1,7 +1,0 @@
-/* src/styles/artistsGallery.css */
-
-.artists-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}

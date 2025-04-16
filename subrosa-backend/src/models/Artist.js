@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const ArtistSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 
       username: {
           type: String,
@@ -13,7 +13,6 @@ const ArtistSchema = new mongoose.Schema({
       password: {
           type: String,
           required: [true, "Le mdp de l'artiste est requis."],
-          match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
     },
@@ -23,6 +22,15 @@ const ArtistSchema = new mongoose.Schema({
           match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
+      },
+      role: {
+        type: String,
+        enum: ["artist"],
+        default: "artist"
+      },
+      isAdmin: {
+        type: Boolean,
+        default: false
       },
       country_location: {
           type: String,
@@ -144,4 +152,4 @@ const ArtistSchema = new mongoose.Schema({
     });
     
 
-module.exports = mongoose.model('Artist', ArtistSchema, 'Artists');
+module.exports = mongoose.model('User', userSchema);

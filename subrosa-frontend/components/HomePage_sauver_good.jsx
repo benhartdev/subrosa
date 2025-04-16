@@ -4,7 +4,7 @@
 
 import React from 'react';
 import '../styles/style_acceuil.css';  // On importe le fichier CSS lié à cette page
-import ArtistsGallery from './ArtistsGallery';  // Importer le composant ArtistsGallery
+import ArtistsGallery from './ArtistsGallery_old';  // Importer le composant ArtistsGallery
 
 const HomePage = () => {
     return (

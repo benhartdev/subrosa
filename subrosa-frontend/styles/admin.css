@@ -6,7 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    box-shadow: 0 0 15px rgb(0 0 0 / 5%);
   }
   
   .admin-section {
@@ -14,9 +14,9 @@
   }
   
   .admin-section h2 {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
     color: #222;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
     border-bottom: 2px solid #ddd;
     padding-bottom: 0.3rem;
   }
@@ -27,22 +27,22 @@
   }
   
   .admin-list li {
-    background: white;
     padding: 1rem;
+    background: white;
+    box-shadow: 0 0 4px rgb(0 0 0 / 5%);
     margin-bottom: 1rem;
     border-left: 4px solid #0070f3;
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.05);
   }
   
   .admin-buttons button {
-    border: none;
     padding: 0.5rem 1rem;
+    border: none;
+    transition: background 0.3s ease;
     font-weight: bold;
     border-radius: 6px;
     margin-right: 0.5rem;
     cursor: pointer;
-    transition: background 0.3s ease;
   }
   
   .admin-buttons .validate {

@@ -1,0 +1,57 @@
+.pending-container {
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    max-width: 1000px;
+  }
+  
+  h1 {
+    margin: auto;
+    color: fuchsia;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-wrapper {
+    padding: 10px;
+    border: 1px solid #90c;
+    box-shadow: 0 0 10px rgb(255 0 255 / 30%);
+    max-height: none;
+    overflow:visible;
+    border-radius: 6px;
+  }
+  
+  .pending-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    background-color: #111;
+  }
+  
+  .pending-table th,
+  .pending-table td {
+    padding: 8px 12px;
+    border: 1px solid #90c;
+    text-align: center;
+  }
+  
+  .validate-btn {
+    padding: 6px 12px;
+    border: none;
+    color: white;
+    background-color: #28a745;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .reject-btn {
+    padding: 6px 12px;
+    border: none;
+    color: white;
+    background-color: #dc3545;
+    cursor: pointer;
+    border-radius: 4px;
+  }

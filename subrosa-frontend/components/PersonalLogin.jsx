@@ -3,15 +3,43 @@
 import React, { useState } from "react";
 import "../styles/PersonalLogin.css";
 import "../styles/reset.css";
+import { useRouter } from 'next/navigation';
+import axios from "axios";
+import { useAuth } from "../components/context/AuthContext.jsx";
 
 const PersonalLogin = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
+  const { login } = useAuth();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log("Login avec", { email, password });
-  };
+  const handleLogin = async (e) => { e.preventDefault();
+
+    try { console.log("Tentative de login avec", username, password);
+    
+    const res = await axios.post(
+      "http://localhost:5000/api/auth/login",
+      { username, password },
+      { withCredentials: true }
+    );
+    
+    if (!res || !res.data) {
+      alert("Réponse invalide du serveur.");
+      return;
+    }
+    
+    const { user } = res.data;
+    
+    login(user); // stocke dans AuthContext
+    console.log("✅ Connexion réussie :", res.data);
+    
+    if (user.role === "admin") {
+      router.push("/admin");
+    } else {
+      router.push("/");
+    }
+    
+    } catch (error) { console.error("❌ Erreur lors de la connexion :", error); alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue")); } };
 
   return (
     <main>
@@ -19,14 +47,12 @@ const PersonalLogin = () => {
         <div>
           <h1 id="personal-space">ESPACE PERSONNEL</h1>
           <p id="already-client">
-            Déjà client ?{" "}
+            Nouveau client ? {" "}
             <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/inscription-utilisateur"
               className="loginLink"
             >
-              Cliquez ici pour vous connecter
+              Cliquez ici pour vous inscrire
             </a>
           </p>
         </div>
@@ -40,10 +66,10 @@ const PersonalLogin = () => {
 
           <form className="form" onSubmit={handleLogin}>
             <FormInput
-              label="Identifiant ou e-mail *"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              label="Nom d'utilisateur *"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
 

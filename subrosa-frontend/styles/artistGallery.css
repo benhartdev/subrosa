@@ -1,0 +1,463 @@
+
+.artist-gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.artist-gallery__item:hover .artist-gallery__image {
+  transform: scale(1.05);
+}
+
+@media (width >= 768px) {
+  .artist-gallery {
+    padding: 2rem;
+  }
+
+  .artist-gallery__grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+/* ARTISTE PAGE STYLES */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.featured {
+  width: 100%;
+  max-width: 382px;
+  margin: 0 auto;
+}
+
+.details {
+  width: 100%;
+}
+
+.name {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bio {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.gallerySection {
+  margin-top: 3rem;
+}
+
+.galleryTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (width >= 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .featured {
+    flex: 0 0 382px;
+    margin: 0;
+  }
+
+  .details {
+    flex: 1;
+    padding-left: 2rem;
+  }
+
+  .header {
+    text-align: left;
+  }
+}
+
+
+/* ARTISTE GALLERY STYLE */
+
+.gallery {
+  width: 100%;
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item:hover .image {
+  transform: scale(1.05);
+}
+
+@media (width >= 768px) {
+  .gallery {
+    padding: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+
+/* ARTISTE IMAGE */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.head-portrait {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+.head-benH {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  font-size: 40px;
+  text-align: center;
+}
+
+.head-benjaminhoffele {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  font-size: 70px;
+  text-align: center;
+}
+
+.artist-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+  max-width: 1200px;
+  background-color: black;
+}
+
+.artist-content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.artist-featured {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.artist-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.artist-header {
+  margin-bottom: 1rem;
+}
+
+.artist-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.artist-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.artist-gallery-section {
+  margin-top: 2rem;
+}
+
+.artist-gallery-title-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 20px; /* 👈 règle la hauteur du titre par rapport au cadre */
+  z-index: 2;
+  width: 100%;
+}
+
+.artist-gallery-title {
+  z-index: 2;
+  padding: 0 1rem;
+  color: white;
+  font-size: 1.8rem;
+  background-color: black; /* 👈 masque proprement la bordure en dessous */
+  font-weight: 600;
+}
+
+/* UPDATE */
+
+.artist-image-portrait {
+  position: relative;
+  width: 500px;
+  height: 750px;
+  margin: 0 auto;
+}
+
+.artist-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.artist-gallery {
+  width: 100%;
+  padding: 1rem;
+}
+
+.artist-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+ 
+}
+
+
+
+.artist-page {
+  background-color: black;
+  color: white;
+  padding-bottom: 4rem;
+}
+
+.artist-intro {
+  margin: 7rem 0 2rem;
+  text-align: center;
+}
+
+.artist-subtitle {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.artist-name-main {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.artist-fullname {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.artist-featured {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.artist-gallery-section {
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.artist-gallery-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.artist-gallery-wrapper {
+  position: relative; /* 👈 obligatoire pour que le titre "flotte" sur lui */
+  z-index: 1;
+  padding: 0.3rem; /* Crée l’espace entre les cadres */
+  border: 1px solid #fff; /* 1er cadre sombre */
+  background-color: #000;
+  margin-top: -2rem;
+  box-sizing: border-box;
+}
+
+.artist-gallery-inner {
+  background-color: #000;
+  padding: 2rem;
+  border: 1px solid #fff; /* 2e cadre plus clair */
+  box-sizing: border-box;
+}
+
+.artist-gallery__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: #000;
+}
+
+.artist-image-auto {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  max-width: 100%;
+}
+
+.artist-image-auto img,
+.artist-image img {
+  width: auto !important;
+  max-height: 500px;
+  max-width: auto;
+  object-fit: contain;
+}
+
+
+
+.artwork-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: #000;
+  margin-bottom: 1rem;
+  overflow: hidden;
+ 
+}
+
+
+.art-image-true-ratio {
+  display: block;
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.artwork-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.artwork-image-box :global(img) {
+  display: block;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Texte sous l’image */
+.artwork-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  margin: 30px 0 0;
+  border: none;
+  text-align: center;
+outline: none;
+}
+
+.artwork-title {
+  margin: 0.3rem 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Michroma, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+
+.artwork-divider {
+  width: 15%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0.4rem auto;
+}
+
+.artwork-price {
+  margin: 0;
+  color: #fff;
+  font-size: 0.9rem;
+  font-size: x-large;
+  font-weight: 300;
+}
+
+
+.artwork-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.artwork-image-box :global(img) {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+
+
+
+

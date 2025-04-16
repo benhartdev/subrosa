@@ -1,21 +1,32 @@
 "use client"; // à garder si tu es dans /app
 
 import Header from "../../components/Header"; // ajuste le chemin si besoin
-import Footer from "../../components/Footer";
+import ArtistFullForm from "../../components/ArtistFullForm"; // on importe le formulaire
 import "../../styles/PersonalLogin.css"; // on garde le style élégant
+import PendingArtists from "../../components/admin/PendingArtists";
+import { useState } from "react"; // manquait dans ton code !
+import "../../styles/inscription-artiste.css";
+import AdminStats from "../../components/admin/AdminStats";
+import AdminDashboardTabs from "../../components/admin/AdminDashboardTabs";
+import { useRef } from "react";
+import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
 
 const AdminPage = () => {
+  const [showForm, setShowForm] = useState(false);
+  const dashboardRef = useRef(); // pour pouvoir lui parler depuis tes boutons
   return (
     <>
       <Header />
 
-      <main id="containerLogin">
+      <main id="containerLogin" style={{ padding: "2rem", background: "#0a0a0a", color: "white" }}>
         <div id="box-component">
-          <h1 id="personal-space">ESPACE ADMINISTRATEUR</h1>
+          <h1 id="personal-space" style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
 
           <p id="text-login">
-            Bienvenue dans l’interface d’administration. Ici, vous pouvez gérer :
+            Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot 
           </p>
+
+          <PendingArtists />
 
           <ul style={{ textAlign: "left", maxWidth: "600px", margin: "2rem auto", lineHeight: "2" }}>
             <li>✅ Les artistes en attente de validation</li>
@@ -24,18 +35,34 @@ const AdminPage = () => {
             <li>🧾 cLes commandes</li>
           </ul>
 
-          <div className="buttonGroup">
-            <button className="button primary">Valider des artistes</button>
-            <button className="button primary">Gérer les œuvres</button>
-            <button className="button primary">Voir les utilisateurs</button>
-            <button className="button primary">Historique des commandes</button>
+          <div className="buttonGroup" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem", margin: "2rem 0" }}>
+          <button onClick={() => dashboardRef.current?.openTab("validation")}>✅ Valider des artistes</button>
+        <button onClick={() => dashboardRef.current?.openTab("oeuvres")}>🎨 Gérer les œuvres</button>
+        <button onClick={() => dashboardRef.current?.openTab("users")}>👥 Voir les utilisateurs</button>
+        <button onClick={() => dashboardRef.current?.openTab("commandes")}>🧾 Historique des commandes</button>
+            <button className="btn-admin" onClick={() => setShowForm(!showForm)}>
+              {showForm ? "Fermer le formulaire" : "Créer un nouvel artiste"}
+            </button>
           </div>
-        </div>
-      </main>
 
-      <Footer />
+          {showForm && (
+            <div className="admin-form-wrapper">
+              <ArtistFullForm />
+            </div>
+          )}
+        </div>
+        <AdminStats />
+        <section style={{ marginTop: "5rem" }}>
+    <h2 style={{ color: "white", textAlign: "center", marginBottom: "2rem" }}>
+      🧠 Dashboard interactif
+    </h2>
+    <AdminDashboardTabs ref={dashboardRef} />
+  </section>
+  <ArtistEditPanel />
+      </main>
     </>
   );
 };
+
 
 export default AdminPage;
