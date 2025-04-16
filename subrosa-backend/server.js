@@ -1,7 +1,4 @@
-
-console.log('📌 Initialisation de dotenv...');
-require('dotenv').config(); // Charge les variables d'environnement
-console.log('📌 Variables d\'environnement chargées.');
+require('dotenv').config();
 
 const express = require('express');
 const app = express();
@@ -11,45 +8,63 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const dynamicComponentsRouter = require('./src/routes/dynamicComponents');
 const artistsRoutes = require('./src/routes/Artists');
-const publicArtistsRoutes = require('./src/routes/PublicArtists');  // Nouveau fichier
+const publicArtistsRoutes = require('./src/routes/PublicArtists'); // ✅ Nouveau fichier
 const artworkRoutes = require('./src/routes/Artwork');
+const session = require('express-session');
+const uploadRoutes = require('./src/routes/uploadRoutes');
+const path = require('path');
 
-dotenv.config();   // Charge les variables d'environnement
+dotenv.config(); // Charge les variables d'environnement
+console.log('🔧 Variable d\'environnement :', process.env.MONGO_URI);
 
-
-console.log('variable d\'environnement :', process.env.MONGO_URI);
-
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 connectDB();
 
+// ✅ Middleware principal
+app.use(cors({
+  origin: 'http://localhost:3000',     // Autorise uniquement le frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Méthodes autorisées
+  allowedHeaders: ['Content-Type'],   // Headers autorisés
+  credentials: true                   // ✅ Cookies autorisés
+}));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // ⚠️ true en production HTTPS
+      httpOnly: true,
+      sameSite: 'lax',
+    }
+  }));
+  
+app.use('/api/public/artists', require('./src/routes/PublicArtists'));
+
+
 app.use(express.json());
-app.use('/api/dynamic', dynamicComponentsRouter);
-
-// Connexion à MongoDB
-console.log('📌 Tentative de connexion à MongoDB avec l\'URL :', process.env.MONGO_URI);
-console.log('📌 Chargement de la configuration depuis .env:', process.env.MONGO_URI);
-
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('✅ Connexion à MongoDB réussie !'))
-    .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
-    
-// Middleware
-app.use(cors());
-app.use(express.json());
-
 console.log('📌 Middleware Express chargé.');
+app.use('/uploads', express.static('uploads'));
+app.use('/api/uploads', uploadRoutes);
+// Accès public aux fichiers uploadés
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Routes API 
+// ✅ Connexion MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ Connexion à MongoDB réussie !'))
+  .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
 
-// Routes publiques
-app.use('/api/public/artists', publicArtistsRoutes);  // Route publique pour récupérer les artistes
+// ✅ Routes
+app.use('/api/public/artists', publicArtistsRoutes);  // Route publique
 app.use('/api/artworks', artworkRoutes);
+app.use('/api/dynamic', dynamicComponentsRouter);
+app.use('/api/artists', artistsRoutes);              // Route protégée par ensureAdmin
 
-// Routes protégées (admin seulement)
-app.use('/api/artists', artistsRoutes);
 
-// Démarrer le serveur
+
+
+
+// ✅ Lancer le serveur
 app.listen(PORT, () => {
-    console.log(`🚀 Serveur en cours d'exécution sur le port ${PORT}`);
+  console.log(`🚀 Serveur en cours d'exécution sur le port ${PORT}`);
 });

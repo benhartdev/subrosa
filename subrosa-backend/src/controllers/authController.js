@@ -1,36 +1,32 @@
-const jwt = require('jsonwebtoken');
-const session = require('express-session');
+// src/controllers/authController.js
+const adminLogin = async (req, res) => {
+  const { email, password } = req.body;
 
-// Middleware d'authentification (Mode CRUD)
-exports.authenticateToken = (req, res, next) => {
-    if (req.session && req.session.isAuthenticated) {
-        return next(); // Si l'utilisateur est déjà authentifié, on continue
+  if (
+    email === process.env.ADMIN_EMAIL &&
+    password === process.env.ADMIN_PASSWORD
+  ) {
+    req.session.isAdmin = true;
+    console.log("🧠 Session après login :", req.session);
+    return res.status(200).json({ message: 'Connexion réussie en tant qu’admin.' });
+  }
+  
+
+  return res.status(403).json({ message: 'Identifiants incorrects' });
+};
+
+
+const logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ message: 'Erreur lors de la déconnexion' });
     }
-
-    const token = req.headers['authorization'];
-    if (!token) return res.status(401).json({ message: 'Accès refusé. Token manquant.' });
-
-    const tokenValue = token.split(' ')[1]; // Récupère la valeur du token après 'Bearer'
-
-    jwt.verify(tokenValue, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ message: 'Token invalide.' });
-        if (user.role !== 'admin') return res.status(403).json({ message: "Accès refusé. Vous n'êtes pas admin." });
-
-        req.session.isAuthenticated = true; // Crée la session si le token est valide et l'utilisateur est admin
-        next();
-    });
+    res.clearCookie('connect.sid');
+    return res.json({ message: 'Déconnexion réussie' });
+  });
 };
 
-// Générer un Token JWT (ADMIN)
-exports.generateToken = (req, res) => {
-    const user = { id: 1, username: 'admin', role: 'admin' };  // Utilisateur admin par défaut
-    const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
-};
-
-// Déconnexion du Mode CRUD
-exports.logout = (req, res) => {
-    req.session.destroy(() => {
-        res.json({ message: 'Déconnexion réussie. Vous êtes maintenant hors du mode CRUD.' });
-    });
+module.exports = {
+  adminLogin,
+  logout,
 };
