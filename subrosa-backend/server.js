@@ -1,84 +1,61 @@
+// server.js
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const connectDB = require('./config/database');
-const dynamicComponentsRouter = require('./src/routes/dynamicComponents');
-const artistsRoutes = require('./src/routes/Artists');
-const publicArtistsRoutes = require('./src/routes/PublicArtists');
-const artworkRoutes = require('./src/routes/Artwork');
 const session = require('express-session');
-const uploadRoutes = require('./src/routes/uploadRoutes');
-const path = require('path');
-const adminArtistsRoutes = require('./src/routes/AdminArtists');
-const adminRoutes = require('./src/routes/adminRoutes');
-const authRoutes = require('./src/routes/authRoutes');
-const userRoutes = require('./src/routes/userRoutes');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
-dotenv.config(); // Charge les variables d'environnement
-console.log('🔧 Variable d\'environnement :', process.env.MONGO_URI);
 
-const PORT = process.env.PORT || 5000;
+// Charge les variables d'environnement
+dotenv.config();
+
+// Connexion à la BDD
+const connectDB = require('./config/database');
 connectDB();
 
-// ✅ Middleware principal
+// Middlewares
 app.use(cors({
-  origin: 'http://localhost:3000',     // Autorise uniquement le frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Méthodes autorisées
-  allowedHeaders: ['Content-Type', 'Authorization'],   // Headers autorisés
-  credentials: true                   // ✅ Cookies autorisés
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'], // Frontend uniquement
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
-app.set('trust proxy', 1); // si proxy utilisé
-
+// app.set('trust proxy', 1);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // ⚠️ true en production HTTPS
+    secure: false, // passer à true en production avec HTTPS
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: 'lax'
   }
 }));
 
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
-console.log('📌 Middleware Express chargé.');
+// Montage des routes
 
-// ✅ Connexion MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ Connexion à MongoDB réussie !'))
-  .catch((error) => console.error('❌ Erreur de connexion à MongoDB :', error));
 
-// ✅ ROUTES 
-// 🟣 PUBLIC ROUTES 
-app.use('/api/public/artists', publicArtistsRoutes); // artistes visibles par tous
 
-// 🟢 AUTHENTICATION 
-app.use('/api/auth', authRoutes); // connexion / logout
-app.use('/api/users', userRoutes); // inscription utilisateur
 
-// 🟡 UPLOADS 
+app.use('/api/artists', require('./src/routes/artistsRoutes'));              // routes artistes
+app.use('/api/artworks', require('./src/routes/artworkRoutes'));             // routes œuvres
+app.use('/api/users', require('./src/routes/userRoutes'));
+app.use('/api/admin', require('./src/routes/adminRoutes'));                  // routes réservées aux admins
+app.use('/api/auth', require('./src/routes/authRoutes'));                    // authentification
+app.use('/api/uploads', require('./src/routes/uploadRoutes'));               // gestion des uploads
+
+// Pour rendre les fichiers statiques accessibles (images uploadées)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/api/uploads', uploadRoutes); // upload d'images (admin/artistes)
-app.use('/api/artists', uploadRoutes);
 
-// 🔴 ADMIN ROUTES 
-app.use('/api/admin', adminArtistsRoutes); // gestion artistes côté admin 
-app.use('/api', adminRoutes); // dashboard admin (stats, etc.)
-
-// 🔵 PRIVATE PROTECTED ROUTES (nécessite rôle) 
-app.use('/api/artworks', artworkRoutes); // gestion des œuvres 
-app.use('/api/artists', artistsRoutes); // gestion des artistes (artiste connecté)
-
-// 🟤 DYNAMIC COMPONENTS 
-app.use('/api/dynamic', dynamicComponentsRouter);
-
-// ✅ Lancer le serveur
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Serveur en cours d'exécution sur le port ${PORT}`);
 });
+
+

@@ -1,40 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const Artist = require("../models/Artist");
+const Artist = require("../models/Artists");
 const User = require("../models/user");
 const Work = require("../models/work");
 const Order = require("../models/Order");
 const { ensureAdmin } = require("../middlewares/authMiddleware");
+const adminController = require("../controllers/adminController");
+
+
+router.get('/stats', adminController.getStats);
 
 
 
-
-
-// router.get("/stats", ensureAdmin, async (req, res) => {
-    router.get("/stats", async (req, res) => {
-  try {
-    const [totalArtists, approvedArtists, pendingArtists, totalUsers, totalWorks, totalOrders] =
-      await Promise.all([
-        Artist.countDocuments(),
-        Artist.countDocuments({ isApproved: true }),
-        Artist.countDocuments({ isApproved: false }),
-        User.countDocuments(),
-        Work.countDocuments(),
-        Order.countDocuments(),
-      ]);
-
-    res.json({
-      totalArtists,
-      approvedArtists,
-      pendingArtists,
-      totalUsers,
-      totalWorks,
-      totalOrders,
-    });
-  } catch (err) {
-    res.status(500).json({ message: "Erreur serveur" });
-  }
-});
 
 // GET artistes en attente
 router.get("/artists", async (req, res) => {

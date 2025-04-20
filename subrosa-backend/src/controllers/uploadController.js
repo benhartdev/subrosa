@@ -1,5 +1,5 @@
 // controllers/uploadController.js
-const Artist = require('../models/Artist');
+const Artist = require('../models/Artists');
 
 // Upload d'une image enrichie (alt)
 exports.uploadSingleImage = async (req, res) => {

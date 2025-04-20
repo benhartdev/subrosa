@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
-const Artist = require("../models/Artist");
+const Artist = require("../models/Artists");
 const User = require("../models/user");
 
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-     // ✅ ADMIN via .env
-     if (
+    // ✅ ADMIN via .env
+    if (
       username === process.env.ADMIN_USERNAME &&
       password === process.env.ADMIN_PASSWORD
     ) {
@@ -16,18 +16,23 @@ const loginUser = async (req, res) => {
         role: "admin",
         isAdmin: true
       };
-      return res.status(200).json({
-        message: "Connexion ADMIN réussie",
-        user: {
-          username,
-          role: "admin",
-          isAdmin: true
+
+      // ✅ Sauvegarde explicite de session avant réponse
+      return req.session.save(err => {
+        if (err) {
+          console.error("Erreur session admin :", err);
+          return res.status(500).json({ message: "Erreur session." });
         }
+
+        return res.status(200).json({
+          message: "Connexion ADMIN réussie",
+          user: req.session.user
+        });
       });
     }
+
     // Recherche dans les 2 collections
     const user =
-     
       (await Artist.findOne({ username })) ||
       (await User.findOne({ username }));
 
@@ -43,21 +48,23 @@ const loginUser = async (req, res) => {
     // Création de la session dynamique
     req.session.user = {
       id: user._id,
-      role: user.role, // "admin", "artist" ou "user"
+      role: user.role,
       isAdmin: user.isAdmin,
       username: user.username
     };
 
-    res.status(200).json({
-      message: "Connexion réussie",
-      user: {
-        id: user._id,
-        role: user.role,
-        isAdmin: user.isAdmin,
-        username: user.username
+    // ✅ Sauvegarde explicite de session avant réponse
+    req.session.save(err => {
+      if (err) {
+        console.error("Erreur session utilisateur :", err);
+        return res.status(500).json({ message: "Erreur session." });
       }
-    });
 
+      return res.status(200).json({
+        message: "Connexion réussie",
+        user: req.session.user
+      });
+    });
   } catch (error) {
     console.error("Erreur lors de la connexion :", error);
     res.status(500).json({ message: "Erreur serveur." });
