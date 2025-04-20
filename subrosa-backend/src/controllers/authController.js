@@ -4,7 +4,7 @@ const User = require("../models/user");
 
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
-
+  console.log("📥 Login reçu :", username);
   try {
     // ✅ ADMIN via .env
     if (
@@ -72,6 +72,7 @@ const loginUser = async (req, res) => {
 };
 
 const logout = (req, res) => {
+  console.log("🔐 Déconnexion reçue :", req.session.user);
   req.session.destroy(err => {
     if (err) {
       return res.status(500).json({ message: "Erreur lors de la déconnexion." });

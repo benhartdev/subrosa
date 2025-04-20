@@ -4,6 +4,9 @@ const Artist = require('../models/Artists');
 const bcrypt = require("bcrypt");
 const sendConfirmationEmail = require('../utils/sendConfirmationEmail');
 
+
+
+
 const getAllArtists = async (req, res) => {
   try {
     const artists = await Artist.find();
@@ -105,20 +108,29 @@ const createArtist = async (req, res) => {
 const updateArtist = async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedArtist = await Artist.findByIdAndUpdate(
-      id,
-      { $set: req.body },
-      { new: true, runValidators: true }
-    );
-    if (!updatedArtist) {
-      return res.status(404).json({ message: 'Artiste non trouvé' });
+
+    const updateData = { ...req.body };
+
+    // ✅ S'assurer que les tableaux sont bien reconstruits depuis FormData
+    if (typeof updateData.old_exhibitions === 'string') {
+      updateData.old_exhibitions = [updateData.old_exhibitions];
     }
-    res.status(200).json(updatedArtist);
+    if (typeof updateData.future_exhibitions === 'string') {
+      updateData.future_exhibitions = [updateData.future_exhibitions];
+    }
+
+    // ✅ Ne pas écraser le mot de passe si champ vide
+    if (!updateData.password) delete updateData.password;
+
+    const updated = await Artist.findByIdAndUpdate(id, updateData, { new: true });
+
+    res.status(200).json(updated);
   } catch (error) {
-    console.error('Erreur lors de la mise à jour de l\'artiste :', error);
-    res.status(500).json({ message: 'Erreur serveur lors de la mise à jour', error });
+    console.error("Erreur lors de la mise à jour :", error);
+    res.status(500).json({ error: "Erreur serveur lors de la mise à jour." });
   }
 };
+
 
 const deleteArtist = async (req, res) => {
   try {
@@ -163,6 +175,19 @@ const updateArtistStatus = async (req, res) => {
   }
 };
 
+const getArtistById = async (req, res) => {
+  try {
+    const artist = await Artist.findById(req.params.id);
+    if (!artist) {
+      return res.status(404).json({ error: "Artiste non trouvé" });
+    }
+    res.json(artist);
+  } catch (err) {
+    console.error("Erreur récupération artiste :", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};
+
 
 module.exports = {
   getAllArtists,
@@ -171,5 +196,6 @@ module.exports = {
   updateArtist,
   deleteArtist,
   getPendingArtists,
-  updateArtistStatus
+  updateArtistStatus,
+  getArtistById,
 };

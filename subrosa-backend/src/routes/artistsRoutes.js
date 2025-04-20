@@ -3,11 +3,15 @@ const express = require('express');
 const router = express.Router();
 const artistsController = require('../controllers/artistsController');
 const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
+const multer = require('multer');
+const upload = multer(); // sans stockage de fichiers, mais permet de lire les champs
 
 // ------------------ Endpoints publics ------------------
 
 // Retourne la liste complète des artistes (pour le public)
 router.get('/', artistsController.getAllArtists);
+
+
 
 // Retourne 4 artistes en vedette (optionnel : filtrer par IDs via query string ?ids=...)
 router.get('/featured', artistsController.getFeaturedArtists);
@@ -19,7 +23,7 @@ router.post('/register', artistsController.createArtist);
 // Ces endpoints nécessitent une authentification et des vérifications de rôles
 
 // Mise à jour d'un artiste (l'endpoint est accessible pour l'artiste lui-même via ensureArtist ou pour un admin)
-router.put('/:id', ensureArtist, artistsController.updateArtist);
+router.put('/:id', ensureAdmin, upload.none(), artistsController.updateArtist);
 
 // Suppression d'un artiste (admin uniquement)
 router.delete('/:id', ensureAdmin, artistsController.deleteArtist);
@@ -29,5 +33,6 @@ router.get('/pending', ensureAdmin, artistsController.getPendingArtists);
 
 // Mise à jour du statut d'un artiste (admin uniquement)
 router.put('/:id/status', ensureAdmin, artistsController.updateArtistStatus);
+router.get('/:id',artistsController.getArtistById);
 
 module.exports = router;
