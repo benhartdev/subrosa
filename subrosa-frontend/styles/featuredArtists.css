@@ -1,0 +1,38 @@
+.featured-artists {
+  display: flex;
+  flex-wrap: wrap;         /* permet de revenir à la ligne si besoin */
+  justify-content: center; /* ou space-between / space-evenly */
+  gap: 2rem;               /* espace entre les cartes */
+  padding: 2rem;
+}
+
+.featured-artist-card {
+  min-height: 530px;
+  width: 15%;
+  height: 100%; /* on va mettre un max-height juste après */
+  max-height: 550px; /* limite totale pour image + nom */
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden; /* évite que ça déborde */
+}
+
+
+.featured-artist-image {
+  height: 90%;
+  max-height: 450px; /* on laisse de la place pour le nom */
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid white;
+  margin-bottom: 0.5rem;
+}
+
+.artist-name {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+ 
+}

@@ -2,7 +2,7 @@
 
 import React from "react";
 import axios from "axios";
-import ArtistFullForm from "../../components/ArtistFullForm";
+import ArtistPublicForm from "../../components/ArtistPublicForm";
 import "../../styles/inscription-artiste.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -49,7 +49,7 @@ const InscriptionArtistePage = () => {
             onClose={() => setPopup(null)}
           />
         )}
-        <ArtistFullForm onSubmit={handleSubmit} mode="create" />
+        <ArtistPublicForm onSubmit={handleSubmit} mode="create" />
       </main>
       <Footer />
     </>

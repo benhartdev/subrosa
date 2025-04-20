@@ -8,7 +8,7 @@ import Image from 'next/image';
 import '../styles/style_acceuil.css';
 import '../styles/header.css'; // chargé une fois pour toutes
 
-import ArtistsGallery from '../components/ArtistsGallery_old';
+import FeaturedArtists from '../components/FeaturedArtists';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -51,15 +51,15 @@ const HomePage = () => {
                 </section>
                 <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
-
-            <section className="artist-container">
-                <ArtistsGallery />  {/* Afficher la galerie d'artistes */}
+                < FeaturedArtists />
+            {/* <section className="artist-container">
+                <ArtistsGallery /> 
                 <div className="artists-button-container">
                     <Link href="/nos_artistes">
                         <button className="view-all-btn">VOIR TOUS NOS ARTISTES</button>
                     </Link>
                 </div>
-            </section>
+            </section> */}
 
             <section className="concept-section">
                 <div className="concept-content">
