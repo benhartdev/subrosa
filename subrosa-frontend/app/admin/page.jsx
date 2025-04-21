@@ -10,6 +10,7 @@ import AdminStats from "../../components/admin/AdminStats";
 import AdminDashboardTabs from "../../components/admin/AdminDashboardTabs";
 import { useRef } from "react";
 import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
+import AdminPendingWorksPanel from "../../components/admin/AdminPendingWorksPanel";
 
 const AdminPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -59,6 +60,7 @@ const AdminPage = () => {
     <AdminDashboardTabs ref={dashboardRef} />
   </section>
   <ArtistEditPanel />
+  < AdminPendingWorksPanel />
       </main>
     </>
   );

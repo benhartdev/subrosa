@@ -3,7 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
 
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -14,11 +13,6 @@ body {
     font-family: Michroma, sans-serif;
     min-height: 100vh;
 }
-
-  
-
-
-
 
 .header-border_1 {
     align-items: center;
@@ -43,10 +37,7 @@ body {
   height: auto !important;
     margin: auto;
     margin-top: 2em;
-   
 }
-
-
 
 .footer-border_5 {
     align-items: center;
@@ -55,10 +46,6 @@ body {
     background: transparent;
     border-bottom: 1px solid gray; /* Deuxième ligne */  
 }
-
-
-
-
 
 /* Bouton hamburger */
 #menu-toggle {
@@ -74,7 +61,6 @@ body {
   cursor: pointer;
   border-bottom: 1px solid rgb(255 255 255);
   border-radius: 5px;
- 
 }
 
 /* Menu */
@@ -103,10 +89,6 @@ body {
 #menu li a:hover {
   color: #aaa;
 }
-
-
-
-
 /* #menu {
   list-style: none;
   display: none;
@@ -141,13 +123,12 @@ h1 {
     margin-left: 5%
 }
 
-
 .head-container {
     font-family: Michroma, sans-serif;
     position: relative;
     width: 100%;
     max-width: 2500px; /* Ajuste selon ton besoin */
-    margin: 200px auto;
+    margin: -250px auto;
 }
 
 .head-container img {
@@ -162,8 +143,8 @@ h1 {
     top: 30%; /* Positionnement vertical */
     left: 50%; /* Positionnement horizontal */
     padding: 10px 20px;
-    color: white;
-    font-size: 4em;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 3em;
     text-align: center;
     transform: translate(-50%, -50%); /* Centre parfaitement */
     border-radius: 8px;
@@ -174,15 +155,15 @@ h1 {
     justify-content: center; /* Centre le contenu de la barre */
     align-items: center;
     position: absolute;
-    top: 45%; /* Positionnement vertical */
+    top: 30rem; /* Positionnement vertical */
     left: 50%; /* Positionnement horizontal */
     padding: 12px 24px;
     border: 1px solid rgb(255 255 255);
     background: rgb(255 255 255);
     color: rgb(0 0 0);
-   font-size: 1.4em;
+    font-size: 1em;
     text-transform: uppercase;
-   transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     font-family: Michroma, sans-serif;
     transform: translate(-50%, -50%); /* Centre parfaitement */
@@ -193,44 +174,49 @@ h1 {
     color: black;
 }
 
-
 .hamburger-menu {
     display: none;
     margin-top: 15%;
 }
 
 .gallery-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9995;
-    text-align: center;
-    margin-top: -35%; /* Remonte légèrement les filtres */
+  text-align: center;
+  color: white;
+  font-family: Michroma, sans-serif;
+  margin-top: -550px;
+  z-index: 8;
   }
   
   .gallery-content {
-    z-index: 9995;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .gallery-title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 9995;
-    margin: 0;
-    padding: 0;
+    z-index: 8;
   }
   
-  .gallery-name {
+  .gallery-title {
+    font-family: Michroma, sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* espace entre GALLERIE et SUB ROSA ART */
+    font-size: 3rem;
+    margin: 0;
+    z-index: 8;
+  }
+  
+  .gallery-name,
+.gallery-brand {
+  white-space: nowrap;
+}
+
+  /* .gallery-name {
+    margin-top: 5rem;
     display: block;
-    z-index: 9995;
+    z-index: 5;
     font-size: 36px;
     font-family: Michroma, sans-serif;
     font-weight: 400;
-  }
+  } */
   
   .gallery-separator {
     display: block;
@@ -239,20 +225,20 @@ h1 {
     font-family: "Protest Revolution", sans-serif;
   }
   
-  .gallery-brand {
+  /* .gallery-brand {
     display: block;
     z-index: 9995;
     font-size: 74px;
     font-family: "Protest Revolution", sans-serif;
     line-height: 1.2;
-  }
+  } */
   
   .gallery-subtitle {
-    z-index: 9995;
-    margin: 0;
-    font-size: 48px;
     font-family: Michroma, sans-serif;
-    font-weight: 400;
+    z-index: 8;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
   }
   
   @media (width <= 991px) {
@@ -312,11 +298,11 @@ h1 {
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     position: relative;
-    z-index: 9995;
+    z-index: 8;
     width: auto; /* Ajuste selon le contenu */
     padding: 12px 24px; /* Ajuste la taille */
     border: 2px solid white;
-    background: transparent;
+    background:rgba(0, 0, 0, 0.651);
     color: white;
     font-size: 1.2em;
     text-align: center;
@@ -324,7 +310,8 @@ h1 {
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 5px;
-    font-family: Michroma, sans-serif
+    font-family: Michroma, sans-serif;
+    margin-top: 5rem;
   }
   
   .newsletter-button__text {

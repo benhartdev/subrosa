@@ -11,7 +11,7 @@ export default function FeaturedArtists({ specificIds = [] }) {
   useEffect(() => {
     async function fetchArtists() {
       const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-      let url = `${baseUrl}/artists/featured`;
+      let url = `${baseUrl}/api/artists/featured`;
       if (specificIds.length > 0) {
         url += `?ids=${specificIds.join(",")}`;
       }

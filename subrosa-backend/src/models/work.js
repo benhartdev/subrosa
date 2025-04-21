@@ -23,7 +23,11 @@ const workSchema = new mongoose.Schema({
   }],
   status: { type: String, enum: ['available', 'sold', 'reserved'], default: 'available' },
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  updatedAt: { type: Date, default: Date.now },
+  isApproved: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 workSchema.pre('save', function(next) {

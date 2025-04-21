@@ -1,38 +1,40 @@
 .featured-artists {
-  display: flex;
-  flex-wrap: wrap;         /* permet de revenir à la ligne si besoin */
-  justify-content: center; /* ou space-between / space-evenly */
-  gap: 2rem;               /* espace entre les cartes */
-  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 colonnes dynamiques */
+  gap: 0.1rem;
+  padding: 1rem;
+  justify-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .featured-artist-card {
-  min-height: 530px;
-  width: 15%;
-  height: 100%; /* on va mettre un max-height juste après */
-  max-height: 550px; /* limite totale pour image + nom */
-  text-align: center;
-  color: white;
+  width: 100%;
+  height: 600px;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  overflow: hidden; /* évite que ça déborde */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  background-color: #000000; /* un fond doux si souhaité */
+  transition: transform 0.3s;
 }
 
+.featured-artist-card:hover {
+  transform: scale(1.1);
+}
 
 .featured-artist-image {
-  height: 90%;
-  max-height: 450px; /* on laisse de la place pour le nom */
+  height: 600px; /* 👉 augmente la hauteur ici */
   width: 100%;
-  object-fit: cover;
-  border: 2px solid white;
-  margin-bottom: 0.5rem;
+  object-fit: contain; /* pour garder le ratio d'image */
+  border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
 .artist-name {
-  margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
- 
 }

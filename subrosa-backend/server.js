@@ -57,6 +57,7 @@ app.use('/api/users', require('./src/routes/userRoutes'));
 app.use('/api/admin', require('./src/routes/adminRoutes'));                  // routes réservées aux admins
 app.use('/api/auth', require('./src/routes/authRoutes'));                    // authentification
 app.use('/api/uploads', require('./src/routes/uploadRoutes'));               // gestion des uploads
+app.use('/api/works', require('./src/routes/worksRoutes'));
 
 // Pour rendre les fichiers statiques accessibles (images uploadées)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

@@ -26,6 +26,20 @@ router.get('/validated', async (req, res) => {
   }
 });
 
+// Route : GET /api/works/random
+router.get('/random', async (req, res) => {
+  try {
+    const randomWorks = await Work.aggregate([
+      { $match: { isApproved: true } }, // on récupère uniquement les œuvres validées
+      { $sample: { size: 8 } } // on en sélectionne 8 au hasard
+    ]);
+    res.status(200).json(randomWorks);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des œuvres aléatoires :', error);
+    res.status(500).json({ message: "Erreur serveur." });
+  }
+});
+
 // (optionnel) Récupérer les œuvres d’un artiste spécifique
 router.get('/artist/:id', async (req, res) => {
   try {
@@ -131,6 +145,12 @@ const finalDimensions = {
     });
 
     await newWork.save();
+    // 🔁 Mise à jour de l'artiste avec l'œuvre ajoutée
+await Artist.findByIdAndUpdate(
+  artistId,
+  { $push: { works: newWork._id } },
+  { new: true }
+);
 
     res.status(201).json(newWork);
   } catch (error) {
@@ -152,4 +172,33 @@ router.post('/add', ensureAdmin, async (req, res) => {
   }
 });
 
+// Valider une œuvre
+router.patch('/:id/validate', async (req, res) => {
+  try {
+    const work = await Work.findByIdAndUpdate(req.params.id, { isApproved: true }, { new: true });
+    res.status(200).json(work);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la validation de l’œuvre." });
+  }
+});
+
+// Rejeter / supprimer une œuvre
+router.delete('/:id', async (req, res) => {
+  try {
+    await Work.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Œuvre supprimée avec succès." });
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la suppression de l’œuvre." });
+  }
+});
+
+// Récupérer toutes les œuvres non validées
+router.get('/pending', async (req, res) => {
+  try {
+    const pending = await Work.find({ isApproved: false });
+    res.status(200).json(pending);
+  } catch (err) {
+    res.status(500).json({ message: 'Erreur récupération œuvres non validées' });
+  }
+});
 module.exports = router;
