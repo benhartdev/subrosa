@@ -17,6 +17,7 @@ dotenv.config();
 const connectDB = require('./config/database');
 connectDB();
 
+
 // Middlewares
 app.use(cors({
   origin: ['http://localhost:3000', 'http://127.0.0.1:3000'], // Frontend uniquement
@@ -24,6 +25,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
 
 // app.set('trust proxy', 1);
 app.use(express.json());
@@ -43,7 +45,10 @@ app.use(session({
 
 // Montage des routes
 
-
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.originalUrl}`);
+  next();
+});
 
 
 app.use('/api/artists', require('./src/routes/artistsRoutes'));              // routes artistes
