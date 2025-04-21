@@ -128,6 +128,9 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
         form.append(key, formData[key]);
       }
     });
+
+      if (mode === 'admin-edit') { form.delete('password');}
+
     files.forEach((file, index) => {
       if (file) {
         form.append('images', file);
@@ -135,7 +138,11 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
       }
     });
     try {
-      const url = artistId ? `http://localhost:5000/api/artists/${artistId}` : 'http://localhost:5000/api/uploads/full-create';
+      const url = mode === "admin-edit"
+          ? (artistId
+              ? `http://localhost:5000/api/artists/${artistId}`
+              : 'http://localhost:5000/api/uploads/full-create')
+              : 'http://localhost:5000/api/artists/register';
       const method = artistId ? 'PUT' : 'POST';
       const response = await fetch(url, {
         method,
@@ -178,10 +185,11 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
             <label>Nom d'utilisateur :</label>
             <input className="animated-input" name="username" value={getSafeValue(formData.username)} onChange={handleChange} required={mode !== 'admin-edit'} />
           </div>
+          {mode !== "admin-edit" && (
           <div className="half">
             <label>Mot de passe :</label>
             <input className="animated-input" type="password" name="password" value={getSafeValue(formData.password)} onChange={handleChange} required={mode !== 'admin-edit'} />
-          </div>
+          </div>)}
         </div>
 
         <div className="form-row">
@@ -244,14 +252,14 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
         <label>Expositions passées :</label>
         <div className="expo-input">
           <input className="animated-input" value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
-          <button onClick={(e) => handleAddExhibition(e, 'old')}>Ajouter</button>
+          <button type="button" onClick={(e) => handleAddExhibition(e, 'old')}>Ajouter</button>
         </div>
         <ul>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
         <label>Expositions futures :</label>
         <div className="expo-input">
           <input className="animated-input" value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
-          <button onClick={(e) => handleAddExhibition(e, 'future')}>Ajouter</button>
+          <button type="button" onClick={(e) => handleAddExhibition(e, 'future')}>Ajouter</button>
         </div>
         <ul>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 

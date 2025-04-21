@@ -33,7 +33,7 @@ const HomePage = () => {
                         <span className="gallery-separator"></span>
                         <span className="gallery-brand">SUB ROSA ART</span>
                     </h3>
-                    <p className="gallery-subtitle">gallerie d_art contemporain</p>
+                    <p className="gallery-subtitle">gallerie d’art contemporain</p>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@ const HomePage = () => {
             <section className="concept-section">
                 <div className="concept-content">
                     <h2 className="concept-title">NOTRE CONCEPT</h2>
-                    <h3 className="concept-heading">UNE NOUVELLE VISION DE L_ART CONTEMPORAIN</h3>
+                    <h3 className="concept-heading">UNE NOUVELLE VISION DE L’ART CONTEMPORAIN</h3>
                     <p className="concept-subtitle">Dissimulé sous la rose...</p>
                     <p className="concept-description">Mis en valeur par des artistes, pour des artistes</p>
                     <Link href="/concept">

@@ -13,34 +13,49 @@ const PersonalLogin = () => {
   const router = useRouter();
   const { login } = useAuth();
 
-  const handleLogin = async (e) => { e.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+  
+    try {
+      console.log("Tentative de login avec", username, password);
+  
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        { username, password },
+        { withCredentials: true }
+      );
+  
+      if (!res || !res.data) {
+        alert("Réponse invalide du serveur.");
+        return;
+      }
+  
+      const { user } = res.data;
+      console.log("👤 Utilisateur reçu :", user);
 
-    try { console.log("Tentative de login avec", username, password);
-    
-    const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
-      { username, password },
-      { withCredentials: true }
-    );
-    
-    if (!res || !res.data) {
-      alert("Réponse invalide du serveur.");
-      return;
+      login(user); // AuthContext
+  
+      // ✅ Stocker dans localStorage pour formulaire d'œuvre
+      if (user && user._id && user.role === "artist") {
+        localStorage.setItem("artist", JSON.stringify(user));
+        console.log("✅ ArtistId stocké :", user._id);
+      } else {
+        console.warn("⚠️ Données manquantes, user non stocké :", user);
+      }
+  
+      console.log("✅ Connexion réussie :", res.data);
+  
+      if (user.role === "admin") {
+        router.push("/admin");
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("❌ Erreur lors de la connexion :", error);
+      alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue"));
     }
-    
-    const { user } = res.data;
-    
-    login(user); // stocke dans AuthContext
-    console.log("✅ Connexion réussie :", res.data);
-    
-    if (user.role === "admin") {
-      router.push("/admin");
-    } else {
-      router.push("/");
-    }
-    
-    } catch (error) { console.error("❌ Erreur lors de la connexion :", error); alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue")); } };
-
+  };
+  
   return (
     <main>
       <div id="containerLogin">
