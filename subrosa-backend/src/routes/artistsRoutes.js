@@ -3,9 +3,7 @@ const express = require('express');
 const router = express.Router();
 const artistsController = require('../controllers/artistsController');
 const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
-const multer = require('multer');
-const upload = multer(); // sans stockage de fichiers, mais permet de lire les champs
-
+const upload = require('../middlewares/multerConfig');
 // ------------------ Endpoints publics ------------------
 
 // Retourne la liste complète des artistes (pour le public)
