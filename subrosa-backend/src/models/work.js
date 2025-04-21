@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const workSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  artist: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist', required: true },
+  artistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist', required: true },
   description: { type: String },
   creation_date: { type: Date },
   medium: { type: String }, // Technique utilisée (peinture, photo, sculpture, etc.)
@@ -16,7 +16,7 @@ const workSchema = new mongoose.Schema({
   themes: [{ type: String }],
   price: { type: Number, required: true },
   currency: { type: String, default: 'EUR' },
-  in_stock: { type: Boolean, default: true },
+  in_stock: { type: Number, default: true },
   images: [{
     url: { type: String, required: true },
     altText: { type: String, required: true }

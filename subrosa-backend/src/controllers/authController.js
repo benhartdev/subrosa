@@ -62,7 +62,7 @@ const loginUser = async (req, res) => {
 
       return res.status(200).json({
         message: "Connexion réussie",
-        user: req.session.user
+        user, // ⬅️ on renvoie tout l’objet de l'artiste ici
       });
     });
   } catch (error) {
