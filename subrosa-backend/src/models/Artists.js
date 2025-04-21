@@ -126,27 +126,11 @@ const userSchema = new mongoose.Schema({
           min: [0, "Stock >= à 0."],
           default: 0
       },
-      interviews: {
-          type: String,
-          trim: true,
-          maxlength: [500, "Max 500 caractères."]
-      },
-      isApproved: { 
-          type: Boolean,
-          default: false 
-      },
-      status: {
-          type: String,
-          enum: ['pending', 'validated', 'rejected'],
-          default: 'pending'
-      },
-          name: String,
-          images: [{
-                    url: String,
-                    alt: String,
-                    uploadedAt: { type: Date, default: Date.now }
-                    }
-  ]
+      interviews: { type: String, trim: true, maxlength: [500, "Max 500 caractères."]},
+      isApproved: { type: Boolean, default: false },
+      status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
+      name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
+      works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }]
 
      
     });

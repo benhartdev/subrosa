@@ -36,6 +36,7 @@ const getFeaturedArtists = async (req, res) => {
 };
 
 const createArtist = async (req, res) => {
+  console.log("📥 Données reçues depuis le formulaire public :", req.body);
   try {
     const {
       username,
@@ -60,16 +61,31 @@ const createArtist = async (req, res) => {
       newsletter
     } = req.body;
 
+    // Vérification des champs requis
     if (!username || !password || !email) {
       return res.status(400).json({ message: "Champs obligatoires manquants" });
     }
 
+    // Vérification doublon (username ou email)
     const existing = await Artist.findOne({ $or: [{ username }, { email }] });
     if (existing) {
       return res.status(400).json({ message: "Artiste déjà existant avec ce nom ou cet email" });
     }
 
+    console.log("🔐 Mot de passe original reçu :", password);
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("🔐 Hash généré :", hashedPassword);
+
+    // Traitement des images (s'il y en a)
+    const alts = req.body.alts || [];
+    const normalizedAlts = Array.isArray(alts) ? alts : [alts];
+    const images = req.files?.map((file, index) => ({
+      url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
+      alt: normalizedAlts[index] || '',
+      caption: ''
+    })) || [];
+
+    // Création de l'artiste avec le mot de passe sécurisé + images
     const newArtist = new Artist({
       username,
       password: hashedPassword,
@@ -93,17 +109,22 @@ const createArtist = async (req, res) => {
       newsletter,
       isApproved: false,
       role: "artist",
-      status: "pending"
+      status: "pending",
+      images // ✅ Ajout des images ici
     });
 
+    // Sauvegarde + envoi d'email
     const savedArtist = await newArtist.save();
     await sendConfirmationEmail(savedArtist.email, savedArtist.name);
+
+    // Réponse client
     res.status(201).json(savedArtist);
   } catch (error) {
     console.error("Erreur interne dans createArtist :", error);
     res.status(500).json({ message: "Erreur interne lors de l'inscription", error: error.message });
   }
 };
+
 
 const updateArtist = async (req, res) => {
   try {

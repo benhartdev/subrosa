@@ -17,7 +17,7 @@ router.get('/', artistsController.getAllArtists);
 router.get('/featured', artistsController.getFeaturedArtists);
 
 // Inscription d'un nouvel artiste (accessible publiquement)
-router.post('/register', artistsController.createArtist);
+router.post('/register', upload.array('images', 20), artistsController.createArtist);
 
 // ------------------ Endpoints protégés ------------------
 // Ces endpoints nécessitent une authentification et des vérifications de rôles

@@ -65,6 +65,10 @@ router.post('/full-create', upload.array('images', 20), async (req, res) => {
       alt: normalizedAlts[index] || '',
       caption: ''
     }));
+    if (req.body.password) {
+      console.warn("⚠️ Champ 'password' supprimé : l’admin ne peut pas définir le mot de passe.");
+      delete req.body.password;
+    }
     const newArtist = new Artist({
       username,
       password,
