@@ -10,6 +10,7 @@ const AdminPendingWorksPanel = () => {
       try {
         const res = await fetch('http://localhost:5000/api/works/pending');
         const data = await res.json();
+        console.log('⛏ Données reçues du backend :', data);
         setPendingWorks(data);
       } catch (err) {
         console.error('Erreur chargement oeuvres non validées', err);
@@ -54,7 +55,7 @@ const AdminPendingWorksPanel = () => {
 />
             <div className="work-info">
               <h3>{work.title}</h3>
-              <p><strong>Artiste :</strong> {work.artistId?.name || 'Inconnu'}</p>
+              <p><strong>Artiste :</strong> {work.artistId?.username || 'Inconnu'}</p>
               <p><strong>Description :</strong> {work.description}</p>
               <p><strong>Date de création :</strong> {work.creation_date}</p>
               <p><strong>Technique :</strong> {work.medium}</p>

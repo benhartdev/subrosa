@@ -88,8 +88,8 @@ const ArtistFullForm = ({ existingData = {}, onSubmit, onCancel, mode = "create"
         <label>Style artistique :</label>
   <select
   name="style"
-  value={getSafeValue(formData.style)}  // ✅ Garde bien ta logique
-  onChange={handleChange}              // ✅ Garde bien le onChange
+  value={getSafeValue(formData.style)}  
+  onChange={handleChange}             
   className="animated-input"
 >
   <option value="">Choisir un style</option>

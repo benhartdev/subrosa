@@ -7,7 +7,7 @@ import '../../styles/GalleryScroll.css';
 import '../../styles/addworkForm.css';
 import Header from '../../components/Header';
 import GalleryScroll from '../../components/GalleryScroll'
-import ArtworkForm from '../../components/AddworkForm'
+import AddworkForm from '../../components/AddworkForm'
 
 import Head from 'next/head'
 
@@ -25,7 +25,7 @@ export default function ArtistLogin() {
           <Header />
           <PersonalLogin />
           <GalleryScroll />
-          <ArtworkForm />
+          <AddworkForm />
         </div>
       </>
     )

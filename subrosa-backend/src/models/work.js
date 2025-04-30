@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const workSchema = new mongoose.Schema({
+
   title: { type: String, required: true },
   artistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist', required: true },
   description: { type: String },
@@ -36,4 +37,5 @@ workSchema.pre('save', function(next) {
 });
 
 
-module.exports = mongoose.model("Work", workSchema);
+module.exports = mongoose.models.work || mongoose.model('work', workSchema);
+

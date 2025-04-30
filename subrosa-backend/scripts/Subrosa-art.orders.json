@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67f450607e72b70168cede5a"
+  },
+  "userId": {
+    "$oid": "67f0709ccec63b7ee18e0370"
+  },
+  "items": [
+    {
+      "workId": {
+        "$oid": "67f4501a7e72b70168cede4f"
+      },
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 200,
+  "status": "completed",
+  "createdAt": {
+    "$date": "2025-04-07T22:23:28.205Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67f4507f7e72b70168cede5b"
+  },
+  "userId": {
+    "$oid": "67f0709ccec63b7ee18e0370"
+  },
+  "items": [
+    {
+      "workId": {
+        "$oid": "67f4501a7e72b70168cede52"
+      },
+      "quantity": 1
+    }
+  ],
+  "totalAmount": 200,
+  "status": "completed",
+  "createdAt": {
+    "$date": "2025-04-07T22:23:59.526Z"
+  }
+}]

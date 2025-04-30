@@ -3,8 +3,9 @@ const router = express.Router();
 const Work = require('../models/work');
 const Artist = require('../models/Artists');
 const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
-const upload = require('../middlewares/multerConfig'); // ou le bon chemin si c’est ailleurs
-const fs = require('fs');
+const upload = require('../middlewares/multerConfig'); 
+// const fs = require('fs');
+// const worksController = require('../controllers/worksController');
 
 // Récupérer toutes les œuvres
 router.get('/', async (req, res) => {
@@ -195,10 +196,14 @@ router.delete('/:id', async (req, res) => {
 // Récupérer toutes les œuvres non validées
 router.get('/pending', async (req, res) => {
   try {
-    const pending = await Work.find({ isApproved: false });
+    const pending = await Work.find({ isApproved: false }).populate('artistId', 'username');
     res.status(200).json(pending);
   } catch (err) {
     res.status(500).json({ message: 'Erreur récupération œuvres non validées' });
   }
 });
+
+// // Route pour ajouter une œuvre
+//  router.post('/artist/add', upload.array('images', 10), worksController.addWork);
+
 module.exports = router;

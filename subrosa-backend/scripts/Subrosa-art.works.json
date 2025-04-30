@@ -1,0 +1,517 @@
+[{
+  "_id": {
+    "$oid": "6806b27606806385c809f0d7"
+  },
+  "title": "indian express 1",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Photo d'un voyageur indien, voyage de 4 jours pour traverser l'inde, de Delhi a Goa. Un pur bonheur",
+  "creation_date": {
+    "$date": "2021-10-24T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 120,
+    "width": 120,
+    "depth": 0.7,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "bleue"
+  ],
+  "themes": [
+    "Voyage"
+  ],
+  "price": 1500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745269366766-860091015.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b27606806385c809f0d8"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:02:46.787Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:02:46.791Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b33c06806385c809f0e5"
+  },
+  "title": "indian express 2",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Photo d'un voyageur indien, voyage de 4 jours pour traverser l'inde, de Delhi a Goa. Un pur bonheur",
+  "creation_date": {
+    "$date": "2021-10-24T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 120,
+    "width": 120,
+    "depth": 0.7,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "bleue"
+  ],
+  "themes": [
+    "Voyage"
+  ],
+  "price": 1500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745269564866-729717306.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b33c06806385c809f0e6"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:06:04.912Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:06:04.913Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b4a606806385c809f0f3"
+  },
+  "title": "Aurora",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "\"Aurora\" capture un instant suspendu, où la lumière sculpte le silence.\r\nAssise dans une chaise en osier, la silhouette se fond dans un jeu d’ombres géométriques. La lumière traverse le tressage et vient caresser la peau, révélant autant qu’elle dissimule.\r\nLe regard, dirigé vers l’ailleurs, semble habité par une pensée secrète.\r\nTout ici respire la douce mélancolie, le mystère et la fragilité de l’intime.\r\nUne photographie à la fois graphique et profondément humaine.",
+  "creation_date": {
+    "$date": "2018-05-08T00:00:00.000Z"
+  },
+  "medium": "Impression Fine Art",
+  "dimensions": {
+    "height": 120,
+    "width": 90,
+    "depth": 0.1,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Nu artistique"
+  ],
+  "price": 3500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745269926277-819910135.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b4a606806385c809f0f4"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:12:06.291Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:12:06.291Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b5a006806385c809f101"
+  },
+  "title": "EQUITY",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Dans une puissante composition en noir et blanc, deux bras se rencontrent , l’un tendu, veiné, tendu d’effort ou de soutien ; l’autre, plus lisse, marqué par un tatouage, s’accroche avec force et confiance. La lumière rasante sculpte chaque relief cutané avec intensité, donnant une dimension presque sculpturale à la scène. La solidarité brute, la vulnérabilité offerte, et le lien humain comme ultime acte de résistance. C’est une vision à la fois charnelle et universelle de la main tendue, du soutien inconditionnel, de l’équité.",
+  "creation_date": {
+    "$date": "2019-10-08T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 120,
+    "width": 90,
+    "depth": 0.7,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Homme/Femme"
+  ],
+  "price": 2500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745270176133-520325652.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b5a006806385c809f102"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:16:16.144Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:16:16.145Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b67306806385c809f10f"
+  },
+  "title": "Indian Game",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Un couloir étroit, presque sans fin, sculpté par la lumière. Au centre, une silhouette d’enfant en équilibre, pieds nus, bras écartés, jouant avec les murs comme avec le monde. Le corps trace une danse spontanée, comme un défi à la verticalité écrasante du décor. La lumière dorée glisse sur les murs rugueux, tandis que l’ombre de l’enfant devient un poème silencieux.\r\nIl ne s'agit pas simplement d’un jeu, mais d’un acte de présence.\r\nUn équilibre entre enfance et architecture, entre fragilité et puissance intérieure, un moment suspendu entre deux mondes.",
+  "creation_date": {
+    "$date": "2021-07-25T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 180,
+    "width": 120,
+    "depth": 1,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "Marron"
+  ],
+  "themes": [
+    "Voyage"
+  ],
+  "price": 4500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745270387085-423314955.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b67306806385c809f110"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:19:47.111Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:19:47.111Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b76206806385c809f11d"
+  },
+  "title": "My first print",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Une vision monumentale de la Tour Eiffel capturée à contre-plongée, où l’architecture devient chaos ordonné. Le noir et blanc exacerbe la texture du métal, la densité des croisements, et révèle l’âme industrielle de cette icône parisienne. Cette photographie transcende le sujet et invite à une plongée dans le vertige graphique des structures humaines.\r\nUne composition angulaire volontairement déstabilisante, comme un hommage aux lignes et au désordre organisé des constructions colossales.",
+  "creation_date": {
+    "$date": "2010-10-08T00:00:00.000Z"
+  },
+  "medium": "Impression Fine Art",
+  "dimensions": {
+    "height": 90,
+    "width": 60,
+    "depth": 0.1,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Paysages Urbains"
+  ],
+  "price": 150000,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745270626165-284579233.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b76206806385c809f11e"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:23:46.170Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:23:46.171Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b85506806385c809f12b"
+  },
+  "title": "Eagle Target",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Saisi en plein vol, ce rapace semble figé dans un instant de grâce et de tension. Les ailes déployées comme deux lames, les serres prêtes à frapper, il incarne à la fois la beauté sauvage et la précision du chasseur. Le fond montagneux flouté met en valeur chaque détail du plumage et de la posture. Ce noir et blanc dramatise la scène, révélant l’intensité brute du monde animal.\r\nL’instant capturé est une collision entre ciel, pierre et instinct.",
+  "creation_date": {
+    "$date": "2015-10-08T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 100,
+    "width": 180,
+    "depth": 1,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Animal"
+  ],
+  "price": 7500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745270869211-296599321.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b85506806385c809f12c"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:27:49.227Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:27:49.227Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806b97706806385c809f139"
+  },
+  "title": "My mind",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Plongée au cœur d’un entrelacs métallique, My mind explore l’esthétique du chaos organisé. Cette structure modulaire, captée en noir et blanc, révèle la tension dynamique entre ordre industriel et poésie mécanique. Chaque joint, chaque câble devient une ligne de force dans une architecture dense et hypnotique. L’image invite à la contemplation d’une géométrie vivante, presque organique.",
+  "creation_date": {
+    "$date": "2023-10-08T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 130,
+    "width": 200,
+    "depth": 1.2,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Paysages Urbains"
+  ],
+  "price": 10000,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745271159895-562362617.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806b97706806385c809f13a"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:32:39.905Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:32:39.906Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806ba2d06806385c809f147"
+  },
+  "title": "Le Promenoir Express",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Dans un équilibre parfait entre rigueur architecturale et pulsation urbaine, Le Promenoir Express capture l’âme d’un pont parisien la nuit. La symétrie imposante des piliers métalliques guide le regard vers l’infini, tandis que les filés lumineux rouges viennent trancher le silence en une dynamique fulgurante. L’image fige un instant de vitesse et de tension graphique, à la frontière du réel et du cinématographique.",
+  "creation_date": {
+    "$date": "2022-10-15T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 66,
+    "width": 200,
+    "depth": 1,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Tirage partiellement désaturé (black & red)"
+  ],
+  "price": 7500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745271341814-732130348.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806ba2d06806385c809f148"
+      }
+    }
+  ],
+  "status": "available",
+  "createdAt": {
+    "$date": "2025-04-21T21:35:41.919Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T21:35:41.920Z"
+  },
+  "__v": 0,
+  "isApproved": true
+},
+{
+  "_id": {
+    "$oid": "6806cf9dfdd25a9a3864af50"
+  },
+  "title": "I see you",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Dans cette photographie poignante, Ben H capte un instant d'intensité brute et d’intimité silencieuse. Les dreadlocks, tombant comme un rideau naturel, voilent partiellement le visage tout en révélant un regard vibrant de profondeur. Ce portrait en noir et blanc explore l’identité, le mystère et la force intérieure. Le grain de l’image, la lumière ciselée et le cadrage serré composent une œuvre à la fois puissante et délicate, laissant place à l’imaginaire du spectateur.",
+  "creation_date": {
+    "$date": "2022-10-14T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 90,
+    "width": 60,
+    "depth": 0.5,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc"
+  ],
+  "themes": [
+    "Portrait"
+  ],
+  "price": 1500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745276828974-882352934.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806cf9dfdd25a9a3864af51"
+      }
+    }
+  ],
+  "status": "available",
+  "isApproved": false,
+  "createdAt": {
+    "$date": "2025-04-21T23:07:09.001Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T23:07:09.002Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6806d045fdd25a9a3864af6c"
+  },
+  "title": "PORT DE GENOVA",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "description": "Port de Gênes s’impose comme une scène suspendue entre mémoire industrielle et poésie portuaire. Dans un traitement sépia adouci, Ben H révèle la beauté brute des quais : la coque rouillée du Sentinel, le voilier suspendu Matilda, et la grue massive comme un vestige d’un temps révolu. Chaque élément raconte une histoire de voyage, d’abandon ou de transformation. L’ensemble compose une fresque calme et mélancolique, riche en textures et en contrastes, où l’homme semble s’être effacé au profit de ses machines.",
+  "creation_date": {
+    "$date": "2022-11-25T00:00:00.000Z"
+  },
+  "medium": "Impression plexiglas",
+  "dimensions": {
+    "height": 60,
+    "width": 120,
+    "depth": 0.7,
+    "unit": "cm"
+  },
+  "dominant_colors": [
+    "noir et blanc sépia"
+  ],
+  "themes": [
+    "Paysages Urbains"
+  ],
+  "price": 4500,
+  "currency": "€",
+  "in_stock": 1,
+  "images": [
+    {
+      "url": "/uploads/images-1745276997102-912220530.jpg",
+      "altText": "Image sans texte alternatif",
+      "_id": {
+        "$oid": "6806d045fdd25a9a3864af6d"
+      }
+    }
+  ],
+  "status": "available",
+  "isApproved": false,
+  "createdAt": {
+    "$date": "2025-04-21T23:09:57.120Z"
+  },
+  "updatedAt": {
+    "$date": "2025-04-21T23:09:57.121Z"
+  },
+  "__v": 0
+}]

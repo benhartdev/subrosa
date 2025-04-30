@@ -136,5 +136,5 @@ const userSchema = new mongoose.Schema({
     });
     
 
-    module.exports = mongoose.model('Artists', userSchema, 'Artists');
+    module.exports = mongoose.model('Artist', userSchema, 'Artists');
 

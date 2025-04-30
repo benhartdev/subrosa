@@ -125,7 +125,6 @@ const createArtist = async (req, res) => {
   }
 };
 
-
 const updateArtist = async (req, res) => {
   try {
     const { id } = req.params;
@@ -151,7 +150,6 @@ const updateArtist = async (req, res) => {
     res.status(500).json({ error: "Erreur serveur lors de la mise à jour." });
   }
 };
-
 
 const deleteArtist = async (req, res) => {
   try {

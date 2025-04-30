@@ -29,7 +29,7 @@ export default function AdminStats() {
    useEffect(() => {
     async function fetchStats() {
       try {
-       const res = await axios.get("http://localhost:5000/api/stats", {
+       const res = await axios.get("http://localhost:5000/api/admin/stats", {
           withCredentials: true,
         });
         console.log("🧪 Données stats reçues :", res.data); // 👈 ici

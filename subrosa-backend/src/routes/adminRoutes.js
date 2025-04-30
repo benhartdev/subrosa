@@ -6,11 +6,13 @@ const Work = require("../models/work");
 const Order = require("../models/Order");
 const { ensureAdmin } = require("../middlewares/authMiddleware");
 const adminController = require("../controllers/adminController");
-
+const { getPendingArtists } = require("../controllers/artistsController");
 
 router.get('/stats', adminController.getStats);
 
 
+
+router.get("/artists/pending", ensureAdmin, getPendingArtists);
 
 
 // GET artistes en attente

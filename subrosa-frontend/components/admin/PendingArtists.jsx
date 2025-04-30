@@ -7,17 +7,18 @@ const PendingArtistsPage = () => {
   const [pendingArtists, setPendingArtists] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchPending = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/artists/pending');
+        const response = await axios.get("http://localhost:5000/api/artists/pending", { withCredentials: true });
         setPendingArtists(response.data);
-        setLoading(false);
       } catch (error) {
         console.error('Erreur lors du chargement des artistes en attente :', error);
+      } finally {
         setLoading(false);
       }
     };
+
     fetchPending();
   }, []);
 
