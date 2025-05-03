@@ -17,20 +17,20 @@
 /* Boutons de connexion */
 .auth-buttons {
   display: flex;
-  position: absolute;
+  flex-direction: column; /* 🔁 Aligne les boutons en colonne */
+  align-items: flex-end;   /* 🔁 Aligne à droite */
   position: fixed;
-  top: 90px;
+  top: 75px; /* Ajuste en fonction de ta nav */
   right: 20px;
+  gap: 2px;
   z-index: 9999;
-  gap: 10px;
- 
 }
 
-/* Tu peux adapter le style des boutons comme tu veux */
-.login-button,
+
+/* .login-button,
 .login-button_2 {
   z-index: 9999;
-  width: 150px;        /* 👈 même taille */
+  width: 250px;       
   padding: 8px 16px;
   border: 1px solid white;
   background: transparent;
@@ -40,8 +40,66 @@
   white-space: nowrap;
   box-sizing: border-box;
   background-color: black;
+} */
+
+.login-button,
+.login-button_2,
+.add-artwork-button {
+  width: 240px;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 0.95rem;
+  border: 1px solid #ffffff;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
 }
 
+* Boutons login/register alignés à droite */
+.login-buttons, .login-button_2 {
+   display: flex!important;
+   justify-content: flex-end !important;
+   align-items: center!important;
+   gap: 3rem !important; /* espace entre les boutons */
+   z-index: 9999;
+ }
+
+.add-artwork-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.add-artwork-button:hover {
+  background-color: #0a44049e;
+}
+
+.art-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+.add-button-wrapper {
+  position: fixed;
+  top: 150px; /* Ajuste la hauteur selon tes besoins */
+  right: 20px; /* Distance du bord droit */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+}
 
 .sidebar {
     display: flex;
@@ -103,14 +161,7 @@
   
   
 
-  * Boutons login/register alignés à droite */
- .login-buttons, .login-button_2 {
-    display: flex!important;
-    justify-content: flex-end !important;
-    align-items: center!important;
-    gap: 3rem !important; /* espace entre les boutons */
-    z-index: 9999;
-  }
+
   
   /* Menu hamburger (le bouton) */
   #menu-toggle {
@@ -214,10 +265,15 @@
   }
 
   .MiniBarNav-current {
-    border: 1px dashed red;
+   
     color: white;
     font-weight: bold;
   }
+  
+  
+  
+    
+  
   
   
   /* RESPONSIVE : uniquement en mobile */

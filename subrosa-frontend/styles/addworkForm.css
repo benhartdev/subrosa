@@ -1,91 +1,81 @@
 .add-artwork-container {
-    background: #0a0a0a;
-    color: #eee;
-    padding: 2rem;
-    border: 1px solid #222;
-    border-radius: 12px;
-    max-width: 700px;
-    margin: 2rem auto;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  .add-artwork-container h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .add-artwork-container label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: 500;
-  }
-  
-  .add-artwork-container input,
-  .add-artwork-container textarea {
-    width: 100%;
-    background: #111;
-    color: #fff;
-    padding: 0.6rem;
-    border: 1px solid #333;
-    border-radius: 6px;
-    margin-top: 0.3rem;
-  }
-  
-  .preview-image {
-    margin-top: 1rem;
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border: 1px solid #444;
-    border-radius: 8px;
-  }
-  
-  button[type="submit"] {
-    margin-top: 2rem;
-    width: 100%;
-    background: #fff;
-    color: #000;
-    border: none;
-    padding: 0.8rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .status-message {
-    text-align: center;
-    margin: 1rem 0;
-    color: #f0a500;
-  }
-  
-  .submitted-gallery {
-    margin-top: 2rem;
-  }
-  
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .gallery-card {
-    background: #111;
-    border: 1px solid #333;
-    padding: 0.5rem;
-    border-radius: 8px;
-    width: 150px;
-    text-align: center;
-  }
-  
-  .gallery-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-  }
+  background-color: #000;
+  color: #f5f5f5;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #333;
+}
+
+.add-artwork-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #e60012;
+}
+
+form label {
+  display: block;
+  margin: 1.2rem 0 0.5rem;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #e60012;
+}
+
+fieldset {
+  border: 1px solid #333;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: #e60012;
+  font-weight: bold;
+}
+
+.image-upload-block {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-upload-block input[type="text"] {
+  flex: 1;
+}
+
+button[type="submit"] {
+  background-color: #b49093;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #38d511;
+}

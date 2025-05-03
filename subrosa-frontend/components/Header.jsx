@@ -4,6 +4,7 @@ import Image from 'next/image';
 import HamburgerMenu from './HamburgerMenu';
 import NavButton from '../components/NavButton'; 
 import MiniBarNav from '../components/MiniBarNav'; 
+import AddWorkButton from './AddWorkButton';
 
 import '../styles/header.css'; // Importation du fichier CSS pour le style du header
 import { useAuth } from "../components/context/AuthContext";
@@ -36,7 +37,7 @@ const Header = () => {
         <div className="auth-buttons">
   {user ? (
     <button className="login-button" onClick={logout}>
-      Se déconnecter ({user.role})
+      Se déconnecter <br></br> {user.username}
     </button>
   ) : (
     <NavButton to="/login" label="Se connecter" className="login-button" />
@@ -44,8 +45,17 @@ const Header = () => {
 
   <HamburgerMenu />
 
+  {!user || user.role !== 'artist' ? (
   <NavButton to="/inscription-utilisateur" label="S'enregistrer" className="login-button_2" />
+) : null}
+  
 </div>
+
+{user?.role === "artist" && (
+  <div className="add-button-wrapper">
+    <AddWorkButton />
+  </div>
+)}
 
 
 

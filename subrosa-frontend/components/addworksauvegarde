@@ -1,133 +1,4 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-// import '../styles/addworkForm.css';
-
-const AddArtwork = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    creation_date: '',
-    medium: '',
-    price: '',
-    currency: '€',
-    in_stock: '',
-    status: 'available',
-    dominant_colors: '',
-    themes: '',
-    artistId: '',
-    dimensions: {
-      height: '',
-      width: '',
-      depth: '',
-      unit: 'cm',
-    },
-  });
-
-  const [images, setImages] = useState([{ file: null, altText: '' }]);
-  const [submittedArtworks, setSubmittedArtworks] = useState([]);
-  const [message, setMessage] = useState('');
-
-  // Récupération de l'artiste connecté
-  useEffect(() => {
-    const storedArtist = JSON.parse(localStorage.getItem('artist'));
-    console.log('🎨 artiste connecté:', storedArtist);
-    if (storedArtist && storedArtist._id) {
-      setFormData(prev => ({
-        ...prev,
-        artistId: storedArtist._id
-      }));
-    }else {
-      console.warn("⚠️ Aucun artiste trouvé dans le localStorage");
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (['height', 'width', 'depth', 'unit'].includes(name)) {
-      setFormData((prev) => ({
-        ...prev,
-        dimensions: { ...prev.dimensions, [name]: value },
-      }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleImageChange = (index, file) => {
-    const newImages = [...images];
-    newImages[index].file = file;
-    setImages(newImages);
-  };
-
-  const handleAltTextChange = (index, altText) => {
-    const newImages = [...images];
-    newImages[index].altText = altText;
-    setImages(newImages);
-  };
-
- 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = new FormData();
-
-    Object.entries(formData).forEach(([key, value]) => {
-      if (key === 'dimensions') {
-        Object.entries(value).forEach(([dimKey, dimVal]) => {
-          form.append(`dimensions[${dimKey}]`, dimVal);
-        });
-      } else {
-        form.append(key, value);
-      }
-    });
-
-    images.forEach((img, index) => {
-      if (img.file) {
-        form.append('images', img.file);
-        form.append(`altText[${index}]`, img.altText);
-      }
-    });
-
-    try {
-      console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}/works/artist/add`);
-      console.log("📤 artistId envoyé dans le POST :", formData.artistId);
-      const response = await fetch(`http://localhost:5000/works/artist/add`, {
-        method: 'POST',
-        body: form,
-        credentials: 'include',
-      });
-      console.log('API URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
-      const data = await response.json();
-      if (response.ok) {
-        setMessage('✅ Œuvre soumise avec succès');
-        setSubmittedArtworks([data, ...submittedArtworks]);
-        // Réinitialisation
-        setFormData({
-          title: '',
-          description: '',
-          creation_date: '',
-          medium: '',
-          price: '',
-          currency: '€',
-          in_stock: '',
-          status: 'available',
-          dominant_colors: '',
-          themes: '',
-          artistId: formData.artistId,
-          dimensions: { height: '', width: '', depth: '', unit: 'cm' },
-        });
-        setImages([{ file: null, altText: '' }]);
-      } else {
-        setMessage(`${data.message}`);
-      }
-    } catch (error) {
-      setMessage('❌ Erreur de connexion serveur.');
-    }
-  };
-
-  return (
-    <div className="add-artwork-container">
+<div className="add-artwork-container">
   {message && <p className="status-message">{message}</p>}
 
   <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -235,12 +106,11 @@ const AddArtwork = () => {
 
   {submittedArtworks.length > 0 && (
     <div className="submitted-gallery">
-      <h2>Œuvres récemment ajoutées :</h2>
+      <h3>Œuvres récemment ajoutées :</h3>
       <div className="gallery-grid">
         {submittedArtworks.map((art, idx) => (
           <div key={idx} className="gallery-card">
             <img
-            className="preview-image"
               src={
                 art.images?.[0]?.url?.startsWith('http')
                   ? art.images[0].url
@@ -255,8 +125,3 @@ const AddArtwork = () => {
     </div>
   )}
 </div>
-
-  );
-};
-
-export default AddArtwork;
