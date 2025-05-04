@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 const dotenv = require('dotenv');
-
+const sessionRoutes = require('./src/routes/sessionRoutes');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const errorHandler = require('./src/middlewares/errorHandler');
@@ -39,7 +39,7 @@ app.use(session({
     secure: false, // passer à true en production avec HTTPS
     httpOnly: true,
     sameSite: 'lax',
-    maxAge: 1000 * 60 * 30, // 30 minutes
+    maxAge: 1000 * 60 * 180, // 180 minutes
   }
 }));
 
@@ -62,6 +62,7 @@ app.use('/api/works', require('./src/routes/worksRoutes'));
 // Pour rendre les fichiers statiques accessibles (images uploadées)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(errorHandler);
+app.use('/api', sessionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
