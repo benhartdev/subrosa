@@ -26,6 +26,19 @@ router.get('/validated', async (req, res) => {
   }
 });
 
+// Route spéciale pour récupérer TOUTES les œuvres de l’artiste connecté
+router.get('/all-by-artist/:id', async (req, res) => {
+  try {
+    const artistId = req.params.id;
+    const works = await Work.find({ artistId });
+    res.status(200).json(works);
+  } catch (error) {
+    console.error("Erreur récupération œuvres artiste :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
+
 // Route : GET /api/works/random
 router.get('/random', async (req, res) => {
   try {
@@ -79,15 +92,6 @@ router.post('/by-artist', ensureArtist, async (req, res) => {
   }
 });
 
-// Route publique pour récupérer des œuvres aléatoires
-// router.get('/random', async (req, res) => {
-//   try {
-//     const artworks = await Artwork.aggregate([{ $sample: { size: 6 } }]);
-//     res.json(artworks);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Erreur lors de la récupération des œuvres.' });
-//   }
-// });
 
 // ✅ Nouvelle route artiste avec upload d’image
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
@@ -96,6 +100,33 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     console.log('📥 Données reçues :');
     console.log('🟡 req.body =>', req.body);
     console.log('🖼️ req.files =>', req.files);
+
+    // ✅ Vérification présence fichiers image
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "Aucune image n’a été envoyée." });
+    }
+
+    // ✅ Prendre l’ID depuis la session
+    const artistId = req.session?.user?.id;
+    if (!artistId) {
+      return res.status(401).json({ message: "Utilisateur non connecté ou session expirée." });
+    }
+
+    const artist = await Artist.findById(artistId);
+    if (!artist) {
+      return res.status(404).json({ message: "Artiste introuvable." });
+    }
+
+    // ✅ Limite d'œuvres pour artistes non validés
+    if (artist.status !== 'validated') {
+      const currentCount = await Work.countDocuments({ artistId });
+      if (currentCount >= 6) {
+        return res.status(403).json({
+          message: "Vous pouvez soumettre jusqu'à 6 œuvres avant validation de votre profil."
+        });
+      }
+    }
+
     const {
       title,
       description,
@@ -107,75 +138,67 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
       status,
       dominant_colors,
       themes,
-      artistId,
-     
+      dimensions
     } = req.body;
 
-const artist = await Artist.findById(artistId);
-if (!artist) {
-  return res.status(404).json({ message: "Artiste introuvable." });
-}
+    const finalDimensions = {
+      height: Number(dimensions.height),
+      width: Number(dimensions.width),
+      depth: dimensions.depth ? Number(dimensions.depth) : null,
+      unit: dimensions.unit || 'cm',
+    };
 
-// Limite pour les artistes non validés
-if (artist.status !== 'validated') {
-  const currentCount = await Work.countDocuments({ artistId });
-  if (currentCount >= 6) {
-    return res.status(403).json({ message: "Vous pouvez soumettre jusqu'à 6 œuvres avant validation de votre profil." });
-  }
-}
-    const { dimensions } = req.body;
-
-const finalDimensions = {
-  height: Number(dimensions.height),
-  width: Number(dimensions.width),
-  depth: dimensions.depth ? Number(dimensions.depth) : null,
-  unit: dimensions.unit || 'cm',
-};
-
-    // 📸 Traitement des images + altText[]
     const altTexts = req.body.altText;
+    const normalizedAltTexts = Array.isArray(altTexts) ? altTexts : [altTexts];
 
-// Si un seul altText est envoyé, il est sous forme de string → on le convertit en tableau
-const normalizedAltTexts = Array.isArray(altTexts) ? altTexts : [altTexts];
+    const images = req.files.map((file, index) => ({
+      url: `/uploads/${file.filename}`,
+      altText: normalizedAltTexts[index] || 'Image sans texte alternatif',
+    }));
 
-const images = req.files.map((file, index) => {
-  const altText = normalizedAltTexts[index] || 'Image sans texte alternatif';
-  return {
-    url: `/uploads/${file.filename}`,
-    altText,
-  };
-});
+    // ✅ Sécurité anti vide
+    if (images.length === 0) {
+      return res.status(400).json({ message: "Une œuvre doit contenir au moins une image." });
+    }
 
     const newWork = new Work({
       title,
-  description,
-  creation_date,
-  medium,
-  price: Number(price),
-  currency,
-  in_stock: Number(in_stock),
-  status,
-  dominant_colors,
-  themes,
-  artistId,
-  dimensions: finalDimensions,
-  images,
+      description,
+      creation_date,
+      medium,
+      price: Number(price),
+      currency,
+      in_stock: Number(in_stock),
+      status,
+      dominant_colors,
+      themes,
+      artistId,
+      dimensions: finalDimensions,
+      images,
+      isApproved: false, // reste en attente
     });
 
     await newWork.save();
+
     // 🔁 Mise à jour de l'artiste avec l'œuvre ajoutée
-await Artist.findByIdAndUpdate(
-  artistId,
-  { $push: { works: newWork._id } },
-  { new: true }
-);
+    await Artist.findByIdAndUpdate(
+      artistId,
+      { $push: { works: newWork._id } },
+      { new: true }
+    );
 
     res.status(201).json(newWork);
+
   } catch (error) {
-    console.error('Erreur ajout œuvre :', error);
-    res.status(500).json({ message: "Erreur lors de la soumission de l’œuvre.",
-      details: error.message });
-  }});
+    console.error('❌ Erreur ajout œuvre :', error);
+    res.status(500).json({
+      message: "Erreur lors de la soumission de l’œuvre.",
+      details: error.message
+    });
+  }
+});
+
+
 
 
 // Route protégée pour ajouter une œuvre (admin uniquement)

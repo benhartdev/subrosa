@@ -127,6 +127,7 @@ const artistSchema = new mongoose.Schema({
           default: 0
       },
       interviews: { type: String, trim: true, maxlength: [500, "Max 500 caractères."]},
+      isApproved: {type: Boolean, default: false},
       status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
       name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
       works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],

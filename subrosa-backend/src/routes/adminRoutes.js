@@ -33,9 +33,15 @@ router.patch("/artists/:id/approval", ensureAdmin, async (req, res) => {
       return res.status(400).json({ message: "Statut invalide" });
     }
 
+    // Mise à jour conditionnelle de isApproved
+    const updateFields = {
+      status,
+      isApproved: status === "validated"
+    };
+
     const artist = await Artist.findByIdAndUpdate(
       req.params.id,
-      { status },
+      updateFields,
       { new: true }
     );
 

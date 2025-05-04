@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Artist = require('../models/Artists');
 const bcrypt = require("bcrypt");
 const sendConfirmationEmail = require('../utils/sendConfirmationEmail');
-
+const sendArtistStatusEmail = require('../utils/sendArtistStatusEmail');
 
 
 
@@ -224,7 +224,7 @@ const updateArtistStatus = async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
 
-    const updated = await Artist.findByIdAndUpdate(id, { status }, { new: true });
+    const updated = await Artist.findByIdAndUpdate(id, { status, isApproved: status === "validated" }, { new: true });
     if (!updated) return res.status(404).json({ message: 'Artiste non trouvé' });
 
      try {
@@ -252,20 +252,7 @@ const getOwnProfile = async (req, res) => {
 
   res.status(200).json(artist);
 };
-// const getArtistById = async (req, res) => {
-  
-//   try {
-//     const artist = await Artist.findById(req.params.id);
-//     if (!artist) {
-//       return res.status(404).json({ error: "Artiste non trouvé" });
-//     }
-//     res.json(artist);
-//   } catch (err) {
-//     console.error("Erreur récupération artiste :", err);
-//     res.status(500).json({ error: "Erreur serveur" });
-//   }
-// };
-// controllers/artistsController.js
+
 
 const getArtistById = async (req, res) => {
   const { id } = req.params;
