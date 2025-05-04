@@ -3,9 +3,11 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/multerConfig');
 const Artist = require('../models/Artists');
+const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
+const uploadsArtistOwner = require('../middlewares/uploadsOwner');
 
 // Upload d'une image unique associée à un artiste
-router.post('/upload/:artistId', upload.single('image'), async (req, res) => {
+router.post('/upload/:artistId', upload.single('image'), uploadsArtistOwner, async (req, res) => {
   try {
     if (!req.file)
       return res.status(400).json({ error: 'Aucun fichier envoyé' });
@@ -23,7 +25,7 @@ router.post('/upload/:artistId', upload.single('image'), async (req, res) => {
 });
 
 // Upload de plusieurs images associées à un artiste
-router.post('/upload-multiple/:artistId', upload.array('images', 20), async (req, res) => {
+router.post('/upload-multiple/:artistId', upload.array('images', 20), uploadsArtistOwner, async (req, res) => {
   try {
     if (!req.files || req.files.length === 0)
       return res.status(400).json({ error: 'Aucun fichier envoyé' });
@@ -47,7 +49,7 @@ router.post('/upload-multiple/:artistId', upload.array('images', 20), async (req
 });
 
 // Optionnel : route pour créer un artiste avec upload simultané
-router.post('/full-create', upload.array('images', 20), async (req, res) => {
+router.post('/full-create', upload.array('images', 20), ensureAdmin, async (req, res) => {
   try {
     const {
       username, password, name, birthdate, country_location, city_location,

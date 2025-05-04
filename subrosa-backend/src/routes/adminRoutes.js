@@ -8,18 +8,15 @@ const { ensureAdmin } = require("../middlewares/authMiddleware");
 const adminController = require("../controllers/adminController");
 const { getPendingArtists } = require("../controllers/artistsController");
 
-router.get('/stats', adminController.getStats);
-
-
-
+router.get('/stats', ensureAdmin, adminController.getStats);
 router.get("/artists/pending", ensureAdmin, getPendingArtists);
 
 
 // GET artistes en attente
-router.get("/artists", async (req, res) => {
+router.get("/artists", ensureAdmin, async (req, res) => {
     try {
-      const { isApproved } = req.query;
-      const query = isApproved !== undefined ? { isApproved: isApproved === "true" } : {};
+      const { status } = req.query;
+      const query = status ? { status } : {}; // exemple : ?status=pending
       const artists = await Artist.find(query);
       res.json(artists);
     } catch (err) {
@@ -28,18 +25,33 @@ router.get("/artists", async (req, res) => {
   });
   
 // PATCH valider ou refuser artiste
-  router.patch("/artists/:id/approval", async (req, res) => {
-    try {
-      const { isApproved } = req.body;
-      const artist = await Artist.findByIdAndUpdate(req.params.id, { isApproved }, { new: true });
-      res.json(artist);
-    } catch (err) {
-      res.status(500).json({ message: "Erreur validation artiste" });
+router.patch("/artists/:id/approval", ensureAdmin, async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    if (!['pending', 'validated', 'rejected'].includes(status)) {
+      return res.status(400).json({ message: "Statut invalide" });
     }
-  });
+
+    const artist = await Artist.findByIdAndUpdate(
+      req.params.id,
+      { status },
+      { new: true }
+    );
+
+    if (!artist) {
+      return res.status(404).json({ message: "Artiste non trouvé" });
+    }
+
+    res.status(200).json(artist);
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la mise à jour du statut de l’artiste", error: err.message });
+  }
+});
+
   
 //   GET œuvres
-router.get("/works", async (req, res) => {
+router.get("/works", ensureAdmin, async (req, res) => {
     try {
       const works = await Work.find();
       res.json(works);
@@ -49,7 +61,7 @@ router.get("/works", async (req, res) => {
   });
 
 // DELETE œuvre
-  router.delete("/works/:id", async (req, res) => {
+  router.delete("/works/:id", ensureAdmin, async (req, res) => {
     try {
       await Work.findByIdAndDelete(req.params.id);
       res.json({ message: "Œuvre supprimée" });
@@ -59,7 +71,7 @@ router.get("/works", async (req, res) => {
   });
 
 // GET utilisateurs
-  router.get("/users", async (req, res) => {
+  router.get("/users", ensureAdmin, async (req, res) => {
     try {
       const users = await User.find({ isAdmin: false });
       res.json(users);
@@ -69,7 +81,7 @@ router.get("/works", async (req, res) => {
   });
   
 //   DELETE utilisateur
-  router.delete("/users/:id", async (req, res) => {
+  router.delete("/users/:id", ensureAdmin, async (req, res) => {
     try {
       await User.findByIdAndDelete(req.params.id);
       res.json({ message: "Utilisateur supprimé" });
@@ -79,7 +91,7 @@ router.get("/works", async (req, res) => {
   });
   
 //   GET commandes
-  router.get("/orders", async (req, res) => {
+  router.get("/orders", ensureAdmin, async (req, res) => {
     try {
       const orders = await Order.find().populate("userId");
       res.json(orders);

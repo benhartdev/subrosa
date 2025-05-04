@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const userSchema = new mongoose.Schema({
+const artistSchema = new mongoose.Schema({
 
       username: {
           type: String,
@@ -88,7 +88,7 @@ const userSchema = new mongoose.Schema({
       },
       phone: {
           type: String,
-          match: [/^(\+33|0)[1-9](?:\d{2}\s?){4}$/, "Le numéro de téléphone est invalide (attendu : format FR)"],
+          match: [/^(\+33|0)[1-9](?:[ .-]?\d{2}){4}$/, "Numéro invalide. Format attendu : 06 12 34 56 78 ou +33 6 12 34 56 78"],
           trim: true
       },
       website: {
@@ -106,15 +106,15 @@ const userSchema = new mongoose.Schema({
           match: [/^https?:\/\/(www\.)?instagram\.com\/[A-Za-z0-9_.-]+$/, "Lien Instagram invalide."],
           trim: true
       },
-      twitter: {
-          type: String,
-          match: [/^https?:\/\/(www\.)?twitter\.com\/[A-Za-z0-9_.-]+$/, "Lien Twitter invalide."],
-          trim: true
-      },
       linkedin: {
           type: String,
           match: [/^https?:\/\/(www\.)?linkedin\.com\/[A-Za-z0-9_.-]+$/, "Lien Linkedin invalide."],
           trim: true
+      },
+      twitter: {
+        type: String,
+        match: [/^https?:\/\/(www\.)?twitter\.com\/[A-Za-z0-9_.-]+$/, "Lien Twitter invalide."],
+        trim: true
       },
       numer_of_Artworks: {
           type: Number,
@@ -127,14 +127,14 @@ const userSchema = new mongoose.Schema({
           default: 0
       },
       interviews: { type: String, trim: true, maxlength: [500, "Max 500 caractères."]},
-      isApproved: { type: Boolean, default: false },
       status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
       name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
-      works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }]
-
+      works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],
+      artistImages: [{url: { type: String },alt: { type: String },uploadedAt: { type: Date, default: Date.now }}],
+      newsletter: { type: Boolean, default: true }
      
     });
     
 
-    module.exports = mongoose.model('Artist', userSchema, 'Artists');
+    module.exports = mongoose.model('Artist', artistSchema, 'Artists');
 

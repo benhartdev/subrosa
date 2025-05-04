@@ -20,8 +20,6 @@ const ensureAdmin = (req, res, next) => {
   return res.status(403).json({ message: "Accès interdit. Administrateur requis." });
 };
 
-
-
 // Middleware pour restreindre aux artistes uniquement
 const ensureArtist = (req, res, next) => {
   if (req.session?.user?.role === 'artist') {

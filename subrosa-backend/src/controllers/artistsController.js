@@ -36,8 +36,13 @@ const getFeaturedArtists = async (req, res) => {
 };
 
 const createArtist = async (req, res) => {
-  console.log("📥 Données reçues depuis le formulaire public :", req.body);
+  console.log("===== [DEBUG] createArtist =====");
+console.log("BODY FIELDS :", req.body);
+console.log("FILES REÇUS :", req.files);
+console.log("FICHIER 0 (images) :", req.files?.images?.[0]);
+console.log("FICHIER 0 (artistImages) :", req.files?.artistImages?.[0]);
   try {
+      
     const {
       username,
       password,
@@ -58,7 +63,8 @@ const createArtist = async (req, res) => {
       interviews,
       old_exhibitions,
       future_exhibitions,
-      newsletter
+      newsletter,
+      
     } = req.body;
 
     // Vérification des champs requis
@@ -76,14 +82,24 @@ const createArtist = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log("🔐 Hash généré :", hashedPassword);
 
-    // Traitement des images (s'il y en a)
-    const alts = req.body.alts || [];
-    const normalizedAlts = Array.isArray(alts) ? alts : [alts];
-    const images = req.files?.map((file, index) => ({
-      url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
-      alt: normalizedAlts[index] || '',
-      caption: ''
-    })) || [];
+    // Images des œuvres
+const rawAlts = req.body.alts || [];
+const alts = Array.isArray(rawAlts) ? rawAlts : [rawAlts];
+const images = req.files['images']?.map((file, index) => ({
+  url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
+  alt: alts[index] || '',
+  caption: ''
+})) || [];
+
+// Images de l'artiste
+const rawArtistAlts = req.body.artistAlts || [];
+const artistAlts = Array.isArray(rawArtistAlts) ? rawArtistAlts : [rawArtistAlts];
+const artistImages = req.files['artistImages']?.map((file, index) => ({
+  url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
+  alt: artistAlts[index] || '',
+  caption: ''
+})) || [];
+    
 
     // Création de l'artiste avec le mot de passe sécurisé + images
     const newArtist = new Artist({
@@ -110,18 +126,47 @@ const createArtist = async (req, res) => {
       isApproved: false,
       role: "artist",
       status: "pending",
-      images // ✅ Ajout des images ici
+      images,
+      alts,
+      artistImages 
     });
-
+    console.log("✅ ARTISTE À SAUVEGARDER :", newArtist);
     // Sauvegarde + envoi d'email
     const savedArtist = await newArtist.save();
+    console.log("✅ ARTISTE SAUVÉ AVEC SUCCÈS");
+
     await sendConfirmationEmail(savedArtist.email, savedArtist.name);
 
-    // Réponse client
-    res.status(201).json(savedArtist);
+   // 🔐 Création de session artiste
+    req.session.user = {
+      id: savedArtist._id,
+      username: savedArtist.username,
+      role: savedArtist.role
+    };
+
+    // 🔄 Sauvegarde de la session avant réponse
+    req.session.save(err => {
+      if (err) {
+        console.error("❌ Erreur création de session :", err);
+        return res.status(500).json({ message: "Erreur de session après inscription." });
+      }
+
+      // ✅ Réponse client finale
+      res.status(201).json(savedArtist);
+    });
   } catch (error) {
-    console.error("Erreur interne dans createArtist :", error);
-    res.status(500).json({ message: "Erreur interne lors de l'inscription", error: error.message });
+    console.error("❌ ERREUR SAUVEGARDE ARTISTE :", {
+      message: error.message,
+      errors: error.errors || null,
+      name: error.name,
+      stack: error.stack
+    });
+  
+    res.status(500).json({
+      message: "Erreur lors de l'enregistrement de l'artiste",
+      error: error.message,
+      details: error.errors || null
+    });
   }
 };
 
@@ -194,19 +239,60 @@ const updateArtistStatus = async (req, res) => {
   }
 };
 
+const getOwnProfile = async (req, res) => {
+  const userId = req.session?.user?.id;
+  if (!userId) return res.status(401).json({ message: 'Non authentifié' });
+
+  const artist = await Artist.findById(userId);
+  if (!artist) return res.status(404).json({ message: 'Artiste introuvable' });
+
+  if (artist.status !== 'validated') {
+    return res.status(403).json({ message: "Profil non accessible tant que non validé." });
+  }
+
+  res.status(200).json(artist);
+};
+// const getArtistById = async (req, res) => {
+  
+//   try {
+//     const artist = await Artist.findById(req.params.id);
+//     if (!artist) {
+//       return res.status(404).json({ error: "Artiste non trouvé" });
+//     }
+//     res.json(artist);
+//   } catch (err) {
+//     console.error("Erreur récupération artiste :", err);
+//     res.status(500).json({ error: "Erreur serveur" });
+//   }
+// };
+// controllers/artistsController.js
+
 const getArtistById = async (req, res) => {
+  const { id } = req.params;
+  const sessionUser = req.session.user;
+
   try {
-    const artist = await Artist.findById(req.params.id);
+    const artist = await Artist.findById(id);
     if (!artist) {
-      return res.status(404).json({ error: "Artiste non trouvé" });
+      return res.status(404).json({ message: "Artiste introuvable" });
     }
-    res.json(artist);
-  } catch (err) {
-    console.error("Erreur récupération artiste :", err);
-    res.status(500).json({ error: "Erreur serveur" });
+
+    // 🔐 Accès refusé si artiste non validé et l'utilisateur n'est ni admin ni lui-même
+    if (
+      artist.status !== 'validated' &&
+      (!sessionUser || (
+        sessionUser.role !== "admin" && sessionUser.id !== artist._id.toString()
+      ))
+    ) {
+      return res.status(403).json({ message: "Accès interdit à cet artiste non validé" });
+    }
+
+    res.status(200).json(artist);
+  } catch (error) {
+    console.error("Erreur récupération artiste :", error);
+    res.status(500).json({ message: "Erreur serveur" });
   }
 };
-
 
 module.exports = {
   getAllArtists,
@@ -217,4 +303,5 @@ module.exports = {
   getPendingArtists,
   updateArtistStatus,
   getArtistById,
+  getOwnProfile,
 };

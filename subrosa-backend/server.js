@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 
 const cookieParser = require('cookie-parser');
 const path = require('path');
-
+const errorHandler = require('./src/middlewares/errorHandler');
 
 // Charge les variables d'environnement
 dotenv.config();
@@ -21,12 +21,10 @@ connectDB();
 // Middlewares
 app.use(cors({
   origin: ['http://localhost:3000', 'http://127.0.0.1:3000'], // Frontend uniquement
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
-
-
 // app.set('trust proxy', 1);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,10 +34,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  name: "connect.sid",
   cookie: {
     secure: false, // passer à true en production avec HTTPS
     httpOnly: true,
-    sameSite: 'lax'
+    sameSite: 'lax',
+    maxAge: 1000 * 60 * 30, // 30 minutes
   }
 }));
 
@@ -61,6 +61,7 @@ app.use('/api/works', require('./src/routes/worksRoutes'));
 
 // Pour rendre les fichiers statiques accessibles (images uploadées)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

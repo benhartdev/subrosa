@@ -73,6 +73,10 @@ const loginUser = async (req, res) => {
 
 const logout = (req, res) => {
   console.log("🔐 Déconnexion reçue :", req.session.user);
+  console.log("🔐 Déconnexion reçue :", req.session.artist);
+  console.log("🔐 Déconnexion reçue :", req.session.admin);
+
+
   req.session.destroy(err => {
     if (err) {
       return res.status(500).json({ message: "Erreur lors de la déconnexion." });

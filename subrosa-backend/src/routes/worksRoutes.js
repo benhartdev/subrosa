@@ -4,13 +4,12 @@ const Work = require('../models/work');
 const Artist = require('../models/Artists');
 const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/multerConfig'); 
-// const fs = require('fs');
-// const worksController = require('../controllers/worksController');
+const filterByApproval = require('../middlewares/filterByApproval');
 
 // Récupérer toutes les œuvres
-router.get('/', async (req, res) => {
+router.get('/', filterByApproval, async (req, res) => {
   try {
-    const works = await Work.find().populate('artistId');
+    const works = await Work.find({ ...req.approvalFilter }).populate('artistId');
     res.status(200).json(works);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la récupération des œuvres." });
@@ -42,10 +41,10 @@ router.get('/random', async (req, res) => {
 });
 
 // (optionnel) Récupérer les œuvres d’un artiste spécifique
-router.get('/artist/:id', async (req, res) => {
+router.get('/artist/:id', filterByApproval, async (req, res) => {
   try {
     const artistId = req.params.id;
-    const works = await Work.find({ artistId });
+    const works = await Work.find({ artistId, ...req.approvalFilter });
     res.status(200).json(works);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la récupération des œuvres de l'artiste." });
@@ -81,17 +80,18 @@ router.post('/by-artist', ensureArtist, async (req, res) => {
 });
 
 // Route publique pour récupérer des œuvres aléatoires
-router.get('/random', async (req, res) => {
-  try {
-    const artworks = await Artwork.aggregate([{ $sample: { size: 6 } }]);
-    res.json(artworks);
-  } catch (error) {
-    res.status(500).json({ message: 'Erreur lors de la récupération des œuvres.' });
-  }
-});
+// router.get('/random', async (req, res) => {
+//   try {
+//     const artworks = await Artwork.aggregate([{ $sample: { size: 6 } }]);
+//     res.json(artworks);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Erreur lors de la récupération des œuvres.' });
+//   }
+// });
 
 // ✅ Nouvelle route artiste avec upload d’image
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
+  console.log("🧠 SESSION ACTUELLE :", req.session); 
   try {
     console.log('📥 Données reçues :');
     console.log('🟡 req.body =>', req.body);
@@ -111,6 +111,18 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
      
     } = req.body;
 
+const artist = await Artist.findById(artistId);
+if (!artist) {
+  return res.status(404).json({ message: "Artiste introuvable." });
+}
+
+// Limite pour les artistes non validés
+if (artist.status !== 'validated') {
+  const currentCount = await Work.countDocuments({ artistId });
+  if (currentCount >= 6) {
+    return res.status(403).json({ message: "Vous pouvez soumettre jusqu'à 6 œuvres avant validation de votre profil." });
+  }
+}
     const { dimensions } = req.body;
 
 const finalDimensions = {
@@ -121,13 +133,18 @@ const finalDimensions = {
 };
 
     // 📸 Traitement des images + altText[]
-    const images = req.files.map((file, index) => {
-      const altText = req.body[`altText[${index}]`] || 'Image sans texte alternatif';
-      return {
-        url: `/uploads/${file.filename}`,
-        altText,
-      };
-    });
+    const altTexts = req.body.altText;
+
+// Si un seul altText est envoyé, il est sous forme de string → on le convertit en tableau
+const normalizedAltTexts = Array.isArray(altTexts) ? altTexts : [altTexts];
+
+const images = req.files.map((file, index) => {
+  const altText = normalizedAltTexts[index] || 'Image sans texte alternatif';
+  return {
+    url: `/uploads/${file.filename}`,
+    altText,
+  };
+});
 
     const newWork = new Work({
       title,
@@ -174,7 +191,7 @@ router.post('/add', ensureAdmin, async (req, res) => {
 });
 
 // Valider une œuvre
-router.patch('/:id/validate', async (req, res) => {
+router.patch('/:id/validate', ensureAdmin, async (req, res) => {
   try {
     const work = await Work.findByIdAndUpdate(req.params.id, { isApproved: true }, { new: true });
     res.status(200).json(work);
@@ -184,7 +201,7 @@ router.patch('/:id/validate', async (req, res) => {
 });
 
 // Rejeter / supprimer une œuvre
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', ensureAdmin, async (req, res) => {
   try {
     await Work.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Œuvre supprimée avec succès." });
@@ -194,7 +211,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Récupérer toutes les œuvres non validées
-router.get('/pending', async (req, res) => {
+router.get('/pending', ensureAdmin, async (req, res) => {
   try {
     const pending = await Work.find({ isApproved: false }).populate('artistId', 'username');
     res.status(200).json(pending);
@@ -203,7 +220,6 @@ router.get('/pending', async (req, res) => {
   }
 });
 
-// // Route pour ajouter une œuvre
-//  router.post('/artist/add', upload.array('images', 10), worksController.addWork);
+
 
 module.exports = router;
