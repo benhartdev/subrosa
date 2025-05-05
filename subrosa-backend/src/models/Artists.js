@@ -132,8 +132,8 @@ const artistSchema = new mongoose.Schema({
       name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
       works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],
       artistImages: [{url: { type: String },alt: { type: String },uploadedAt: { type: Date, default: Date.now }}],
-      newsletter: { type: Boolean, default: true }
-     
+      newsletter: { type: Boolean, default: true },
+      messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ContactMessage' }]
     });
     
 
