@@ -128,6 +128,7 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     }
 
     const {
+      type,
       title,
       description,
       creation_date,
@@ -162,6 +163,7 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     }
 
     const newWork = new Work({
+      type,
       title,
       description,
       creation_date,

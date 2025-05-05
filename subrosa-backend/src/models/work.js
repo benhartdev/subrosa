@@ -28,6 +28,11 @@ const workSchema = new mongoose.Schema({
   isApproved: {
     type: Boolean,
     default: false,
+  },
+  type: {
+    type: String,
+    enum: ['photographie', 'sculpture', 'peinture', 'illustration'],
+    required: true,
   }
 });
 
