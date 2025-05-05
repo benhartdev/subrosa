@@ -1,0 +1,22 @@
+.admin-message-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .admin-message-button:hover {
+    background-color: #222;
+  }
+  
+  .admin-message-icon {
+    font-size: 40px;
+    color: white;
+  }
+  

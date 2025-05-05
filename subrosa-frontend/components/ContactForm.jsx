@@ -8,10 +8,27 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert("Message envoyé avec succès !");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("Erreur lors de l'envoi du message.");
+      }
+    } catch (error) {
+      console.error("Erreur de soumission :", error);
+      alert("Une erreur est survenue.");
+    }
   };
 
   const handleChange = (e) => {

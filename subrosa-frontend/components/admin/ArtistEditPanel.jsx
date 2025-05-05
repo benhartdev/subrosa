@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArtistFullForm from "../../components/ArtistFullForm";
 import "../../styles/inscription-artiste.css";
+import ArtistMessageBadge from "../../components/ArtistMessageBadge";
 
 const ArtistEditPanel = () => {
   const [artists, setArtists] = useState([]);
@@ -69,6 +70,7 @@ const ArtistEditPanel = () => {
             <div className="buttonGroup">
               <button className="button primary" onClick={() => setEditingArtist(artist)}>✏️ Modifier</button>
               <button className="button danger" onClick={() => handleDelete(artist._id)}>🗑️ Supprimer</button>
+              <ArtistMessageBadge messageCount={artist.messages.length} />
             </div>
           </div>
         ))}

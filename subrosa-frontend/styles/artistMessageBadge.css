@@ -1,0 +1,21 @@
+.message-badge-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .envelope-icon {
+    font-size: 24px;
+    color: white;
+  }
+  
+  .message-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
+  }
+  

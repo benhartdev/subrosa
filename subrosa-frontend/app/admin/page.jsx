@@ -2,6 +2,7 @@
 
 import "../../styles/PersonalLogin.css"; 
 import "../../styles/inscription-artiste.css";
+import "../../styles/adminMessageButton.css";
 import Header from "../../components/Header"; 
 import ArtistFullForm from "../../components/ArtistFullForm"; // on importe le formulaire
 import AdminStats from "../../components/admin/AdminStats";
@@ -9,6 +10,7 @@ import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
 import AdminPendingWorksPanel from "../../components/admin/AdminPendingWorksPanel";
 import PendingArtists from "../../components/admin/PendingArtists";
 import AdminDashboardTabs from "../../components/admin/AdminDashboardTabs";
+import AdminMessagesButton from "../../components/admin/AdminMessagesButton";
 
 import { useState } from "react"; 
 import { useRef } from "react";
@@ -39,6 +41,7 @@ const AdminPage = () => {
   return (
     <>
       <Header />
+      <AdminMessagesButton />
       <main id="containerLogin" style={{ padding: "2rem", background: "#0a0a0a", color: "white" }}>
         <div id="box-component">
           <h1 id="personal-space" style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
