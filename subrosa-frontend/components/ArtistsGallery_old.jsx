@@ -8,7 +8,8 @@ const ArtistsGallery = () => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/public/artists')
+        fetch('http://localhost:3000/api/public/artists'), {credentials: 'include',}
+        
             .then(response => response.json())
             .then(data => setArtists(data))
             .catch(error => console.error('Erreur lors du chargement des artistes :', error));

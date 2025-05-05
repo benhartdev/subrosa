@@ -1,0 +1,10 @@
+.pending-banner {
+    background-color: #222;
+    border-left: 4px solid orange;
+    padding: 1rem;
+    color: #f0f0f0;
+    font-size: 0.95rem;
+    margin: 1rem 0;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+  }
+  

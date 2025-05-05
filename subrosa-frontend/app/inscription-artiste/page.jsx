@@ -49,7 +49,7 @@ const InscriptionArtistePage = () => {
             onClose={() => setPopup(null)}
           />
         )}
-        <ArtistPublicForm onSubmit={handleSubmit} mode="create" />
+        <ArtistPublicForm mode="create" showWorkUpload={false}onSubmit={handleSubmit} />
       </main>
       <Footer />
     </>

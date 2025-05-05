@@ -5,13 +5,45 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
+export { AuthContext };
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // lecture du localStorage
   useEffect(() => {
     const stored = localStorage.getItem("user");
     if (stored) setUser(JSON.parse(stored));
+  }, []);
+
+  // validation côté serveur (check-session)
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/check-session", {
+          method: "GET",
+          credentials: "include",
+        });
+  
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data);
+          localStorage.setItem("user", JSON.stringify(data));
+        } else {
+          setUser(null);
+          localStorage.removeItem("user");
+        }
+      } catch (err) {
+        console.error("Erreur de vérification de session :", err);
+        setUser(null);
+        localStorage.removeItem("user");
+      } finally {
+        setIsLoading(false); // <-- INDISPENSABLE !
+      }
+    };
+  
+    checkSession();
   }, []);
 
   const login = (userData) => {
@@ -34,7 +66,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -27,7 +27,9 @@ const PendingArtistsPage = () => {
     if (!confirm) return;
 
     try {
-      await axios.put(`http://localhost:5000/api/admin/artists/${id}/status`, { status });
+      await axios.patch(`http://localhost:5000/api/admin/artists/${id}/approval`, { status: 'validated' }, {
+        withCredentials: true // ✅ important pour la session
+      });
       setPendingArtists(prev => prev.filter(artist => artist._id !== id));
     } catch (error) {
       console.error('Erreur lors de la mise à jour du statut :', error);

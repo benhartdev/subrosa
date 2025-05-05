@@ -1,10 +1,20 @@
 /* === Base générale === */
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 4rem;
   color: #fff;
   background-color: #000;
   font-family: Michroma, sans-serif;
+}
+
+.header-svg {
+  position: relative; /* Permet de le positionner librement */
+ z-index: 9995;
+width: 900px !important; /* Force une largeur correcte */
+height: auto !important;
+  margin: auto;
+  margin-top: 2em;
+  background: rgba(0, 0, 255, 0.2);
 }
 
 form {
@@ -15,7 +25,7 @@ form {
   max-width: 1000px;
   background-color: #000;
   border-radius: 10px;
-  margin-top: 150px;
+  margin-top: 250px;
 }
 
 /* === Titres === */
@@ -39,19 +49,21 @@ textarea,
 select {
   width: 100%;
   padding: 0.7rem;
-  border: 1px solid #ccc;
-  background-color: #5a05055e;
+  border: 1px solid #888686;
+  background-color: #5a05055c;
   color: white;
   border-radius: 6px;
-  outline: none;
-  box-shadow: inset 0 0 4px rgb(255 255 255 / 5%);
-  transition: border-color 0.2s;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #fff;
+  border-color: #ff0000;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
 }
 
 /* === Champs côte à côte === */
@@ -69,6 +81,88 @@ select:focus {
 .form-row .full {
   flex: 1 1 100%;
 }
+ /* === Photos de l'artiste === */
+ .artist-photos-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.upload-box {
+  width: 280px;
+  background-color: #1e1e1e;
+  border: 1px solid white;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.upload-box:hover {
+  transform: translateY(-5px);
+}
+
+.upload-box label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.photo-preview {
+  background-color: #2c2c2c;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 1px dashed #666;
+  border-radius: 4px;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.preview-placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+input[type="file"] {
+  background-color: #320f0f;
+  border: none;
+  color: white;
+  font-size: 0.85rem;
+  padding: 6px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.photo-description {
+  font-size: 0.75rem;
+  color: #ccc;
+  background-color: #2b0d0d;
+  padding: 8px;
+  margin-top: auto;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+
 
 /* === Boutons === */
 button {

@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react';
 import '../styles/inscription-artiste.css';
 import PopupMessage from "../components/PopupMessage";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
-const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, mode }) => {
+
+
+const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, mode = "create", showWorkUpload = true  }) => {
   const [formData, setFormData] = useState({
     username: '', password: '', name: '', birthdate: '',
     country_location: '', city_location: '', style: '',
@@ -19,11 +22,21 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
   const [files, setFiles] = useState([null]);
   const [alts, setAlts] = useState(['']);
   const [popup, setPopup] = useState(null);
-
+  const [artistImages, setArtistImages] = useState([null, null, null]);
+  const [artistAlts, setArtistAlts] = useState(["", "", ""]);
+  const router = useRouter();
   const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
   useEffect(() => {
     const fetchArtist = async () => {
+
+      artistImages.forEach((file, index) => {
+        if (file) {
+          form.append("artistImages", file);
+          form.append("artistAlts", artistAlts[index] || '');
+        }
+      });
+
       try {
         const response = await axios.get(`http://localhost:5000/api/artists/${artistId}`, {
           withCredentials: true
@@ -118,6 +131,27 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
     setAlts(updatedAlts.length ? updatedAlts : ['']);
   };
 
+  const handleArtistImageUpload = (index, file) => {
+    const updated = [...artistImages];
+    updated[index] = file;
+    setArtistImages(updated);
+  };
+  
+  const handleArtistAltChange = (index, value) => {
+    const updated = [...artistAlts];
+    updated[index] = value;
+    setArtistAlts(updated);
+  };
+  
+  const handleRemoveArtistImage = (index) => {
+    const updatedFiles = [...artistImages];
+    const updatedAlts = [...artistAlts];
+    updatedFiles[index] = null;
+    updatedAlts[index] = "";
+    setArtistImages(updatedFiles);
+    setArtistAlts(updatedAlts);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData();
@@ -128,15 +162,23 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
         form.append(key, formData[key]);
       }
     });
+    artistImages.forEach((file, index) => {
+      if (file) {
+        form.append("artistImages", file);
+        form.append("artistAlts", artistAlts[index] || '');
+      }
+    });
 
       if (mode === 'admin-edit') { form.delete('password');}
 
+      if (showWorkUpload) {
     files.forEach((file, index) => {
       if (file) {
         form.append('images', file);
         form.append('alts', alts[index] || '');
       }
     });
+  }
     try {
       const url = mode === "admin-edit"
           ? (artistId
@@ -153,8 +195,14 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
       if (response.ok) {
         setPopup({
           type: 'success',
-          message: artistId ? '✅ Modifications enregistrées avec succès !' : '✅ Artiste ajouté avec succès !'
+          message: artistId ? '✅ Modifications enregistrées avec succès !' : '✅ Inscription réussie ! Redirection vers l’ajout d’œuvres…'
         });
+
+        // Redirection après 2 secondes
+        setTimeout(() => {
+          router.push('/ajout-oeuvre'); // ← adapte ce chemin à ta vraie route
+        }, 2000);
+
         setFormData({
           username: '', password: '', name: '', birthdate: '',
           country_location: '', city_location: '', style: '',
@@ -188,7 +236,13 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
           {mode !== "admin-edit" && (
           <div className="half">
             <label>Mot de passe :</label>
-            <input className="animated-input" type="password" name="password" value={getSafeValue(formData.password)} onChange={handleChange} required={mode !== 'admin-edit'} />
+            <input className="animated-input" type="password" name="password" placeholder="Mot de passe" value={getSafeValue(formData.password)} onChange={handleChange} required={mode !== 'admin-edit'} />
+            <input className="animated-input" type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe"
+                onPaste={(e) => { e.preventDefault(); }}
+                onCopy={(e) => { e.preventDefault(); }}
+                onCut={(e) => { e.preventDefault(); }}
+                required
+              />
           </div>)}
         </div>
 
@@ -199,7 +253,7 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
           </div>
           <div className="half">
             <label>Date de naissance :</label>
-            <input className="animated-input" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} />
+            <input type="date" className="animated-input" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} required />
           </div>
         </div>
 
@@ -259,7 +313,7 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
         <label>Expositions futures :</label>
         <div className="expo-input">
           <input className="animated-input" value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
-          <button type="button" onClick={(e) => handleAddExhibition(e, 'future')}>Ajouter</button>
+          <button type="button" onClick={(e) => handleAddFutureExhibition(e, 'future')}>Ajouter</button>
         </div>
         <ul>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
@@ -268,8 +322,49 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
         </label>
 
         <hr />
-      <h3 style={{ marginTop: '2rem', textAlign: 'center' }}>Ajout des œuvres (max 20)</h3>
+        <h3 style={{ textAlign: 'center' }}>Photos de l’artiste</h3>
 
+       
+        <div className="upload-grid">
+  {["Portrait principal", "Vue studio", "Funky ou autoportrait"].map((label, index) => (
+    <div className="upload-box" key={index}>
+      <label>{label}</label>
+
+      {artistImages[index] && (
+        <button
+          type="button"
+          onClick={() => handleRemoveArtistImage(index)}
+          title="Supprimer cette image"
+        >
+          ❌
+        </button>
+      )}
+
+      {artistImages[index] ? (
+        <img src={URL.createObjectURL(artistImages[index])} alt={`Aperçu ${index}`} />
+      ) : (
+        <div className="preview-placeholder">Aperçu</div>
+      )}
+
+      <input
+        className="animated-input"
+        type="file"
+        accept="image/*"
+        onChange={(e) => handleArtistImageUpload(index, e.target.files[0])}
+      />
+
+      <input
+        className="animated-input"
+        type="text"
+        placeholder="Description ou alt de la photo"
+        value={artistAlts[index]}
+        onChange={(e) => handleArtistAltChange(index, e.target.value)}
+      />
+    </div>
+  ))}
+</div>
+       
+        {showWorkUpload && (
       <div className="upload-grid">
         {files.map((file, index) => (
           <div className="upload-box" key={index}>
@@ -306,7 +401,8 @@ const ArtistPublicForm = ({ artistId = null, existingData, onCancel, onSubmit, m
           </div>
         ))}
       </div>
-      
+       )}
+
         {mode === "admin-edit" && (
         <>
         <label>Statut :</label>

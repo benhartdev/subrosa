@@ -37,6 +37,7 @@ body {
   height: auto !important;
     margin: auto;
     margin-top: 2em;
+    background: rgba(0, 0, 255, 0.2);
 }
 
 .footer-border_5 {

@@ -21,26 +21,42 @@ const AddArtwork = () => {
       width: '',
       depth: '',
       unit: 'cm',
+      type: '',
     },
   });
 
   const [images, setImages] = useState([{ file: null, altText: '' }]);
   const [submittedArtworks, setSubmittedArtworks] = useState([]);
   const [message, setMessage] = useState('');
+  const [user, setUser] = useState(null);
 
   // Récupération de l'artiste connecté
   useEffect(() => {
-    const storedArtist = JSON.parse(localStorage.getItem('artist'));
-    console.log('🎨 artiste connecté:', storedArtist);
-    if (storedArtist && storedArtist._id) {
-      setFormData(prev => ({
-        ...prev,
-        artistId: storedArtist._id
-      }));
-    }else {
-      console.warn("⚠️ Aucun artiste trouvé dans le localStorage");
-    }
+    const verifySession = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/api/auth/check', {
+          credentials: 'include',
+        });
+        if (!res.ok) throw new Error("Session expirée");
+  
+        const data = await res.json();
+        if (data.user.role === 'artist' || data.user.role === 'admin') {
+          setUser(data.user);
+          if (data.user.role === 'artist') {
+            setFormData(prev => ({ ...prev, artistId: data.user._id }));
+          }
+        } else {
+          setUser(false);
+        }
+      } catch (err) {
+        console.warn("⛔ Session non valide ou expirée");
+        setUser(false);
+      }
+    };
+  
+    verifySession();
   }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -116,6 +132,7 @@ const AddArtwork = () => {
           themes: '',
           artistId: formData.artistId,
           dimensions: { height: '', width: '', depth: '', unit: 'cm' },
+          type: '',
         });
         setImages([{ file: null, altText: '' }]);
       } else {
@@ -126,6 +143,36 @@ const AddArtwork = () => {
     }
   };
 
+  // 🛑 Protection d’accès
+  if (user === null) {
+    return <p style={{ textAlign: 'center', marginTop: '30vh' }}>Chargement...</p>;
+  }
+
+  if (user === false) {
+    return (
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '30vh',
+        backgroundColor: 'black'
+      }}>
+        <p style={{
+          backgroundColor: 'black',
+          color: '#900',
+          padding: '20px',
+          borderRadius: '8px',
+          boxShadow: '0 0 10px rgba(0,0,0,0.2)',
+          fontWeight: 'bold',
+        }}>
+          ⛔ Accès refusé : cette page est réservée aux artistes ou administrateurs connectés.
+        </p>
+      </div>
+    );
+  }
+
+  // ✅ Si tout va bien, on affiche le formulaire
+
   return (
     <div className="add-artwork-container">
   {message && <p className="status-message">{message}</p>}
@@ -133,7 +180,18 @@ const AddArtwork = () => {
   <form onSubmit={handleSubmit} encType="multipart/form-data">
     <input type="hidden" name="artistId" value={formData.artistId} />
 
-    <div className="form-row">
+      <div className="form-row">
+      <div className="form-group">
+        <label htmlFor="type">Type d’œuvre</label>
+        <select name="type" required value={formData.type} onChange={handleChange}>
+          <option value="">-- Choisissez --</option>
+          <option value="photo">Photographie</option>
+          <option value="sculpture">Sculpture</option>
+          <option value="peinture">Peinture</option>
+          <option value="illustration">Illustration</option>
+        </select>
+      </div>
+    
       <div className="form-group">
         <label>Titre</label>
         <input type="text" name="title" value={formData.title} onChange={handleChange} required />

@@ -1,7 +1,7 @@
 
 import "./globals.css";
 import { AuthProvider } from '../components/context/AuthContext';
-
+import AutoLogout from '../components/AutoLogout'; 
 
 
 
@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body>
         <AuthProvider>
+        <AutoLogout />
           {children}
         </AuthProvider>
       </body>

@@ -9,7 +9,7 @@ const AddWorkButton = () => {
   if (!user || user.role !== 'artist') return null;
 
   return (
-    <Link href="/ajouter-oeuvre" className="add-artwork-button">
+    <Link href="/ajout-oeuvre" className="add-artwork-button">
       <img src="/images/LOGO OEUVRE 1.svg" alt="Icône ajouter œuvre" className="art-icon" />
       Ajouter une œuvre
     </Link>

@@ -1,17 +1,16 @@
 
 
-.header {
-  position: relative; /* important pour le placement absolu des boutons */
-  padding: 40px 0;
-  background-color: black !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
+
 
 /* Logo */
 .header-svg {
-  display: inline-block;
-  margin: 0 auto;
+  position: relative; /* Permet de le positionner librement */
+ z-index: 9995;
+width: 900px !important; /* Force une largeur correcte */
+height: auto !important;
+  margin: auto;
+  margin-top: 2em;
+  background: rgba(0, 0, 255, 0.2);
 }
 
 /* Boutons de connexion */
@@ -159,10 +158,6 @@
     list-style: none;
   }
   
-  
-
-
-  
   /* Menu hamburger (le bouton) */
   #menu-toggle {
     display: none; /* caché par défaut */
@@ -212,7 +207,6 @@
     z-index: 5;
   }
   
-  
   .MiniBarNav-bar_1 {
     width: 100%; /* longueur du trait superieur de la barre */
     height: 1px;
@@ -233,8 +227,6 @@
     gap: 1rem;
     padding-left: 70px; /* decalage des liens souhaité */
   }
-  
-  
   
   .MiniBarNav-link {
     display: flex;
@@ -269,19 +261,12 @@
     color: white;
     font-weight: bold;
   }
-  
-  
-  
     
-  
-  
-  
   /* RESPONSIVE : uniquement en mobile */
   @media screen and (width <= 768px) {
     #menu-toggle {
       display: block;
       margin-left: 10px;
-
     }
   
     /* facultatif : réorganisation boutons */
@@ -305,8 +290,6 @@
       box-sizing: border-box;
     }
     
-    
-
     .login-button,
     .login-button_2 {
       width: 150px;
@@ -315,7 +298,7 @@
     .header-svg {
       display: none;
       pointer-events: none;
-  user-select: none;
+      user-select: none;
     }
 
     .sidebar {
@@ -326,7 +309,6 @@
     .breadcrumb, .breadcrumb-bar {
       display: none !important;
     }
-    
   }
     
   

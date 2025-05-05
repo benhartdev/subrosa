@@ -8,7 +8,7 @@ const AdminPendingWorksPanel = () => {
   useEffect(() => {
     const fetchPendingWorks = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/works/pending');
+        const res = await fetch('http://localhost:5000/api/works/pending', { credentials: 'include',});
         const data = await res.json();
         console.log('⛏ Données reçues du backend :', data);
         setPendingWorks(data);
@@ -24,6 +24,11 @@ const AdminPendingWorksPanel = () => {
     try {
       await fetch(`http://localhost:5000/api/works/${id}/validate`, {
         method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ isApproved: true }),
+        credentials: 'include'
       });
       setPendingWorks(pendingWorks.filter(work => work._id !== id));
     } catch (err) {
@@ -35,6 +40,7 @@ const AdminPendingWorksPanel = () => {
     try {
       await fetch(`http://localhost:5000/api/works/${id}`, {
         method: 'DELETE',
+        credentials: 'include'
       });
       setPendingWorks(pendingWorks.filter(work => work._id !== id));
     } catch (err) {
@@ -46,7 +52,7 @@ const AdminPendingWorksPanel = () => {
     <div className="admin-pending-works">
       <h2>Œuvres en attente de validation</h2>
       <div className="pending-gallery">
-        {pendingWorks.map((work) => (
+      {Array.isArray(pendingWorks) && pendingWorks.map((work) => (
           <div className="work-card" key={work._id}>
             <img
   src={`http://localhost:5000${work.images[0]?.url?.startsWith('/') ? '' : '/'}${work.images[0]?.url}`}

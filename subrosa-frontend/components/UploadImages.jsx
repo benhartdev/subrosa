@@ -33,7 +33,8 @@ const UploadImages = ({ artistId }) => {
     try {
       const response = await fetch(`http://localhost:5000/api/uploads/upload-multiple/${artistId}`, {
         method: 'POST',
-        body: formData
+        body: formData,
+        credentials: 'include',
       });
 
       const data = await response.json();

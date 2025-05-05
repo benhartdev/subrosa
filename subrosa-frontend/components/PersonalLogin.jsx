@@ -32,10 +32,9 @@ const PersonalLogin = () => {
   
       const { user } = res.data;
       console.log("👤 Utilisateur reçu :", user);
-
+  
       login(user); // AuthContext
   
-      // ✅ Stocker dans localStorage pour formulaire d'œuvre
       if (user && user._id && user.role === "artist") {
         localStorage.setItem("artist", JSON.stringify(user));
         console.log("✅ ArtistId stocké :", user._id);
@@ -43,18 +42,34 @@ const PersonalLogin = () => {
         console.warn("⚠️ Données manquantes, user non stocké :", user);
       }
   
-      console.log("✅ Connexion réussie :", res.data);
+      // 🛑 NOUVEAU : on attend que la session soit bien active
+      const verifySession = await fetch("http://localhost:5000/api/check-session", {
+        method: "GET",
+        credentials: "include",
+      });
   
+      if (!verifySession.ok) {
+        throw new Error("Session non active juste après login");
+      }
+  
+      const sessionData = await verifySession.json();
+      console.log("🔐 Session confirmée :", sessionData);
+  
+      // ✅ Redirection une fois que la session est assurée
       if (user.role === "admin") {
         router.push("/admin");
+      } else if (user.role === "artist") {
+        router.push("/artiste/dashboard");
       } else {
         router.push("/");
       }
+      
     } catch (error) {
       console.error("❌ Erreur lors de la connexion :", error);
       alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue"));
     }
   };
+  
   
   return (
     <main>
