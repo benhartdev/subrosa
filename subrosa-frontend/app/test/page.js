@@ -2,10 +2,11 @@
 
 import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
-import '../../styles/inscription-artiste.css';
-import '../../styles/GalleryScroll.css';
-import '../../styles/addworkForm.css';
-import Header from '../../components/Header';
+// import '../../styles/inscription-artiste.css';
+// import '../../styles/GalleryScroll.css';
+// import '../../styles/addworkForm.css';
+import '../../styles/HeaderNew.css'; 
+import HeaderNew from '../../components/HeaderNew'
 import GalleryScroll from '../../components/GalleryScroll'
 import AddworkForm from '../../components/AddworkForm'
 
@@ -22,7 +23,9 @@ export default function ArtistLogin() {
         </Head>
   
         <div>
-          <Header />
+          <HeaderNew />
+          </div>
+          <div>
           <PersonalLogin />
           <GalleryScroll />
           <AddworkForm />

@@ -6,7 +6,7 @@ import NavButton from '../components/NavButton';
 import MiniBarNav from '../components/MiniBarNav'; 
 import AddWorkButton from './AddWorkButton';
 
-import '../styles/header.css'; // Importation du fichier CSS pour le style du header
+import '../styles/HeaderNew.css'; // Importation du fichier CSS pour le style du header
 import { useAuth } from "../components/context/AuthContext";
 import { useRouter } from "next/navigation";
 
@@ -21,18 +21,12 @@ const Header = () => {
     return (
 
 <header className="header">
-
-       <div className="logo-section">
-  <Image 
-    className="header-svg"
-    src="/images/gallerie SUB logo.svg"
-    alt="Icône SVG"
-    width={200}
-    height={100}
-  />
-
-  <MiniBarNav />
-</div>
+<div id="mainNav">
+        <div role="navigation">
+                 <div className="logo-container">
+                   <Image src="/images/gallerie SUB logo.svg" alt="Icône SVG" width="400" height="400" />
+                 </div>
+               </div>
 
         <div className="auth-buttons">
   {user ? (
@@ -61,20 +55,29 @@ const Header = () => {
 
             {/* Barre de navigation principale */}
 
-    <nav className="sidebar">
-        <ul className="links">
-            <li><Link href="/" className="nav-link">Accueil</Link></li>
-            <li><Link href="/oeuvres" className="nav-link">Nos œuvres</Link></li>
-            <li><Link href="/artiste" className="nav-link">Nos artistes</Link></li>
-            <li><Link href="#" className="nav-link">Sub Rosa BLOG</Link></li>
-            <li><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
-            <li><Link href="/contact" className="nav-link">Contact</Link></li>
-            <li><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>
-            
-        </ul>
+    <nav class="navbar-wrapper">
+    <ul class="navbar-nav-custom">
+                    <li class="nav-item"><Link href="/inscription-artiste" class="nav-link">Inscription artiste</Link></li>
+                    <li class="nav-item"><Link href="#" class="nav-link">Blog</Link></li>
+                    <li class="nav-item"><Link href="/artiste" class="nav-link">Nos artistes</Link></li>
+                    <li class="nav-item"><Link href="/" id="nav-accueil" class="nav-link">Accueil</Link></li>
+                    <li class="nav-item"><Link href="/oeuvres" class="nav-link">Nos œuvres</Link></li>
+                    <li class="nav-item"><Link href="/about" class="nav-link">Qui sommes-nous</Link></li>
+                    <li class="nav-item"><Link href="/contact" class="nav-link">Contact</Link></li>
+                </ul>
     </nav>
+    </div>
 </header>
     );
 };
 
 export default Header;
+
+
+            // <li><Link href="/" className="nav-link">Accueil</Link></li>
+            // <li><Link href="/oeuvres" className="nav-link">Nos œuvres</Link></li>
+            // <li><Link href="/artiste" className="nav-link">Nos artistes</Link></li>
+            // <li><Link href="#" className="nav-link">Sub Rosa BLOG</Link></li>
+            // <li><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
+            // <li><Link href="/contact" className="nav-link">Contact</Link></li>
+            // <li><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>

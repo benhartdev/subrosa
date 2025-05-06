@@ -6,7 +6,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
-import '../styles/header.css'; // chargé une fois pour toutes
+import '../styles/HeaderNew.css'; // chargé une fois pour toutes
 
 import FeaturedArtists from '../components/FeaturedArtists';
 import Header from '../components/Header';
@@ -17,7 +17,6 @@ const HomePage = () => {
     return (
         <div>
             <Header />
-
             <div className="head-container">
                 <Image src="/images/ben-H.ben-H.BENH3507---Mod-4---Mod.jpg" alt="Image de fond" width={1920} height={1080} />
                 <h2 className="texte-superpose">Nos artistes vous ouvrent leur univers...</h2>
