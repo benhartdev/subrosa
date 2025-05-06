@@ -1,5 +1,6 @@
 // src/models/ContactMessage.js
 const mongoose = require("mongoose");
+require("./Artists"); // ✅ Force le chargement du modèle "Artist"
 
 const contactMessageSchema = new mongoose.Schema({
   name: String,

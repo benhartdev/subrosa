@@ -1,0 +1,129 @@
+[{
+  "_id": {
+    "$oid": "68188f9678dc2be6f6a9a06e"
+  },
+  "name": "TESTEUR",
+  "email": "hofben@hotmail.fr",
+  "message": "Test envoi de messgae en bdd et email",
+  "artistId": {
+    "$oid": "67f0829d0a2c6c9826426973"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:14:46.711Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681890923b512a6610a81c4d"
+  },
+  "name": "TESTEUR",
+  "email": "hofben@hotmail.fr",
+  "message": "Test envoi de messgae en bdd et email",
+  "artistId": {
+    "$oid": "67f0829d0a2c6c9826426973"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:18:58.670Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681890c83b512a6610a81c56"
+  },
+  "name": "ben h",
+  "email": "hofben@hotmail.fr",
+  "message": "tzest  2222",
+  "artistId": {
+    "$oid": "67f0829d0a2c6c9826426973"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:19:52.203Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681890f63b512a6610a81c5a"
+  },
+  "name": "Caterina Varchetta",
+  "email": "cvarchettaart@gmail.com",
+  "message": "TEST ENVOI MAIL GALERIE BENH",
+  "artistId": null,
+  "createdAt": {
+    "$date": "2025-05-05T10:20:38.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6818913f3b512a6610a81c62"
+  },
+  "name": "test 4",
+  "email": "hofben@hotmail.fr",
+  "message": "TEST 4 ",
+  "artistId": {
+    "$oid": "67f0829d0a2c6c9826426973"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:21:51.549Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681891b93b512a6610a81c6b"
+  },
+  "name": "benhartdev",
+  "email": "hofben@hotmail.fr",
+  "message": "test ajout en bdd artiste aussi ",
+  "artistId": {
+    "$oid": "67f0829d0a2c6c9826426973"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:23:53.861Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681892f13b512a6610a81ca8"
+  },
+  "name": "benhartdev",
+  "email": "ben.hoffele.photographe@outlook.fr",
+  "message": "test ajout en bdd",
+  "artistId": null,
+  "createdAt": {
+    "$date": "2025-05-05T10:29:05.909Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6818951ed26d43f2ca7a738b"
+  },
+  "name": "benhartdev",
+  "email": "ben.hoffele.photographe@outlook.fr",
+  "message": "testtttttt",
+  "artistId": null,
+  "createdAt": {
+    "$date": "2025-05-05T10:38:22.334Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68189581d26d43f2ca7a7398"
+  },
+  "name": "benhartdev",
+  "email": "ben.hoffele.photographe@outlook.fr",
+  "message": "testtt OK\n",
+  "artistId": {
+    "$oid": "6805a384ac02189355165b7b"
+  },
+  "createdAt": {
+    "$date": "2025-05-05T10:40:01.834Z"
+  },
+  "__v": 0
+}]

@@ -1,15 +1,15 @@
 "use client"; 
 
-import "../../styles/PersonalLogin.css"; 
+
+import "../../styles/ArtistEditPanel.css";
 import "../../styles/inscription-artiste.css";
 import "../../styles/adminMessageButton.css";
 import Header from "../../components/Header"; 
-import ArtistFullForm from "../../components/ArtistFullForm"; // on importe le formulaire
+
 import AdminStats from "../../components/admin/AdminStats";
 import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
 import AdminPendingWorksPanel from "../../components/admin/AdminPendingWorksPanel";
 import PendingArtists from "../../components/admin/PendingArtists";
-import AdminDashboardTabs from "../../components/admin/AdminDashboardTabs";
 import AdminMessagesButton from "../../components/admin/AdminMessagesButton";
 
 import { useState } from "react"; 
@@ -47,13 +47,13 @@ const AdminPage = () => {
           <h1 id="personal-space" style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
           <p id="text-login">Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot</p>
           <PendingArtists />
-          <ul style={{ textAlign: "left", maxWidth: "600px", margin: "2rem auto", lineHeight: "2" }}>
+          {/* <ul style={{ textAlign: "left", maxWidth: "600px", margin: "2rem auto", lineHeight: "2" }}>
             <li>✅ Les artistes en attente de validation</li>
             <li>🎨 Les œuvres du catalogue</li>
             <li>👥 Les utilisateurs</li>
             <li>🧾 Les commandes</li>
-          </ul>
-          <div className="buttonGroup" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem", margin: "2rem 0" }}>
+          </ul> */}
+          {/* <div className="buttonGroup" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem", margin: "2rem 0" }}>
             <button onClick={() => dashboardRef.current?.openTab("validation")}>✅ Valider des artistes</button>
             <button onClick={() => dashboardRef.current?.openTab("oeuvres")}>🎨 Gérer les œuvres</button>
             <button onClick={() => dashboardRef.current?.openTab("users")}>👥 Voir les utilisateurs</button>
@@ -61,10 +61,10 @@ const AdminPage = () => {
             <button className="btn-admin" onClick={() => setShowForm(!showForm)}>
               {showForm ? "Fermer le formulaire" : "Créer un nouvel artiste"}
             </button>
-          </div>
+          </div> */}
           {showForm && (
             <div className="admin-form-wrapper">
-              <ArtistFullForm />
+              
             </div>
           )}
         </div>

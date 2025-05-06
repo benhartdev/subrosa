@@ -1,0 +1,126 @@
+/* Structure principale */
+.container-artists {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  /* Titre de section */
+  .gestion-artists-title {
+    font-size: 2rem;
+    color: #e4e4e4;
+    margin-bottom: 2rem;
+  }
+  
+  /* Message d’information */
+  .message-info {
+    color: #42ffb3;
+    background-color: #111;
+    padding: 0.75rem 1rem;
+    border: 1px solid #2e2e2e;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Grille de cartes */
+  .artists-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  /* Carte artiste */
+  .solo-card-artist {
+    position: relative;
+    background: #171717a7;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    color: #eaeaea;
+    min-height: 500px;
+    box-sizing: border-box;
+  }
+  
+  .solo-card-artist img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  /* Texte d'infos */
+  .solo-card-artist p,
+  .solo-card-artist h3 {
+    margin: 0.2rem 0;
+    line-height: 1.4;
+  }
+  
+  /* Groupe de boutons fixés en bas */
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: auto;
+    position: absolute;
+    justify-content: center;
+    position: absolute;
+    
+  }
+  
+  /* Boutons SUB ROSA */
+  .button-modify,
+  .button-suppr {
+    width: 100%;
+    cursor: pointer;
+    font-size: 0.95rem;
+    border: 1px solid white;
+    text-align: center;
+    margin: 0 !important;
+  }
+  
+  /* Modifier = blanc */
+  .button-modify {
+    background-color: #6f6c6c;
+    color: #ffffff;
+  }
+  
+  .button-modify:hover {
+    background-color: #0e5e0e;
+    transform: scale(1.1);
+  }
+  
+  /* Supprimer = rouge foncé */
+  .button-suppr {
+    background-color: #800000;
+    color: #fff;
+  }
+  
+  .button-suppr:hover {
+    background-color: #a11;
+    transform: translateY(-1px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .artists-cards {
+      flex-direction: column;
+    }
+  
+    .buttonGroup {
+      flex-direction: column;
+      position: static;
+      margin-top: 1rem;
+    }
+  
+    .button-modify,
+    .button-suppr {
+      width: 100%;
+    }
+  }
+  

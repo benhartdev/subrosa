@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ArtistFullForm from "../../components/ArtistFullForm";
-import "../../styles/inscription-artiste.css";
+import "../../styles/artistEditPanel.css";
 import ArtistMessageBadge from "../../components/ArtistMessageBadge";
 
 const ArtistEditPanel = () => {
@@ -57,19 +57,19 @@ const ArtistEditPanel = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="admin-section-title">Gestion des artistes</h2>
+    <div className="container-artists">
+      <h2 className="gestion-artists-title">Gestion des artistes</h2>
       {message && <p className="message-info">{message}</p>}
 
-      <div className="artist-cards">
+      <div className="artists-cards">
         {artists.map((artist) => (
-          <div key={artist._id} className="card-artist">
+          <div key={artist._id} className="solo-card-artist">
             <h3>{artist.username}</h3>
             <p><strong>Email :</strong> {artist.email}</p>
             <p><strong>Bio :</strong> {artist.bio?.slice(0, 100)}...</p>
             <div className="buttonGroup">
-              <button className="button primary" onClick={() => setEditingArtist(artist)}>✏️ Modifier</button>
-              <button className="button danger" onClick={() => handleDelete(artist._id)}>🗑️ Supprimer</button>
+              <button className="button-modify" onClick={() => setEditingArtist(artist)}>✏️ Modifier</button>
+              <button className="button-suppr" onClick={() => handleDelete(artist._id)}>🗑️ Supprimer</button>
               <ArtistMessageBadge messageCount={artist.messages.length} />
             </div>
           </div>
