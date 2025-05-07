@@ -110,11 +110,11 @@ body {
 .artist-gallery-section {
   margin-top: 25rem;
   padding: 4rem;
+  position: relative
 }
 
 .artist-gallery-title-wrapper {
   position: absolute;
-  margin-top: 35px;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: black;

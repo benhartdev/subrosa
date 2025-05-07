@@ -33,16 +33,17 @@ const ArtistPage = () => {
     <main className="artist-page">
       <Header />
       
-      <section className="artist-gallery-section">
-  <div className="artist-gallery-title-wrapper">
-    <h2 className="artist-gallery-title">Nos artistes</h2>
-  </div>
-
-  <div className="artist-gallery-wrapper">
-    <div className="artist-gallery-inner">
-      <ArtistGallery images={galleryImages} />
+  <section className="artist-gallery-section">
+    <div className="artist-gallery-wrapper">
+      <div className="artist-gallery-title-wrapper">
+        <h2 className="artist-gallery-title">Nos artistes</h2>
+      </div>
     </div>
-  </div>
+
+      <div className="artist-gallery-inner">
+        <ArtistGallery images={galleryImages} />
+      </div>
+
 </section>
 
 
