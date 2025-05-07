@@ -12,7 +12,7 @@ const WorksPage = () => {
   const [works, setWorks] = useState([]);
  
    useEffect(() => {
-     fetch("http://localhost:5000/api/works") // appel vers la route complète
+     fetch("http://localhost:5000/api/works") 
        .then((res) => res.json())
        .then((data) => setWorks(data))
        .catch((err) =>
@@ -25,12 +25,12 @@ const WorksPage = () => {
       <Header />
       
       <section className="artist-gallery-section">
+        
+      <div className="artist-gallery-wrapper">
   <div className="artist-gallery-title-wrapper">
-    <h2 className="artist-gallery-title">Nos oeuvres</h2>
+    <h2 className="artist-gallery-title">Nos œuvres</h2>
   </div>
-
-  <div className="artist-gallery-wrapper">
-    <div className="artist-gallery-inner">
+  <div className="artist-gallery-inner">
     <AllWorksGallery works={works} />
     </div>
   </div>

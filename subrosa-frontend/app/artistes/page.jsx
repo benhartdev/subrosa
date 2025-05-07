@@ -17,10 +17,10 @@ const ArtistPage = () => {
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((artist) => ({
-          src: artist.images?.[0]?.url || "", // s’il y a une image
+          src: artist.images?.[0]?.url || "", 
           alt: `Portrait de ${artist.name}`,
           name: artist.name || artist.username,
-          technical_skills: artist.style || "", // inutile ici mais peut servir pour style ou localisation
+          technical_skills: artist.style || "",
           id: artist._id
         }));
         setGalleryImages(formatted);

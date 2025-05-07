@@ -22,11 +22,11 @@ const Header = () => {
 
 <header className="header">
 <div id="mainNav">
-        <div role="navigation">
+        {/* <div role="navigation">
                  <div className="logo-container">
                    <Image src="/images/gallerie SUB logo.svg" alt="Icône SVG" width="400" height="400" />
                  </div>
-               </div>
+               </div> */}
 
         <div className="auth-buttons">
   {user ? (
@@ -71,10 +71,4 @@ const Header = () => {
 export default Header;
 
 
-            // <li><Link href="/" className="nav-link">Accueil</Link></li>
-            // <li><Link href="/oeuvres" className="nav-link">Nos œuvres</Link></li>
-            // <li><Link href="/artiste" className="nav-link">Nos artistes</Link></li>
-            // <li><Link href="#" className="nav-link">Sub Rosa BLOG</Link></li>
-            // <li><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
-            // <li><Link href="/contact" className="nav-link">Contact</Link></li>
-            // <li><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>
+          
