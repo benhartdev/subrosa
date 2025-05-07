@@ -293,7 +293,6 @@ h1 {
     width: 100%; /* Assure que le conteneur prenne toute la largeur */
     text-align: center;
     flex-wrap: wrap; /* Permet de s'adapter en responsive */
-   
   }
   
   /* Newsletter Button */

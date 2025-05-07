@@ -9,7 +9,7 @@ const sendArtistStatusEmail = require('../utils/sendArtistStatusEmail');
 
 const getAllArtists = async (req, res) => {
   try {
-    const artists = await Artist.find();
+    const artists = await Artist.find({isApproved: true});
     res.status(200).json(artists);
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de la récupération des artistes', error });

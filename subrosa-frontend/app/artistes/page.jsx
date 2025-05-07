@@ -6,7 +6,7 @@ import "../../styles/artistGallery.css";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+
 
 
 const ArtistPage = () => {
@@ -17,10 +17,10 @@ const ArtistPage = () => {
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((artist) => ({
-          src: artist.mainImage,
+          src: artist.images?.[0]?.url || "", // s’il y a une image
           alt: `Portrait de ${artist.name}`,
-          title: artist.name || artist.username,
-          price: artist.price || "", // si tu veux afficher autre chose
+          name: artist.name || artist.username,
+          technical_skills: artist.style || "", // inutile ici mais peut servir pour style ou localisation
           id: artist._id
         }));
         setGalleryImages(formatted);

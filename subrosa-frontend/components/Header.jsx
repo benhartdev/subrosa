@@ -50,20 +50,17 @@ const Header = () => {
     <AddWorkButton />
   </div>
 )}
-
-
-
             {/* Barre de navigation principale */}
 
-    <nav class="navbar-wrapper">
-    <ul class="navbar-nav-custom">
-                    <li class="nav-item"><Link href="/inscription-artiste" class="nav-link">Inscription artiste</Link></li>
-                    <li class="nav-item"><Link href="#" class="nav-link">Blog</Link></li>
-                    <li class="nav-item"><Link href="/artiste" class="nav-link">Nos artistes</Link></li>
-                    <li class="nav-item"><Link href="/" id="nav-accueil" class="nav-link">Accueil</Link></li>
-                    <li class="nav-item"><Link href="/oeuvres" class="nav-link">Nos œuvres</Link></li>
-                    <li class="nav-item"><Link href="/about" class="nav-link">Qui sommes-nous</Link></li>
-                    <li class="nav-item"><Link href="/contact" class="nav-link">Contact</Link></li>
+    <nav className="navbar-wrapper">
+    <ul className="navbar-nav-custom">
+                    <li className="nav-item"><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>
+                    <li className="nav-item"><Link href="#" className="nav-link">Blog</Link></li>
+                    <li className="nav-item"><Link href="/artistes" className="nav-link">Nos artistes</Link></li>
+                    <li className="nav-item"><Link href="/" id="nav-accueil" className="nav-link">Accueil</Link></li>
+                    <li className="nav-item"><Link href="/nos_oeuvres" className="nav-link">Nos œuvres</Link></li>
+                    <li className="nav-item"><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
+                    <li className="nav-item"><Link href="/contact" className="nav-link">Contact</Link></li>
                 </ul>
     </nav>
     </div>
