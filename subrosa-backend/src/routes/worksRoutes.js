@@ -6,10 +6,25 @@ const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/multerConfig'); 
 const filterByApproval = require('../middlewares/filterByApproval');
 
-// Récupérer toutes les œuvres
+// // Récupérer toutes les œuvres
+// router.get('/', filterByApproval, async (req, res) => {
+//   try {
+//     const works = await Work.find({ ...req.approvalFilter }).populate('artistId');
+//     res.status(200).json(works);
+//   } catch (error) {
+//     res.status(500).json({ message: "Erreur lors de la récupération des œuvres." });
+//   }
+// });
+
 router.get('/', filterByApproval, async (req, res) => {
   try {
-    const works = await Work.find({ ...req.approvalFilter }).populate('artistId');
+    const query = { ...req.approvalFilter };
+
+    if (req.query.type) {
+      query.type = req.query.type;
+    }
+
+    const works = await Work.find(query).populate('artistId');
     res.status(200).json(works);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la récupération des œuvres." });

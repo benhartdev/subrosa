@@ -1,24 +1,17 @@
 "use client";
 
 import React from "react";
-import AllWorksGallery from "../../components/AllWorksGallery";
 import "../../styles/artistGallery.css";
+import Gallery from "../../components/Gallery";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { useEffect, useState } from 'react';
+import { useGalleryData } from "../../hooks/useGalleryData";
 
 
 const WorksPage = () => {
-  const [works, setWorks] = useState([]);
- 
-   useEffect(() => {
-     fetch("http://localhost:5000/api/works") 
-       .then((res) => res.json())
-       .then((data) => setWorks(data))
-       .catch((err) =>
-         console.error("Erreur lors du chargement des œuvres :", err)
-       );
-   }, []);
+ const { items, loading } = useGalleryData("works");
+ console.log("Œuvres récupérées :", items);
+   
 
   return (
     <main className="artist-page">
@@ -31,7 +24,7 @@ const WorksPage = () => {
     <h2 className="artist-gallery-title">Nos œuvres</h2>
   </div>
   <div className="artist-gallery-inner">
-    <AllWorksGallery works={works} />
+    <Gallery items={items} loading={loading} type="works" />
     </div>
   </div>
 </section>

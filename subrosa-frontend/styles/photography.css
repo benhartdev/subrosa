@@ -88,7 +88,7 @@
   align-items: stretch;
   z-index: 10;
   width: 100%;
-  margin: auto;
+  margin: 10rem auto 0 auto;
   padding: 50;
   background-color: #000;
   max-width: 1225px;

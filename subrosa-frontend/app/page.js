@@ -7,13 +7,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
 import '../styles/HeaderNew.css'; // chargé une fois pour toutes
-
-import FeaturedArtists from '../components/FeaturedArtists';
+import Gallery from "../components/Gallery";
+import { useGalleryData } from "../hooks/useGalleryData";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 
 const HomePage = () => {
+const { items, loading } = useGalleryData("artist");
+const featuredArtists = [...items].sort(() => 0.5 - Math.random()).slice(0, 4);
+
     return (
         <div>
             <Header />
@@ -38,7 +41,7 @@ const HomePage = () => {
 
             <div className="navigation-filters">
                 <button className="newsletter-button">
-                    <span className="newsletter-button__text">INSCRIPTION NEWSLETTER</span>
+                    <span className="newsletter-button-text">INSCRIPTION NEWSLETTER</span>
                 </button>
                 <section className="category-filters">
                     <Link href="/nos_oeuvres"><button className="category-button">TOUTES LES OEUVRES</button></Link>
@@ -50,7 +53,21 @@ const HomePage = () => {
                 </section>
                 <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
-                < FeaturedArtists />
+              {/* Section Artistes à la une */}
+      <section className="accueil-artistes-a-la-une">
+        <h2 className="section-title">Artistes à la une</h2>
+        <Gallery
+          items={featuredArtists}
+          loading={loading}
+          type="artist"
+          customClass="home-gallery-grid"
+        />
+        <div className="artists-button-container">
+          <Link href="/nos_artistes">
+            <button className="view-all-btn">VOIR TOUS NOS ARTISTES</button>
+          </Link>
+        </div>
+      </section>
             {/* <section className="artist-container">
                 <ArtistsGallery /> 
                 <div className="artists-button-container">

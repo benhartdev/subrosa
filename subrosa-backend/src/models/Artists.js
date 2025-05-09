@@ -54,7 +54,7 @@ const artistSchema = new mongoose.Schema({
       style: {
           type: String,
          
-          enum: ['peinture', 'photographie', 'sculpture', 'illustration', 'plasticien', 'autre'],
+          enum: ['peintre', 'photographe', 'sculpteur', 'illustrateur', 'plasticien', 'autre'],
           trim: true
       },
       technical_skills: {

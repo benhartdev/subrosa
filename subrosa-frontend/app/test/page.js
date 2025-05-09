@@ -6,7 +6,7 @@ import PersonalLogin from '../../components/PersonalLogin';
 // import '../../styles/GalleryScroll.css';
 // import '../../styles/addworkForm.css';
 import '../../styles/HeaderNew.css'; 
-import HeaderNew from '../../components/HeaderNew'
+import Header from '../../components/Header'
 import GalleryScroll from '../../components/GalleryScroll'
 import AddworkForm from '../../components/AddworkForm'
 
@@ -23,7 +23,7 @@ export default function ArtistLogin() {
         </Head>
   
         <div>
-          <HeaderNew />
+          <Header />
           </div>
           <div>
           <PersonalLogin />
