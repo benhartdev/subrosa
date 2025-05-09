@@ -95,7 +95,7 @@ body {
 
 
 h1 {
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
     margin-top: 5%;
     margin-left: 5%
@@ -836,7 +836,7 @@ footer {
 .footer-border_5 {
     align-items: center;
     width: 100%;       /* Largeur totale pour être responsive */
-    height: 5px;       /* Hauteur de la ligne */
+    height: 1px;       /* Hauteur de la ligne */
     background: transparent;
     border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
@@ -866,7 +866,7 @@ footer {
 }
 
 .newsletter input {
-    width: 250px;
+    width: 325px;
     padding: 10px;
     border: 1px solid white;
     background: black;
@@ -893,7 +893,7 @@ footer {
     margin-top:0;
 }
 
-.footer-svg {
+/* .footer-svg {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -902,7 +902,7 @@ footer {
     height: 20%;
     margin-right: 15px;
     margin-left: 50px;
-}
+} */
 
 .info-banner {
   display: flex;
@@ -973,15 +973,13 @@ footer {
         gap: 60px;
        justify-content: center;
       margin-top: -5%;
-       
       }
 
 .footer-column {
-    display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  gap: 12px;
+   
+  
+  
+  
   list-style: none;
 }
 
@@ -1014,19 +1012,15 @@ footer {
 
 .footer-links_2 {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     position: relative;
-    margin: 0 auto;
-    padding: 50px;
-    gap: 60px;
-    max-width: 70%;
+    margin: auto;
   }
   
   .legal-links {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin: auto;
   }
   
   .legal-link {

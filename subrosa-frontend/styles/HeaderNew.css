@@ -273,7 +273,7 @@
   z-index: 998; /* juste sous le menu mobile */
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
   .navbar-nav-custom {
     display: none;
   }

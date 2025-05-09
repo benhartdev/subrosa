@@ -21,7 +21,7 @@ const WorksPage = () => {
         
       <div className="artist-gallery-wrapper">
   <div className="artist-gallery-title-wrapper">
-    <h2 className="artist-gallery-title">Nos œuvres</h2>
+    <h2 className="artist-gallery-title" style={{ fontSize: '4rem' }}>Nos œuvres</h2>
   </div>
   <div className="artist-gallery-inner">
     <Gallery items={items} loading={loading} type="works" />

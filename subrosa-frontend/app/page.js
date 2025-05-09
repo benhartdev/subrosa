@@ -23,7 +23,7 @@ const featuredArtists = [...items].sort(() => 0.5 - Math.random()).slice(0, 4);
             <div className="head-container">
                 <Image src="/images/ben-H.ben-H.BENH3507---Mod-4---Mod.jpg" alt="Image de fond" width={1920} height={1080} />
                 <h2 className="texte-superpose">Nos artistes vous ouvrent leur univers...</h2>
-                <Link href="/nos_artistes">
+                <Link href="/nos-artistes">
                     <button className="discover-artist">Decouvrez nos artistes</button>
                 </Link>
             </div>

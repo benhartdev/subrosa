@@ -9,16 +9,16 @@ const Footer = () => {
             {/* Bannière d'informations */}
             <section className="info-banner">
                 <div className="info-banner_container">
-                    <article className="info-banner_item">PAIEMENT EN 3 FOIS SANS FRAIS</article>
+                    {/* <article className="info-banner_item">PAIEMENT EN 3 FOIS SANS FRAIS</article> */}
                     <article className="info-banner_item">TARIFS NÉGOCIÉS</article>
                     <article className="info-banner_item">LIVRAISON PREMIUM ET ASSURÉE</article>
                     <article className="info-banner_item">PAIEMENTS SÉCURISÉS</article>
-                    <article className="info-banner_item">ŒUVRE A L_ESSAI Retour gratuit sous 15 jours</article>
+                    <article className="info-banner_item">ŒUVRE A L’ESSAI Retour gratuit sous 15 jours</article>
                 </div>
             </section>
 
             {/* Logo de la galerie */}
-            <Link href="/accueil">
+            {/* <Link href="/accueil">
                 <Image 
                     className="footer-svg" 
                     src="/images/gallerie SUB logo.svg" 
@@ -26,7 +26,7 @@ const Footer = () => {
                     width={200} 
                     height={100} 
                 />
-            </Link>
+            </Link> */}
 
             {/* Liens du footer */}
             <section>
@@ -34,7 +34,7 @@ const Footer = () => {
                     <div className="footer-column">
                         <Link href="/page_nos_oeuvres" className="footer-link">NOTRE CATALOGUE</Link>
                         <Link href="/page_nos_oeuvres" className="footer-link">LES OEUVRES</Link>
-                        <Link href="/page_nos_artistes" className="footer-link">NOS ARTISTES</Link>
+                        <Link href="/page_nos-artistes" className="footer-link">NOS ARTISTES</Link>
                     </div>
                     <div className="footer-column">
                         <Link href="#galerie" className="footer-link">NOTRE GALERIE</Link>
