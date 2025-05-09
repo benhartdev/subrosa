@@ -305,9 +305,8 @@ height: auto;
 .home-gallery-grid .artist-gallery-item {
    max-width: 280px;
   width: 100%;
-  scale: 0.7;
   transform-origin: top center;
-  transition: scale 0.3s ease;
+  margin: 0 auto;
 }
 /* s'assurer que cela ne déborde pas */
 
@@ -316,4 +315,10 @@ height: auto;
 .home-gallery-grid {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.home-gallery-grid .artwork-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }

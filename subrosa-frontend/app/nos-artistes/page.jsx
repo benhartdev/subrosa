@@ -1,34 +1,17 @@
 "use client";
 
 import React from "react";
-import ArtistGallery from "../../components/ArtistGallery";
+import Gallery from "../../components/Gallery";
 import "../../styles/artistGallery.css";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { useEffect, useState } from 'react';
-
+import { useGalleryData } from "../../hooks/useGalleryData";
 
 
 const ArtistPage = () => {
-  const [galleryImages, setGalleryImages] = useState([]);
+  const { items, loading } = useGalleryData("artist");
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/artists")
-      .then((res) => res.json())
-      .then((data) => {
-        const formatted = data.map((artist) => ({
-          src: artist.images?.[0]?.url || "", 
-          alt: `Portrait de ${artist.name}`,
-          name: artist.name || artist.username,
-          technical_skills: artist.style || "",
-          id: artist._id
-        }));
-        setGalleryImages(formatted);
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement des artistes :", error);
-      });
-  }, []);
+ 
   return (
     <main className="artist-page">
       <Header />
@@ -41,7 +24,7 @@ const ArtistPage = () => {
     </div>
 
       <div className="artist-gallery-inner">
-        <ArtistGallery images={galleryImages} />
+        <Gallery items={items} loading={loading} type="artist" />
       </div>
 
 </section>

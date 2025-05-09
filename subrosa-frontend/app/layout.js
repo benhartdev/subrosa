@@ -2,8 +2,7 @@
 import "./globals.css";
 import { AuthProvider } from '../components/context/AuthContext';
 import AutoLogout from '../components/AutoLogout'; 
-
-
+import "../lib/fontawesome"; 
 
 export const metadata = {
   title: "SUB ROSA",

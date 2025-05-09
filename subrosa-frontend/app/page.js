@@ -6,7 +6,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
-import '../styles/HeaderNew.css'; // chargé une fois pour toutes
+import '../styles/HeaderNew.css'; 
 import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import Header from '../components/Header';

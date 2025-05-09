@@ -1,17 +1,20 @@
 // components/HamburgerMenu.js
 "use client";
 
-const React = require('react');
-const { useState, useEffect, useRef } = React;
-const Link = require('next/link');
+
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { useAuth } from './context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const HamburgerMenu = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
+    const { user, logout } = useAuth();
+    const router = useRouter();
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    const toggleMenu = () =>  setIsMenuOpen(!isMenuOpen);
+;
 
     const handleClickOutside = (event) => {
         if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -39,16 +42,39 @@ const HamburgerMenu = () => {
 
             {/* Menu hamburger */}
             {isMenuOpen && (
-                <ul id="menu" className="menu">
-                    <li><Link href="/acceuil">Accueil</Link></li>
-                    <li><Link href="/page_nos_oeuvres">Nos œuvres</Link></li>
-                    <li><Link href="/page_nos_artistes">Nos artistes</Link></li>
-                    <li><Link href="#">Artiste en entreprise</Link></li>
-                    <li><Link href="#">Sub Rosa BLOG</Link></li>
-                    <li><Link href="#">Qui sommes-nous</Link></li>
-                    <li><Link href="#">Contact</Link></li>
+                
+                <ul ref={menuRef} className="mobile-menu">
+                    <li><Link href="/">Accueil</Link></li>
+                    <li><Link href="/nos_oeuvres">Nos œuvres</Link></li>
+                    <li><Link href="/nos-artistes">Nos artistes</Link></li>
+                    <li><Link href="/blog">Sub Rosa Blog</Link></li>
+                    <li><Link href="/about">Qui sommes-nous</Link></li>
+                    <li><Link href="/contact">Contact</Link></li>
+                    <li><Link href="/inscription-artiste">inscription artiste</Link></li>
+                    {!user ? (
+                        <>
+                            <li><Link href="/login">Se connecter</Link></li>
+                            <li><Link href="/inscription-utilisateur">S'enregistrer</Link></li>
+                       </>
+                    ) : ( 
+                    <li>
+                        <button onClick={logout} className="logout-btn">
+                            Se déconnecter<br />{user.username}
+                        </button>
+                    </li>
+                    )}
+                    {user?.role === "artist" && (
+                    <li>
+                        <Link href="/ajouter-oeuvre">
+                        <button className="add-work-inside-menu">➕ Ajouter une œuvre</button>
+                        </Link>
+                    </li>
+                    )}              
                 </ul>
             )}
+            {isMenuOpen && (
+  <div className="overlay" onClick={toggleMenu}></div>
+)}
         </div>
     );
 };
