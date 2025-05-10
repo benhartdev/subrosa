@@ -58,7 +58,7 @@ const ArtistFullForm = ({ existingData = {}, onSubmit, onCancel, mode = "create"
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <h2>{mode === 'admin-edit' ? "Modification d'un artiste" : "Inscription Artiste SUB ROSA"}</h2>
+        <h2>{mode === 'admin-edit' ? "" : "Inscription Artiste SUB ROSA"}</h2>
 
         <div className="form-row">
           <div className="half">
@@ -164,7 +164,7 @@ const ArtistFullForm = ({ existingData = {}, onSubmit, onCancel, mode = "create"
 
         <div className="buttonGroup">
           <button type="submit" className="button primary">💾 Enregistrer</button>
-          {onCancel && <button type="button" className="button secondary" onClick={onCancel}>❌ Annuler</button>}
+          {onCancel && <button type="button" className="button secondary" onClick={onCancel} style={{ border: "1px solid #ffffff" }}>❌ Annuler</button>}
         </div>
 
         {message && <p>{message}</p>}

@@ -1,4 +1,5 @@
 .admin-pending-works {
+  position: relative;
     background-color: #000;
     color: white;
     padding: 2rem;

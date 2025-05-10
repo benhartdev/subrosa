@@ -53,7 +53,6 @@ router.get('/all-by-artist/:id', async (req, res) => {
   }
 });
 
-
 // Route : GET /api/works/random
 router.get('/random', async (req, res) => {
   try {
@@ -78,7 +77,6 @@ router.get('/artist/:id', filterByApproval, async (req, res) => {
     res.status(500).json({ message: "Erreur lors de la récupération des œuvres de l'artiste." });
   }
 });
-
 
 router.post('/by-artist', ensureArtist, async (req, res) => {
   try {
@@ -106,7 +104,6 @@ router.post('/by-artist', ensureArtist, async (req, res) => {
     res.status(500).json({ error: "Erreur lors de la création de l’œuvre." });
   }
 });
-
 
 // ✅ Nouvelle route artiste avec upload d’image
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
@@ -215,9 +212,6 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
   }
 });
 
-
-
-
 // Route protégée pour ajouter une œuvre (admin uniquement)
 router.post('/add', ensureAdmin, async (req, res) => {
   const { title, artist, imageUrl, description, price } = req.body;
@@ -227,6 +221,45 @@ router.post('/add', ensureAdmin, async (req, res) => {
     res.status(201).json({ message: 'Œuvre ajoutée avec succès !' });
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de l\'ajout de l\'œuvre.' });
+  }
+});
+
+// Route POST JSON protégée (admin uniquement) pour ajout direct d'œuvre
+router.post("/json", ensureAdmin, async (req, res) => {
+  try {
+     console.log("✅ Données reçues :", req.body);
+    const newWork = new Work(req.body);
+    const savedWork = await newWork.save();
+    res.status(201).json(savedWork);
+  } catch (error) {
+    console.error("❌ Erreur lors de l'ajout de l'œuvre JSON :", error);
+    res.status(500).json({ message: "Erreur lors de l'ajout de l'œuvre." });
+  }
+});
+
+// route PATCH pour mettre à jour une œuvre - images
+router.patch('/:id/images', ensureAdmin, async (req, res) => {
+  try {
+    console.log("🟡 Body reçu :", req.body);
+    const { newImages } = req.body;
+
+    if (!Array.isArray(newImages) || newImages.length === 0) {
+      return res.status(400).json({ message: "Aucune image fournie." });
+    }
+
+    const updatedWork = await Work.findByIdAndUpdate(
+      req.params.id,
+      { $push: { images: { $each: newImages } } },
+      { new: true }
+    );
+
+    res.status(200).json({
+      message: `${newImages.length} image(s) ajoutée(s) avec succès.`,
+      work: updatedWork
+    });
+  } catch (error) {
+    console.error("❌ Erreur lors de l'ajout d'images :", error);
+    res.status(500).json({ message: "Erreur lors de l'ajout d'images." });
   }
 });
 
@@ -260,6 +293,43 @@ router.get('/pending', ensureAdmin, async (req, res) => {
   }
 });
 
+// Récupérer les œuvres validées par date de création (les plus récentes en premier)
+router.get("/latest", async (req, res) => {
+  try {
+    const latestWorks = await Work.find({ isApproved: true })
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .populate("artistId");
+
+    res.json(latestWorks);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des nouveautés :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
+// Récupérer les editions d'art
+router.get("/", async (req, res) => {
+  const filter = { isApproved: true };
+  if (req.query.type) {
+    filter.type = req.query.type;
+  }
+
+  const works = await Work.find(filter).populate("artistId");
+  res.json(works);
+});
+
+// Route POST JSON protégée (admin uniquement) pour ajout direct d'œuvre
+router.post("/json", ensureAdmin, async (req, res) => {
+  try {
+    const newWork = new Work(req.body);
+    const savedWork = await newWork.save();
+    res.status(201).json(savedWork);
+  } catch (error) {
+    console.error("❌ Erreur lors de l'ajout de l'œuvre JSON :", error);
+    res.status(500).json({ message: "Erreur lors de l'ajout de l'œuvre." });
+  }
+});
 
 
 module.exports = router;

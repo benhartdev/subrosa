@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const workSchema = new mongoose.Schema({
 
   title: { type: String, required: true },
-  artistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist', required: true },
+  artistId: { type: mongoose.Schema.Types.ObjectId, ref: "Artist", required: true },
   description: { type: String },
   creation_date: { type: Date },
   medium: { type: String }, // Technique utilisée (peinture, photo, sculpture, etc.)
@@ -11,18 +11,18 @@ const workSchema = new mongoose.Schema({
     height: { type: Number, required: true },
     width: { type: Number, required: true },
     depth: { type: Number }, // Optionnel, pour sculptures ou œuvres 3D
-    unit: { type: String, default: 'cm' } // cm, inch, etc.
+    unit: { type: String, default: "cm" } // cm, inch, etc.
   },
   dominant_colors: [{ type: String }],
   themes: [{ type: String }],
   price: { type: Number, required: true },
-  currency: { type: String, default: 'EUR' },
+  currency: { type: String, default: "EUR" },
   in_stock: { type: Number, default: true },
   images: [{
     url: { type: String, required: true },
     altText: { type: String, required: true }
   }],
-  status: { type: String, enum: ['available', 'sold', 'reserved'], default: 'available' },
+  status: { type: String, enum: ["available", "sold", "reserved"], default: "available" },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   isApproved: {
@@ -31,16 +31,16 @@ const workSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['photographie', 'sculpture', 'peinture', 'illustration'],
+    enum: ["Photographie", "Sculpture", "Peinture", "Illustration", "Edition d'art"],
     required: true,
   }
 });
 
-workSchema.pre('save', function(next) {
+workSchema.pre("save", function(next) {
   this.updatedAt = Date.now();
   next();
 });
 
 
-module.exports = mongoose.models.work || mongoose.model('work', workSchema);
+module.exports = mongoose.models.work || mongoose.model("work", workSchema);
 

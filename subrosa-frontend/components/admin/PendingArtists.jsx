@@ -42,7 +42,7 @@ const PendingArtistsPage = () => {
     <div className="pending-container">
       <h1 id="artist-pending">🎨 Artistes en attente de validation</h1>
       {pendingArtists.length === 0 ? (
-        <p>Aucun artiste en attente</p>
+        <p id="artist-pending">Aucun artiste en attente</p>
       ) : (
         <div className="table-wrapper">
           <table className="pending-table">

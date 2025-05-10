@@ -68,8 +68,6 @@ const AdminPendingWorksPanel = () => {
               <p><strong>Dimensions :</strong> {work.dimensions?.height} x {work.dimensions?.width} x {work.dimensions?.depth || 0} {work.dimensions?.unit}</p>
               <p><strong>Prix :</strong> {work.price} {work.currency}</p>
               <p><strong>Stock :</strong> {work.in_stock ? 'Oui' : 'Non'}</p>
-              <p><strong>Thèmes :</strong> {work.themes}</p>
-              <p><strong>Couleurs dominantes :</strong> {work.dominant_colors}</p>
             </div>
             <div className="action-buttons">
               <button className="btn-validate" onClick={() => handleValidate(work._id)}>Valider</button>

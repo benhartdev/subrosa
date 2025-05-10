@@ -52,8 +52,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/api/artists', require('./src/routes/artistsRoutes'));              // routes artistes
-app.use('/works',  require('./src/routes/worksRoutes'));                     // routes œuvres
+app.use('/api/artists', require('./src/routes/artistsRoutes'));              // routes artistes                    // routes œuvres
 app.use('/api/users', require('./src/routes/userRoutes'));
 app.use('/api/admin', require('./src/routes/adminRoutes'));                  // routes réservées aux admins
 app.use('/api/auth', require('./src/routes/authRoutes'));                    // authentification

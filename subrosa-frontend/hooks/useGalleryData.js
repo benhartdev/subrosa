@@ -8,7 +8,11 @@ export function useGalleryData(type, subtype = "") {
 
   useEffect(() => {
     let url = "http://localhost:5000/api/";
-    if (type === "works") url += `works?type=${subtype}`;
+    if (type === "works") {
+          url += `works${subtype ? `?type=${subtype}` : ""}`;
+  } else if (type === "latest") {
+          url += "works/latest";
+  }
     if (type === "artist") url += "artists";
     if (type === "blog") url += "blogs"; // à créer plus tard
 
@@ -23,10 +27,10 @@ export function useGalleryData(type, subtype = "") {
 
   const formatted = array.map((item) => {
          // === WORKS ===
-    if (type === "works") {
+    if (type === "works"|| type === "latest") {
       const imageUrl = item.images?.[0]?.url;
       return {
-        id: item._id,
+              id: item._id,  // Pour React ou d'autres composants
               title: item.title || "Sans titre",
               medium: item.medium,
               dimensions: item.dimensions,
@@ -37,9 +41,13 @@ export function useGalleryData(type, subtype = "") {
               image: imageUrl?.startsWith("http")
                 ? imageUrl
                 : imageUrl ? `http://localhost:5000${imageUrl}` : "/placeholder.jpg",
-              _id: item._id, // nécessaire pour le composant Gallery
+              images: item.images,
+              _id: item._id, // Pour le composant Gallery et pour MongoDB (API, routes, PUT/DELETE)
             };
           }
+
+        else if (type === "latest") url += "works/latest";
+
          // === ARTISTS ===
         if (type === "artist") {
           const imageUrl = item.artistImages?.[0]?.url;

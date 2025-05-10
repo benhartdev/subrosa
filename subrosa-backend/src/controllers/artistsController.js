@@ -271,9 +271,6 @@ const getArtistBySlug = async (req, res) => {
   }
 };
 
-
-
-
 const getArtistById = async (req, res) => {
   const { id } = req.params;
   const sessionUser = req.session.user;

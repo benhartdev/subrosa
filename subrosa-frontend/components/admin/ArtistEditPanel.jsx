@@ -65,8 +65,14 @@ const ArtistEditPanel = () => {
         {artists.map((artist) => (
           <div key={artist._id} className="solo-card-artist">
             <h3>{artist.username}</h3>
+             {artist.artistImages?.[0]?.url && (
+                <img
+                  src={artist.artistImages?.[0]?.url}
+                  alt={artist.artistImages?.[0]?.altText || artist.username}
+                  className="artist-photo"
+                />
+              )}
             <p><strong>Email :</strong> {artist.email}</p>
-            <p><strong>Bio :</strong> {artist.bio?.slice(0, 100)}...</p>
             <div className="buttonGroup">
               <button className="button-modify" onClick={() => setEditingArtist(artist)}>✏️ Modifier</button>
               <button className="button-suppr" onClick={() => handleDelete(artist._id)}>🗑️ Supprimer</button>
@@ -75,15 +81,20 @@ const ArtistEditPanel = () => {
           </div>
         ))}
       </div>
-
-      {editingArtist && (
-        <ArtistFullForm
-        existingData={editingArtist}
-        onCancel={handleCancel}
-        onSubmit={handleUpdate}
-        mode="admin-edit"
-      />
-      )}
+            {editingArtist && (
+              <div className="form-overlay">
+                <div className="overlay-form">
+                  <button className="close-btn" onClick={handleCancel}>✖</button>
+                  <h3 className="overlay-title">Modification de {editingArtist.username}</h3>
+                  <ArtistFullForm
+                    existingData={editingArtist}
+                    onCancel={handleCancel}
+                    onSubmit={handleUpdate}
+                    mode="admin-edit"
+                  />
+                </div>
+  </div>
+)}
     </div>
   );
 };

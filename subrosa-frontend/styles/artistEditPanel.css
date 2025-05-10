@@ -29,9 +29,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  justify-content: center;
+  max-width: 1400px;
   padding: 2rem;
- 
 }
   
   /* Carte artiste */
@@ -68,14 +67,8 @@
   
   /* Groupe de boutons fixés en bas */
   .buttonGroup {
-    position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+    position:relative;
+ 
   }
   
   
@@ -90,7 +83,7 @@
     
   }
   
-  /* Modifier = blanc */
+  
   .button-modify {
     background-color: #6f6c6c;
     color: #ffffff;
@@ -101,7 +94,7 @@
     transform: scale(1.1);
   }
   
-  /* Supprimer = rouge foncé */
+  
   .button-suppr {
     background-color: #800000;
     color: #fff;
@@ -112,6 +105,60 @@
     transform: translateY(-1px);
   }
   
+  .admin-message-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: 1px solid #aaa;
+   
+    cursor: pointer;
+    margin: auto;
+  }
+
+ .form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* ✅ FORM EN HAUT */
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 4rem 1rem;        /* ✅ ESPACE EN HAUT */
+}
+
+.overlay-form {
+  background-color: #111;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 1000px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  position: relative;
+
+  /* ✅ SUPPRIME LA HAUTEUR FIXE */
+  height: auto;
+  overflow: visible;
+}
+
+
+/* Bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
   /* Responsive */
   @media (max-width: 768px) {
     .artists-cards {
