@@ -15,7 +15,25 @@ import Footer from '../components/Footer';
 
 const HomePage = () => {
 const { items, loading } = useGalleryData("artist");
-const featuredArtists = [...items].sort(() => 0.5 - Math.random()).slice(0, 4);
+console.log("🧩 Items (artistes) récupérés :", items);
+console.log("🧪 Artistes bruts depuis useGalleryData :", items);
+items.forEach((artist, i) =>
+  console.log(`🔹 Artiste ${i} :`, artist?.username, "| slug :", artist?.slug)
+);
+const featuredArtists = [...items]
+  .map((artist) => {
+    const username = artist.username || "";
+    const slug = artist.slug || username.toLowerCase().replace(/\s+/g, "-");
+    console.log("👤 Artist:", username, "| Slug généré:", slug);
+
+    return {
+      ...artist,
+      slug,
+    };
+  })
+  
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 4);
 
     return (
         <div>
@@ -61,6 +79,7 @@ const featuredArtists = [...items].sort(() => 0.5 - Math.random()).slice(0, 4);
           loading={loading}
           type="artist"
           customClass="home-gallery-grid"
+          fieldsToShow={["name", "style", "username"]}
         />
         <div className="artists-button-container">
           <Link href="/nos_artistes">

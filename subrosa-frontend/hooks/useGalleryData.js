@@ -15,6 +15,10 @@ export function useGalleryData(type, subtype = "") {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log("🔎 Données brutes reçues dans useGalleryData:", data);     // 🔍 AJOUT ICI
+  console.log("🔍 Premier artiste :", data?.[0]);        
+
+        
   const array = Array.isArray(data) ? data : Object.values(data);
 
   const formatted = array.map((item) => {
@@ -32,11 +36,13 @@ export function useGalleryData(type, subtype = "") {
     }
           if (type === "artist") {
             return {
-              id: item._id,
-              name: item.name,
-              image: item.artistImages?.[0]?.url,
-              specialty: item.style,
-              link: `/artiste/${item._id}`,
+             id: item._id,
+    name: item.name,
+    username: item.username,        // ← AJOUTE ÇA
+    slug: item.slug,                // ← ET ÇA SI PRÉEXISTANT
+    image: item.artistImages?.[0]?.url,
+    specialty: item.style,
+    link: `/artiste/${item._id}`,
             };
           }
           if (type === "blog") {

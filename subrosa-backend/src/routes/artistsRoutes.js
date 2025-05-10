@@ -39,4 +39,7 @@ router.get('/pending', ensureAdmin, artistsController.getPendingArtists);
 router.put('/:id/status', ensureAdmin, artistsController.updateArtistStatus);
 router.get('/:id',artistsController.getArtistById);
 
+// Récupère un artiste par son slug
+router.get('/slug/:slug', artistsController.getArtistBySlug);
+
 module.exports = router;

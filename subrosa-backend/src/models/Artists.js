@@ -23,6 +23,7 @@ const artistSchema = new mongoose.Schema({
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
       },
+      slug: { type: String, required: true, unique: true, lowercase: true, trim: true, },
       role: {
         type: String,
         enum: ["artist"],
@@ -131,9 +132,26 @@ const artistSchema = new mongoose.Schema({
       works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],
       artistImages: [{url: { type: String },alt: { type: String },uploadedAt: { type: Date, default: Date.now }}],
       newsletter: { type: Boolean, default: true },
-      messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ContactMessage' }]
+      messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ContactMessage' }],
+      createdAt: { type: Date, default: Date.now },
     });
     
+    const createSlug = (name) => {
+        return name
+            .toLowerCase()
+            .normalize("NFD") // pour gérer les accents
+            .replace(/[\u0300-\u036f]/g, "") // retire les accents
+            .replace(/[^a-z0-9 ]/g, "") // retire les caractères spéciaux
+            .replace(/\s+/g, "-"); // remplace espaces par tirets
+};
+
+    // Génération auto du slug si non fourni
+    artistSchema.pre("save", function (next) {
+    if (!this.slug && this.name) {
+        this.slug = createSlug(this.name);
+    }
+    next();
+    });
 
     module.exports = mongoose.model('Artist', artistSchema, 'Artists');
 

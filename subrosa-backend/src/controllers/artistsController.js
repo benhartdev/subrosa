@@ -253,6 +253,26 @@ const getOwnProfile = async (req, res) => {
   res.status(200).json(artist);
 };
 
+const getArtistBySlug = async (req, res) => {
+  try {
+    const artist = await Artist.findOne({ slug: req.params.slug })
+  .populate({
+    path: "works",
+    model: "work", // ⚠️ adapte selon ton nom de modèle exact
+  });
+
+    if (!artist) {
+      return res.status(404).json({ message: "Artiste introuvable" });
+    }
+    res.status(200).json(artist);
+  } catch (error) {
+    console.error("Erreur récupération artiste par slug:", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+};
+
+
+
 
 const getArtistById = async (req, res) => {
   const { id } = req.params;
@@ -291,4 +311,5 @@ module.exports = {
   updateArtistStatus,
   getArtistById,
   getOwnProfile,
+  getArtistBySlug,
 };
