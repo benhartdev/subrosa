@@ -9,27 +9,26 @@ import { useGalleryData } from "../../hooks/useGalleryData";
 
 
 const WorksPage = () => {
- const { items, loading } = useGalleryData("works");
- console.log("Œuvres récupérées :", items);
+    const { items, loading } = useGalleryData("works");
+        console.log("Œuvres récupérées :", items);
    
-
   return (
     <main className="artist-page">
       <Header />
-      
-      <section className="artist-gallery-section">
-        
-      <div className="artist-gallery-wrapper">
-  <div className="artist-gallery-title-wrapper">
-    <h2 className="artist-gallery-title" style={{ fontSize: '4rem' }}>Nos œuvres</h2>
-  </div>
-  <div className="artist-gallery-inner">
-    <Gallery items={items} loading={loading} type="works" />
-    </div>
-  </div>
-</section>
-
-
+        <section className="artist-gallery-section">
+           <div className="artist-gallery-wrapper">
+              <div className="artist-gallery-title-wrapper">
+                <h2 className="artist-gallery-title" style={{ fontSize: '4rem' }}>Nos œuvres</h2>
+             </div>
+           <div className="artist-gallery-inner">
+            <Gallery 
+                  items={items} 
+                  loading={loading}
+                  fieldsToShow={['title', 'medium', 'artistName']}
+                  type="works"/>
+          </div>
+           </div>
+       </section>
       <Footer />
     </main>
   );

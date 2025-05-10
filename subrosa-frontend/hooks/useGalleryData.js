@@ -22,30 +22,41 @@ export function useGalleryData(type, subtype = "") {
   const array = Array.isArray(data) ? data : Object.values(data);
 
   const formatted = array.map((item) => {
+         // === WORKS ===
     if (type === "works") {
+      const imageUrl = item.images?.[0]?.url;
       return {
         id: item._id,
-        title: item.title,
-        image: item.images?.[0]?.url?.startsWith("http")
-          ? item.images[0].url
-          : `http://localhost:5000${item.images[0].url}`,
-        artistName: item.artistId?.name || item.artistId?.username,
-        price: item.price,
-        link: `/oeuvre/${item._id}`,
-      };
-    }
-          if (type === "artist") {
-            return {
-             id: item._id,
-    name: item.name,
-    username: item.username,        // ← AJOUTE ÇA
-    slug: item.slug,                // ← ET ÇA SI PRÉEXISTANT
-    image: item.artistImages?.[0]?.url,
-    specialty: item.style,
-    link: `/artiste/${item._id}`,
+              title: item.title || "Sans titre",
+              medium: item.medium,
+              dimensions: item.dimensions,
+              type: item.type,
+              price: item.price,
+              description: item.description,
+              artistName: item.artistId?.username || item.artistId?.name || "Artiste inconnu",
+              image: imageUrl?.startsWith("http")
+                ? imageUrl
+                : imageUrl ? `http://localhost:5000${imageUrl}` : "/placeholder.jpg",
+              _id: item._id, // nécessaire pour le composant Gallery
             };
           }
-          if (type === "blog") {
+         // === ARTISTS ===
+        if (type === "artist") {
+          const imageUrl = item.artistImages?.[0]?.url;
+            return {
+             id: item._id,
+              name: item.name,
+              username: item.username,
+              slug: item.slug,
+              image: imageUrl?.startsWith("http")
+                ? imageUrl
+                : imageUrl ? `http://localhost:5000${imageUrl}` : "/placeholder.jpg",
+              style: item.style,
+              _id: item._id,
+            };
+          }
+          // === BLOGS === (à implémenter)
+        if (type === "blog") {
             return {
               id: item._id,
               title: item.title,
@@ -54,7 +65,9 @@ export function useGalleryData(type, subtype = "") {
               link: `/blog/${item._id}`,
             };
           }
+        return item;
         });
+        
         setItems(formatted);
         setLoading(false);
       })
