@@ -10,6 +10,7 @@ const sendContactEmail = async (toAdmin, fromUser, messageContent) => {
   });
 
   // 1. Email pour toi (l’admin)
+  console.log("✉️ Destinataire confirmation :", fromUser.email);
   await transporter.sendMail({
     from: `"Formulaire SUB ROSA" <${process.env.SMTP_USER}>`,
     to: toAdmin,

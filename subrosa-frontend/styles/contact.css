@@ -129,6 +129,67 @@
   background-color: rgb(225 225 225 / 100%);
 }
 
+/* Gestion message d'erreur */
+
+/* Message de validation */
+.form-feedback-wrapper {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.form-feedback {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.success {
+  color: #00ff66;
+}
+
+.warning {
+  color: #ffcc00;
+}
+
+.error {
+  color: #ff3333;
+}
+
+/* Overlay de chargement */
+.sablier-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.805);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sablier-svg {
+  width: 480px;
+  height: auto;
+  animation: pulse 2s infinite ease-in-out;
+ 
+}
+
+/* Animation sablier (style simplifié ici, tu peux le styliser davantage) */
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+
+
 /* Tablet Devices */
 @media (width <= 991px) {
   .contact-container {

@@ -2,8 +2,10 @@ const ContactMessage = require("../models/ContactMessage");
 const Artist = require("../models/Artists");
 const sendContactEmail = require("../utils/sendContactEmail");
 
-
+// Envoi d'un message de contact
 const sendContactMessage = async (req, res) => {
+  console.log("📦 SESSION REÇUE :", req.session);
+
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -11,16 +13,25 @@ const sendContactMessage = async (req, res) => {
   }
 
   try {
-    // Vérifier si un artiste correspond à cet email
-    const artist = await Artist.findOne({ email });
+    let artist = null;
 
-    if (artist) {
-      console.log("🎯 Artiste trouvé :", artist.username);
-    } else {
-      console.log("❌ Aucun artiste trouvé avec l'email :", email);
+    // 1. Si l'utilisateur connecté est un artiste
+    if (req.session?.user?.role === "artist") {
+      artist = await Artist.findById(req.session.user.id);
+      console.log("🎯 Artiste connecté :", artist?.username);
     }
 
-    // Créer le message
+    // 2. Sinon, tentative de liaison via l'email
+    if (!artist) {
+      artist = await Artist.findOne({ email });
+      if (artist) {
+        console.log("🎯 Artiste trouvé via email :", artist.username);
+      } else {
+        console.log("❌ Aucun artiste trouvé avec l'email :", email);
+      }
+    }
+
+    // 3. Enregistrement du message
     const newMessage = new ContactMessage({
       name,
       email,
@@ -28,45 +39,61 @@ const sendContactMessage = async (req, res) => {
       artistId: artist ? artist._id : null,
     });
 
-    // Sauvegarde en base
     await newMessage.save();
-      console.log("✅ Message enregistré :", newMessage._id);
-   
-      // Associer à l’artiste (si trouvé)
+    console.log("✅ Message enregistré :", newMessage._id);
+
+    // 4. Liaison du message à l'artiste via $push pour eviter erreur silencieuse mongoose, sur l'update de la date qui bloquait
     if (artist) {
-      artist.messages = artist.messages || [];
-      artist.messages.push(newMessage._id);
-      await artist.save();
-      console.log("📥 Message ajouté au profil artiste");
+      await Artist.findByIdAndUpdate(
+        artist._id,
+        { $push: { messages: newMessage._id } },
+        { new: true }
+      );
+      console.log("📥 Message lié à l'artiste :", artist.username);
     }
 
-    // Envoyer les emails (admin + confirmation)
-    await sendContactEmail(
-      "ben.hoffele.photographe@outlook.fr", // 🔁 adresse admin réelle
-      { name, email },
-      message
-    );
+    // 5. Envoi des emails
+    let emailSent = true;
+    try {
+      console.log("✉️ Destinataire confirmation :", email);
+      await sendContactEmail(
+        "ben.hoffele.photographe@outlook.fr",
+        { name, email },
+        message
+      );
+      console.log("📤 Email envoyé avec succès");
+    } catch (emailErr) {
+      emailSent = false;
+      console.warn("⚠️ Erreur lors de l’envoi de l’email :", emailErr.message);
+    }
 
-    res.status(200).json({ message: "Message envoyé et enregistré." });
+    // 6. Réponse frontend
+    res.status(200).json({
+      message: "Message enregistré.",
+      emailSent,
+    });
   } catch (error) {
-    console.error("Erreur dans sendContactMessage :", error);
+    console.error("❌ Erreur globale dans sendContactMessage :", error);
     res.status(500).json({ error: "Erreur serveur." });
   }
 };
 
+// Récupération de tous les messages
 const getAllMessages = async (req, res) => {
   try {
     const messages = await ContactMessage.find()
       .sort({ createdAt: -1 })
-      .populate("artistId", "username username artistImages");
-      console.log("Messages trouvés :", messages);
+      .populate("artistId", "username artistImages");
+
+    console.log("📦 Messages récupérés :", messages.length);
     res.json(messages);
   } catch (error) {
-    console.error("Erreur getAllMessages :", error);
-    res.status(500).json({ error: "Erreur serveur" });
+    console.error("❌ Erreur getAllMessages :", error);
+    res.status(500).json({ error: "Erreur serveur." });
   }
 };
 
+// Suppression d’un message
 const deleteMessage = async (req, res) => {
   try {
     const deleted = await ContactMessage.findByIdAndDelete(req.params.id);
@@ -75,7 +102,7 @@ const deleteMessage = async (req, res) => {
     }
     res.status(200).json({ message: "Message supprimé avec succès" });
   } catch (error) {
-    console.error("Erreur suppression message :", error);
+    console.error("❌ Erreur suppression message :", error);
     res.status(500).json({ message: "Erreur serveur lors de la suppression" });
   }
 };

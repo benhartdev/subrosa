@@ -38,6 +38,7 @@ export default function ArtistSoloPage({ artist }) {
             <Gallery 
                 items={artist.works} 
                 fieldsToShow={['title', 'medium', 'dimensions']}
+                type="works"
               />
           </div>
         </div>
