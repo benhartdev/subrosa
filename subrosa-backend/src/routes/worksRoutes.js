@@ -237,6 +237,21 @@ router.post("/json", ensureAdmin, async (req, res) => {
   }
 });
 
+// Récupérer une œuvre par son Slug
+router.get('/slug/:slug', async (req, res) => {
+  try {
+    const work = await Work.findOne({ slug: req.params.slug }).populate('artistId');
+    if (!work) {
+      return res.status(404).json({ message: "Œuvre introuvable" });
+    }
+    res.status(200).json(work);
+  } catch (error) {
+    console.error("Erreur récupération œuvre par slug:", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
+
 // route PATCH pour mettre à jour une œuvre - images
 router.patch('/:id/images', ensureAdmin, async (req, res) => {
   try {

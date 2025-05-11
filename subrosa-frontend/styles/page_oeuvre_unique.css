@@ -1,24 +1,8 @@
-h1 {
-    font-size: 30px;
-    font-family: Michroma, sans-serif;
-    color: #ffffff8f;
-    text-align: center;
-    margin:25rem auto 2rem auto;
-}
-h2 {
-    font-size: 48px;
-    font-family: Michroma, sans-serif;
-    color: #fff;
-    text-align: center;
-    margin: 0 auto 10rem auto;
-}
-h3 {
-    font-size: 24px;
-    font-family: Michroma, sans-serif;
-    color: #fff;
-    text-align: center;
-    margin: 0 auto 10rem auto;
-}
+
+
+
+ 
+
 
 .image {
     display: flex;
@@ -42,6 +26,13 @@ h3 {
     margin-top: 5rem;
   }
 
+  .artwork-info-p {
+    line-height: 2.5;
+  }
+
+  .high {
+    font-size: 24px;
+  }
 .artwork-details-container {
     display: flex; /* Place les éléments côte à côte */
     align-items: flex-start; /* Alignement en haut */
@@ -202,7 +193,7 @@ h3 {
     color: #fff;
     font-size: 20px;
     text-align: center;
-    font-family: Afacad, sans-serif;
+    font-family: Michroma, sans-serif;
     line-height: 1.5;
     margin-bottom: 24px;
   }
@@ -221,7 +212,7 @@ h3 {
     color: #fff;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    font-family: Inter, sans-serif;
+    font-family: Michroma, sans-serif;
     line-height: 100%;
     background-color: rgb(186 181 181 / 16%);
     cursor: pointer;
@@ -231,7 +222,7 @@ h3 {
     color: #fff;
     font-size: 20px;
     text-align: center;
-    font-family: Afacad, sans-serif;
+    font-family: Michroma, sans-serif;
     line-height: 1.5;
     margin-bottom: 16px;
   }
@@ -243,13 +234,16 @@ h3 {
   }
 
 .artwork-section {
-    display: flex;
-    flex-direction: column;
+ display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 8rem 2rem;
+  flex-direction: row;
+  justify-items: center;
     align-items: center;
     width: 100%;
     background-color: #000;
     color: #fff;
-    font-family: Afacad;
+    font-family: Michroma;
     margin: -10rem auto 0 auto;
   }
 
@@ -265,49 +259,130 @@ h3 {
     font-family: Michroma, sans-serif;
   }
 
-.image-grid {
-    display: flex;
-    gap: 40px;
-  }
-
 .image-wrapper {
     flex: 1;
     margin: 0;
   }
 
 .artwork-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+  margin-top: 3rem;
+  width: 700px;            /* ✅ plus petite */
+  object-fit: contain;
+  border: 1px solid #666565;
+  box-shadow: 3px 5px 10px #adadad60;
   }
 
-
-
 .image-grid {
-      flex-direction: column;
-      gap: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   /* ✅ centre horizontalement */
+  align-items: flex-start;
+  gap: 4rem;                 /* ✅ espace entre les photos */
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;       
     }
-
-
-
-.image-grid {
-      gap: 24px;
-    }
-
-.artwork-image {
-    object-fit: cover;
-    margin-bottom: 25px;
-  }
 
 .artwork-title {
     color: #fff;
-    font-size: 36px;
+    font-size: 20px;
     text-align: center;
-    font-family: Afacad;
+    font-family: Michroma;
     font-weight: 400;
   }
 
-.artwork-info {
-      margin-bottom: 40px;
-    }
+ .artist-profile-content-column {
+  background: #000;
+  padding: 4rem 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.artist-profile-content-wrapper {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.artist-profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.artist-profile-label {
+  font-family: Michroma, sans-serif;
+  font-size: 14px;
+  color: #ffffff7a;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.artist-profile-name {
+  font-family: Michroma, sans-serif;
+  font-size: 32px;
+  margin: 0;
+  color: white;
+}
+
+.artist-profile-body {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.artist-profile-photo {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+.artist-profile-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.follow-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-family: Michroma, sans-serif;
+  cursor: pointer;
+}
+
+.follow-button-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.artist-profile-description {
+  font-family: Afacad, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+.interview-button {
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-family: Michroma, sans-serif;
+  border: none;
+  border-bottom: 1px solid white;
+  align-self: flex-start;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.artist-profile-divider {
+  margin-top: 4rem;
+  border: none;
+  border-top: 1px solid white;
+}

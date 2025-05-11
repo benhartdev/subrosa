@@ -32,6 +32,7 @@ export function useGalleryData(type, subtype = "") {
       return {
               id: item._id,  // Pour React ou d'autres composants
               title: item.title || "Sans titre",
+              slug: item.slug,
               medium: item.medium,
               dimensions: item.dimensions,
               type: item.type,

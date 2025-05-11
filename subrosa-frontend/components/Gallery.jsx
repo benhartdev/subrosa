@@ -7,17 +7,20 @@ import "../styles/artistGallery.css";
 
 export default function Gallery({ items = [], loading, customClass = "", fieldsToShow = [], type }) {
   if (loading) return <LoadingSkeleton />;
+  
 
   return (
     <div className="artist-gallery">
       <div className={`artist-gallery-grid ${customClass}`}>
        {items.map((item, index) => {
+        console.log("item.slug:", item.slug); // ✅ ici c’est bon !
           const linkHref =
             type === "artist"
               ? `/artistes/${item.slug}`
               : type === "works"
-              ? `/oeuvres/${item._id}`
+              ? `/oeuvres/${item.slug || item.Slug || item._id}`
               : null;
+console.log("ITEM :", item);
 
           const imageUrl = item.image || item.images?.[0]?.url || "/placeholder.jpg";
           const altText = item.title || item.name || "Image";
