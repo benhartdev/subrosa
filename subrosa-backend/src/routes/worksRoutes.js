@@ -6,15 +6,6 @@ const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/multerConfig'); 
 const filterByApproval = require('../middlewares/filterByApproval');
 
-// // Récupérer toutes les œuvres
-// router.get('/', filterByApproval, async (req, res) => {
-//   try {
-//     const works = await Work.find({ ...req.approvalFilter }).populate('artistId');
-//     res.status(200).json(works);
-//   } catch (error) {
-//     res.status(500).json({ message: "Erreur lors de la récupération des œuvres." });
-//   }
-// });
 
 router.get('/', filterByApproval, async (req, res) => {
   try {
@@ -53,17 +44,25 @@ router.get('/all-by-artist/:id', async (req, res) => {
   }
 });
 
-// Route : GET /api/works/random
+// GET /api/works/random, HomePage - selection du moment
 router.get('/random', async (req, res) => {
   try {
-    const randomWorks = await Work.aggregate([
-      { $match: { isApproved: true } }, // on récupère uniquement les œuvres validées
-      { $sample: { size: 8 } } // on en sélectionne 8 au hasard
+    const works = await Work.aggregate([
+      { $match: { isApproved: true } }, // 🟢 uniquement les œuvres validées
+      {
+        $group: {
+          _id: "$artistId",              // 🔁 groupement par artiste
+          doc: { $first: "$$ROOT" }      // 👈 on prend la 1re œuvre par artiste
+        }
+      },
+      { $replaceRoot: { newRoot: "$doc" } }, // 🧼 on remet le doc original
+      { $sample: { size: 6 } }               // 🎲 6 œuvres aléatoires (modifie si besoin)
     ]);
-    res.status(200).json(randomWorks);
+
+    res.json(works);
   } catch (error) {
-    console.error('Erreur lors de la récupération des œuvres aléatoires :', error);
-    res.status(500).json({ message: "Erreur serveur." });
+    console.error("❌ Erreur lors du fetch des œuvres aléatoires :", error);
+    res.status(500).json({ message: "Erreur serveur" });
   }
 });
 
@@ -105,7 +104,34 @@ router.post('/by-artist', ensureArtist, async (req, res) => {
   }
 });
 
-// ✅ Nouvelle route artiste avec upload d’image
+// Route : POST /api/works/artist/add
+router.post('/by-admin/:artistId', ensureAdmin, async (req, res) => {
+  try {
+    const artistId = req.params.artistId;
+
+    // Crée l’œuvre avec artistId injecté manuellement
+    const newWork = new Work({ ...req.body, artistId });
+    const savedWork = await newWork.save();
+
+    // Mets à jour le document artiste avec l'ID de l’œuvre
+    await Artist.findByIdAndUpdate(
+      artistId,
+      { $push: { works: savedWork._id } },
+      { new: true }
+    );
+
+    res.status(201).json({
+      message: "Œuvre ajoutée et associée à l’artiste.",
+      work: savedWork
+    });
+  } catch (err) {
+    console.error("❌ Erreur ajout œuvre admin :", err);
+    res.status(500).json({ error: "Erreur serveur lors de la création de l’œuvre." });
+  }
+});
+
+
+// ✅ Nouvelle route artiste avec upload d’une seule oeuvre avec plusieurs images de celle ci
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
   console.log("🧠 SESSION ACTUELLE :", req.session); 
   try {
@@ -211,6 +237,32 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     });
   }
 });
+
+// ✅ Route admin pour ajouter plusieurs œuvres à un artiste
+router.post('/bulk/:artistId', ensureAdmin, async (req, res) => {
+  try {
+    const artistId = req.params.artistId;
+    const works = req.body;
+
+    if (!Array.isArray(works)) {
+      return res.status(400).json({ message: "Le body doit contenir un tableau d'œuvres." });
+    }
+
+    const worksWithArtist = works.map(work => ({ ...work, artistId }));
+
+    const savedWorks = await Work.insertMany(worksWithArtist);
+
+    await Artist.findByIdAndUpdate(artistId, {
+      $push: { works: { $each: savedWorks.map(w => w._id) } }
+    });
+
+    res.status(201).json({ message: "Œuvres ajoutées avec succès", works: savedWorks });
+  } catch (err) {
+    console.error("❌ Erreur ajout multiple d’œuvres :", err);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
 
 // Route protégée pour ajouter une œuvre (admin uniquement)
 router.post('/add', ensureAdmin, async (req, res) => {

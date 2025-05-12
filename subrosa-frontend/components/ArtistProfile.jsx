@@ -3,7 +3,14 @@ import React from "react";
 import "../styles/artistProfile.css";
 import Image from 'next/image';
 
-const ArtistProfile = () => {
+const ArtistProfile = ({ artist }) => {
+  if (!artist) {
+    console.log("⛔ Aucun artiste reçu !");
+    return <div>Chargement de l’artiste...</div>;
+  }
+
+  console.log("✅ Images de l'artiste :", artist.artistImages);
+
   return (
     <div className="artist-profile">
       <div className="content-wrapper">
@@ -53,11 +60,22 @@ const ArtistProfile = () => {
         </div>
       </div>
       <div className="image-full-width">
-  <img
-    src="/images/benh_2.png"
-    alt="Portrait de l’artiste"
-    className="image-centered"
+  {artist?.artistImages?.[2] ? (
+    
+  <Image
+    src={artist.artistImages[2].url}
+    alt={artist.artistImages[2].altText || `Portrait de ${artist.username}`}
+    width={1000}
+    height={1000}
   />
+) : (
+  <Image
+    src="/placeholder.jpg"
+    alt="Image par défaut"
+    width={1000}
+    height={1000}
+  />
+)}
 </div>
 
       <div className="interview-section">

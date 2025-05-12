@@ -151,6 +151,10 @@ body {
   padding: 2rem;
   border: 1px solid #fff;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  
 }
 
 /* GRILLE D’ŒUVRES */

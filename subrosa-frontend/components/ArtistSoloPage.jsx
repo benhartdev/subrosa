@@ -44,7 +44,7 @@ export default function ArtistSoloPage({ artist }) {
         </div>
       </section>
 )}
-            <ArtistProfile bio={artist.bio} />
+            <ArtistProfile bio={artist.bio} artist={artist}  />
     </main>
   );
 }

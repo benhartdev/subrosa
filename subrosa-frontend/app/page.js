@@ -13,7 +13,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TestimonialSection from '../components/TestimonialSection';
 
-
 const HomePage = () => {
 const { items, loading } = useGalleryData("artist");
 console.log("🧩 Items (artistes) récupérés :", items);
@@ -72,15 +71,25 @@ const featuredArtists = [...items]
                 </section>
                 <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
+              <section className="moment-selection">
+                           <Gallery
+                                  randomEndpoint="http://localhost:5000/api/works/random"
+                                  type="works"
+                                  title= "NOTRE SÉLECTION DU MOMENT"
+                                /> 
+                              </section>
+                      
+            
               {/* Section Artistes à la une */}
       <section className="accueil-artistes-a-la-une">
-        <h2 className="section-title">Artistes à la une</h2>
         <Gallery
           items={featuredArtists}
           loading={loading}
           type="artist"
           customClass="home-gallery-grid"
           fieldsToShow={["name", "style", "username"]}
+          title="Nos artiste coup de coeur"
+          subtitle="partagez leur univers"
         />
         <div className="artists-button-container">
           <Link href="/nos_artistes">

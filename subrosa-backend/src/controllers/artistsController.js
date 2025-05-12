@@ -271,6 +271,37 @@ const getArtistBySlug = async (req, res) => {
   }
 };
 
+// 🔁 Fonction pour ajouter des images dans le champ artistImages
+
+const updateArtistImages = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { newImages } = req.body;
+
+    if (!Array.isArray(newImages) || newImages.length === 0) {
+      return res.status(400).json({ message: "Aucune image fournie." });
+    }
+
+    const updatedArtist = await Artist.findByIdAndUpdate(
+      id,
+      { $push: { artistImages: { $each: newImages } } },
+      { new: true }
+    );
+
+    if (!updatedArtist) {
+      return res.status(404).json({ message: "Artiste introuvable." });
+    }
+
+    res.status(200).json({
+      message: `${newImages.length} image(s) ajoutée(s) avec succès à la fiche artiste.`,
+      artist: updatedArtist
+    });
+  } catch (error) {
+    console.error("❌ Erreur ajout images artiste :", error);
+    res.status(500).json({ message: "Erreur serveur." });
+  }
+};
+
 const getArtistById = async (req, res) => {
   const { id } = req.params;
   const sessionUser = req.session.user;
@@ -306,6 +337,7 @@ module.exports = {
   deleteArtist,
   getPendingArtists,
   updateArtistStatus,
+  updateArtistImages,
   getArtistById,
   getOwnProfile,
   getArtistBySlug,

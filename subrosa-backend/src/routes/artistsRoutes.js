@@ -6,6 +6,7 @@ const { ensureAdmin } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/multerConfig');
 const ensureValidatedArtist = require('../middlewares/ensureValidatedArtist');
 const { getOwnProfile } = require('../controllers/artistsController');
+const { updateArtistImages } = require('../controllers/artistsController');
 
 // ------------------ Endpoints publics ------------------
 
@@ -34,6 +35,9 @@ router.delete('/:id', ensureAdmin, artistsController.deleteArtist);
 
 // Récupère les artistes en attente (admin uniquement)
 router.get('/pending', ensureAdmin, artistsController.getPendingArtists);
+
+// Ajouter des images à un artiste (admin uniquement)
+router.patch('/:id/images', ensureAdmin, updateArtistImages);
 
 // Mise à jour du statut d'un artiste (admin uniquement)
 router.put('/:id/status', ensureAdmin, artistsController.updateArtistStatus);

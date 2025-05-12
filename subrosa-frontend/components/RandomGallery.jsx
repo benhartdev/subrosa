@@ -1,6 +1,8 @@
-// components/RandomGallery.jsx
+'use client';
 import React, { useEffect, useState } from 'react';
-import './randomGallery.css';
+import "../styles/artistGallery.css";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const RandomGallery = () => {
   const [works, setWorks] = useState([]);
@@ -12,7 +14,7 @@ const RandomGallery = () => {
         const data = await response.json();
         setWorks(data);
       } catch (error) {
-        console.error('Erreur de chargement des oeuvres aléatoires :', error);
+        console.error('Erreur de chargement des œuvres aléatoires :', error);
       }
     };
 
@@ -20,16 +22,33 @@ const RandomGallery = () => {
   }, []);
 
   return (
-    <div className="random-gallery-wrapper">
-      <h3 className="random-gallery-title">NOTRE SÉLECTION DU MOMENT</h3>
-      <div className="random-gallery-grid">
+    <section className="artist-gallery-section">
+      <div className="artist-gallery-wrapper">
+        <div className="artist-gallery-title-wrapper">
+          <h2 className="artist-gallery-title" style={{ fontSize: '2rem' }}>
+            NOTRE SÉLECTION DU MOMENT
+          </h2>
+        </div>
+      </div>
+
+      <div className="artist-gallery-inner">
         {works.map((work) => (
           <div className="gallery-item" key={work._id}>
-            <img src={`http://localhost:5000/${work.images[0]?.url}`} alt={work.images[0]?.altText || 'Oeuvre'} />
+            <Link href={`/works/${work.slug}`}>
+              <Image
+                src={work.images[0]?.url || '/placeholder.jpg'}
+                alt={work.images[0]?.altText || 'Œuvre'}
+                width={800}
+                height={800}
+                layout="responsive"
+                objectFit="cover"
+                
+              />
+            </Link>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

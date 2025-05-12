@@ -130,7 +130,7 @@ const artistSchema = new mongoose.Schema({
       status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
       name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
       works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],
-      artistImages: [{url: { type: String },alt: { type: String },uploadedAt: { type: Date, default: Date.now }}],
+      artistImages: [{url: { type: String },altText: { type: String },uploadedAt: { type: Date, default: Date.now }}],
       newsletter: { type: Boolean, default: true },
       messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ContactMessage' }],
       createdAt: { type: Date, default: Date.now },
