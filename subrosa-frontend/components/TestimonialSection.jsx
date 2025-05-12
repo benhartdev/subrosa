@@ -1,76 +1,79 @@
 "use client";
 import React from "react";
-import styles from "../styles/photography.css";
+import "../styles/TestimonialSection.css";
 
-export default function TestimonialSection() {
+const testimonials = [
+  {
+    name: "Dim Burton",
+    role: "Illustrateur",
+    text: "”SUB ROSA m’a permis de présenter mon art à un public passionné. L’équipe est à l’écoute et très professionnelle.”",
+    avatar: "/images/Dim.png",  
+    stars: 4.5,
+  },
+  {
+    name: "Caterina Varchetta",
+    role: "Artiste peintre",
+    text: "”Un espace raffiné et sobre, parfait pour exposer mes créations. Et pour y effectuer quelques belles ventes.”",
+    avatar: "/images/CAT_avatar.png",
+    stars: 5,
+  },
+  {
+    name: "Sophie Bigot",
+    role: "Marketing Specialist",
+    text: "”SUB ROSA m’a permis de découvrir des artistes incroyables. J’y ai même trouvé un partenaire pour un projet d’exposition.”",
+    avatar: "/images/sophie.jpg",
+    stars: 5,
+  },
+  {
+    name: "Tortue Geniale",
+    role: "Marketing Specialist",
+    text: "“SUB ROSA est bien plus qu’une galerie : c’est un lieu de rencontres, d’inspiration, et de reconnaissance pour les artistes émergents comme confirmés.”",
+    avatar: "/images/Tortue_gé.png",
+    stars: 5,
+  },
+];
+
+const renderStars = (stars) => {
+  const full = Math.floor(stars);
+  const half = stars % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
   return (
-    <div className={styles.testimonialContainer} role="complementary">
-      <div
-        className={styles.testimonialContent}
-        role="region"
-        aria-label="Testimonials"
-      >
-        <div className={styles.testimonialRating}>EXCELLENT</div>
-        <div className={styles.ratingStars}>
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/6b3112d6797947108e0e370d8b352087/a59c121020dd2cd4b5bad3cef807917de0aa222c?placeholderIfAbsent=true"
-            className={styles.starIcon}
-            alt="Star"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/6b3112d6797947108e0e370d8b352087/0cf0005bc4121c2eedfde3d52aa807dc7aa527af?placeholderIfAbsent=true"
-            className={styles.starIcon}
-            alt="Star"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/6b3112d6797947108e0e370d8b352087/0cf0005bc4121c2eedfde3d52aa807dc7aa527af?placeholderIfAbsent=true"
-            className={styles.starIcon}
-            alt="Star"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/6b3112d6797947108e0e370d8b352087/0cf0005bc4121c2eedfde3d52aa807dc7aa527af?placeholderIfAbsent=true"
-            className={styles.starIcon}
-            alt="Star"
-          />
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/6b3112d6797947108e0e370d8b352087/a59c121020dd2cd4b5bad3cef807917de0aa222c?placeholderIfAbsent=true"
-            className={styles.starIcon}
-            alt="Star"
-          />
-        </div>
-        <div className={styles.testimonialText}>
-          "Galerie très pro et avec une belle sensibilité artistique, une grande
-          ouverture et des artistes des plus talentueux je recommande, merci"
-        </div>
-        <div className={styles.testimonialDots}>
-          {[...Array(15)].map((_, i) => (
-            <div key={i} className={styles.dot} />
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.servicesSection} role="list">
-        <div className={styles.serviceItem} role="listitem">
-          <span className={styles.serviceText}>PAIEMENT EN 3 FOIS</span>
-          <span className={styles.serviceSubtext}>SANS FRAIS</span>
-        </div>
-        <div className={styles.serviceItem} role="listitem">
-          <span className={styles.serviceText}>TARIFS NÉGOCIÉS</span>
-        </div>
-        <div className={styles.serviceItem} role="listitem">
-          <span className={styles.serviceText}>LIVRAISON PREMIUM</span>
-          <span className={styles.serviceSubtext}>ET ASSURÉE</span>
-        </div>
-        <div className={styles.serviceItem} role="listitem">
-          <span className={styles.serviceText}>PAIEMENTS SÉCURISÉS</span>
-        </div>
-        <div className={styles.serviceItem} role="listitem">
-          <span className={styles.serviceText}>ŒUVRE A L'ESSAI</span>
-          <span className={styles.serviceSubtext}>
-            Retour gratuit sous 15 jours
-          </span>
-        </div>
-      </div>
-    </div>
+    <>
+      {Array(full)
+        .fill()
+        .map((_, i) => (
+          <i key={"f" + i} className="fas fa-star" />
+        ))}
+      {half === 1 && <i className="fas fa-star-half-alt" />}
+      {Array(empty)
+        .fill()
+        .map((_, i) => (
+          <i key={"e" + i} className="far fa-star" />
+        ))}
+    </>
   );
-}
+};
+
+const TestimonialSection = () => {
+  return (
+    <section className="testimonials-container">
+      <h3 className="testimonials-title">Témoignages</h3>
+      <p className="testimonials-description">
+        Ils ont vécu l’expérience SUB ROSA. Voici ce qu’ils en disent :
+      </p>
+      <div className="testimonials-grid">
+        {testimonials.map((t, index) => (
+          <div key={index} className="testimonial-card">
+            <img src={t.avatar} alt={t.name} className="testimonial-avatar" />
+            <h5 className="testimonial-name">{t.name}</h5>
+            <h6 className="testimonial-role">{t.role}</h6>
+            <p className="testimonial-text">“{t.text}”</p>
+            <div className="testimonial-stars">{renderStars(t.stars)}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialSection;

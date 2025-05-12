@@ -30,12 +30,7 @@ html {
   height: 100%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border-radius: 0 !important;
-}
+
 
 a {
   color: inherit;
@@ -49,3 +44,4 @@ a {
 @import url('../styles/page_nos_oeuvres.css');
 @import url('../styles/page_oeuvre_unique.css');
 @import url('../styles/contact.css');
+@import "@fortawesome/fontawesome-free/css/all.min.css";

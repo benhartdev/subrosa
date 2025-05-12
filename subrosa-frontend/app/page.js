@@ -11,6 +11,7 @@ import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TestimonialSection from '../components/TestimonialSection';
 
 
 const HomePage = () => {
@@ -107,6 +108,11 @@ const featuredArtists = [...items]
                     </Link>
                 </div>
             </section>
+
+             <section className="testimonials-section">
+                <TestimonialSection />
+
+             </section>
 
             <Footer />
 

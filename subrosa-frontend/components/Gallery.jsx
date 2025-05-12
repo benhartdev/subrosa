@@ -46,7 +46,7 @@ console.log("ITEM :", item);
               {fieldsToShow.includes("type") && item.type && <p className="artwork-type">{item.type}</p>}
               {fieldsToShow.includes("artistName") && item.artistName && <p className="artwork-artist">{item.artistName}</p>}
               {fieldsToShow.includes("price") && item.price && <p className="artwork-price">{item.price} €</p>}
-              {fieldsToShow.includes("username") && item.username && <p className="artwork-username">Par : {item.username}</p>}
+              {fieldsToShow.includes("username") && item.username && <p className="artwork-username">{item.username}</p>}
               {fieldsToShow.includes("style") && item.style && <p className="artwork-style">{item.style}</p>}
             </div>
           </div>
