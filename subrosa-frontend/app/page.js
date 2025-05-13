@@ -12,6 +12,7 @@ import { useGalleryData } from "../hooks/useGalleryData";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TestimonialSection from '../components/TestimonialSection';
+const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
 const { items, loading } = useGalleryData("artist");
@@ -72,24 +73,24 @@ const featuredArtists = [...items]
                 <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
               <section className="moment-selection">
-                           <Gallery
-                                  randomEndpoint="http://localhost:5000/api/works/random"
-                                  type="works"
-                                  title= "NOTRE SÉLECTION DU MOMENT"
-                                /> 
-                              </section>
+                          <MomentSelection />
+
+
+             </section>
                       
             
               {/* Section Artistes à la une */}
       <section className="accueil-artistes-a-la-une">
+        <h3 className="title-artist-selection">NOS ARTISTES COUP DE CŒUR</h3>
+        <h4 className="title-artist-universe">Partagez leur univers…</h4>
         <Gallery
           items={featuredArtists}
           loading={loading}
           type="artist"
           customClass="home-gallery-grid"
           fieldsToShow={["name", "style", "username"]}
-          title="Nos artiste coup de coeur"
-          subtitle="partagez leur univers"
+          
+          
         />
         <div className="artists-button-container">
           <Link href="/nos_artistes">

@@ -493,7 +493,29 @@ h1 {
       margin-top: 40px;
     }
   }
-  
+  .title-artist-selection {
+    font-family: 'Michroma';
+    font-size: 14px;
+    color: white;
+    justify-content: center;
+  margin: auto;
+  }
+ 
+  .title-artist-universe {
+    font-family: 'Michroma';
+    font-size: 34px;
+    color: white;
+    justify-content: center;
+    margin: auto;
+  }
+
+.title-artist-selection,
+.title-artist-universe {
+  text-align: center;
+  font-family: 'Michroma', sans-serif;
+  color: white;
+}
+
   .artist-container {
     display: flex;
     justify-content: center;
