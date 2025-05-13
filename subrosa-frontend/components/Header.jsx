@@ -41,9 +41,9 @@ const Header = () => {
         <ul className="navbar-nav-custom">
                 <li className="nav-item"><Link href="/inscription" className="nav-link">Inscription</Link></li>
                 <li className="nav-item"><Link href="#" className="nav-link">Blog</Link></li>
-                <li className="nav-item"><Link href="/nos-artistes" className="nav-link">Nos artistes</Link></li>
+                <li className="nav-item"><Link href="/page-gallerie?type=artist" className="nav-link">Nos artistes</Link></li>
                 <li className="nav-item"><Link href="/" id="nav-accueil" className="nav-link">Accueil</Link></li>
-                <li className="nav-item"><Link href="/nos_oeuvres" className="nav-link">Nos œuvres</Link></li>
+                <li className="nav-item"><Link href="/page-gallerie?type=works" className="nav-link">Nos œuvres</Link></li>
                 <li className="nav-item"><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
                 <li className="nav-item"><Link href="/contact" className="nav-link">Contact</Link></li>
        </ul>

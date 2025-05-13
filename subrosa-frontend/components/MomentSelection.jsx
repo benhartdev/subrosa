@@ -1,6 +1,6 @@
 "use client";
-
-import "../styles/Momentselection.css";
+import Link from "next/link";
+import "../styles/MomentSelection.css";
 
 const React = require("react");
 const { useState, useEffect } = React;
@@ -39,14 +39,20 @@ const SelectionDuMoment = () => {
 
   const renderImg = (index, className) => {
     const item = oeuvres[index];
+     const imageUrl = item.images[0].url.startsWith("http")
+    ? item.images[0].url
+    : `http://localhost:5000${item.images[0].url}`;
+
+
     if (!item || !item.images?.[0]) return null;
     return (
+      <Link href={`/oeuvres/${item.slug}`} key={item._id}>
       <img
-        src={item.images[0].url}
+        src={imageUrl}
         alt={item.images[0].altText || "Œuvre"}
-        className={className}
-        key={item._id}
+         className={`${className} artwork-hover`}
       />
+    </Link>
     );
   };
 

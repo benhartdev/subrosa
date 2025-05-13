@@ -63,12 +63,12 @@ const featuredArtists = [...items]
                     <span className="newsletter-button-text">INSCRIPTION NEWSLETTER</span>
                 </button>
                 <section className="category-filters">
-                    <Link href="/nos_oeuvres"><button className="category-button">TOUTES LES OEUVRES</button></Link>
-                    <Link href="/nouveautes"><button className="category-button">NOUVEAUTES</button></Link>
-                    <Link href="/photography"><button className="category-button">PHOTOGRAPHIES</button></Link>
-                    <Link href="/peintures"><button className="category-button">PEINTURES</button></Link>
-                    <Link href="/sculptures"><button className="category-button">SCULPTURES</button></Link>
-                    <Link href="/edition_art"><button className="category-button">EDITION D_ART</button></Link>
+                    <Link href="/page-gallerie?type=works"><button className="category-button">TOUTES LES OEUVRES</button></Link>
+                    <Link href="/page-gallerie?type=nouveaute"><button className="category-button">NOUVEAUTES</button></Link>
+                    <Link href="/page-gallerie?type=photographie"><button className="category-button">PHOTOGRAPHIES</button></Link>
+                    <Link href="/page-gallerie?type=peinture"><button className="category-button">PEINTURES</button></Link>
+                    <Link href="/page-gallerie?type=sculpture"><button className="category-button">SCULPTURES</button></Link>
+                    <Link href="/page-gallerie?type=edition_art"><button className="category-button">EDITION D_ART</button></Link>
                 </section>
                 <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
@@ -98,14 +98,7 @@ const featuredArtists = [...items]
           </Link>
         </div>
       </section>
-            {/* <section className="artist-container">
-                <ArtistsGallery /> 
-                <div className="artists-button-container">
-                    <Link href="/nos_artistes">
-                        <button className="view-all-btn">VOIR TOUS NOS ARTISTES</button>
-                    </Link>
-                </div>
-            </section> */}
+            
 
             <section className="concept-section">
                 <div className="concept-content">

@@ -42,8 +42,8 @@ const HamburgerMenu = () => {
                 
                 <ul ref={menuRef} className="mobile-menu">
                     <li><Link href="/">Accueil</Link></li>
-                    <li><Link href="/nos_oeuvres">Nos œuvres</Link></li>
-                    <li><Link href="/nos-artistes">Nos artistes</Link></li>
+                    <li><Link href="/page-gallerie?type=works">Nos œuvres</Link></li>
+                    <li><Link href="/page-gallerie?type=artist">Nos artistes</Link></li>
                     <li><Link href="/blog">Sub Rosa Blog</Link></li>
                     <li><Link href="/about">Qui sommes-nous</Link></li>
                     <li><Link href="/contact">Contact</Link></li>
