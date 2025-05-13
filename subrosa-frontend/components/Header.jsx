@@ -2,11 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import HamburgerMenu from './HamburgerMenu';
-import NavButton from '../components/NavButton'; 
-import MiniBarNav from '../components/MiniBarNav'; 
-import AddWorkButton from './AddWorkButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faSignOutAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../components/context/AuthContext";
@@ -14,8 +10,6 @@ import { useRouter } from "next/navigation";
 
 
 console.log("Header.js est chargé.");
-
-
 const Header = () => {
     const { user, logout } = useAuth();
     const router = useRouter();
@@ -23,67 +17,37 @@ const Header = () => {
     return (
 
 <header className="header">
-<div id="mainNav">
-        {/* <div role="navigation">
-                 <div className="logo-container">
-                   <Image src="/images/gallerie SUB logo.svg" alt="Icône SVG" width="400" height="400" />
-                 </div>
-               </div> */}
+    <div id="mainNav">
+      <div className="icon-wrapper">
+        {!user ? (
+          <>
+            <Link href="/login">
+              <FontAwesomeIcon icon={faSignInAlt} className="nav-icon" />
+            </Link>
+            <Link href="/inscription">
+              <FontAwesomeIcon icon={faUserPlus} className="nav-icon" />
+            </Link>
+          </>
+        ) : (
+          <button onClick={logout} className="nav-icon logout-icon">
+            <FontAwesomeIcon icon={faSignOutAlt} />
+          </button>
+        )}
+        <HamburgerMenu />
+      </div>
+                {/* Barre de navigation principale */}
 
-        {/* <div className="auth-buttons">
-  {user ? (
-    <button className="login-button" onClick={logout}>
-      Se déconnecter <br></br> {user.username}
-    </button>
-  ) : (
-    <NavButton to="/login" label="Se connecter" className="login-button" />
-  )}
-
-  {!user || user.role !== 'artist' ? (
-  <NavButton to="/inscription-utilisateur" label="S'enregistrer" className="login-button_2" />
-) : null}
-  
-</div> */}
-    {/* <div className="auth-buttons">
-    <HamburgerMenu />
-    </div> */}
-<div className="icon-wrapper">
-  {!user ? (
-    <>
-      <Link href="/login">
-        <FontAwesomeIcon icon={faSignInAlt} className="nav-icon" />
-      </Link>
-      <Link href="/inscription-utilisateur">
-        <FontAwesomeIcon icon={faUserPlus} className="nav-icon" />
-      </Link>
-    </>
-  ) : (
-    <button onClick={logout} className="nav-icon logout-icon">
-      <FontAwesomeIcon icon={faSignOutAlt} />
-    </button>
-  )}
-
-  <HamburgerMenu />
-</div>
-    
-{/* {user?.role === "artist" && (
-  <div className="add-button-wrapper">
-    <AddWorkButton />
-  </div>
-)} */}
-            {/* Barre de navigation principale */}
-
-    <nav className="navbar-wrapper">
-    <ul className="navbar-nav-custom">
-                    <li className="nav-item"><Link href="/inscription-artiste" className="nav-link">Inscription artiste</Link></li>
-                    <li className="nav-item"><Link href="#" className="nav-link">Blog</Link></li>
-                    <li className="nav-item"><Link href="/nos-artistes" className="nav-link">Nos artistes</Link></li>
-                    <li className="nav-item"><Link href="/" id="nav-accueil" className="nav-link">Accueil</Link></li>
-                    <li className="nav-item"><Link href="/nos_oeuvres" className="nav-link">Nos œuvres</Link></li>
-                    <li className="nav-item"><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
-                    <li className="nav-item"><Link href="/contact" className="nav-link">Contact</Link></li>
-                </ul>
-    </nav>
+      <nav className="navbar-wrapper">
+        <ul className="navbar-nav-custom">
+                <li className="nav-item"><Link href="/inscription" className="nav-link">Inscription</Link></li>
+                <li className="nav-item"><Link href="#" className="nav-link">Blog</Link></li>
+                <li className="nav-item"><Link href="/nos-artistes" className="nav-link">Nos artistes</Link></li>
+                <li className="nav-item"><Link href="/" id="nav-accueil" className="nav-link">Accueil</Link></li>
+                <li className="nav-item"><Link href="/nos_oeuvres" className="nav-link">Nos œuvres</Link></li>
+                <li className="nav-item"><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
+                <li className="nav-item"><Link href="/contact" className="nav-link">Contact</Link></li>
+       </ul>
+      </nav>
     </div>
 </header>
     );

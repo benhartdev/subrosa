@@ -23,7 +23,7 @@ const artistSchema = new mongoose.Schema({
           trim: true,
           minlength: [4, "Le nom doit contenir au moins 4 caractères."]
       },
-      slug: { type: String, required: true, unique: true, lowercase: true, trim: true, },
+      slug: { type: String, unique: true, lowercase: true, trim: true, },
       role: {
         type: String,
         enum: ["artist"],
@@ -55,7 +55,7 @@ const artistSchema = new mongoose.Schema({
       style: {
           type: String,
          
-          enum: ['peintre', 'photographe', 'sculpteur', 'illustrateur', 'plasticien', 'autre'],
+          enum: ['Peintre', 'Photographe', 'Sculpteur', 'Illustrateur', 'Plasticien', 'Autre'],
           trim: true
       },
       technical_skills: {
@@ -145,13 +145,24 @@ const artistSchema = new mongoose.Schema({
             .replace(/\s+/g, "-"); // remplace espaces par tirets
 };
 
-    // Génération auto du slug si non fourni
-    artistSchema.pre("save", function (next) {
-    if (!this.slug && this.name) {
-        this.slug = createSlug(this.name);
+    // Génération auto du slug si non fourni et incremente le slug si plusieurs artistes ont le même nom
+    // Si le slug est déjà pris, on ajoute un suffixe numérique
+   artistSchema.pre("save", async function (next) {
+  if (!this.slug && this.name) {
+    const baseSlug = createSlug(this.name);
+    let slug = baseSlug;
+    let counter = 1;
+
+    // Vérifie que le slug est unique dans la base
+    while (await this.constructor.findOne({ slug })) {
+      slug = `${baseSlug}-${counter++}`;
     }
-    next();
-    });
+
+    this.slug = slug;
+  }
+  next();
+});
+
 
     module.exports = mongoose.model('Artist', artistSchema, 'Artists');
 

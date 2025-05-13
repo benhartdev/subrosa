@@ -12,7 +12,6 @@ const HamburgerMenu = () => {
     const menuRef = useRef(null);
     const { user, logout } = useAuth();
     const router = useRouter();
-
     const toggleMenu = () =>  setIsMenuOpen(!isMenuOpen);
 ;
 
@@ -28,7 +27,6 @@ const HamburgerMenu = () => {
         } else {
             document.removeEventListener("mousedown", handleClickOutside);
         }
-
         // Nettoyage de l'écouteur d'événements
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -39,7 +37,6 @@ const HamburgerMenu = () => {
         <div ref={menuRef}>
             {/* Bouton hamburger */}
             <button id="menu-toggle" onClick={toggleMenu}>☰</button>
-
             {/* Menu hamburger */}
             {isMenuOpen && (
                 
@@ -50,11 +47,10 @@ const HamburgerMenu = () => {
                     <li><Link href="/blog">Sub Rosa Blog</Link></li>
                     <li><Link href="/about">Qui sommes-nous</Link></li>
                     <li><Link href="/contact">Contact</Link></li>
-                    <li><Link href="/inscription-artiste">inscription artiste</Link></li>
                     {!user ? (
                         <>
                             <li><Link href="/login">Se connecter</Link></li>
-                            <li><Link href="/inscription-utilisateur">S'enregistrer</Link></li>
+                            <li><Link href="/inscription">S'enregistrer</Link></li>
                        </>
                     ) : ( 
                     <li>
