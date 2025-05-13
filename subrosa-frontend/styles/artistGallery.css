@@ -208,7 +208,6 @@ height: auto;
 
 .artwork-info {
   text-align: center;
- 
   width: 100%;
   max-width: 300px; /* ou 100% si dans une grille déjà limitée */
   line-height: 1.4;

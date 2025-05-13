@@ -9,11 +9,13 @@ export default function Gallery({ items = [], loading, customClass = "", fieldsT
   if (loading) return <LoadingSkeleton />;
   
 
+  
   return (
     <div className="artist-gallery">
+      <div className="gallery-container">
       <div className={`artist-gallery-grid ${customClass}`}>
        {items.map((item, index) => {
-        console.log("item.slug:", item.slug); // ✅ ici c’est bon !
+        console.log("item.slug:", item.slug);
           const linkHref =
             type === "artist"
               ? `/artistes/${item.slug}`
@@ -30,7 +32,7 @@ console.log("ITEM :", item);
             <div className="artist-gallery-item">
               <div className="artwork-card">
                 <div className="artwork-image-box">
-                  <img src={imageUrl} alt={altText} className="artist-gallery-image" />
+                  <img src={imageUrl} alt={altText} className="artist-gallery-image artwork-hover" />
                </div>
              </div>
             <div className="artwork-info">
@@ -57,6 +59,7 @@ console.log("ITEM :", item);
     </div>
   );
 })}
+      </div>
     </div>
   </div>
   );

@@ -5,9 +5,11 @@ import "../styles/MomentSelection.css";
 const React = require("react");
 const { useState, useEffect } = React;
 
+
 const SelectionDuMoment = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [loading, setLoading] = useState(true);
+ 
 
   const idsChoisis = [
     "6806b27606806385c809f0d7", // image carrée 1
@@ -37,6 +39,11 @@ const SelectionDuMoment = () => {
     fetchOeuvres();
   }, []);
 
+ 
+
+
+
+
   const renderImg = (index, className) => {
     const item = oeuvres[index];
      const imageUrl = item.images[0].url.startsWith("http")
@@ -51,6 +58,7 @@ const SelectionDuMoment = () => {
         src={imageUrl}
         alt={item.images[0].altText || "Œuvre"}
          className={`${className} artwork-hover`}
+         
       />
     </Link>
     );
@@ -70,7 +78,7 @@ const SelectionDuMoment = () => {
 </div>
 
   {/* Grille verticale 4 lignes d’œuvres */}
-  <div className="selection-grid">
+  <div className="gallery-container">
 
     {/* Ligne 1 : 2 œuvres carrées côte à côte */}
     <div className="line">
