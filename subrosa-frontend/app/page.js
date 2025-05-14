@@ -88,7 +88,7 @@ const featuredArtists = [...items]
           
         />
         <div className="artists-button-container">
-          <Link href="/nos_artistes">
+          <Link href="/page-gallerie?type=artist">
             <button className="view-all-btn">VOIR TOUS NOS ARTISTES</button>
           </Link>
         </div>

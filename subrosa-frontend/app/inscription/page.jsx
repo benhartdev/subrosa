@@ -1,8 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import ArtistForm from "../../components/ArtistForm";
 import UserForm from "../../components/UserForm";
 import "../../styles/inscription-artiste.css"; // tu peux fusionner plus tard avec une feuille unique
@@ -15,7 +13,6 @@ export default function InscriptionPage() {
 
   return (
     <>
-      <Header />
       <main>
         {type === "artist" && <ArtistForm mode="create" showWorkUpload={false} />}
         {type === "user" && <UserForm />}
@@ -27,10 +24,9 @@ export default function InscriptionPage() {
                     <a href="/inscription?type=artist" className="inscription-btn">🎨 Je suis un artiste</a>
                     <a href="/inscription?type=user" className="inscription-btn">👤 Je suis un utilisateur</a>
                     </div>
-                </div>
+              </div>
             )}
       </main>
-      <Footer />
     </>
   );
 }

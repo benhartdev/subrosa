@@ -3,7 +3,6 @@
 import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
 import '../../styles/addworkForm.css';
-import Header from '../../components/Header'
 import GalleryScroll from '../../components/GalleryScroll'
 import AddworkForm from '../../components/AddworkForm'
 

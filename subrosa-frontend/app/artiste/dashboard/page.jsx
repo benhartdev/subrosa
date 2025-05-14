@@ -3,8 +3,6 @@
 import { useAuth } from "../../../components/context/AuthContext";
 import PendingStatusBanner from "../../../components/PendingStatusBanner";
 import Link from "next/link";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import "../../../styles/ArtistDashboard.css";
 import ArtistDashboardWorks from "../../../components/ArtistDashboardWorks";
 
@@ -21,7 +19,6 @@ const ArtistDashboard = () => {
 
   return (
     <main>
-       <Header />
       <h1>{user.username}</h1>
       <Link href="/ajout-oeuvre" className="add-artwork-button">
       <img src="/images/LOGO OEUVRE 1.svg" alt="Icône ajouter œuvre" className="art-icon" />
@@ -40,7 +37,6 @@ const ArtistDashboard = () => {
           <li><Link href={`/artiste/${user._id}`}>👤 Voir mon profil public</Link></li>
         </ul>
       </section>
-      <Footer />
     </main>
   );
 };

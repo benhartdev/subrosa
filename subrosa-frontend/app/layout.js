@@ -4,6 +4,7 @@ import { AuthProvider } from '../components/context/AuthContext';
 import AutoLogout from '../components/AutoLogout'; 
 import "../lib/fontawesome"; 
 import '../components/Header.module.css';
+import '../components/Footer.module.css';
 
 // 🆕 importe Header et Footer
 import Header from "../components/Header";
