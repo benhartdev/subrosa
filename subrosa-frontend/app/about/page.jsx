@@ -1,14 +1,11 @@
 "use client";
 import React from "react";
 import "../../styles/about.css";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Image from 'next/image';
 
 const AboutPage = () => {
   return (
     <main>
-      <Header />
     <div className="about-container">
 
       <h1 className="about-title">QUI SOMMES-NOUS</h1>
@@ -168,7 +165,6 @@ const AboutPage = () => {
       <div className="divider" />
       
     </div>
-    <Footer />
     </main>
   );
 };

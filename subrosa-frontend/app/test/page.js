@@ -2,10 +2,7 @@
 
 import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
-// import '../../styles/inscription-artiste.css';
-// import '../../styles/GalleryScroll.css';
-// import '../../styles/addworkForm.css';
-import '../../styles/HeaderNew.css'; 
+import '../../styles/addworkForm.css';
 import Header from '../../components/Header'
 import GalleryScroll from '../../components/GalleryScroll'
 import AddworkForm from '../../components/AddworkForm'
@@ -23,7 +20,6 @@ export default function ArtistLogin() {
         </Head>
   
         <div>
-          <Header />
           </div>
           <div>
           <PersonalLogin />

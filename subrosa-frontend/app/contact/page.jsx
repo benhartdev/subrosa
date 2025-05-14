@@ -3,13 +3,10 @@ import React from "react";
 import ContactForm from "../../components/ContactForm";
 import "../../styles/contact.css";
 import Link from 'next/link';
-import Header from "../../components/Header";
-import Footer from '../../components/Footer';
 
 export default function ContactPage() {
   return (
     <main>
-      <Header />
     <div className="contact-container">
       <h1 className="contact-title">CONTACTEZ-NOUS</h1>
       
@@ -36,7 +33,6 @@ export default function ContactPage() {
       </div>
       <ContactForm />
     </div>
-    <Footer />
     </main>
   );
 }

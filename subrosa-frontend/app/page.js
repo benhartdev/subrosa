@@ -6,12 +6,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '../styles/style_acceuil.css';
-import '../styles/HeaderNew.css'; 
 import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import TestimonialSection from '../components/TestimonialSection';
+import DoubleBorderContainer from "../components/DoubleBorderContainer";
+import MainContent from '../components/MainContent';
+
 const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
@@ -27,18 +27,13 @@ const featuredArtists = [...items]
     const slug = artist.slug || username.toLowerCase().replace(/\s+/g, "-");
     console.log("👤 Artist:", username, "| Slug généré:", slug);
 
-    return {
-      ...artist,
-      slug,
-    };
-  })
-  
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 4);
+    return {...artist,slug,};
+                   }).sort(() => 0.5 - Math.random())
+                     .slice(0, 4);
 
     return (
         <div>
-            <Header />
+            
             <div className="head-container">
                 <Image src="/images/ben-H.ben-H.BENH3507---Mod-4---Mod.jpg" alt="Image de fond" width={1920} height={1080} />
                 <h2 className="texte-superpose">Nos artistes vous ouvrent leur univers...</h2>
@@ -98,8 +93,11 @@ const featuredArtists = [...items]
           </Link>
         </div>
       </section>
-            
-
+        <section className="blog-subrosa">
+             <DoubleBorderContainer title="SubRosa Blog">
+                 <MainContent limit={2} />
+            </DoubleBorderContainer>
+       </section>
             <section className="concept-section">
                 <div className="concept-content">
                     <h2 className="concept-title">NOTRE CONCEPT</h2>
@@ -117,7 +115,7 @@ const featuredArtists = [...items]
 
              </section>
 
-            <Footer />
+            
 
         </div>
     );
