@@ -4,7 +4,6 @@ import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
 
 
-
 const ArtistLogin = () => {
   return (
     <div>
