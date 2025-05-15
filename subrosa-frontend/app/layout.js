@@ -1,5 +1,5 @@
 
-import "./globals.css";
+// import "./globals.css";
 import { AuthProvider } from '../components/context/AuthContext';
 import AutoLogout from '../components/AutoLogout'; 
 import "../lib/fontawesome"; 

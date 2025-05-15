@@ -1,0 +1,48 @@
+/* styles/GravityButton.module.css */
+.gravityButton {
+  
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 10rem auto 0 auto;
+}
+
+.gravityButton > button {
+all: unset; /* option ultra propre si tu veux tout virer */
+
+  width: 300px;
+  
+  aspect-ratio: 1;
+  cursor: pointer;
+  transform: translate(var(--tx, 0), var(--ty, 0));
+  transition: all 0.2s ease-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.gravityButton > button:hover,
+.gravityButton > button:focus-visible {
+  --_fill: var(--color, #ffffff);
+}
+
+.gravityButton > button:focus-visible {
+  opacity: 1;
+}
+
+.buttonIcon {
+ width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  object-fit: contain;
+  transform: translateY(10%);
+}
+
+.buttonIcon rect, .buttonIcon line {
+ display: none;
+}

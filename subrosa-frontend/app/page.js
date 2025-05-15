@@ -10,8 +10,8 @@ import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
-import MainContent from '../components/MainContent';
-
+import MainContent from '../components/MainContent.jsx';
+import GravityButton from "../components/GravityButton";
 const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
@@ -33,9 +33,22 @@ const featuredArtists = [...items]
 
     return (
         <div>
-            
             <div className="head-container">
-                <Image src="/images/ben-H.ben-H.BENH3507---Mod-4---Mod.jpg" alt="Image de fond" width={1920} height={1080} />
+                <Image src="/images/FOND.jpg" alt="Image de fond" width={1920} height={1080} />
+                <div className="gravity-logo-container">
+    <GravityButton
+      color="#e60073"
+      icon={
+        <Image
+          src="/images/gallerie SUB logo2.png"
+          alt="Logo SUB ROSA"
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+          width={500}
+          height={500}
+        />
+      }
+    />
+  </div>
                 <h2 className="texte-superpose">Nos artistes vous ouvrent leur univers...</h2>
                 <Link href="/nos-artistes">
                     <button className="discover-artist">Decouvrez nos artistes</button>
@@ -69,11 +82,7 @@ const featuredArtists = [...items]
             </div>
               <section className="moment-selection">
                           <MomentSelection />
-
-
              </section>
-                      
-            
               {/* Section Artistes à la une */}
       <section className="accueil-artistes-a-la-une">
         <h3 className="title-artist-selection">NOS ARTISTES COUP DE CŒUR</h3>
@@ -84,8 +93,6 @@ const featuredArtists = [...items]
           type="artist"
           customClass="home-gallery-grid"
           fieldsToShow={["name", "style", "username"]}
-          
-          
         />
         <div className="artists-button-container">
           <Link href="/page-gallerie?type=artist">
@@ -109,14 +116,9 @@ const featuredArtists = [...items]
                     </Link>
                 </div>
             </section>
-
              <section className="testimonials-section">
                 <TestimonialSection />
-
              </section>
-
-            
-
         </div>
     );
 };

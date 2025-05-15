@@ -1,0 +1,1598 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/style_acceuil.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(0 0 0);
+    font-family: Michroma, sans-serif;
+    min-height: 100vh;
+}
+
+.header-border_1 {
+    align-items: center;
+    width: 22%;       /* Largeur totale pour être responsive */
+    height: 5px;       /* Hauteur de la ligne */
+    background: transparent;
+    border-top: 1px solid rgb(255 255 255); /* Deuxième ligne */  
+}
+
+.header-border_2 {
+    align-items: center;
+    width: 20%;       /* Largeur totale pour être responsive */
+    height: 7px;       /* Hauteur de la ligne */
+    background: transparent;
+    border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
+}
+
+.header-svg {
+    position: relative; /* Permet de le positionner librement */
+   z-index: 9995;
+  width: 900px !important; /* Force une largeur correcte */
+  height: auto !important;
+    margin: auto;
+    margin-top: 2em;
+    background: rgba(0, 0, 255, 0.2);
+}
+
+.footer-border_5 {
+    align-items: center;
+    width: 100%;       /* Largeur totale pour être responsive */
+    height: 20px;       /* Hauteur de la ligne */
+    background: transparent;
+    border-bottom: 1px solid gray; /* Deuxième ligne */  
+}
+
+/* Bouton hamburger */
+#menu-toggle {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  padding: 10px; 
+  background: black;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(255 255 255);
+  border-radius: 5px;
+}
+
+/* Menu */
+#menu {
+  position: fixed;
+  top: 70px;
+  right: 80px;
+  z-index: 9999;
+  padding: 10px;
+  border: 1px solid rgb(255 255 255);
+  color: #fff;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  list-style: none;
+  background-color: rgb(0 0 0);
+  border-radius: 5px;
+}
+
+#menu li a {
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  color: #aaa;
+}
+
+
+
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 5%
+}
+
+.head-container {
+  font-family: Michroma, sans-serif;
+  position: relative; /* ✅ nécessaire pour que les enfants absolus se basent dessus */
+  width: 100%;
+  max-width: 2500px;
+  margin: 0 auto;
+  top: 7%;
+}
+
+.head-container img {
+  display: block;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+
+.texte-superpose {
+  position: absolute;
+  top: 35%; /* ✅ modifie selon la hauteur dans l'image */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 3em;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.discover-artist {
+    display: flex;
+    justify-content: center; /* Centre le contenu de la barre */
+    align-items: center;
+    position: absolute;
+    top: 42%; /* Positionnement vertical */
+    left: 50%; /* Positionnement horizontal */
+    padding: 12px 24px;
+    border: 1px solid rgb(255 255 255);
+    background: rgb(255 255 255);
+    color: rgb(0 0 0);
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-family: Michroma, sans-serif;
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+}
+
+.discover-artist:hover {
+    background: rgb(133 133 133);
+    color: black;
+}
+
+.hamburger-menu {
+    display: none;
+    margin-top: 15%;
+}
+
+.gallery-header {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: Michroma, sans-serif;
+  margin-top: -15%;
+  z-index: 8;
+  }
+  
+  .gallery-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 8;
+  }
+  
+  .gallery-title {
+    font-family: Michroma, sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* espace entre GALLERIE et SUB ROSA ART */
+    font-size: 3rem;
+    margin: 0;
+    z-index: 8;
+  }
+  
+  .gallery-name,
+.gallery-brand {
+  white-space: nowrap;
+}
+
+  .gallery-separator {
+    display: block;
+    z-index: 9995;
+    font-size: 48px;
+    font-family: "Protest Revolution", sans-serif;
+  }
+  
+
+  
+  .gallery-subtitle {
+    font-family: Michroma, sans-serif;
+    z-index: 8;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  
+  @media (max-width: 991px) {
+    .gallery-header {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .gallery-name {
+      font-size: 30px;
+    }
+  
+    .gallery-brand {
+      font-size: 60px;
+    }
+  
+    .gallery-subtitle {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .gallery-header {
+      padding: 16px;
+    }
+  
+    .gallery-name {
+      font-size: 24px;
+    }
+  
+    .gallery-brand {
+      font-size: 48px;
+    }
+  
+    .gallery-subtitle {
+      font-size: 28px;
+    }
+  }
+
+
+.navigation-filters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    position: relative;
+    z-index: 9995;
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    text-align: center;
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+  }
+  
+  /* Newsletter Button */
+  .newsletter-button {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    position: relative;
+    z-index: 8;
+    width: auto; /* Ajuste selon le contenu */
+    padding: 12px 24px; /* Ajuste la taille */
+    border: 2px solid white;
+    background:rgba(0, 0, 0, 0.651);
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Michroma, sans-serif;
+    margin-top: 5rem;
+  }
+  
+  .newsletter-button-text {
+    position: relative;
+    z-index: 9995;
+    width: 100%;
+    height: 100%;
+    padding: 10px 24px;
+    align-self: stretch;
+    gap: 8px;
+    font-family: Michroma, sans-serif
+  }
+  
+  @media (max-width: 991px) {
+    .newsletter-button__text {
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Category Filters Section */
+  .category-filters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    position: relative;
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    text-align: center;
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    margin-top: 30px /* Ajuste l'espace au-dessus */
+  }
+  
+  @media (max-width: 991px) {
+    .category-filters {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  /* Category Buttons */
+  .category-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    padding: 15px 30px; /* Espacement uniforme autour du texte */
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    min-height: 30px;
+    min-width: 150px; /* Définit une largeur minimale */
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .category-button__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .category-button {
+      white-space: initial;
+    }
+  
+    .category-button__text {
+      white-space: initial;
+    }
+  }
+  
+  /* Surprise Text */
+  .surprise-text {
+    width: 243px;
+    color: #fff;
+    line-height: 20px;
+    margin-top: 25px;
+  }
+
+  .featured-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10%;
+  }
+  
+  .featured-header {
+    display: flex;
+    align-items: start;
+    z-index: 10;
+    color: rgb(255 255 255 / 100%);
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+    gap: 5px;
+    font-weight: 400;
+    flex-wrap: wrap;
+  }
+  
+  .decorative-line {
+    aspect-ratio: 23.26;
+    object-fit: contain;
+    object-position: center;
+    width: 233px;
+    margin-top: 13px;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  
+  .featured-title {
+    width: 496px;
+    margin: 0;
+    font-size: 24px;
+    align-self: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  
+  .featured-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre verticalement */
+    align-items: center;  /* Centre le contenu horizontalement */
+    width: 100%;
+    margin: auto;
+    max-width: 1200px; /* Largeur maximale pour éviter que ça déborde */
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 images par ligne */
+    grid-gap: 100px;
+    gap: 100px; /* Espacement entre les colonnes et les lignes */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.image-grid .grid-column:last-child {
+    grid-column: span 2; /* La dernière image prend toute la largeur */
+    display: flex;
+    justify-content: center; /* Centre l’image horizontalement */
+}
+  
+  .grid-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tout horizontalement */
+    width: 100%;
+    text-align: center; /* Centre le texte */
+  }
+  
+  .info {
+    margin-top: 10px; /* Espacement entre l’image et le texte */
+    text-align: center; /* Centre le texte sous l'image */
+}
+
+.info h4 {
+    margin-bottom: 5px; /* Ajuste l’espace sous le titre */
+}
+
+.info .separator {
+    width: 50px; /* Définit une largeur similaire à celle du prix */
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: white; /* Couleur blanche */
+    margin: 10px auto; /* Centre la ligne et ajoute un espace */
+}
+
+.info h5 {
+    margin-bottom: 15px; /* Éloigne un peu plus le prix */
+}
+
+.info p {
+    margin-top: 15px; /* Éloigne encore plus le prix */
+}
+
+  .featured-image {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    
+  }
+  
+  @media (max-width: 991px) {
+    .featured-title {
+      max-width: 100%;
+    }
+  
+    .featured-content {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .image-grid {
+      flex-direction: column;
+      align-items: stretch;
+      
+    }
+  
+    .grid-column {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .grid-column:last-child {
+      margin-left: 0;
+    }
+  
+    .featured-image {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  .title-artist-selection {
+    font-family: 'Michroma';
+    font-size: 14px;
+    color: white;
+    justify-content: center;
+  margin: auto;
+  }
+ 
+  .title-artist-universe {
+    font-family: 'Michroma';
+    font-size: 34px;
+    color: white;
+    justify-content: center;
+    margin: auto;
+  }
+
+.title-artist-selection,
+.title-artist-universe {
+  text-align: center;
+  font-family: 'Michroma', sans-serif;
+  color: white;
+}
+
+  .artist-container {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Michroma, sans-serif;
+    background-color: #000;
+    gap: 50px; /* Ajoute un espace entre les images */
+    flex-wrap: wrap; /* Permet l’adaptation en responsive */
+    margin-top: 100px;
+  }
+  
+  @media (max-width: 991px) {
+    .main-container {
+      max-width: 991px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .main-container {
+      max-width: 640px;
+    }
+  }
+  
+  /* Artists Section */
+  
+  
+  @media (max-width: 640px) {
+    .artists-section {
+      padding: 30px 20px;
+    }
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-title {
+    font-family: Michroma, sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .section-subtitle {
+    font-family: Michroma, sans-serif;
+    font-size: 36px;
+  }
+  
+  .artists-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 1200px; /* Augmente la taille des images */
+    max-width: none; /* Évite les restrictions de taille */
+    margin-bottom: 20px; /* Ajoute un espace sous les artistes pour éviter le chevauchement */
+    
+  }
+  
+  @media (max-width: 991px) {
+    .artists-grid {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+  }
+  
+  .artist-card {
+    width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .artist-card {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .artist-card {
+      width: 100%;
+    }
+  }
+  
+  .artist-image {
+    width: 100%;
+    height: 341px;
+    object-fit: cover;
+  }
+  
+  .artist-info {
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+  
+  .artist-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .artist-location {
+    font-size: 11px;
+  }
+  
+
+  .artists-button-container {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    margin-top: 30px; /* Réduit l’espace au-dessus du bouton */
+    width: 100%;
+    text-align: center;
+    
+}
+
+.view-all-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid white;
+    background: rgb(255 255 255);
+    color: black;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 50px; /* Supprime l’espace inutile au-dessus */
+}
+ 
+  
+  /* Magazine Section */
+  .magazine-section {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .magazine-title {
+    color: #fff;
+    font-size: 48px;
+    font-family: "Protest Revolution", sans-serif;
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-title {
+      font-size: 36px;
+    }
+  }
+  
+  .magazine-subtitle {
+    color: #fff;
+    font-size: 24px;
+    font-family: Michroma, sans-serif;
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-subtitle {
+      font-size: 18px;
+    }
+  }
+  
+  .magazine-grid {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .magazine-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .magazine-card {
+    width: 800px;
+    height: 800px;
+    border: 1px solid #fff;
+    background-color: rgb(247 242 250 / 0%);
+  }
+  
+  @media (max-width: 640px) {
+    .magazine-card {
+      width: 90%;
+    }
+  }
+  
+  .card_1 .card_2 {
+    padding: 20px 60px;
+    text-align: center;
+  }
+  
+  .card-date {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .card-category {
+    font-size: 14px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 16px;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Fait en sorte que le contenu prenne tout l'espace disponible */
+  }
+  
+  .card-titles {
+    margin-bottom: 32px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .card-subtitle {
+    font-size: 14px;
+  }
+  
+  .card-description {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  
+  .read-more {
+    display: block;
+    padding: 10px 24px;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 14px;
+    text-align: right;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  /* Concept Section */
+  .concept-section {
+   width: 1323px;
+   margin: auto;
+    padding: 60px 0;
+    text-align: center;
+    background-color: #1a1717;
+  }
+  
+  .concept-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .concept-title {
+    font-family: Michroma, sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .concept-heading {
+    font-family: Michroma, sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 640px) {
+    .concept-heading {
+      font-size: 16px;
+    }
+  }
+  
+  .concept-subtitle {
+    font-family: Michroma, sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .concept-description {
+    font-family: Michroma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .learn-more-btn {
+    padding: 10px 24px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #000;
+    cursor: pointer;
+  }
+  
+  /* Reviews Section */
+  .reviews-section {
+    padding: 40px 0;
+    background-color: #000;
+  }
+  
+  .reviews-svg {
+    width: 100%;
+    height: 310px;
+  }
+  
+  .testimonial-container {
+    margin: auto; /* Centre le bloc */
+    color: white;
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: Michroma, sans-serif;
+    max-width: 600px; /* Largeur max pour éviter un étalement trop large */
+    line-height: 1.5; /* Améliore la lisibilité */
+}
+
+.testimonial-title {
+    font-size: 8px; /* Taille correspondant à "EXCELLENT" */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacement entre le titre et le texte */
+}
+
+.testimonial-text {
+    font-size: 12px; /* Taille du texte principal */
+}
+
+/*  FOOTER  */
+
+
+
+
+
+
+  
+  .payment-section {
+    text-align: center;
+  }
+  
+  .payment-text {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  .payment-methods {
+    width: 168px;
+    height: 28px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  
+  .social-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .contact-box {
+    position: relative;
+    width: 229px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-box-border {
+    position: absolute;
+    inset: 3px;
+    border: 1px solid #fff;
+  }
+  
+  .contact-box-border-outer {
+    position: absolute;
+    inset: 0;
+    border: 1px solid #fff;
+  }
+  
+  .contact-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contact-title {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-subtitle {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-phone {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  
+  .contact-hours {
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 991px) {
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .payment-section {
+      order: 2;
+      width: 100%;
+    }
+  
+    .social-links {
+      justify-content: center;
+      width: 100%;
+      order: 3;
+    }
+  
+    .contact-box {
+      order: 1;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 640px) {
+   
+  
+    .social-links {
+      margin-top: 30px;
+    }
+  
+    .contact-box {
+      width: 100%;
+    }
+  
+    .contact-box-border,
+    .contact-box-border-outer {
+      display: none;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/artistGallery.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/* ========== GLOBAL ========== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Michroma', sans-serif;
+  overflow-x: hidden;
+  
+}
+
+/* ========== CONTAINERS ========== */
+
+.artist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: black;
+}
+
+.artist-page {
+  background-color: black;
+  color: white;
+  padding-bottom: 4rem;
+}
+
+.artist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .artist-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 2rem;
+  }
+}
+
+/* ========== HEADERS / TITRES ========== */
+
+.artist-header,
+.artist-intro {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.artist-name,
+.artist-name-main {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.artist-fullname {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.artist-subtitle {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== BIO / INFOS ========== */
+
+.artist-details {
+  flex: 2 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+.artist-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.artist-featured {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== IMAGE PORTRAIT ========== */
+
+.artist-image-portrait {
+  width: 500px;
+  height: 750px;
+  margin: 0 auto;
+}
+
+.artist-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ========== GALERIE ========== */
+
+.artist-gallery-section {
+  margin-top: 25rem;
+  padding: 4rem;
+  position: relative
+}
+
+.artist-gallery-title-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 0 1rem;
+  z-index: 15;
+}
+
+.artist-gallery-title {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  background-color: black; /* masque le trait blanc derrière */
+}
+
+/* CADRES & STRUCTURE */
+
+.artist-gallery-wrapper {
+  position: relative;
+  z-index: 1;
+  padding-top: 2.5rem; /* espace pour le titre */
+  padding: 0.3rem;
+  border: 1px solid #fff;
+  background-color: #000;
+  margin: 2rem auto;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+.artist-gallery-inner {
+  background-color: #000;
+  padding: 2rem;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+  
+}
+
+/* GRILLE D’ŒUVRES */
+
+.artist-gallery {
+  width: 100%;
+  padding: 2rem;
+}
+
+.artist-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 8rem 2rem;
+  gap: 8rem 2rem;
+  justify-items: center;
+}
+
+.artwork-card {
+  width: 500px;
+  aspect-ratio: 3 / 4;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* IMAGES DANS LES CARTES */
+
+.artist-gallery-image {
+  width: 100%;
+height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+.artwork-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.artwork-card:hover .artist-gallery-image {
+  transform: scale(1.03);
+}
+
+/* INFOS SOUS LES IMAGES */
+
+.artwork-info {
+  text-align: center;
+  width: 100%;
+  max-width: 300px; /* ou 100% si dans une grille déjà limitée */
+  line-height: 1.4;
+  color: white;
+  border: none !important;
+  outline: none !important;
+  margin: 3rem auto 0 auto;
+}
+
+.artwork-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.artwork-divider {
+  width: 300px;
+  height: 1px;
+  background-color: white;
+  margin: 0.4rem auto 0.8rem;
+}
+
+.artwork-artist,
+.artwork-medium {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 0.2rem 0;
+}
+
+.artwork-username {
+ 
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+
+/* Nettoyage global */
+.artwork-info *{
+  border: none !important;
+  outline: none !important;
+}
+
+.artist-gallery-item {
+  
+  min-height: 200px !important;
+}
+
+.artwork-card img,
+.artist-gallery-image {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Section Accueil - 4 colonnes sur desktop, responsive mobile/tablette */
+.home-gallery-grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
+  align-items: start;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.artists-button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.view-all-btn {
+  padding: 0.75rem 2rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #eee;
+}
+
+/* Réduction de la taille des cartes sur la page d’accueil uniquement */
+.home-gallery-grid .artist-gallery-item {
+   max-width: 280px;
+  width: 100%;
+  transform-origin: top center;
+  margin: 0 auto;
+}
+/* s'assurer que cela ne déborde pas */
+
+.artist-gallery,
+.artist-gallery-grid,
+.home-gallery-grid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.home-gallery-grid .artwork-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/TestimonialSection.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.testimonials-container {
+  padding: 4rem 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.testimonials-description {
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: #3837378f;
+
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  max-width: 300px;
+  flex: 1 1;
+}
+
+.testimonial-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 1rem;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.testimonial-role {
+  font-weight: 500;
+  color: #0a9e0c;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.testimonial-stars i {
+  color: #f5c518;
+  font-size: 1rem;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/mainContent.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  grid-gap: 2rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.custom-card {
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+}
+
+.card-media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.custom-card-content {
+  padding: 1rem;
+}
+
+.truncated-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-author {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/MomentSelection.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+.selection-container {
+  background: black;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.selection-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 60px auto 40px;
+}
+
+.selection-title {
+  font-family: 'Michroma', sans-serif;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  padding: 0 20px;
+    line-height: 1;
+  transform: translateY(-24px);
+  z-index: 5;
+}
+
+.selection-line {
+  flex-grow: 1;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right,
+    white,
+    white 2px,
+    transparent 2px,
+    transparent 4px);
+  opacity: 0.9;
+}
+
+.end-selection-line {
+  margin-top: 55px;
+  flex-grow: 1;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right,
+    white,
+    white 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.9;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Rétablit les images nettes */
+.artwork-hover {
+  filter: none;
+  opacity: 1;
+  transition: transform 1s ease, filter 0.3s ease, opacity 0.3s ease;
+  transform: scale(1); /* position de base */
+}
+
+.artwork-hover:hover {
+  filter: none;
+  opacity: 1;
+  z-index: 10;
+  position: relative;
+  transform: scale(1.25);
+}
+/* Si une image est survolée, floute toutes les autres */
+.gallery-container:has(.artwork-hover:hover) .artwork-hover:not(:hover) {
+  filter: blur(4px);
+  opacity: 0.3;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  flex-wrap: wrap;
+}
+
+.line_landscape {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.img-square {
+  width: 500px !important;
+  height: 500px !important;
+  object-fit: contain;
+  margin-top: 50px;
+}
+
+.img-round {
+  width: 400px !important;
+  height: 400px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  background: black;
+  margin-top: 50px;
+}
+
+.img-landscape {
+  margin-top: 50px;
+  width: 600px !important;
+  height: auto;
+  object-fit: cover;
+}
+
+.img-gta {
+  margin-top: 50px;
+  width: 1100px;
+  height: auto;
+  object-fit: contain;
+}
+

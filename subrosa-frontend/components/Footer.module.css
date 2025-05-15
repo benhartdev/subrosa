@@ -9,17 +9,15 @@
     margin-left: 50px;
 } */
  
-.info-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    background-color: #000;
-    margin-top: 50px;
-    margin-bottom: 50px;
+.info-banner-clean {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background-color: #000;
 }
 
 .info-banner_container {
@@ -40,32 +38,14 @@
     max-width: 226px;
 }
 
-.footer-links {
-    display: flex;
-    gap: 60px;
-    justify-content: center;
-    margin-top: -5%;
-}
 
-.footer-column {
-    list-style: none;
-}
-
-.footer-link {
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.footer-link:hover{
-    text-decoration: underline;
-}
 
 .footer-links_2 {
     display: flex;
     position: relative;
-    margin: auto;
+    margin: 10px auto 20px auto;
+    justify-content: center; /* centre le contenu */
+    text-align: center;    
 }
   
 .legal-links {
@@ -100,47 +80,100 @@
     background: transparent;
     border-bottom: 1px solid rgb(255 255 255); /* Deuxième ligne */  
 }
-.newsletter-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 50px;
-    border-top: 1px solid rgb(255 255 255);
-    margin-left: 0;
-    margin-right: 0;
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start; /* ✅ centrage vertical */
+  gap: 60px;           /* Espace entre newsletter et colonnes */
+  padding: 40px 20px;
+  flex-wrap: wrap;     /* Si besoin responsive */
+  
 }
 
-.newsletter-label {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    margin-top: 50px;
-    margin-left: 2%;
+.footer-flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; /* 🔧 espace entre newsletter et colonnes */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+
+.footer-links {
+ display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* ou try center */
+  align-items: center;
+  gap: 50px;              /* ⚠️ Réduit ici */
+  flex-wrap: nowrap;      /* ⚠️ Évite que ça parte en ligne multiple */
+  max-width: 1000px;       /* ou adapte selon ton layout */
+  margin: auto;           /* ✅ centre le bloc horizontalement */
+  padding: 0;
+}
+
+.footer-column {
+   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8em;       /* ✅ plus petit */
+  min-width: 160px;       /* ⚠️ contrôle la largeur */             /* équilibre les 3 colonnes */
+}
+
+.footer-link {
+    color: #fff;
+    font-size: 12px;
+     white-space: nowrap; 
+    cursor: pointer;
+      line-height: 1.4;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    text-decoration: underline;
+}
+
+.newsletter-container {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .newsletter {
-    display: flex;
-    align-items: center;
-    margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* important */
+  width: 100%;           /* 🔧 prend toute la largeur disponible */
+  max-width: 315px;
+  padding: 10px 0 0 0;
 }
 
 .newsletter input {
-    width: 325px;
-    padding: 10px;
-    border: 1px solid white;
-    background: black;
-    color: white;
-    font-size: 1em;
-    margin-right: -5px; /* Supprime l'espace entre l'input et le bouton */
+  flex: 1;                 
+  padding: 10px;
+  border: 1px solid white;
+  background: black;
+  color: white;
+  font-size: 1em;
+  border-right: none;
+  min-width: 0; 
 }
 
 .newsletter button {
-    padding: 10px 15px;
-    border: 1px solid white;
-    background: black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
+   padding: 10px 15px;
+  border: 1px solid white;
+  background: black;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  white-space: nowrap;      /* 🔒 évite le retour à la ligne */
 }
 
 .newsletter button:hover {
@@ -151,6 +184,15 @@
 .subscribe-btn {
     margin-top:0;
 }
+.email {
+    margin: auto;
+}
+.copyright {
+  text-align: center;
+  font-size:10px;
+}
+
+
 
 @media (width <= 991px) {
   .info-banner {
@@ -197,8 +239,13 @@
   .info-banner_container {
     flex-direction: column;
     gap: 10px;
-    padding: 15px;
+    padding: 30px;
   }
+
+  .info-banner-clean {
+  width: 100%;
+  height: 120px;
+}
 
   .info-banner_item {
     font-size: 10px;
@@ -226,6 +273,29 @@
   .social-links {
     margin-top: 30px;
   }
+
+  .newsletter {
+    flex-direction: row;
+    align-items: stretch;
+   margin: auto;
+  }
+
+  .newsletter-label {
+   margin: 0 auto 10px auto;
+    font-size: 14px;
+    text-align: center;
+  }
+.newsletter input {
+    width: 100%;
+    border-left: 1px solid white; /* remet le bord */
+  }
+  
+  .newsletter button {
+    width: 20%;
+   
+  }
+
+ 
 }
 
 

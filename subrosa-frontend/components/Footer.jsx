@@ -7,13 +7,13 @@ import styles from './Footer.module.css';
 
 const Footer = () => {
     return (
-        <footer children={styles["footer"]}>
+        <footer className={styles["footer"]}>
             {/* Bannière d'informations */}
-            <section className={styles["info-banner"]}>
+            <section className={styles["info-banner-clean"]}>
                 <div className={styles["info-banner_container"]}>
                     {/* <article className="info-banner_item">PAIEMENT EN 3 FOIS SANS FRAIS</article> */}
-                    <article className={styles["info-banner_item"]}>TARIFS NÉGOCIÉS</article>
                     <article className={styles["info-banner_item"]}>LIVRAISON PREMIUM ET ASSURÉE</article>
+                    <article className={styles["info-banner_item"]}>TARIFS NÉGOCIÉS</article>
                     <article className={styles["info-banner_item"]}>PAIEMENTS SÉCURISÉS</article>
                     <article className={styles["info-banner_item"]}>ŒUVRE A L’ESSAI Retour gratuit sous 15 jours</article>
                 </div>
@@ -31,36 +31,40 @@ const Footer = () => {
             </Link> */}
 
             {/* Liens du footer */}
-            <section>
-                <nav className={styles["footer-links"]}>
-                    <div className={styles["footer-column"]}>
-                        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>NOTRE CATALOGUE</Link>
-                        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>LES OEUVRES</Link>
-                        <Link href="/page_nos-artistes" className={styles["footer-link"]}>NOS ARTISTES</Link>
-                    </div>
-                    <div className="footer-column">
-                        <Link href="#galerie" className={styles["footer-link"]}>NOTRE GALERIE</Link>
-                        <Link href="/page_qui_sommes_nous" className={styles["footer-link"]}>QUI SOMMES NOUS</Link>
-                        <Link href="/page_engagement" className={styles["footer-link"]}>NOS ENGAGEMENTS</Link>
-                        <Link href="/page_contact" className={styles["footer-link"]}>CONTACTEZ NOUS</Link>
-                    </div>
-                    <div className="footer-column">
-                        <Link href="#communaute" className={styles["footer-link"]}>NOTRE COMMUNAUTÉ</Link>
-                        <Link href="#join" className={styles["footer-link"]}>REJOINDRE NOS ARTISTES</Link>
-                        <Link href="/page_blog" className={styles["footer-link"]}>MAGAZINE “SUB ROSA ART”</Link>
-                        <Link href="/page_artiste_entreprise" className={styles["footer-link"]}>ARTISTE EN ENTREPRISE</Link>
-                    </div>
-                </nav>
-            </section>
+          <section className={styles["footer-wrapper"]}>
+  <div className={styles["footer-flex-wrapper"]}>
+    <div className={styles["newsletter-container"]}>
+      <label className={styles["newsletter-label"]} htmlFor="email">INSCRIPTION NEWSLETTER</label>
+      <div className={styles["newsletter"]}>
+        <input type="email" className={styles["email"]} placeholder="votre adresse mail" />
+        <button className={styles["subscribe-btn"]}>OK</button>
+      </div>
+    </div>
+
+    <nav className={styles["footer-links"]}>
+      <div className={styles["footer-column"]}>
+        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>NOTRE CATALOGUE</Link>
+        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>LES OEUVRES</Link>
+        <Link href="/page_nos-artistes" className={styles["footer-link"]}>NOS ARTISTES</Link>
+      </div>
+      <div className={styles["footer-column"]}>
+        <Link href="#galerie" className={styles["footer-link"]}>NOTRE GALERIE</Link>
+        <Link href="/page_qui_sommes_nous" className={styles["footer-link"]}>QUI SOMMES NOUS</Link>
+        <Link href="/page_engagement" className={styles["footer-link"]}>NOS ENGAGEMENTS</Link>
+        <Link href="/page_contact" className={styles["footer-link"]}>CONTACTEZ NOUS</Link>
+      </div>
+      <div className={styles["footer-column"]}>
+        <Link href="#communaute" className={styles["footer-link"]}>NOTRE COMMUNAUTÉ</Link>
+        <Link href="/page_blog" className={styles["footer-link"]}>MAGAZINE “SUB ROSA ART”</Link>
+        <Link href="/page_artiste_entreprise" className={styles["footer-link"]}>ARTISTE EN ENTREPRISE</Link>
+      </div>
+    </nav>
+  </div>
+</section>
+
 
             {/* Newsletter */}
-            <div className={styles["newsletter-container"]}>
-                <label className={styles["newsletter-label"]} htmlFor="email">INSCRIPTION NEWSLETTER</label>
-                <div className={styles["newsletter"]}>
-                    <input type="email" className={styles["email"]} placeholder="votre adresse mail" />
-                    <button className={styles["subscribe-btn"]}>OK</button>
-                </div>
-            </div>
+            
 
             <div className={styles["footer-border_5"]}></div>
 
@@ -74,7 +78,7 @@ const Footer = () => {
                 </nav>
             </div>
 
-            <p>&copy; 2025 SUB ROSA ART. Tous droits réservés.</p>
+            <p className={styles["copyright"]}>&copy; 2025 SUB ROSA ART. Tous droits réservés.</p>
         </footer>
     );
 };
