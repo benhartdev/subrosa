@@ -1,9 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import "../../../styles/page_oeuvre_unique.css";
-import "../../../styles/HeaderNew.css";
 
 export default async function WorkSlugPage({ params }) {
   const slug = params.slug;
@@ -15,11 +12,9 @@ export default async function WorkSlugPage({ params }) {
 
   return (
     <main>
-      <Header />
 
-     <h2>{artist?.name || "Nom inconnu"}</h2>
-      <h3>{work.title}</h3>
-
+  <h2>{artist?.name || "Nom inconnu"}</h2>
+    <h3>{work.title}</h3>
       <div className="image">
         <Image
           src={work.images?.[0]?.url || "/placeholder.jpg"}
@@ -28,22 +23,19 @@ export default async function WorkSlugPage({ params }) {
           height={1200}
         />
       </div>
-
       <div className="artwork-details-container">
         <div className="artwork-info">
           <div className="artwork-info-p">
               <p className="artist-name high">{artist?.name || "Nom inconnu"}</p>
               <p className="work-title">{work.title}</p>
               <p className="work-date">{work.creation_date ? new Date(work.creation_date).getFullYear() : "Date inconnue"}</p>
-         
-          <p>
-            {work.medium} <br />
-            {`${work.dimensions?.width || "?"} x ${work.dimensions?.height || "?"} ${work.dimensions?.unit || "cm"}`} <br />
-            œuvre originale et signée
-          </p>
+              <p>
+                {work.medium} <br />
+                {`${work.dimensions?.width || "?"} x ${work.dimensions?.height || "?"} ${work.dimensions?.unit || "cm"}`} <br />
+                œuvre originale et signée
+              </p>
           </div>
         </div>
-
         <div className="purchase-section">
           <div className="purchase-container">
             <h2 className="purchase-price">{work.price} {work.currency}</h2>
@@ -66,7 +58,6 @@ export default async function WorkSlugPage({ params }) {
           </div>
         </div>
       </div>
-
       <section className="artwork-details-bis">
         <div className="artwork-details-bis_container">
           <p className="artwork-details-bis_description">{work.description}</p>
@@ -79,7 +70,6 @@ export default async function WorkSlugPage({ params }) {
           <div className="artwork-details-bis_social-links"></div>
         </div>
       </section>
-
       <section className="artwork-section">
         <div className="content-container">
           <h3 className="section-title">LES CARACTÉRISTIQUES DE L'ŒUVRE</h3>
@@ -102,7 +92,6 @@ export default async function WorkSlugPage({ params }) {
           </div>
         </div>
       </section>
-
       <section className="artist-profile-content-column">
         <div className="artist-profile-content-wrapper">
           <div className="artist-profile-header">
@@ -127,8 +116,6 @@ export default async function WorkSlugPage({ params }) {
           <hr className="artist-profile-divider" />
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

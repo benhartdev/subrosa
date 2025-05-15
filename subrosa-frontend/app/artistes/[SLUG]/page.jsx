@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import ArtistSoloPage from "../../../components/ArtistSoloPage";
 
 // ✅ récupère correctement les params de l'URL
@@ -18,9 +16,7 @@ export default async function ArtistPage({ params }) {
 
     return (
       <>
-        <Header />
         <ArtistSoloPage artist={artist} />
-        <Footer />
       </>
   );
 }

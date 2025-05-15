@@ -1,59 +1,113 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import HamburgerMenu from './HamburgerMenu';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faSignOutAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../components/context/AuthContext";
 import { useRouter } from "next/navigation";
+import styles from './Header.module.css';
 
+console.log("Header fusionné est chargé.");
 
-console.log("Header.js est chargé.");
 const Header = () => {
-    const { user, logout } = useAuth();
-    const router = useRouter();
-  
-    return (
+  const { user, logout } = useAuth();
+  const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-<header className="header">
-    <div id="mainNav">
-      <div className="icon-wrapper">
-        {!user ? (
-          <>
-            <Link href="/login">
-              <FontAwesomeIcon icon={faSignInAlt} className="nav-icon" />
-            </Link>
-            <Link href="/inscription">
-              <FontAwesomeIcon icon={faUserPlus} className="nav-icon" />
-            </Link>
-          </>
-        ) : (
-          <button onClick={logout} className="nav-icon logout-icon">
-            <FontAwesomeIcon icon={faSignOutAlt} />
-          </button>
-        )}
-        <HamburgerMenu />
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  return (
+    <header className={styles["header"]}>
+      <div className={styles["mainNav"]}>
+        <div className={styles["icon-wrapper"]}>
+          {!user ? (
+            <>
+              <Link href="/login">
+                <FontAwesomeIcon icon={faSignInAlt} className={styles["nav-icon"]} />
+             </Link>
+              <Link href="/inscription">
+                <FontAwesomeIcon icon={faUserPlus} className={styles["nav-icon"]} />
+             </Link>
+            </>
+          ) : (
+            <button onClick={logout} className={`${styles["nav-icon"]} ${styles["logout-icon"]}`}>
+              <FontAwesomeIcon icon={faSignOutAlt} />
+           </button>
+          )}
+
+          {/* Hamburger Menu fusionné */}
+          <div ref={menuRef}>
+            <button className={styles["menu-toggle"]} onClick={toggleMenu}>☰</button>
+
+            {isMenuOpen && (
+              <>
+                <ul className={styles["mobile-menu"]}>
+                  <li><Link href="/">Accueil</Link></li>
+                  <li><Link href="/page-gallerie?type=works">Nos œuvres</Link></li>
+                  <li><Link href="/page-gallerie?type=artist">Nos artistes</Link></li>
+                  <li><Link href="/blog">Sub Rosa Blog</Link></li>
+                  <li><Link href="/about">Qui sommes-nous</Link></li>
+                  <li><Link href="/contact">Contact</Link></li>
+                  {!user ? (
+                    <>
+                      <li><Link href="/login">Se connecter</Link></li>
+                      <li><Link href="/inscription">S'enregistrer</Link></li>
+                    </>
+                  ) : (
+                      <li>
+                      <button onClick={logout} className={styles["logout-btn"]}>
+                        Se déconnecter<br />{user.username}
+                      </button>
+                     </li>
+                  )}
+                  {user?.role === "artist" && (
+                      <li>
+                       <Link href="/ajouter-oeuvre">
+                        <button className={styles["add-work-inside-menu"]}>➕ Ajouter une œuvre</button>
+                      </Link>
+                     </li>
+                  )}
+               </ul>
+                <div className={styles["overlay"]} onClick={toggleMenu}></div>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Barre de navigation principale */}
+        <nav className={styles["navbar-wrapper"]}>
+          <ul className={styles["navbar-nav-custom"]}>
+            <li className={styles["nav-item"]}><Link href="/inscription" className={styles["nav-link"]}>Inscription</Link></li>
+            <li className={styles["nav-item"]}><Link href="/blog" className={styles["nav-link"]}>Blog</Link></li>
+            <li className={styles["nav-item"]}><Link href="/page-gallerie?type=artist" className={styles["nav-link"]}>Nos artistes</Link></li>
+            <li className={styles["nav-item"]}><Link href="/" className={`${styles["nav-link"]} ${styles["nav-accueil"]}`}>Accueil</Link></li>
+            <li className={styles["nav-item"]}><Link href="/page-gallerie?type=works" className={styles["nav-link"]}>Nos œuvres</Link></li>
+            <li className={styles["nav-item"]}><Link href="/about" className={styles["nav-link"]}>Qui sommes-nous</Link></li>
+            <li className={styles["nav-item"]}><Link href="/contact" className={styles["nav-link"]}>Contact</Link></li>
+          </ul>
+        </nav>
       </div>
-                {/* Barre de navigation principale */}
-
-      <nav className="navbar-wrapper">
-        <ul className="navbar-nav-custom">
-                <li className="nav-item"><Link href="/inscription" className="nav-link">Inscription</Link></li>
-                <li className="nav-item"><Link href="#" className="nav-link">Blog</Link></li>
-                <li className="nav-item"><Link href="/page-gallerie?type=artist" className="nav-link">Nos artistes</Link></li>
-                <li className="nav-item"><Link href="/" id="nav-accueil" className="nav-link">Accueil</Link></li>
-                <li className="nav-item"><Link href="/page-gallerie?type=works" className="nav-link">Nos œuvres</Link></li>
-                <li className="nav-item"><Link href="/about" className="nav-link">Qui sommes-nous</Link></li>
-                <li className="nav-item"><Link href="/contact" className="nav-link">Contact</Link></li>
-       </ul>
-      </nav>
-    </div>
-</header>
-    );
+    </header>
+  );
 };
 
 export default Header;
-
-
-          

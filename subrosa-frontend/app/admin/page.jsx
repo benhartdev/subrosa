@@ -4,7 +4,6 @@
 import "../../styles/ArtistEditPanel.css";
 import "../../styles/inscription-artiste.css";
 import "../../styles/adminMessageButton.css";
-import Header from "../../components/Header"; 
 
 import AdminStats from "../../components/admin/AdminStats";
 import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
@@ -40,7 +39,7 @@ const AdminPage = () => {
 
   return (
     <>
-      <Header />
+      
       <AdminMessagesButton />
       <main id="containerLogin" style={{ padding: "2rem", background: "black", color: "white" }}>
         <div id="box-component">
