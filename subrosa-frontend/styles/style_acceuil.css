@@ -775,8 +775,9 @@ h1 {
   
   /* Concept Section */
   .concept-section {
-   width: 1323px;
-   margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
     padding: 60px 0;
     text-align: center;
     background-color: #1a1717;
@@ -788,13 +789,13 @@ h1 {
   }
   
   .concept-title {
-    font-family: Michroma, sans-serif;
+    
     font-size: 12px;
     margin-bottom: 20px;
   }
   
   .concept-heading {
-    font-family: Michroma, sans-serif;
+   
     font-size: 20px;
     margin-bottom: 20px;
   }

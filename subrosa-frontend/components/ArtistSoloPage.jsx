@@ -5,7 +5,7 @@ import Image from "next/image";
 import ArtistProfile from "./ArtistProfile";
 import Gallery from "/components/Gallery";
 import "../styles/artistGallery.css";
-
+import DoubleBorderContainer from "./DoubleBorderContainer";
 export default function ArtistSoloPage({ artist }) {
       console.log("Données œuvres artiste :", artist.works);
 
@@ -22,27 +22,20 @@ export default function ArtistSoloPage({ artist }) {
           <Image
             src={artist.artistImages[1].url || "/placeholder.jpg"}
             alt={artist.artistImages[1].altText || `Portrait de ${artist.username}`}
-            width={4000}
-            height={4000}
+            width={1000}
+            height={1000}
           />
         </div>
       </section>
 
       {artist.works?.length > 0 && (
-      <section className="artist-gallery-section">
-        <div className="artist-gallery-title-wrapper">
-          <h2 className="artist-gallery-title">Les œuvres de l’artiste</h2>
-        </div>
-        <div className="artist-gallery-wrapper">
-          <div className="artist-gallery-inner">
+        <DoubleBorderContainer title="Les œuvres de l’artiste">
             <Gallery 
                 items={artist.works} 
                 fieldsToShow={['title', 'medium', 'dimensions']}
-                type="works"
-              />
-          </div>
-        </div>
-      </section>
+                type="works"/>
+        </DoubleBorderContainer>
+
 )}
             <ArtistProfile bio={artist.bio} artist={artist}  />
     </main>

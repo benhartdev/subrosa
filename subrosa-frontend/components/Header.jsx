@@ -40,19 +40,23 @@ const Header = () => {
       <div className={styles["mainNav"]}>
         <div className={styles["icon-wrapper"]}>
           {!user ? (
-            <>
-              <Link href="/login">
-                <FontAwesomeIcon icon={faSignInAlt} className={styles["nav-icon"]} />
-             </Link>
-              <Link href="/inscription">
-                <FontAwesomeIcon icon={faUserPlus} className={styles["nav-icon"]} />
-             </Link>
-            </>
-          ) : (
-            <button onClick={logout} className={`${styles["nav-icon"]} ${styles["logout-icon"]}`}>
-              <FontAwesomeIcon icon={faSignOutAlt} />
-           </button>
-          )}
+  <>
+    <Link href="/login">
+      <button className={styles["nav-icon"]}>
+        <FontAwesomeIcon icon={faSignInAlt} />
+      </button>
+    </Link>
+    <Link href="/inscription">
+      <button className={styles["nav-icon"]}>
+        <FontAwesomeIcon icon={faUserPlus} />
+      </button>
+    </Link>
+  </>
+) : (
+  <button onClick={logout} className={`${styles["nav-icon"]} ${styles["logout-icon"]}`}>
+    <FontAwesomeIcon icon={faSignOutAlt} />
+  </button>
+)}
 
           {/* Hamburger Menu fusionné */}
           <div ref={menuRef}>
@@ -97,7 +101,7 @@ const Header = () => {
         <nav className={styles["navbar-wrapper"]}>
           <ul className={styles["navbar-nav-custom"]}>
             <li className={styles["nav-item"]}><Link href="/inscription" className={styles["nav-link"]}>Inscription</Link></li>
-            <li className={styles["nav-item"]}><Link href="/blog" className={styles["nav-link"]}>Blog</Link></li>
+            <li className={styles["nav-item"]}><Link href="/blog" className={styles["nav-link"]}>Sub Rosa Blog</Link></li>
             <li className={styles["nav-item"]}><Link href="/page-gallerie?type=artist" className={styles["nav-link"]}>Nos artistes</Link></li>
             <li className={styles["nav-item"]}><Link href="/" className={`${styles["nav-link"]} ${styles["nav-accueil"]}`}>Accueil</Link></li>
             <li className={styles["nav-item"]}><Link href="/page-gallerie?type=works" className={styles["nav-link"]}>Nos œuvres</Link></li>

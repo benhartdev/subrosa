@@ -49,7 +49,7 @@ const featuredArtists = [...items]
       }
     />
   </div>
-                <h2 className="texte-superpose">Nos artistes vous ouvrent leur univers...</h2>
+                <p className="texte-superpose">Nos artistes vous ouvrent leur univers...</p>
                 <Link href="/nos-artistes">
                     <button className="discover-artist">Decouvrez nos artistes</button>
                 </Link>
@@ -57,11 +57,11 @@ const featuredArtists = [...items]
 
             <div className="gallery-header">
                 <div className="gallery-content">
-                    <h3 className="gallery-title">
+                    <h1 className="gallery-title">
                         <span className="gallery-name">GALLERIE</span>
                         <span className="gallery-separator"></span>
                         <span className="gallery-brand">SUB ROSA ART</span>
-                    </h3>
+                    </h1>
                     <p className="gallery-subtitle">gallerie d’art contemporain</p>
                 </div>
             </div>

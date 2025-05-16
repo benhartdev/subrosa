@@ -16,6 +16,7 @@
     width: 100%;
     text-align: center;
     margin-top: 110px; /* espace sous le header si besoin */
+    
 }
 .nav-item a {
     color:#dfdfdf;
@@ -35,7 +36,7 @@
 }
 
 .navbar-nav-custom .nav-accueil {
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     position: relative;
     top: 4px;
@@ -55,11 +56,10 @@
 
 .mainNav {
 	position:fixed;
-	top:0;
-	left:0;
+	 height: 180px; /* ou la hauteur exacte du header */
 	width:100%;
-	z-index:123;
-	padding-bottom:30px;
+	top: 0;
+  padding: 0;
     z-index: 9999;
     background: linear-gradient(to top, rgb(0, 0, 0, 1) , rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
 }
@@ -124,7 +124,7 @@
   /* Liens */
 .nav-link {
     font-family: Michroma, sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #dfdfdf;
@@ -152,6 +152,14 @@
     cursor: pointer;
     border-radius: 8px;
     text-align: center;
+  }
+
+  .menu-toggle:hover {
+    color: #0dbab1;
+    border: 1px solid #0dbab1;
+    transform: scale(1.05);
+    background: none !important;
+  
   }
   .auth-buttons {
        display: flex;
@@ -235,22 +243,22 @@
   color: #000;
   transform: scale(1.03);
 }
-  /* ICON */
+  /* ICON ET BURGER*/
 
 .icon-wrapper {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 2rem;
   position: absolute;
-  top: 3.25rem;
-  right: 6rem;
+  top: 2.5rem;
+  right: 2.5rem;
   z-index: 10000;
 }
 
 .nav-icon,
 .logout-icon,
 .burger-icon {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   color: white;
   background: none;
   border: none;
@@ -259,7 +267,9 @@
 
 .nav-icon:hover,
 .logout-icon:hover {
-  color: #c41c1c;
+  color: #0dbab1;
+  background: none !important;
+  
 }
 /* OVERLAY CLICK BUTTON */
 .overlay {
@@ -273,7 +283,7 @@
   z-index: 998; /* juste sous le menu mobile */
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .navbar-nav-custom {
     display: none;
   }

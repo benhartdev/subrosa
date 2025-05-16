@@ -43,20 +43,20 @@ const Footer = () => {
 
     <nav className={styles["footer-links"]}>
       <div className={styles["footer-column"]}>
-        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>NOTRE CATALOGUE</Link>
-        <Link href="/page_nos_oeuvres" className={styles["footer-link"]}>LES OEUVRES</Link>
-        <Link href="/page_nos-artistes" className={styles["footer-link"]}>NOS ARTISTES</Link>
+        <p className={styles["footer-text"]}>NOTRE CATALOGUE</p>
+        <Link href="/page-gallerie?type=works" className={styles["footer-link"]}>LES OEUVRES</Link>
+        <Link href="/page-gallerie?type=artist" className={styles["footer-link"]}>NOS ARTISTES</Link>
       </div>
       <div className={styles["footer-column"]}>
-        <Link href="#galerie" className={styles["footer-link"]}>NOTRE GALERIE</Link>
-        <Link href="/page_qui_sommes_nous" className={styles["footer-link"]}>QUI SOMMES NOUS</Link>
+        <p className={styles["footer-text"]}>NOTRE GALERIE</p>
+        <Link href="/about" className={styles["footer-link"]}>QUI SOMMES NOUS</Link>
         <Link href="/page_engagement" className={styles["footer-link"]}>NOS ENGAGEMENTS</Link>
-        <Link href="/page_contact" className={styles["footer-link"]}>CONTACTEZ NOUS</Link>
+        <Link href="/contact" className={styles["footer-link"]}>CONTACTEZ NOUS</Link>
       </div>
       <div className={styles["footer-column"]}>
-        <Link href="#communaute" className={styles["footer-link"]}>NOTRE COMMUNAUTÉ</Link>
-        <Link href="/page_blog" className={styles["footer-link"]}>MAGAZINE “SUB ROSA ART”</Link>
-        <Link href="/page_artiste_entreprise" className={styles["footer-link"]}>ARTISTE EN ENTREPRISE</Link>
+        <p className={styles["footer-text"]}>NOTRE COMMUNAUTÉ</p>
+        <Link href="/blog" className={styles["footer-link"]}>MAGAZINE “SUB ROSA ART”</Link>
+        <Link href="#" className={styles["footer-link"]}>ARTISTE EN ENTREPRISE</Link>
       </div>
     </nav>
   </div>

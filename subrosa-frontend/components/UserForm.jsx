@@ -68,6 +68,7 @@ const UserForm = () => {
           onClose={() => setPopup(null)}
         />
       )}
+       <div className="form-wrapper">
     <form onSubmit={handleSubmit}>
     <h2>Création de compte utilisateur</h2>
     
@@ -108,6 +109,7 @@ const UserForm = () => {
 
       <button id="soumettre" type="submit">S'inscrire</button>
     </form>
+    </div>
     </div>
   );
 };

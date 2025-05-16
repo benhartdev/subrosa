@@ -22,9 +22,11 @@ export default function RootLayout({ children }) {
       <body>
         <AuthProvider>
           <AutoLogout />
+             <div className="page-container">
           <Header />
-          <main className="page-content">{children}</main>
+          <main className="page-content main-content">{children}</main>
           <Footer />
+            </div>
         </AuthProvider>
       </body>
     </html>

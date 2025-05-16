@@ -1,32 +1,37 @@
 /* === Base générale === */
 body {
   margin: 0;
-  padding: 4rem;
+  padding: 0;
   color: #fff;
   background-color: #000;
   font-family: Michroma, sans-serif;
 }
 
-.header-svg {
-  position: relative; /* Permet de le positionner librement */
+/* .header-svg {
+  position: relative; 
  z-index: 9995;
-width: 900px !important; /* Force une largeur correcte */
+width: 900px !important;
 height: auto !important;
   margin: auto;
   margin-top: 2em;
   background: rgba(0, 0, 255, 0.2);
+} */
+
+.form-wrapper {
+  padding-top: 100px;
+  margin: auto;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 form {
-   position: absolute;
-  margin: auto;
+    margin: 180px auto 0 auto; /* top auto bottom auto */
   padding: 2rem;
   border: 1px solid #444;
   box-shadow: 0 0 12px rgb(153 14 14 / 51.4%);
   max-width: 1000px;
   background-color: #000;
-  border-radius: 10px;
-  top: 50%;
+  
 }
 
 /* === Titres === */
@@ -49,17 +54,32 @@ input,
 textarea,
 select {
   width: 100%;
-  padding: 0.7rem;
+  padding: 1rem 0 1rem 0;
   border: 1px solid #888686;
-  background-color: #5a05055c;
+  background-color: rgba(139, 133, 133, 0.235);
   color: white;
-  border-radius: 6px;
+}
+
+select {
+  padding-left: 10px;
+}
+
+select option {
+  background-color: #1e1e1e;
+  color: white;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #ff0000;
+  border-color: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder,
+input[type="date"] {
+  padding-left: 10px; /* espace à gauche */
+  color: #ffffff; 
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -67,16 +87,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* === Champs côte à côte === */
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+textarea[name="bio"],
+textarea[name="interviews"] {
+  min-height: 100px; 
+  resize: vertical; /* autorise seulement la redimension verticale */
 }
 
+.expos-passees li {
+  color: #0ea15c;
+}
+
+.expos-futures li {
+  color: #66ffcc;
+}
+/* === Champs côte à côte === */
+
+
 .form-row .half {
-  flex: 1 1 48%;
+  flex: 1 1 50%;
 }
 
 .form-row .full {
@@ -96,7 +124,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #1e1e1e;
   border: 1px solid white;
   padding: 15px;
-  border-radius: 6px;
+  
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -124,7 +152,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: center;
   margin-bottom: 12px;
   border: 1px dashed #666;
-  border-radius: 4px;
 }
 
 .preview-img {
@@ -148,7 +175,6 @@ input[type="file"] {
   padding: 6px;
   margin-top: 5px;
   margin-bottom: 10px;
-  border-radius: 2px;
   cursor: pointer;
 }
 
@@ -160,7 +186,6 @@ input[type="file"] {
   margin-top: auto;
   text-align: center;
   border: 1px solid #fff;
-  border-radius: 2px;
 }
 
 
@@ -172,10 +197,9 @@ button {
   border: 1px solid #fff;
   color: #fff;
   transition: background-color 0.2s ease, color 0.2s ease;
-  margin-top: 15rem;
+  margin-top: 1rem;
   background-color: transparent;
   font-weight: bold;
-  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -184,6 +208,11 @@ button:hover {
   color: #0f0f0f;
 }
 
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
 /* === Liste des expositions === */
 ul {
   list-style: none;
@@ -210,7 +239,6 @@ ul li {
   text-align: center;
   box-shadow: 0 0 10px rgb(255 255 255 / 3%);
   background-color: #222;
-  border-radius: 8px;
   min-height: 260px;
 }
 
@@ -218,7 +246,6 @@ ul li {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 6px;
   margin-bottom: 0.5rem;
 }
 
@@ -231,15 +258,14 @@ ul li {
   color: #aaa;
   font-size: 0.9rem;
   background-color: #333;
-  border-radius: 6px;
   margin-bottom: 0.5rem;
   font-style: italic;
 }
 
 .upload-box input[type="file"],
 .upload-box input[type="text"] {
-  width: 100%;
-  margin-bottom: 0.5rem;
+  width: 90%;
+  margin: 0.3rem auto 0.3rem auto ;
 }
 
 /* === Croix de suppression === */
@@ -248,10 +274,8 @@ ul li {
   top: 6px;
   right: 6px;
   padding: 2px 6px;
-  border: none;
-  background: none;
-  color: #f66;
-  font-size: 1rem;
+  color: rgb(163, 12, 12);
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -261,19 +285,19 @@ ul li {
 
 
 #soumettre {
-  display: block;
+  display: flex;
   margin: 2rem auto;
-  padding: 1rem 2.5rem;
-  border: 2px solid white;
+  
+  border: 1px solid white;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   transition: all 0.3s ease;
   background-color: black;
   cursor: pointer;
 }
 
 #soumettre:hover {
-  background-color: white;
+  background-color: rgb(36, 201, 7);
   color: black;
 }
 
@@ -286,12 +310,13 @@ ul li {
 .checkbox-container input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin-right: 10px;
-  accent-color: black;
+  margin: 10px 20px 0 10px;
+  accent-color: rgb(11, 195, 20);
 }
 
 .container {
-  margin-top: 25%;
+ margin: 0 auto;
+ padding-bottom: 100px; /* espace pour que le footer ne colle pas */
 }
 
 .button.danger {
@@ -302,4 +327,8 @@ ul li {
 
 .form-edit {
   margin-top: 3rem;
+}
+
+body.inscription-artist-page {
+  overflow-x: hidden !important;
 }

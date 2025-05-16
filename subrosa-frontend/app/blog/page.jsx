@@ -8,10 +8,11 @@ export default function BlogPage() {
    
      <>
       <main>
-        <DoubleBorderContainer title="...">
+        <DoubleBorderContainer title="Sub Rosa Blog">
           <MainContent />
         </DoubleBorderContainer>
       </main>
     </>
   );
 }
+

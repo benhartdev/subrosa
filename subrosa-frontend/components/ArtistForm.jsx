@@ -230,8 +230,9 @@ const ArtistForm = ({ artistId = null, existingData, onCancel, onSubmit, mode = 
   return (
     <div className="container">
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
+      <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
-      <h2>{mode === 'admin-edit' ? "Modification d'un artiste" : "Inscription Artiste SUB ROSA"}</h2>
+      <h2>{mode === 'admin-edit' ? "Modification d'un artiste" : "Inscription Artiste"}</h2>
        <div className="form-row">
           <div className="half">
             <label>Nom d'utilisateur :</label>
@@ -312,18 +313,25 @@ const ArtistForm = ({ artistId = null, existingData, onCancel, onSubmit, mode = 
           <input className="animated-input" value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
           <button type="button" onClick={(e) => handleAddExhibition(e, 'old')}>Ajouter</button>
         </div>
-        <ul>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
+        <ul className="expos-passees">{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
         <label>Expositions futures :</label>
         <div className="expo-input">
           <input className="animated-input" value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
           <button type="button" onClick={(e) => handleAddFutureExhibition(e, 'future')}>Ajouter</button>
         </div>
-        <ul>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
+        <ul className="expos-futures">{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
-        <label>
-          <input type="checkbox" name="newsletter" checked={formData.newsletter} onChange={handleChange} /> Recevoir la newsletter
-        </label>
+        <div className="checkbox-container">
+            <input
+              type="checkbox"
+              name="newsletter"
+              id="newsletter"
+              checked={formData.newsletter}
+              onChange={handleChange}
+            />
+              <label htmlFor="newsletter">Recevoir la newsletter</label>
+       </div>
 
         <hr />
         <h3 style={{ textAlign: 'center' }}>Photos de l’artiste</h3>
@@ -420,12 +428,13 @@ const ArtistForm = ({ artistId = null, existingData, onCancel, onSubmit, mode = 
         )}
 
         <div className="buttonGroup">
-          <button type="submit" className="button primary">💾 Enregistrer</button>
+          <button type="submit" id="soumettre">💾 Enregistrer</button>
           {onCancel && <button type="button" className="button secondary" onClick={onCancel}>❌ Annuler</button>}
         </div>
 
         {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       </form>
+      </div>
     </div>
   );
 };

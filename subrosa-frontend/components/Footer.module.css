@@ -54,16 +54,30 @@
     gap: 2px;
     margin: auto;
 }
+
+.footer-text {
+ display: block;
+  text-align: center;
+  margin: 0.4rem 0;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap; 
+    cursor: pointer;
+    line-height: 1.4;
+    text-decoration: none;
+    margin: 0.4rem 0;
+}
   
 .legal-link {
     color: #fff;
-    font-family: Roboto, sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 16px;
+    font-size: 12px;
+    line-height: 18px;
     letter-spacing: 0.5px;
-    text-decoration: underline;
     cursor: pointer;
+}
+
+.legal-link:hover {
+    color: #0dbab1;
 }
 
 .footer {
@@ -109,7 +123,7 @@
  display: flex;
   flex-direction: row;
   justify-content: space-between; /* ou try center */
-  align-items: center;
+  align-items: flex-start;
   gap: 50px;              /* ⚠️ Réduit ici */
   flex-wrap: nowrap;      /* ⚠️ Évite que ça parte en ligne multiple */
   max-width: 1000px;       /* ou adapte selon ton layout */
@@ -135,7 +149,7 @@
 }
 
 .footer-link:hover{
-    text-decoration: underline;
+    color: #0dbab1;
 }
 
 .newsletter-container {
@@ -253,7 +267,10 @@
   }
 
   .footer-links {
-    flex-direction: column;
+    justify-content: center; /* ✅ centre les colonnes sur petits écrans */
+    flex-wrap: wrap;
+    gap: 2rem;
+    
     }
 
   .footer-column {
@@ -263,6 +280,7 @@
   .footer {
     padding: 20px;
   }
+  
   
   .legal-links {
     width: 100%;

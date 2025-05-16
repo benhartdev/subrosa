@@ -45,3 +45,27 @@
   color: #555;
 }
 
+@media screen and (max-width: 768px) {
+.artist-gallery-title-wrapper {
+  padding: 0;
+ margin-top: -5px;
+  }
+  .artist-gallery-title {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .grid-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1rem;
+  }
+
+  .custom-card {
+    max-width: 100%;
+  }
+
+  .card-media {
+    aspect-ratio: 16 / 9;
+  }
+  
+}

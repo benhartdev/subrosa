@@ -2,41 +2,37 @@
 "use client";
 
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
+import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import { useGalleryData } from "../hooks/useGalleryData";
 import "../styles/artistGallery.css";
 
 export default function GalleryPage({ type, subtype, title, fieldsToShow }) {
   const { items, loading } = useGalleryData(type, subtype);
-
+  const pageTitle = type === 'artiste' ? 'Nos artistes' :
+                  type === 'oeuvre' ? 'Nos oeuvres' :
+                  type === 'photographie' ? 'Photographies' :
+                  type === 'peinture' ? 'Peintures' :
+                  type === 'sculpture' ? 'Sculptures' :
+                  type === 'illustration' ? 'Illustrations' :
+                  type === 'edition_art' ? 'Éditions d’art' :
+                  type === 'nouveaute' ? 'Nouveautés' : title;
+                    
   return (
     <main className="artist-page">
-      <Header />
-      <section className="artist-gallery-section">
-        <div className="artist-gallery-wrapper">
-          <div className="artist-gallery-title-wrapper">
-            <h2 className="artist-gallery-title">{title}</h2>
-          </div>
-
-          <div className="artist-gallery-inner">
-            {items.length === 0 && !loading ? (
-              <p style={{ color: "#999", textAlign: "center", marginTop: "2rem" }}>
-                Aucun élément à afficher.
-              </p>
-            ) : (
-              <Gallery
-                items={items}
-                loading={loading}
-                fieldsToShow={fieldsToShow}
-                type={type}
-              />
-            )}
-          </div>
-        </div>
-      </section>
-      <Footer />
+        <DoubleBorderContainer title={pageTitle}>
+              {items.length === 0 && !loading ? (
+                  <p style={{ color: "#999", textAlign: "center", marginTop: "2rem" }}>
+                      Aucun élément à afficher.</p>
+                          ) : (
+                            <Gallery
+                              items={items}
+                              loading={loading}
+                              fieldsToShow={fieldsToShow}
+                              type={type}
+                            />
+                          )}
+       </DoubleBorderContainer>
     </main>
   );
 }
