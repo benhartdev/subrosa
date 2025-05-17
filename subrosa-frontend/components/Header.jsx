@@ -65,16 +65,24 @@ const Header = () => {
             {isMenuOpen && (
               <>
                 <ul className={styles["mobile-menu"]}>
-                  <li><Link href="/">Accueil</Link></li>
-                  <li><Link href="/page-gallerie?type=works">Nos œuvres</Link></li>
-                  <li><Link href="/page-gallerie?type=artist">Nos artistes</Link></li>
-                  <li><Link href="/blog">Sub Rosa Blog</Link></li>
-                  <li><Link href="/about">Qui sommes-nous</Link></li>
-                  <li><Link href="/contact">Contact</Link></li>
+                  <li><Link href="/" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Accueil</a></Link></li>
+                  <li><Link href="/page-gallerie?type=works" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Nos œuvres</a></Link></li>
+                  <li><Link href="/page-gallerie?type=artist" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Nos artistes</a></Link></li>
+                  <li><Link href="/blog" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Sub Rosa Blog</a></Link></li>
+                  <li><Link href="/about" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Qui sommes-nous</a></Link></li>
+                  <li><Link href="/contact" passHref legacyBehavior>
+                  <a onClick={() => setIsMenuOpen(false)}>Contact</a></Link></li>
                   {!user ? (
                     <>
-                      <li><Link href="/login">Se connecter</Link></li>
-                      <li><Link href="/inscription">S'enregistrer</Link></li>
+                      <li><Link href="/login" passHref legacyBehavior>
+                       <a onClick={() => setIsMenuOpen(false)}>Se connecter</a></Link></li>
+                      <li><Link href="/inscription" passHref legacyBehavior>
+                       <a onClick={() => setIsMenuOpen(false)}>S'enregistrer</a></Link></li>
                     </>
                   ) : (
                       <li>
