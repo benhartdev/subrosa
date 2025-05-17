@@ -276,9 +276,8 @@ h1 {
     align-items: center; /* Centre verticalement */
     position: relative;
     z-index: 8;
-    width: auto; /* Ajuste selon le contenu */
-    padding: 12px 24px; /* Ajuste la taille */
-    border: 2px solid white;
+    padding: 4px 14px; /* Ajuste la taille */
+    border: 1px solid white;
     background:rgba(0, 0, 0, 0.651);
     color: white;
     font-size: 1.2em;
@@ -286,11 +285,15 @@ h1 {
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    border-radius: 5px;
     font-family: Michroma, sans-serif;
     margin-top: 5rem;
   }
   
+  .newsletter-button:hover {
+    color: #0dbab1;
+     border: 1px solid #0dbab1;
+
+  }
   .newsletter-button-text {
     position: relative;
     z-index: 9995;
@@ -317,8 +320,15 @@ h1 {
     width: 100%; /* Assure que le conteneur prenne toute la largeur */
     text-align: center;
     flex-wrap: wrap; /* Permet de s'adapter en responsive */
-    margin-top: 30px /* Ajuste l'espace au-dessus */
+    margin-top: 30px; /* Ajuste l'espace au-dessus */
+    text-decoration: none;
   }
+.category-filters a {
+  text-decoration: none;
+ 
+}
+
+
   
   @media (width <= 991px) {
     .category-filters {
@@ -341,6 +351,10 @@ h1 {
     min-width: 150px; /* Définit une largeur minimale */
     cursor: pointer;
     white-space: nowrap;
+  }
+  .category-button:hover{
+    color: #0dbab1;
+     border: 1px solid #0dbab1;
   }
   
   .category-button__text {

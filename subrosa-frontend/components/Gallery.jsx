@@ -1,14 +1,15 @@
-// 1. Gallery.jsx
+
 "use client";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LoadingSkeleton from "./LoadingSkeleton";
 import "../styles/artistGallery.css";
 
 export default function Gallery({ items = [], loading, customClass = "", fieldsToShow = [], type }) {
-  if (loading) return <LoadingSkeleton />;
-  
+  const pathname = usePathname();
 
+  if (loading) return <LoadingSkeleton />;
   
   return (
     <div className="artist-gallery">
@@ -36,22 +37,31 @@ console.log("ITEM :", item);
                </div>
              </div>
             <div className="artwork-info">
-              {fieldsToShow.includes("title") && <h3 className="artwork-title">{item.title || item.name || "Titre"}</h3>}
-            <div className="artwork-divider" />
-              {fieldsToShow.includes("description") && item.description && <p className="artwork-description">{item.description}</p>}
-              {fieldsToShow.includes("medium") && item.medium && <p className="artwork-medium">{item.medium}</p>}
-              {fieldsToShow.includes("dimensions") && item.dimensions && (<p className="artwork-dimensions">
-                {item.dimensions.height} × {item.dimensions.width}
-                {item.dimensions.depth ? ` × ${item.dimensions.depth}` : ""}
-                {item.dimensions.unit ? ` ${item.dimensions.unit}` : " cm"}</p>)}
-              {fieldsToShow.includes("themes") && item.themes?.length > 0 && (<p className="artwork-themes">Thèmes : {item.themes.join(", ")}</p>)}
-              {fieldsToShow.includes("type") && item.type && <p className="artwork-type">{item.type}</p>}
-              {fieldsToShow.includes("artistName") && item.artistName && <p className="artwork-artist">{item.artistName}</p>}
-              {fieldsToShow.includes("price") && item.price && <p className="artwork-price">{item.price} €</p>}
-              {fieldsToShow.includes("username") && item.username && <p className="artwork-username">{item.username}</p>}
-              {fieldsToShow.includes("style") && item.style && <p className="artwork-style">{item.style}</p>}
-            </div>
-          </div>
+  {fieldsToShow.includes("title") && (
+    <h3 className="artwork-title">{item.title || item.name || "Titre"}</h3>)}
+  {/* Divider entre title et les autres infos – uniquement hors accueil */}
+      {pathname !== "/" && (<div className="artwork-divider divider-default" />)}
+  {fieldsToShow.includes("description") && item.description && (<p className="artwork-description">{item.description}</p>)}
+  {fieldsToShow.includes("medium") && item.medium && (<p className="artwork-medium">{item.medium}</p>)}
+  {fieldsToShow.includes("dimensions") && item.dimensions && (<p className="artwork-dimensions">
+      {item.dimensions.height} × {item.dimensions.width}
+      {item.dimensions.depth ? ` × ${item.dimensions.depth}` : ""}
+      {item.dimensions.unit ? ` ${item.dimensions.unit}` : " cm"}</p>)}
+  {fieldsToShow.includes("themes") && item.themes?.length > 0 && (<p className="artwork-themes">Thèmes : {item.themes.join(", ")}</p>)}
+  {fieldsToShow.includes("type") && item.type && (<p className="artwork-type">{item.type}</p>)}
+  {fieldsToShow.includes("artistName") && item.artistName && (<p className="artwork-artist">{item.artistName}</p>)}
+  {fieldsToShow.includes("price") && item.price && (<p className="artwork-price">{item.price} €</p>)}
+  {fieldsToShow.includes("username") && item.username && (<p className="artwork-username">{item.username}</p>)}
+   {/* Divider entre username et style uniquement sur la page d’accueil */}
+        {pathname === "/" && fieldsToShow.includes("username") && fieldsToShow.includes("style") && (<div className="artwork-divider divider-home" />)}
+  {fieldsToShow.includes("style") && item.style && (<p className="artwork-style">{item.style}</p>)}
+  {fieldsToShow.includes("date") && item.date && (<p className="artwork-date">Ajouté le{" "}
+      {new Date(item.date).toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",})}</p>)}
+           </div>
+        </div>
           );
 
   return (

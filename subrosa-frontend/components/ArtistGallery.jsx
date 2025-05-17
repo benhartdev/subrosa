@@ -21,9 +21,17 @@ const ArtistGallery = ({ images }) => {
               </div>
             </div>
             <div className="artwork-info">
-              <h3 className="artwork-title">{image.name || "Nom de l’artiste"}</h3>
+              <h3 className="artwork-title">{image.title || "titre de l'oeuvre"}</h3>
               <div className="artwork-divider" />
-              <p className="artwork-skill">{image.technical_skills || "Style artistique"}</p>
+              <p className="artwork-date">
+                  {image.date
+                    ? `Ajouté le ${new Date(image.date).toLocaleDateString("fr-FR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}`
+                    : "Date de création"}
+             </p>
             </div>
           </div>
         ))}

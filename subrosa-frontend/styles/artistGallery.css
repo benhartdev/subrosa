@@ -110,7 +110,7 @@ body {
 /* ========== GALERIE ========== */
 
 .artist-gallery-section {
-  margin-top: 15rem;
+  margin-top: 4rem;
   padding: 4rem;
   position: relative
 }
@@ -163,6 +163,15 @@ body {
 .artist-gallery {
   width: 100%;
   padding: 2rem;
+}
+
+.artist-gallery a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-gallery a:visited {
+  color: inherit;
 }
 
 .artist-gallery-grid {
@@ -224,13 +233,27 @@ height: auto;
   margin-bottom: 0.4rem;
 }
 
+.artwork-style {
+ padding: 0;
+}
+
 .artwork-divider {
-  width: 300px;
   height: 1px;
   background-color: white;
   margin: 0.4rem auto 0.8rem;
 }
+.divider-home {
+  width: 200px;
+  margin: 0.4rem auto 0.4rem;
+}
 
+.divider-default {
+  width: 100%;
+}
+
+.artwork-info p {
+  margin: 0;
+}
 .artwork-artist,
 .artwork-medium {
   font-size: 0.95rem;
@@ -268,11 +291,11 @@ height: auto;
   display: grid;
   gap: 1.5rem;
   padding: 0 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
   justify-content: center;
   align-items: start;
-  max-width: 100%;
   box-sizing: border-box;
+  
 }
 
 @media screen and (max-width: 1024px) {
@@ -299,22 +322,25 @@ height: auto;
 }
 
 .view-all-btn {
+  font-family: 'Michroma', sans-serif;
   padding: 0.75rem 2rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 0;
+  margin-top: 10px;
 }
 
 .view-all-btn:hover {
-  background-color: #eee;
+  background-color: #eeeeeeba;
 }
 
 /* Réduction de la taille des cartes sur la page d’accueil uniquement */
 .home-gallery-grid .artist-gallery-item {
-   max-width: 280px;
+  max-width: 280px;
   width: 100%;
   transform-origin: top center;
   margin: 0 auto;
@@ -322,10 +348,11 @@ height: auto;
 /* s'assurer que cela ne déborde pas */
 
 .artist-gallery,
-.artist-gallery-grid,
-.home-gallery-grid {
-  max-width: 100%;
-  overflow-x: hidden;
+.artist-gallery-grid
+ {
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .home-gallery-grid .artwork-card {
