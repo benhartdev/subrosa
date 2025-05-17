@@ -671,7 +671,9 @@ h1 {
     border-radius: 5px;
     margin-top: 50px; /* Supprime l’espace inutile au-dessus */
 }
- 
+ .blog-subrosa {
+  margin-top: -12rem !important
+ }
   
   /* Magazine Section */
   .magazine-section {

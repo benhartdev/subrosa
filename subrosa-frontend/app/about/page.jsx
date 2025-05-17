@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const AboutPage = () => {
   return (
-    <main>
+    <main className="about-page">
     <div className="about-container">
 
       <h1 className="about-title">QUI SOMMES-NOUS</h1>
@@ -122,7 +122,7 @@ const AboutPage = () => {
       <div className="team-section">
         <div className="team-grid">
           <div className="team-member-photo">
-          <Image src="/images/ZE.png" className="member-image" alt="Team Member" width={1920} height={1080}/>            <div className="member-role">
+          <Image src="/images/Ze.png" className="member-image" alt="Team Member" width={1920} height={1080}/>            <div className="member-role">
               Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
               en entreprise »• gestion des relations artistes/galerie•
               conseiller auprès des artistes

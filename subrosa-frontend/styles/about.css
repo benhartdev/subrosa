@@ -1,42 +1,40 @@
+
 main {
   background-color: #000;
+  font-family: 'Michroma', 'sans serif';
 }
+.about-page {
 
+  font-family:
+   Michroma,
+    sans-serif;
+}
 .about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 20% auto;
+  margin: auto;
   padding: 20px;
   max-width: 1200px;
   background-color: #000;
+  
 }
 
-.header-image {
-  aspect-ratio: 27.03;
-  object-fit: contain;
-  object-position: center;
-  width: 100%;
-  max-width: 1098px;
-  height: auto;
-}
+
 
 .about-title {
   width: fit-content;
   padding: 10px 20px;
   border: 1px solid #000;
   color: #fff;
-  font-size: clamp(32px, 5vw, 64px);
+  font-size: 48px;
   text-align: center;
   font-family:
-    Afacad,
-    -apple-system,
-    Roboto,
-    Helvetica,
+   Michroma,
     sans-serif;
   font-weight: 400;
-  margin-top: 83px;
+  margin-top: 14rem;
 }
 
 .about-description {
@@ -45,10 +43,7 @@ main {
   font-size: clamp(14px, 1.6vw, 16px);
   text-align: center;
   font-family:
-    Afacad,
-    -apple-system,
-    Roboto,
-    Helvetica,
+   Michroma,
     sans-serif;
   font-weight: 400;
   margin-top: clamp(40px, 5vw, 77px);
