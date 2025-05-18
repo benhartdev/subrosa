@@ -1,0 +1,43 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9998;
+}
+
+.popup-success,
+.popup-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  border: 2px solid #6aff91;
+  padding: 1.5rem 2.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(0, 255, 128, 0.2);
+  animation: fadeInScale 0.3s ease-out;
+}
+
+.popup-error {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 20px rgba(255, 50, 50, 0.2);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

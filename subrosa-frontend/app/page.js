@@ -67,8 +67,15 @@ const featuredArtists = [...items]
             </div>
 
             <div className="navigation-filters">
-                <button className="newsletter-button">
-                    <span className="newsletter-button-text">INSCRIPTION NEWSLETTER</span>
+                <button
+                    className="newsletter-button"
+                    onClick={() => {
+                      const section = document.getElementById("newsletter");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  ><span className="newsletter-button-text">INSCRIPTION NEWSLETTER</span>
                 </button>
                 <section className="category-filters">
                     <Link href="/page-gallerie?type=works"><button className="category-button">TOUTES LES OEUVRES</button></Link>
