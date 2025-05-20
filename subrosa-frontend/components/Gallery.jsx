@@ -16,14 +16,16 @@ export default function Gallery({ items = [], loading, customClass = "", fieldsT
       <div className="gallery-container">
       <div className={`artist-gallery-grid ${customClass}`}>
        {items.map((item, index) => {
+
         console.log("item.slug:", item.slug);
+
           const linkHref =
             type === "artist"
               ? `/artistes/${item.slug}`
               : type === "works"
               ? `/oeuvres/${item.slug || item.Slug || item._id}`
               : null;
-console.log("ITEM :", item);
+        console.log("ITEM :", item);
 
           const imageUrl = item.image || item.images?.[0]?.url || "/placeholder.jpg";
           const altText = item.title || item.name || "Image";

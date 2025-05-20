@@ -4,42 +4,9 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
+import Newsletter from "./Newsletter";
 
 const Footer = () => {
-  useEffect(() => {
-    const emailInput = document.querySelector(`.${styles["email"]}`);
-    const submitBtn = document.querySelector(`.${styles["subscribe-btn"]}`);
-
-    const handleSubscribe = async () => {
-      const email = emailInput.value.trim();
-      if (!email) return window.showGlobalPopup?.("Veuillez entrer un email.", true);
-
-      try {
-        const res = await fetch("http://localhost:5000/api/newsletter/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          window.showGlobalPopup?.(data.message || "Inscription Newsletter réussie.");
-          emailInput.value = '';
-        } else {
-          window.showGlobalPopup?.(data.message || "Erreur lors de l'inscription.", true);
-        }
-      } catch (err) {
-        console.error("Erreur newsletter :", err);
-        window.showGlobalPopup?.("Erreur réseau ou serveur.", true);
-      }
-    };
-
-    if (submitBtn) submitBtn.addEventListener("click", handleSubscribe);
-    return () => {
-      if (submitBtn) submitBtn.removeEventListener("click", handleSubscribe);
-    };
-  }, []);
 
   return (
     <footer className={styles["footer"]}>
@@ -54,13 +21,7 @@ const Footer = () => {
 
       <section className={styles["footer-wrapper"]}>
         <div className={styles["footer-flex-wrapper"]}>
-          <div id="newsletter" className={styles["newsletter-container"]}>
-            <label className={styles["newsletter-label"]} htmlFor="email">INSCRIPTION NEWSLETTER</label>
-            <div className={styles["newsletter"]}>
-              <input type="email" className={styles["email"]} placeholder="votre adresse mail" />
-              <button className={styles["subscribe-btn"]}>OK</button>
-            </div>
-          </div>
+          <Newsletter />
 
           <nav className={styles["footer-links"]}>
             <div className={styles["footer-column"]}>

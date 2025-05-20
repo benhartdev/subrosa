@@ -24,8 +24,10 @@ export default async function ArtistPage({ params }) {
 // ✅ Appel du backend
 async function getArtist(slug) {
   try {
+
     const res = await axios.get(`http://localhost:5000/api/artists/slug/${slug}`);
     return res.data;
+    
   } catch (error) {
     console.error("Erreur dans getArtist:", error);
     return null;

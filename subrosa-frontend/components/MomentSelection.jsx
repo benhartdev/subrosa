@@ -9,7 +9,8 @@ const { useState, useEffect } = React;
 const SelectionDuMoment = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+  const [flouActif, setFlouActif] = useState(false);
+
 
   const idsChoisis = [
     "6806b27606806385c809f0d7", // image carrée 1
@@ -44,16 +45,23 @@ const SelectionDuMoment = () => {
 
 
 
+ // 🔧 Appliquer flou navbar au hover
+const handleMouseEnter = () => setFlouActif(true);
+const handleMouseLeave = () => setFlouActif(false);
+
+
   const renderImg = (index, className) => {
     const item = oeuvres[index];
-     const imageUrl = item.images[0].url.startsWith("http")
-    ? item.images[0].url
-    : `http://localhost:5000${item.images[0].url}`;
-
-
     if (!item || !item.images?.[0]) return null;
+
+    const imageUrl = item.images[0].url.startsWith("http")
+      ? item.images[0].url
+      : `http://localhost:5000${item.images[0].url}`;
+
     return (
-      <Link href={`/oeuvres/${item.slug}`} key={item._id}>
+      <Link href={`/oeuvres/${item.slug}`} key={item._id} 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
       <img
         src={imageUrl}
         alt={item.images[0].altText || "Œuvre"}
@@ -107,6 +115,8 @@ const SelectionDuMoment = () => {
      <div className="selection-title-wrapper">
        <span className="end-selection-line" />
     </div>
+   <div className={`nav-blur-overlay ${flouActif ? "active" : ""}`}></div>
+
 </section>
 
 

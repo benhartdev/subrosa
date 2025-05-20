@@ -11,7 +11,7 @@ import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import MainContent from '../components/MainContent.jsx';
-import GravityButton from "../components/GravityButton";
+import Newsletter from "../components/Newsletter";
 const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
@@ -35,20 +35,15 @@ const featuredArtists = [...items]
         <div>
             <div className={styles.headContainer}>
                 <Image src="/images/FOND.jpg" alt="Image de fond" width={1920} height={1080} />
-                <div className={styles.gravityLogoContainer}>
-    <GravityButton
-      color="#e60073"
-      icon={
-        <Image
-          src="/images/gallerie SUB logo2.png"
-          alt="Logo SUB ROSA"
-          style={{ width: "100%", height: "100%", objectFit: "contain" }}
-          width={500}
-          height={500}
-        />
-      }
-    />
-  </div>
+                  <div className={styles.logoContainer}>
+                    <Image
+                        src="/images/gallerie_SUB_logo2.png"
+                        alt="Logo SUB ROSA"
+                        width={500}
+                        height={500}
+                        style={{ objectFit: "contain" }}
+                    />
+                 </div>
                 <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
                 <Link href="/page-gallerie?type=artist">
                     <button className={styles.discoverArtist}>Decouvrez nos artistes</button>
@@ -67,16 +62,7 @@ const featuredArtists = [...items]
             </div>
 
             <div className={styles.navigationFilters}>
-                <button
-                    className={styles.newsletterButton}
-                    onClick={() => {
-                      const section = document.getElementById("newsletter");
-                      if (section) {
-                        section.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                  ><span className={styles.newsletterButtonText}>INSCRIPTION NEWSLETTER</span>
-                </button>
+                 <Newsletter />
                 <section className={styles.categoryFilters}>
                     <Link href="/page-gallerie?type=works"><button className={styles.categoryButton}>TOUTES LES OEUVRES</button></Link>
                     <Link href="/page-gallerie?type=nouveaute"><button className={styles.categoryButton}>NOUVEAUTES</button></Link>

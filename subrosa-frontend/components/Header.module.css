@@ -8,14 +8,20 @@
 	text-transform:uppercase;
 	letter-spacing:1px;
     
-    z-index: 9999;
+    z-index: 9995;
+}
+
+.mainNav.blurred {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.7); /* ou transparent */
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
 	   
 	  /* Conteneur principal de la nav */
 .navbar-wrapper {
     width: 100%;
     text-align: center;
-    margin-top: 110px; /* espace sous le header si besoin */
+    margin-top: 60px; /* espace sous le header si besoin */
     
 }
 .nav-item a {
@@ -23,7 +29,7 @@
     display: inline-block;
     text-align: center;
     vertical-align: bottom;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 .nav-item a:hover {
@@ -36,12 +42,12 @@
 }
 
 .navbar-nav-custom .nav-accueil {
-    font-size: 32px;
+    font-size: 18px;
     font-weight: bold;
     position: relative;
     top: 4px;
     margin: 0 2vw; /* pour créer une respiration */
-    z-index: 9999;
+    z-index: 10;
  
 }
 
@@ -56,11 +62,11 @@
 
 .mainNav {
 	position:fixed;
-	 height: 180px; /* ou la hauteur exacte du header */
+	 height: 120px; /* ou la hauteur exacte du header */
 	width:100%;
 	top: 0;
   padding: 0;
-    z-index: 9999;
+    z-index: 9990;
     background: linear-gradient(to top, rgb(0, 0, 0, 1) , rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
 }
 	  
@@ -68,7 +74,7 @@
     padding: 1rem 0;
     text-align: center;
     border-bottom: 1px solid #ccc;
-    z-index: 9999;
+    z-index: 9998;
 }
   
   
@@ -102,9 +108,9 @@
     align-items: flex-end;
     list-style: none;
     padding: 0;
-    margin: 0 auto;
+   
     flex-wrap: wrap;
-    z-index: 9999;
+    z-index: 9998;
 }
   
 .navbar-nav-custom .nav-item {
@@ -124,7 +130,7 @@
   /* Liens */
 .nav-link {
     font-family: Michroma, sans-serif;
-    font-size: 14px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #dfdfdf;
@@ -133,7 +139,7 @@
     text-align: center;
     padding: 0;
     margin: 0;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 .nav-link:hover {
@@ -144,7 +150,7 @@
 
 .menu-toggle {
     display: block;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     padding: 0.6rem 1.2rem;
     border: 1px solid white;
     background: none;
@@ -171,21 +177,21 @@
 
 .mobile-menu {
  position: fixed;
-  top:25%; /* adapte à la hauteur de ta nav */
+  top:20%; /* adapte à la hauteur de ta nav */
   left: 50%;
   transform: translateX(-50%);
   background-color: #000;
   border: 1px solid white;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
-  z-index: 9999;
+  z-index: 9998;
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
   width: 80%;
-  max-width: 450px;
+  max-width: 350px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -195,7 +201,7 @@
 
   .mobile-menu li a {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-decoration: none;
     text-align: center;
 }
@@ -248,17 +254,17 @@
 .icon-wrapper {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   position: absolute;
-  top: 2.5rem;
-  right: 2.5rem;
-  z-index: 10000;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9998;
 }
 
 .nav-icon,
 .logout-icon,
 .burger-icon {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: white;
   background: none;
   border: none;
@@ -280,7 +286,19 @@
   height: 100vh;
   backdrop-filter: blur(6px); /* flou */
   background-color: rgba(0, 0, 0, 0.3); /* léger assombrissement */
-  z-index: 998; /* juste sous le menu mobile */
+  z-index: 9995; /* juste sous le menu mobile */
+}
+
+.nav-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 120px; /* hauteur exacte de .mainNav */
+  z-index: 9990;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 @media (max-width: 1440px) {
