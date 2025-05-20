@@ -1,14 +1,15 @@
 "use client"; 
 
 
+import "../../styles/ArtistEditPanel.css";
+import "../../styles/inscription-artiste.css";
+import "../../styles/adminMessageButton.css";
 
 import AdminStats from "../../components/admin/AdminStats";
 import ArtistEditPanel from '../../components/admin/ArtistEditPanel';
 import AdminPendingWorksPanel from "../../components/admin/AdminPendingWorksPanel";
 import PendingArtists from "../../components/admin/PendingArtists";
 import AdminMessagesButton from "../../components/admin/AdminMessagesButton";
-
-import styles from "../../styles/AdminPage.module.css";
 
 import { useState } from "react"; 
 import { useRef } from "react";
@@ -40,10 +41,10 @@ const AdminPage = () => {
     <>
       
       <AdminMessagesButton />
-      <main className={styles.containerLogin} style={{ padding: "2rem", background: "black", color: "white" }}>
-        <div className={styles.boxComponent}>
-          <h1 className={styles.personalSpace} style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
-          <p className={styles.textLogin}>Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot</p>
+      <main id="containerLogin" style={{ padding: "2rem", background: "black", color: "white" }}>
+        <div id="box-component">
+          <h1 id="personal-space" style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
+          <p id="text-login">Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot</p>
           <PendingArtists />
       
           {showForm && (

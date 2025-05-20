@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const errorHandler = require('./src/middlewares/errorHandler');
 const contactRoutes = require("./src/routes/contactRoutes");
+const newsletterRoutes = require('./src/routes/newsletterRoutes');
 
 // Charge les variables d'environnement
 dotenv.config();
@@ -59,7 +60,7 @@ app.use('/api/auth', require('./src/routes/authRoutes'));                    // 
 app.use('/api/uploads', require('./src/routes/uploadRoutes'));               // gestion des uploads
 app.use('/api/works', require('./src/routes/worksRoutes'));
 app.use("/api/contact", contactRoutes);
-
+app.use('/api/newsletter', newsletterRoutes);
 // Pour rendre les fichiers statiques accessibles (images uploadées)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(errorHandler);

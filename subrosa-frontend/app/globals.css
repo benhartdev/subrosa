@@ -65,6 +65,45 @@ body.inscription-open {
   overflow-x: hidden;
 }
 
-* {
-  outline: 1px solid rgba(255, 0, 0, 0.2); /* debug */
+/* styles/globals.css */
+
+
+body.body-accueil {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(0 0 0);
+    font-family: Michroma, sans-serif;
+    min-height: 100vh;
+}
+
+body.body-contact {
+
+}
+
+body.body-artistes {
+}
+
+body.body-admin {
+}
+
+body.body-oeuvre {
+}
+
+body.body-login {
+}
+
+/*H1 etc */
+
+body.body-accueil h1 {
+  font-size: 3em;
+  text-align: center;
+  margin-top: 5%;
+  color: white;
+}
+body.body-accueil img {
+  max-width: 100%;
+    height: auto;
 }

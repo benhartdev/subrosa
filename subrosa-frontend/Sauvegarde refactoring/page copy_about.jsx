@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
-import styles from "../../styles/about.module.css";
+import "../../styles/about.module.css";
 import Image from 'next/image';
 
 const AboutPage = () => {
   return (
-    <div className={styles.aboutContainer}>
+    <main className="about-page">
+    <div className="about-container">
 
-      <h1 className={styles.aboutTitle}>QUI SOMMES-NOUS</h1>
+      <h1 className="about-title">QUI SOMMES-NOUS</h1>
 
-      <p className={styles.aboutDescription}>
+      <p className="about-description">
         Galerie SUB ROSA ART est une galerie d'art contemporain en ligne
         co-fondée par les 3 associés ci-dessous en 2025. Bien plus qu'un simple
         site web, notre volonté est d'organiser régulièrement des événements
@@ -23,23 +24,23 @@ const AboutPage = () => {
         ROSA ART doit être « au cœur de la cité ».
       </p>
 
-      <h2 className={styles.teamTitle}>NOTRE EQUIPE</h2>
+      <h2 className="team-title">NOTRE EQUIPE</h2>
 
       <div className="divider" />
 
-      <div className={styles.teamSection}>
-        <div className={styles.teamGrid}>
-          <div className={styles.teamMemberPhoto}>
-            <Image src="/images/moi.jpg" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>
-            <div className={styles.memberRole}>
+      <div className="team-section">
+        <div className="team-grid">
+          <div className="team-member-photo">
+            <Image src="/images/moi.jpg" className="member-image" alt="Team Member" width={1920} height={1080}/>
+            <div className="member-role">
               Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
               en entreprise »• gestion des relations artistes/galerie•
               conseiller auprès des artistes
             </div>
           </div>
 
-          <div className={styles.teamMemberInfo}>
-            <div className={styles.memberDescription}>
+          <div className="team-member-info">
+            <div className="member-description">
               Benjamin Hoffelé alias Ben H<br />
               <br />
               FORMATION & PARCOURS<br />
@@ -73,18 +74,18 @@ const AboutPage = () => {
       </div>
 
       <div className="divider" />
-      <div className={styles.teamSection}>
-        <div className={styles.teamGrid}>
-          <div className={styles.teamMemberPhoto}>
-          <Image src="/images/SAYAH.png" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            <div className={styles.memberRole}>
+      <div className="team-section">
+        <div className="team-grid">
+          <div className="team-member-photo">
+          <Image src="/images/SAYAH.png" className="member-image" alt="Team Member" width={1920} height={1080}/>            <div className="member-role">
               Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
               en entreprise »• gestion des relations artistes/galerie•
               conseiller auprès des artistes
             </div>
           </div>
 
-          <div className={styles.teamMemberInfo}>
-            <div className={styles.memberDescription}>
+          <div className="team-member-info">
+            <div className="member-description">
               Sayah EL YATIM<br />
               <br />
               FORMATION & PARCOURS<br />
@@ -118,18 +119,18 @@ const AboutPage = () => {
         </div>
       </div>
       <div className="divider" />
-      <div className={styles.teamSection}>
-        <div className={styles.teamGrid}>
-          <div className={styles.teamMemberPhoto}>
-          <Image src="/images/Ze.png" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            <div className={styles.memberRole}>
+      <div className="team-section">
+        <div className="team-grid">
+          <div className="team-member-photo">
+          <Image src="/images/Ze.png" className="member-image" alt="Team Member" width={1920} height={1080}/>            <div className="member-role">
               Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
               en entreprise »• gestion des relations artistes/galerie•
               conseiller auprès des artistes
             </div>
           </div>
 
-          <div className={styles.teamMemberInfo}>
-            <div className={styles.memberDescription}>
+          <div className="team-member-info">
+            <div className="member-description">
               ZÉ La menace<br />
               <br />
               FORMATION & PARCOURS<br />
@@ -164,6 +165,7 @@ const AboutPage = () => {
       <div className="divider" />
       
     </div>
+    </main>
   );
 };
 

@@ -1,13 +1,13 @@
 "use client";
 
 import AddworkForm from "../../components/AddworkForm";
-import "../../styles/ajout-oeuvre.css";
+import styles from "../../components/addWorkForm.module.css";
 
 export default function AjouterOeuvrePage() {
   return (
-    <main className="ajout-oeuvre-page">
-      <div className="ajout-oeuvre-subrosa">
-        <h1 className="titre-artist-form">Ajouter une œuvre</h1>
+    <main className={styles.ajoutOeuvrePage}>
+      <div className={styles.ajoutOeuvreSubrosa}>
+        <h1 className={styles.titreArtistForm}>Ajouter une œuvre</h1>
         <AddworkForm />
       </div>
     </main>

@@ -5,7 +5,7 @@ import PendingStatusBanner from "../../../components/PendingStatusBanner";
 import Link from "next/link";
 import "../../../styles/ArtistDashboard.css";
 import ArtistDashboardWorks from "../../../components/ArtistDashboardWorks";
-
+import Image from "next/image";
 
 const ArtistDashboard = () => {
   const { user, isLoading } = useAuth();
@@ -21,7 +21,11 @@ const ArtistDashboard = () => {
     <main>
       <h1>{user.username}</h1>
       <Link href="/ajout-oeuvre" className="add-artwork-button">
-      <img src="/images/LOGO OEUVRE 1.svg" alt="Icône ajouter œuvre" className="art-icon" />
+      <Image src="/images/logo_oeuvre_1.svg"
+          alt="Icône ajouter œuvre"
+          width={120}
+          height={120}
+          className="art-icon"/>
       Ajouter une œuvre
     </Link>
 

@@ -1,7 +1,5 @@
-
 'use client';
 
-import styles from "./AddworkForm.module.css";
 import React, { useEffect, useState } from 'react';
 // import '../styles/addworkForm.css';
 
@@ -176,14 +174,14 @@ const AddArtwork = () => {
   // ✅ Si tout va bien, on affiche le formulaire
 
   return (
-    <div className={styles.addArtworkContainer}>
-  {message && <p className={styles.statusMessage}>{message}</p>}
+    <div className="add-artwork-container">
+  {message && <p className="status-message">{message}</p>}
 
-  <form className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
+  <form onSubmit={handleSubmit} encType="multipart/form-data">
     <input type="hidden" name="artistId" value={formData.artistId} />
 
-      <div className={styles.formRow}>
-      <div className={styles.formGroup}>
+      <div className="form-row">
+      <div className="form-group">
         <label htmlFor="type">Type d’œuvre</label>
         <select name="type" required value={formData.type} onChange={handleChange}>
           <option value="">-- Choisissez --</option>
@@ -194,11 +192,11 @@ const AddArtwork = () => {
         </select>
       </div>
     
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Titre</label>
         <input type="text" name="title" value={formData.title} onChange={handleChange} required />
       </div>
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Date de création</label>
         <input type="date" name="creation_date" value={formData.creation_date} onChange={handleChange} required />
       </div>
@@ -207,16 +205,16 @@ const AddArtwork = () => {
     <label>Description</label>
     <textarea name="description" value={formData.description} onChange={handleChange} rows={3} required />
 
-    <div className={styles.formRow}>
-      <div className={styles.formGroup}>
+    <div className="form-row">
+      <div className="form-group">
         <label>Technique / Support</label>
         <input type="text" name="medium" value={formData.medium} onChange={handleChange} required />
       </div>
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Prix</label>
         <input type="number" name="price" value={formData.price} onChange={handleChange} required />
       </div>
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Devise</label>
         <select name="currency" value={formData.currency} onChange={handleChange}>
           <option value="€">€</option>
@@ -225,12 +223,12 @@ const AddArtwork = () => {
       </div>
     </div>
 
-    <div className={styles.formRow}>
-      <div className={styles.formGroup}>
+    <div className="form-row">
+      <div className="form-group">
         <label>Quantité en stock</label>
         <input type="number" name="in_stock" value={formData.in_stock} onChange={handleChange} required />
       </div>
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Statut</label>
         <select name="status" value={formData.status} onChange={handleChange} required>
           <option value="available">Disponible</option>
@@ -240,12 +238,12 @@ const AddArtwork = () => {
       </div>
     </div>
 
-    <div className={styles.formRow}>
-      <div className={styles.formGroup}>
+    <div className="form-row">
+      <div className="form-group">
         <label>Couleurs dominantes</label>
         <input type="text" name="dominant_colors" value={formData.dominant_colors} onChange={handleChange} required />
       </div>
-      <div className={styles.formGroup}>
+      <div className="form-group">
         <label>Thèmes</label>
         <input type="text" name="themes" value={formData.themes} onChange={handleChange} required />
       </div>
@@ -253,20 +251,20 @@ const AddArtwork = () => {
 
     <fieldset>
       <legend>Dimensions (en {formData.dimensions.unit})</legend>
-      <div className={styles.formRow}>
-        <div className={styles.formGroup}>
+      <div className="form-row">
+        <div className="form-group">
           <label>Hauteur</label>
           <input type="number" name="height" value={formData.dimensions.height} onChange={handleChange} required />
         </div>
-        <div className={styles.formGroup}>
+        <div className="form-group">
           <label>Largeur</label>
           <input type="number" name="width" value={formData.dimensions.width} onChange={handleChange} required />
         </div>
-        <div className={styles.formGroup}>
+        <div className="form-group">
           <label>Profondeur (optionnel)</label>
           <input type="number" name="depth" value={formData.dimensions.depth} onChange={handleChange} />
         </div>
-        <div className={styles.formGroup}>
+        <div className="form-group">
           <label>Unité</label>
           <select name="unit" value={formData.dimensions.unit} onChange={handleChange}>
             <option value="cm">cm</option>
@@ -279,7 +277,7 @@ const AddArtwork = () => {
     <fieldset>
       <legend>Images</legend>
       {images.map((img, index) => (
-        <div key={index} className={styles.imageUploadBlock}>
+        <div key={index} className="image-upload-block">
           <input type="file" accept="image/*" onChange={(e) => handleImageChange(index, e.target.files[0])} required />
           <input
             type="text"
@@ -294,13 +292,13 @@ const AddArtwork = () => {
   </form>
 
   {submittedArtworks.length > 0 && (
-    <div className={styles.submittedGallery}>
+    <div className="submitted-gallery">
       <h2>Œuvres récemment ajoutées :</h2>
-      <div className={styles.galleryGrid}>
+      <div className="gallery-grid">
         {submittedArtworks.map((art, idx) => (
-          <div key={idx} className={styles.galleryCard}>
+          <div key={idx} className="gallery-card">
             <img
-            className={styles.previewImage}
+            className="preview-image"
               src={
                 art.images?.[0]?.url?.startsWith('http')
                   ? art.images[0].url

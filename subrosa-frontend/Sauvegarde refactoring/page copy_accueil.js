@@ -5,7 +5,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/Accueil.module.css';
+import '../styles/style_acceuil.css';
 import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
@@ -33,9 +33,9 @@ const featuredArtists = [...items]
 
     return (
         <div>
-            <div className={styles.headContainer}>
+            <div className="head-container">
                 <Image src="/images/FOND.jpg" alt="Image de fond" width={1920} height={1080} />
-                <div className={styles.gravityLogoContainer}>
+                <div className="gravity-logo-container">
     <GravityButton
       color="#e60073"
       icon={
@@ -49,51 +49,51 @@ const featuredArtists = [...items]
       }
     />
   </div>
-                <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
+                <p className="texte-superpose">Nos artistes vous ouvrent leur univers...</p>
                 <Link href="/page-gallerie?type=artist">
-                    <button className={styles.discoverArtist}>Decouvrez nos artistes</button>
+                    <button className="discover-artist">Decouvrez nos artistes</button>
                 </Link>
             </div>
 
-            <div className={styles.galleryHeader}>
-                <div className={styles.galleryContent}>
-                    <h1 className={styles.galleryTitle}>
-                        <span className={styles.galleryName}>GALLERIE</span>
-                        <span className={styles.gallerySeparator}></span>
-                        <span className={styles.galleryBrand}>SUB ROSA ART</span>
+            <div className="gallery-header">
+                <div className="gallery-content">
+                    <h1 className="gallery-title">
+                        <span className="gallery-name">GALLERIE</span>
+                        <span className="gallery-separator"></span>
+                        <span className="gallery-brand">SUB ROSA ART</span>
                     </h1>
-                    <p className={styles.gallerySubtitle}>gallerie d’art contemporain</p>
+                    <p className="gallery-subtitle">gallerie d’art contemporain</p>
                 </div>
             </div>
 
-            <div className={styles.navigationFilters}>
+            <div className="navigation-filters">
                 <button
-                    className={styles.newsletterButton}
+                    className="newsletter-button"
                     onClick={() => {
                       const section = document.getElementById("newsletter");
                       if (section) {
                         section.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                  ><span className={styles.newsletterButtonText}>INSCRIPTION NEWSLETTER</span>
+                  ><span className="newsletter-button-text">INSCRIPTION NEWSLETTER</span>
                 </button>
-                <section className={styles.categoryFilters}>
-                    <Link href="/page-gallerie?type=works"><button className={styles.categoryButton}>TOUTES LES OEUVRES</button></Link>
-                    <Link href="/page-gallerie?type=nouveaute"><button className={styles.categoryButton}>NOUVEAUTES</button></Link>
-                    <Link href="/page-gallerie?type=photographie"><button className={styles.categoryButton}>PHOTOGRAPHIES</button></Link>
-                    <Link href="/page-gallerie?type=peinture"><button className={styles.categoryButton}>PEINTURES</button></Link>
-                    <Link href="/page-gallerie?type=sculpture"><button className={styles.categoryButton}>SCULPTURES</button></Link>
-                    <Link href="/page-gallerie?type=edition_art"><button className={styles.categoryButton}>EDITION D_ART</button></Link>
+                <section className="category-filters">
+                    <Link href="/page-gallerie?type=works"><button className="category-button">TOUTES LES OEUVRES</button></Link>
+                    <Link href="/page-gallerie?type=nouveaute"><button className="category-button">NOUVEAUTES</button></Link>
+                    <Link href="/page-gallerie?type=photographie"><button className="category-button">PHOTOGRAPHIES</button></Link>
+                    <Link href="/page-gallerie?type=peinture"><button className="category-button">PEINTURES</button></Link>
+                    <Link href="/page-gallerie?type=sculpture"><button className="category-button">SCULPTURES</button></Link>
+                    <Link href="/page-gallerie?type=edition_art"><button className="category-button">EDITION D_ART</button></Link>
                 </section>
-                <p className={styles.surpriseText}>ou<br />SURPENEZ-MOI</p>
+                <p className="surprise-text">ou<br />SURPENEZ-MOI</p>
             </div>
               <section className="moment-selection">
                           <MomentSelection />
              </section>
               {/* Section Artistes à la une */}
       <section className="accueil-artistes-a-la-une">
-        <h3 className={styles.titleArtistSelection}>NOS ARTISTES COUP DE CŒUR</h3>
-        <h4 className={styles.titleArtistUniverse}>Partagez leur univers…</h4>
+        <h3 className="title-artist-selection">NOS ARTISTES COUP DE CŒUR</h3>
+        <h4 className="title-artist-universe">Partagez leur univers…</h4>
         <Gallery
           items={featuredArtists}
           loading={loading}
@@ -101,25 +101,25 @@ const featuredArtists = [...items]
           customClass="home-gallery-grid"
           fieldsToShow={["name", "style", "username"]}
         />
-        <div className={styles.artistsButtonContainer}>
+        <div className="artists-button-container">
           <Link href="/page-gallerie?type=artist">
-            <button className={styles.viewAllBtn}>VOIR TOUS NOS ARTISTES</button>
+            <button className="view-all-btn">VOIR TOUS NOS ARTISTES</button>
           </Link>
         </div>
       </section>
-        <section className={styles.blogSubrosa}>
+        <section className="blog-subrosa">
              <DoubleBorderContainer title="SubRosa Blog">
                  <MainContent limit={2} />
             </DoubleBorderContainer>
        </section>
-            <section className={styles.conceptSection}>
-                <div className={styles.conceptContent}>
-                    <h2 className={styles.conceptTitle}>NOTRE CONCEPT</h2>
-                    <h3 className={styles.conceptHeading}>UNE NOUVELLE VISION DE L’ART CONTEMPORAIN</h3>
-                    <p className={styles.conceptSubtitle}>Dissimulé sous la rose...</p>
-                    <p className={styles.conceptDescription}>Mis en valeur par des artistes, pour des artistes</p>
+            <section className="concept-section">
+                <div className="concept-content">
+                    <h2 className="concept-title">NOTRE CONCEPT</h2>
+                    <h3 className="concept-heading">UNE NOUVELLE VISION DE L’ART CONTEMPORAIN</h3>
+                    <p className="concept-subtitle">Dissimulé sous la rose...</p>
+                    <p className="concept-description">Mis en valeur par des artistes, pour des artistes</p>
                     <Link href="/concept">
-                        <button className={styles.learnMoreBtn}>EN SAVOIR PLUS</button>
+                        <button className="learn-more-btn">EN SAVOIR PLUS</button>
                     </Link>
                 </div>
             </section>

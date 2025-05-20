@@ -1,0 +1,222 @@
+.addArtworkContainer {
+    background-color: #000;
+    color: #f5f5f5;
+    padding: 3rem 3rem;
+    max-width: 960px;
+    margin: auto;
+    border: 1px solid #333;
+    margin-top: 2rem;
+  }
+
+
+
+.statusMessage {
+    background-color: #2a0000;
+    color: #5fff74;
+    padding: 1rem;
+    border: 1px solid #e60012;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .errorMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #330000;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+.galleryGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+.galleryCard {
+    width: 30%;
+    max-width: 300px;
+    text-align: center;
+    color: #d1b7b9;
+  }
+
+  /* .galleryCard {
+      width: 100%;
+    } */
+
+.ajoutOeuvrePage h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #898686;
+    font-size: 2.5rem;
+    margin: auto;
+  }
+
+.ajoutOeuvrePage h2 {
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    color: #d1b7b9;
+  }
+
+.ajoutOeuvrePage p {
+    color: #898686;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    margin: auto;
+  }
+
+.ajoutOeuvrePage p {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+.ajoutOeuvrePage p {
+    margin-top: 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #d1b7b9;
+  }
+.formRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+.formGroup {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+.formWrapper label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+.formWrapper input,
+.formWrapper select,
+.formWrapper textarea {
+    background-color: #111;
+    color: #f5f5f5;
+    border: 1px solid #444;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+.formWrapper input:focus,
+.formWrapper select:focus,
+.formWrapper textarea:focus {
+    border-color: #e60012;
+    outline: none;
+  }
+
+.formWrapper textarea {
+    background-color: #111;
+    color: #f5f5f5;
+    border: 1px solid #444;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+.formWrapper textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+.formWrapper fieldset {
+    border: 1px solid #333;
+    padding: 1.3rem 0.5rem 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+.formWrapper legend {
+    color: #e60012;
+    font-weight: bold;
+    padding: 0 0.5rem;
+  }
+
+.formWrapper button[type="submit"] {
+    margin-top: 1.5rem;
+    background-color: #e60012;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+  }
+
+.formWrapper button[type="submit"]:hover {
+    background-color: #0f931c;
+  }
+
+  .imageUploadBlock {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+  }
+
+.formWrapper .image-upload-block input[type="file"] {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #000000; /* ton rouge foncé */
+    color: white;
+    font-family: Michroma, sans-serif;
+  }
+
+.formWrapper .image-upload-block input[type="text"] {
+    
+    width: 100%;
+    padding: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #333;
+    font-family: Michroma, sans-serif;
+  }
+
+.ajoutOeuvrePage .gallery-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  }
+
+.ajoutOeuvrePage .gallery-card p {
+    margin-top: 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #d1b7b9;
+  }
+
+@media (max-width: 768px) {
+    .formRow {
+      flex-direction: column;
+    }
+  }
+
