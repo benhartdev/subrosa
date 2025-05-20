@@ -36,6 +36,9 @@ router.delete('/:id', ensureAdmin, artistsController.deleteArtist);
 // Récupère les artistes en attente (admin uniquement)
 router.get('/pending', ensureAdmin, artistsController.getPendingArtists);
 
+// Récupère un artiste par son slug
+router.get('/slug/:slug', artistsController.getArtistBySlug);
+
 // Ajouter des images à un artiste (admin uniquement)
 router.patch('/:id/images', ensureAdmin, updateArtistImages);
 
@@ -43,7 +46,6 @@ router.patch('/:id/images', ensureAdmin, updateArtistImages);
 router.put('/:id/status', ensureAdmin, artistsController.updateArtistStatus);
 router.get('/:id',artistsController.getArtistById);
 
-// Récupère un artiste par son slug
-router.get('/slug/:slug', artistsController.getArtistBySlug);
+
 
 module.exports = router;

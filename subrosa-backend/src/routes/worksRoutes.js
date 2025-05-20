@@ -293,15 +293,23 @@ router.post("/json", ensureAdmin, async (req, res) => {
 router.get('/slug/:slug', async (req, res) => {
   try {
     const work = await Work.findOne({ slug: req.params.slug }).populate('artistId');
+
     if (!work) {
-      return res.status(404).json({ message: "Œuvre introuvable" });
+      return res.status(404).json({ message: "Œuvre non trouvée" });
     }
+
+    // Autoriser l'accès uniquement si validée ou accès admin
+    const isAdmin = req.query.admin === 'true';
+    if (!work.isApproved && !isAdmin) {
+      return res.status(403).json({ message: "Œuvre en attente de validation" });
+    }
+
     res.status(200).json(work);
   } catch (error) {
-    console.error("Erreur récupération œuvre par slug:", error);
     res.status(500).json({ message: "Erreur serveur" });
   }
 });
+
 
 
 // route PATCH pour mettre à jour une œuvre - images

@@ -258,7 +258,8 @@ const getArtistBySlug = async (req, res) => {
     const artist = await Artist.findOne({ slug: req.params.slug })
   .populate({
     path: "works",
-    model: "work", // ⚠️ adapte selon ton nom de modèle exact
+    model: "work",
+    match: { isApproved: true }, // ⚠️ adapte selon ton nom de modèle exact
   });
 
     if (!artist) {
