@@ -7,7 +7,6 @@
 	font-size:14px;
 	text-transform:uppercase;
 	letter-spacing:1px;
-    
     z-index: 9995;
 }
 
@@ -33,7 +32,7 @@
 }
 
 .nav-item a:hover {
-	color:#a30101
+	color:#0dbab1;
 }
 
 .nav-item{
@@ -48,11 +47,10 @@
     top: 4px;
     margin: 0 2vw; /* pour créer une respiration */
     z-index: 10;
- 
 }
 
 .navbar-nav-custom .nav-accueil:hover {
-    color: #c41c1c;      /* couleur au survol */
+    color: #0dbab1;      /* couleur au survol */
     transform: scale(1.1); /* effet de zoom au survol */
 }
 
@@ -76,10 +74,6 @@
     border-bottom: 1px solid #ccc;
     z-index: 9998;
 }
-  
-  
-  
-
   
 .navbar-toggle-wrapper {
     text-align: center;
@@ -143,7 +137,7 @@
 }
 
 .nav-link:hover {
-    color: #a30101;
+    color: #0dbab1;
 }
  
 /* BURGERMENU */

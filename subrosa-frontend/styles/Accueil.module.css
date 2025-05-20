@@ -203,7 +203,7 @@
     justify-content: center; /* Centre la barre horizontalement */
     align-items: center; /* Centre verticalement */
     position: relative;
-    z-index: 9995;
+    z-index: 15;
     width: 100%; /* Assure que le conteneur prenne toute la largeur */
     text-align: center;
     flex-wrap: wrap; /* Permet de s'adapter en responsive */
