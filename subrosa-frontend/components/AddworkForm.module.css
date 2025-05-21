@@ -53,7 +53,10 @@
       width: 100%;
     } */
 
-.ajoutOeuvrePage h1 {
+
+    /*a verif si utiliser*/
+
+/* .ajoutOeuvrePage h1 {
     text-align: center;
     margin-bottom: 2rem;
     color: #898686;
@@ -86,7 +89,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: #d1b7b9;
-  }
+  } */
 .formRow {
     display: flex;
     flex-wrap: wrap;
@@ -181,7 +184,7 @@
     border: 1px solid #333;
   }
 
-.formWrapper .image-upload-block input[type="file"] {
+.imageUploadBlock input[type="file"] {
     margin-top: 10px;
     width: 100%;
     background-color: #000000; /* ton rouge foncé */
@@ -189,7 +192,7 @@
     font-family: Michroma, sans-serif;
   }
 
-.formWrapper .image-upload-block input[type="text"] {
+.imageUploadBlock input[type="text"] {
     
     width: 100%;
     padding: 8px;
@@ -199,7 +202,8 @@
     font-family: Michroma, sans-serif;
   }
 
-.ajoutOeuvrePage .gallery-card img {
+  /*a verif si utilisé */
+/* .ajoutOeuvrePage .gallery-card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -212,7 +216,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     color: #d1b7b9;
-  }
+  } */
 
 @media (max-width: 768px) {
     .formRow {

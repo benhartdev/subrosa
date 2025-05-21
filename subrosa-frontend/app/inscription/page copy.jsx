@@ -3,8 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import ArtistForm from "../../components/ArtistForm";
 import UserForm from "../../components/UserForm";
-import AccountForm from "../../components/AccountForm";
-
+import "../../styles/inscription-artiste.css";
 import "../../styles/inscription-redirection.css";
 import { useEffect } from "react";
 
@@ -22,8 +21,8 @@ export default function InscriptionPage() {
   return (
       <div className="page-container">
       <main className="page-content main-content">
-      {type === "artist" && <AccountForm type="artist"/>}
-      {type === "user" && <AccountForm type="user"/>}
+      {type === "artist" && <ArtistForm mode="create" showWorkUpload={false} />}
+      {type === "user" && <UserForm />}
 
       {!type && (
         <>

@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/PendingStatusBanner.css"; // fichier CSS que tu peux créer à côté
+import styles from "./PendingStatusBanner.module.css"
 
 const PendingStatusBanner = ({ username }) => {
   return (
-    <div className="pending-banner">
+    <div className={styles.pendingBanner}>
       <p>
         Bonjour <strong>{username}</strong>, votre compte artiste est en cours de validation.
         <br />

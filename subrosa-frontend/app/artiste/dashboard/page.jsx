@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { useAuth } from "../../../components/context/AuthContext";
 import PendingStatusBanner from "../../../components/PendingStatusBanner";
-import Link from "next/link";
-import "../../../styles/ArtistDashboard.css";
 import ArtistDashboardWorks from "../../../components/ArtistDashboardWorks";
-import Image from "next/image";
+import styles from "./ArtistDashboardPage.module.css";
+
+
 
 const ArtistDashboard = () => {
   const { user, isLoading } = useAuth();
@@ -19,13 +21,14 @@ const ArtistDashboard = () => {
 
   return (
     <main>
-      <h1>{user.username}</h1>
-      <Link href="/ajout-oeuvre" className="add-artwork-button">
+      <h1 className={styles.dashboardTitle}>{user.username}</h1>
+
+      <Link href="/ajout-oeuvre" className={styles.addArtworkButton}>
       <Image src="/images/logo_oeuvre_1.svg"
           alt="Icône ajouter œuvre"
           width={120}
           height={120}
-          className="art-icon"/>
+          className={styles.artIcon}/>
       Ajouter une œuvre
     </Link>
 
@@ -37,7 +40,7 @@ const ArtistDashboard = () => {
       </section>
       <section style={{ marginTop: "2rem" }}>
        
-        <ul className="view-profile">
+        <ul className={styles.viewProfile}>
           <li><Link href={`/artiste/${user._id}`}>👤 Voir mon profil public</Link></li>
         </ul>
       </section>

@@ -1,0 +1,28 @@
+.dashboardTitle {    
+    font-size: 3rem;
+    color: rgb(100, 5, 5);
+/* Format : top right bottom left */
+    margin: 250px auto 0 auto;
+    text-align: center;
+}
+
+.viewProfile {
+    margin: 50px 0 0 0;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    font-size: 2rem;
+}
+  
+  .addArtworkButton {
+  display: flex;
+  margin: 80px auto 0 auto;
+  width: 200px;
+}
+
+.artIcon {
+  width: 40px;
+  height: 40px;
+}
+ 
+  

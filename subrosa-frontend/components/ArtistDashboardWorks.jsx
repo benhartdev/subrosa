@@ -2,9 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../components/context/AuthContext";
 import ArtistGallery from "../components/ArtistGallery";
-import "../styles/ArtistDashboard.css";
+import styles from "./ArtistDashboardWorks.module.css"; // nouveau
 
-// Fonction utilitaire pour éviter les doublons de localhost
 const formatImageUrl = (url) => {
   if (!url) return "/placeholder.jpg";
   return url.startsWith("http") ? url : `http://localhost:5000${url}`;
@@ -44,8 +43,8 @@ const ArtistWorksSection = () => {
   if (loading) return <p style={{ color: "white" }}>Chargement des œuvres...</p>;
 
   return (
-    <div className="artist-works-section">
-      <h2 className="dashboard-subtitle">🎯 Œuvres validées</h2>
+    <div className={styles.artistWorksSection}>
+      <h2 className={styles.dashboardSubtitle}>🎯 Œuvres validées</h2>
       {validatedWorks.length > 0 ? (
         <ArtistGallery
           images={validatedWorks.map((w) => ({
@@ -57,10 +56,12 @@ const ArtistWorksSection = () => {
           fieldsToShow={["title", "date"]}
         />
       ) : (
-        <p className="dashboard-note">Aucune œuvre validée pour le moment.</p>
+        <p className={styles.dashboardNote}>Aucune œuvre validée pour le moment.</p>
       )}
 
-      <h2 className="dashboard-subtitle" style={{ marginTop: "4rem" }}>🕓 Œuvres en attente</h2>
+      <h2 className={styles.dashboardSubtitle} style={{ marginTop: "4rem" }}>
+        🕓 Œuvres en attente
+      </h2>
       {pendingWorks.length > 0 ? (
         <ArtistGallery
           images={pendingWorks.map((w) => ({
@@ -72,7 +73,7 @@ const ArtistWorksSection = () => {
           fieldsToShow={["title", "date"]}
         />
       ) : (
-        <p className="dashboard-note">Aucune œuvre en attente actuellement.</p>
+        <p className={styles.dashboardNote}>Aucune œuvre en attente actuellement.</p>
       )}
     </div>
   );
