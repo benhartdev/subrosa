@@ -1,11 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import ArtistForm from "../../components/ArtistForm";
-import UserForm from "../../components/UserForm";
 import AccountForm from "../../components/AccountForm";
+import styles from "../../components/AccountForm.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPalette, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import "../../styles/inscription-redirection.css";
+
+
 import { useEffect } from "react";
 
 export default function InscriptionPage() {
@@ -20,21 +22,19 @@ export default function InscriptionPage() {
   }, [type]);
 
   return (
-      <div className="page-container">
-      <main className="page-content main-content">
-      {type === "artist" && <AccountForm type="artist"/>}
-      {type === "user" && <AccountForm type="user"/>}
-
+    <div className={styles.formPageWrapper}>
+      {type === "artist" && <AccountForm type="artist" />}
+      {type === "user" && <AccountForm type="user" />}
       {!type && (
         <>
-          <div className="inscription-choice">
-            <h2>Quel type d’inscription souhaitez-vous ?</h2>
-            <div className="button-group">
-              <a href="/inscription?type=artist" className="inscription-btn">
-                🎨 Je suis un artiste
+          <div className={styles.inscriptionChoice}>
+            <h2>Quel type d'inscription souhaitez-vous ?</h2>
+            <div className={styles.buttonGroup}>
+              <a href="/inscription?type=artist" className={styles.inscriptionBtn}>
+                 <FontAwesomeIcon icon={faPalette} className={styles.icon} /> Je suis un artiste
               </a>
-              <a href="/inscription?type=user" className="inscription-btn">
-                👤 Je suis un utilisateur
+              <a href="/inscription?type=user" className={styles.inscriptionBtn}>
+                 <FontAwesomeIcon icon={faUser} className={styles.icon} /> Je suis un utilisateur
               </a>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function InscriptionPage() {
           <div style={{ minHeight: "calc(100vh - 800px)" }}></div>
         </>
       )}
-    </main>
     </div>
   );
 }
+

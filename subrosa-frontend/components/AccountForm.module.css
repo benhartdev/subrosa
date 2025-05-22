@@ -1,26 +1,36 @@
-.label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: bold;
-  color: white;
-}
-
-.input {
+.pageContainer {
+  min-height: 100vh;
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
   background-color: black;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
 }
 
+/* Centrage de la page entière */
+.formPageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 10rem;
+  background-color: var(--background); /* ou noir */
+  color: var(--foreground);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Conteneur du formulaire */
 .container {
   width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  background-color: #000000;
   padding: 2rem;
-  background-color: #111;
+  margin: 0 auto;
+  box-shadow: 0 0 5px rgb(255, 255, 255);
   border-radius: 8px;
 }
 
@@ -28,38 +38,110 @@
   width: 100%;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+/* SubPage */
+
+.inscriptionChoice {
+  padding-top: 5rem;
+  text-align: center;
+  color: white;
 }
 
-.formTitle {
-  font-size: 2rem;
-  color: white;
+.inscriptionChoice h2 {
   margin-bottom: 2rem;
-  text-align: center;
+  font-size: 1.5rem;
 }
 
 .buttonGroup {
   display: flex;
-  gap: 1rem;
   justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
-.submitButton, .cancelButton {
+.inscriptionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.inscriptionBtn:hover {
+  background-color: var(--color-bg);
+  color: var(--color-hover);
+  border-color:  var(--color-hover);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Formulaire */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Style des champs */
+.inputForm {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  background-color: #2e2e2e;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Labels */
+.labelForm {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* Titre */
+.formTitle {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.submitButton,
+.cancelButton {
   background-color: #222;
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   border: 1px solid white;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.submitButton:hover, .cancelButton:hover {
-  background-color: white;
+.submitButton:hover,
+.cancelButton:hover {
+  background-color: aqua;
   color: black;
 }
+
 
 /* Responsive */
 @media screen and (max-width: 768px) {

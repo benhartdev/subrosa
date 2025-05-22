@@ -1,5 +1,5 @@
 
-// import "./globals.css";
+import "./globals.css";
 import { AuthProvider } from '../components/context/AuthContext';
 import AutoLogout from '../components/AutoLogout'; 
 import "../lib/fontawesome"; 
@@ -26,10 +26,10 @@ export default function RootLayout({ children }) {
           <AutoLogout />
              <div className="page-container">
           <Header />
-          <main className="page-content main-content">
+          <div className="page-content main-content">
              <PopupManager /> {/* ← Injection globale */}
             {children}
-         </main>
+         </div>
           <Footer />
             </div>
         </AuthProvider>

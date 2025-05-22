@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ArtistFullForm from "../../components/ArtistFullForm";
+import AccountForm from "../../components/AccountForm";
 import "../../styles/artistEditPanel.css";
 import ArtistMessageBadge from "../../components/ArtistMessageBadge";
 
@@ -86,11 +86,12 @@ const ArtistEditPanel = () => {
                 <div className="overlay-form">
                   <button className="close-btn" onClick={handleCancel}>✖</button>
                   <h3 className="overlay-title">Modification de {editingArtist.username}</h3>
-                  <ArtistFullForm
+                  <AccountForm
                     existingData={editingArtist}
+                    artistId={editingArtist._id}
                     onCancel={handleCancel}
                     onSubmit={handleUpdate}
-                    mode="admin-edit"
+                    type="admin-edit"
                   />
                 </div>
   </div>

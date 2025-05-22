@@ -7,9 +7,20 @@
   font-weight: 400;
   font-style: normal;
 }
+
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  /* Base */
+  --color-bg: #000;
+  --color-text: #fff;
+
+  /* Hover */
+  
+  --color-hover: #0dbab1;
+
+  /* UI */
+  
+  --color-success: rgb(10, 157, 10);
+  --color-error: rgb(164, 5, 5);
 }
 
 html,
@@ -18,23 +29,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Michroma', sans-serif;
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   box-sizing: border-box;
-}
-
-
-body {
-  height: 100%;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Michroma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
+
+
+
 
 a {
   color: inherit;
@@ -42,10 +45,11 @@ a {
 }
 
 .page-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-   padding-top: 180px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+ 
   box-sizing: border-box;
 }
 

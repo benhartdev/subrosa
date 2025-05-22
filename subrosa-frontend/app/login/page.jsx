@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
-import '../../styles/inscription-artiste.css';
+
 
 
 const ArtistLogin = () => {

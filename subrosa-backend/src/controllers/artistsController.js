@@ -176,6 +176,23 @@ const updateArtist = async (req, res) => {
 
     const updateData = { ...req.body };
 
+          // ✅ Parser les champs JSON envoyés sous forme de string
+      if (typeof updateData.images === 'string') {
+        try {
+          updateData.images = JSON.parse(updateData.images);
+        } catch (e) {
+          console.warn('❗ Impossible de parser le champ images');
+        }
+      }
+
+      if (typeof updateData.artistImages === 'string') {
+        try {
+          updateData.artistImages = JSON.parse(updateData.artistImages);
+        } catch (e) {
+          console.warn('❗ Impossible de parser le champ artistImages');
+        }
+      }
+
     // ✅ S'assurer que les tableaux sont bien reconstruits depuis FormData
     if (typeof updateData.old_exhibitions === 'string') {
       updateData.old_exhibitions = [updateData.old_exhibitions];
