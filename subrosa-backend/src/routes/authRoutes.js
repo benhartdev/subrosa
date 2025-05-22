@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const { loginUser, logout } = require('../controllers/authController');
+const { checkSession } = require('../controllers/sessionController');
+
 
 router.post('/login', loginUser);
 router.post('/logout', logout);

@@ -51,10 +51,32 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
+  const { name, value, type, checked } = e.target;
+
+  // Nouvelle valeur pour le champ modifié
+  const newValue = type === 'checkbox' ? checked : value;
+
+  // Nouvelle copie du formData avec la valeur modifiée
+  const updatedData = {
+    ...formData,
+    [name]: newValue,
   };
 
+  // Logique : si on change le statut
+  if (name === 'status') {
+    if (value === 'validated') {
+      updatedData.isApproved = true;
+    } else {
+      updatedData.isApproved = false;
+    }
+  }
+
+  setFormData(updatedData);
+};
+
+
+  
+  
   const handleAddExhibition = (type) => {
     if (type === 'old' && expoInput.trim()) {
       setFormData((prev) => ({ ...prev, old_exhibitions: [...prev.old_exhibitions, expoInput.trim()] }));
@@ -105,7 +127,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
       }
 
       const form = new FormData();
-      Object.keys(formData).forEach((key) => {
+      Object.entries(formData).forEach(([key, value]) => {
         if (["confirmPassword", "confirmEmail"].includes(key)) return;
          // 🔁 Si c'est un tableau de **primitifs**
   if (Array.isArray(value) && typeof value[0] !== 'object') {
@@ -271,7 +293,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <label className={styles.labelForm}>Expositions passées :</label>
                 <div className={styles.inputExpo}>
                   <input className={styles.inputForm} value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
-                  <button type="button" onClick={(e) => handleAddExhibition('old')}>Ajouter</button>
+                  <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('old')}>Ajouter</button>
                 </div>
                 <ul className={styles.exposPassees}>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
@@ -279,7 +301,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <label className={styles.labelForm}>Expositions futures :</label>
                 <div className={styles.inputExpo}>
                   <input className={styles.inputForm} value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
-                  <button type="button" onClick={(e) => handleAddFutureExhibition('future')}>Ajouter</button>
+                  <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('future')}>Ajouter</button>
                 </div>
                 <ul className={styles.exposFutures}>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
 
@@ -287,24 +309,35 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               {isAdmin && (
                 <>
                   <label className={styles.labelForm}>Statut :</label>
-                  <select name="status" value={formData.status} onChange={handleChange}>
+                  <select className={styles.selectStatut} name="status" value={formData.status} onChange={handleChange}>
                     <option value="">Choisir...</option>
                     <option value="pending">En attente</option>
                     <option value="validated">Validé</option>
                     <option value="rejected">Rejeté</option>
                   </select>
 
-                  <label className={styles.labelForm}>
-                     <input className={styles.inputForm} type="checkbox" name="isApproved" checked={formData.isApproved} onChange={handleChange} /> Approuvé par l'admin ?
-                  </label>
+                 
                 </>
               )}
             </>
           )}
 
-          <label className={styles.labelForm}>
-          <input className={styles.inputForm} type="checkbox" name="newsletter" checked={formData.newsletter} onChange={handleChange} /> Recevoir la newsletter
-        </label>
+                    {isAdmin ? (
+            <p className={styles.labelForm}>
+              Newsletter : <strong>{formData.newsletter ? '✅ inscrit' : '❌ non inscrit'}</strong>
+            </p>
+          ) : (
+            <div className={styles.newsletterRow}>
+                <input
+                  id="newsletter"
+                  type="checkbox"
+                  name="newsletter"
+                  checked={formData.newsletter}
+                  onChange={handleChange}
+                />
+                   <label htmlFor="newsletter">Recevoir la newsletter</label>
+            </div>
+          )}
 
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.submitButton}>💾 Enregistrer</button>

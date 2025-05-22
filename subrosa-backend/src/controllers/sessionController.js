@@ -1,14 +1,18 @@
-
 function checkSession(req, res) {
-  if (req.session?.user?.role === "admin") {
-    res.json({ status: 'admin', username: req.session.user.username, role: 'admin' });
-  } else if (req.session?.user?.role === "artist") {
-    res.json({ status: 'artist', artistId: req.session.user.id, username: req.session.user.username, role: 'artist' });
+  if (req.session?.user) {
+    const { id, username, role } = req.session.user;
+
+    return res.json({
+      authenticated: true,
+      user: {
+        id,
+        username,
+        role,
+      },
+    });
   } else {
-    res.status(401).json({ status: 'unauthenticated' });
+    return res.status(401).json({ authenticated: false, message: "Non authentifié" });
   }
 }
-  module.exports = {
-    checkSession,
-  };
-  
+
+module.exports = { checkSession };

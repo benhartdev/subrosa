@@ -33,31 +33,39 @@ const AddArtwork = () => {
   const [user, setUser] = useState(null);
 
   // Récupération de l'artiste connecté
-  useEffect(() => {
-    const verifySession = async () => {
-      try {
-        const res = await fetch('http://localhost:5000/api/auth/check', {
-          credentials: 'include',
-        });
-        if (!res.ok) throw new Error("Session expirée");
-  
-        const data = await res.json();
-        if (data.user.role === 'artist' || data.user.role === 'admin') {
-          setUser(data.user);
-          if (data.user.role === 'artist') {
-            setFormData(prev => ({ ...prev, artistId: data.user._id }));
-          }
-        } else {
-          setUser(false);
-        }
-      } catch (err) {
-        console.warn("⛔ Session non valide ou expirée");
+useEffect(() => {
+  const verifySession = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/check", { credentials: "include", });
+
+      const data = await res.json();
+      console.log("✅ Résultat session :", data);
+
+      if (!data.authenticated) {
+        setUser(false);
+        return;
+      }
+
+      const user = data.user;
+
+      if (user.role === "artist") {
+        setUser(user);
+        setFormData(prev => ({ ...prev, artistId: user.id }));
+      } else if (user.role === "admin") {
+        setUser(user); // admin peut aussi ajouter une œuvre
+      } else {
         setUser(false);
       }
-    };
-  
-    verifySession();
-  }, []);
+    } catch (err) {
+      console.error("⛔ Erreur session :", err);
+      setUser(false);
+    }
+  };
+
+  verifySession();
+}, []);
+
+
   
 
   const handleChange = (e) => {
@@ -87,63 +95,80 @@ const AddArtwork = () => {
  
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = new FormData();
+  e.preventDefault();
 
-    Object.entries(formData).forEach(([key, value]) => {
-      if (key === 'dimensions') {
-        Object.entries(value).forEach(([dimKey, dimVal]) => {
-          form.append(`dimensions[${dimKey}]`, dimVal);
-        });
-      } else {
-        form.append(key, value);
-      }
-    });
+  // 🔐 Sécurité : s'assurer que artistId est présent avant d’envoyer
+  if (!formData.artistId && user?.role === 'artist') {
+    formData.artistId = user._id;
+  }
 
-    images.forEach((img, index) => {
-      if (img.file) {
-        form.append('images', img.file);
-        form.append(`altText[${index}]`, img.altText);
-      }
-    });
+  const form = new FormData();
 
-    try {
-      console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}/works/artist/add`);
-      console.log("📤 artistId envoyé dans le POST :", formData.artistId);
-      const response = await fetch(`http://localhost:5000/works/artist/add`, {
-        method: 'POST',
-        body: form,
-        credentials: 'include',
+  // 🧱 Construction du FormData
+  Object.entries(formData).forEach(([key, value]) => {
+    if (key === 'dimensions') {
+      Object.entries(value).forEach(([dimKey, dimVal]) => {
+        form.append(`dimensions[${dimKey}]`, dimVal);
       });
-      console.log('API URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
-      const data = await response.json();
-      if (response.ok) {
-        setMessage('✅ Œuvre soumise avec succès');
-        setSubmittedArtworks([data, ...submittedArtworks]);
-        // Réinitialisation
-        setFormData({
-          title: '',
-          description: '',
-          creation_date: '',
-          medium: '',
-          price: '',
-          currency: '€',
-          in_stock: '',
-          status: 'available',
-          dominant_colors: '',
-          themes: '',
-          artistId: formData.artistId,
-          dimensions: { height: '', width: '', depth: '', unit: 'cm' },
-          type: '',
-        });
-        setImages([{ file: null, altText: '' }]);
-      } else {
-        setMessage(`${data.message}`);
-      }
-    } catch (error) {
-      setMessage('❌ Erreur de connexion serveur.');
+    } else {
+      form.append(key, value);
     }
-  };
+  });
+
+  // 🖼️ Images + altText
+  images.forEach((img, index) => {
+    if (img.file) {
+      form.append('images', img.file);
+      form.append(`altText[${index}]`, img.altText);
+    }
+  });
+
+  // 🔍 Debug complet du FormData
+  console.log("🧪 Données envoyées :");
+  for (let pair of form.entries()) {
+    console.log(`${pair[0]}: ${pair[1]}`);
+  }
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/works/artist/add`, {
+      method: 'POST',
+      body: form,
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setMessage('✅ Œuvre soumise avec succès');
+      setSubmittedArtworks([data, ...submittedArtworks]);
+
+      // 🧼 Reset des champs (on garde l’artistId actif)
+      setFormData({
+        title: '',
+        description: '',
+        creation_date: '',
+        medium: '',
+        price: '',
+        currency: '€',
+        in_stock: '',
+        status: 'available',
+        dominant_colors: '',
+        themes: '',
+        artistId: formData.artistId,
+        dimensions: { height: '', width: '', depth: '', unit: 'cm' },
+        type: '',
+      });
+
+      setImages([{ file: null, altText: '' }]);
+    } else {
+      setMessage(`❌ ${data.message || 'Erreur lors de la soumission.'}`);
+    }
+  } catch (error) {
+    console.error('❌ Erreur fetch:', error);
+    setMessage('❌ Erreur de connexion au serveur.');
+  }
+};
+
 
   // 🛑 Protection d’accès
   if (user === null) {
@@ -187,10 +212,10 @@ const AddArtwork = () => {
         <label htmlFor="type">Type d’œuvre</label>
         <select name="type" required value={formData.type} onChange={handleChange}>
           <option value="">-- Choisissez --</option>
-          <option value="photo">Photographie</option>
-          <option value="sculpture">Sculpture</option>
-          <option value="peinture">Peinture</option>
-          <option value="illustration">Illustration</option>
+          <option value="Photographie">Photographie</option>
+          <option value="Sculpture">Sculpture</option>
+          <option value="Peinture">Peinture</option>
+          <option value="Illustration">Illustration</option>
         </select>
       </div>
     

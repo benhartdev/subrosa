@@ -5,7 +5,7 @@ const Artist = require('../models/Artists');
 const { ensureAdmin, ensureArtist } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/multerConfig'); 
 const filterByApproval = require('../middlewares/filterByApproval');
-
+const slugify = require('slugify');
 
 router.get('/', filterByApproval, async (req, res) => {
   try {
@@ -134,6 +134,7 @@ router.post('/by-admin/:artistId', ensureAdmin, async (req, res) => {
 // ✅ Nouvelle route artiste avec upload d’une seule oeuvre avec plusieurs images de celle ci
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
   console.log("🧠 SESSION ACTUELLE :", req.session); 
+  console.log("🎯 ARTIST CONNECTÉ :", req.session.user);
   try {
     console.log('📥 Données reçues :');
     console.log('🟡 req.body =>', req.body);
@@ -145,10 +146,10 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     }
 
     // ✅ Prendre l’ID depuis la session
-    const artistId = req.session?.user?.id;
+    const artistId = req.session?.user?._id || req.session?.user?.id
     if (!artistId) {
       return res.status(401).json({ message: "Utilisateur non connecté ou session expirée." });
-    }
+    };
 
     const artist = await Artist.findById(artistId);
     if (!artist) {
@@ -180,6 +181,12 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
       dimensions
     } = req.body;
 
+    // 🔧 Génération du slug
+const slug = slugify(`${title}-${Date.now()}`, {
+  lower: true,
+  strict: true
+});
+
     const finalDimensions = {
       height: Number(dimensions.height),
       width: Number(dimensions.width),
@@ -203,6 +210,7 @@ router.post('/artist/add', upload.array('images', 10), async (req, res) => {
     const newWork = new Work({
       type,
       title,
+       slug,
       description,
       creation_date,
       medium,

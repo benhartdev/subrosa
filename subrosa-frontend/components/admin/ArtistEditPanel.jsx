@@ -85,7 +85,7 @@ const ArtistEditPanel = () => {
               <div className="form-overlay">
                 <div className="overlay-form">
                   <button className="close-btn" onClick={handleCancel}>✖</button>
-                  <h3 className="overlay-title">Modification de {editingArtist.username}</h3>
+                  <h3 className="overlay-title">{editingArtist.username}</h3>
                   <AccountForm
                     existingData={editingArtist}
                     artistId={editingArtist._id}

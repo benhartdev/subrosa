@@ -26,7 +26,7 @@
 /* Conteneur du formulaire */
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   background-color: #000000;
   padding: 2rem;
   margin: 0 auto;
@@ -79,6 +79,18 @@
   background-color: var(--color-bg);
   color: var(--color-hover);
   border-color:  var(--color-hover);
+}
+
+.buttonExpo {
+  background-color: #000000;
+  color: white;
+  margin-top: 1rem;
+  border: 1px solid white;
+  padding: 1rem 2rem;
+}
+
+.buttonExpo:hover {
+background-color: var(--color-hover);
 }
 
 .icon {
@@ -140,6 +152,38 @@
 .cancelButton:hover {
   background-color: aqua;
   color: black;
+}
+
+.selectStatut {
+  background-color: #111;
+  color: #eee;
+  border: 1px solid #666;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  width: 100%;
+}
+
+.selectStatut:focus {
+  border-color: #fff;
+}
+
+.selectStatut option {
+  background-color: #0d7082;
+  color: #eee;
+}
+
+.newsletterRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletterRow input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: rgb(25, 187, 36); /* Améliore l'aspect du check sur fond noir */
 }
 
 
