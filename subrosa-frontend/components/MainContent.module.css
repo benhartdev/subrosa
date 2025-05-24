@@ -1,0 +1,73 @@
+.gridWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-items: center;
+  gap: 0.1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.customCard {
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 460px;
+}
+
+.cardMedia {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.customCardContent {
+  padding: 1rem;
+}
+
+.truncatedText {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blogAuthor {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+/* === Responsive === */
+@media screen and (max-width: 768px) {
+
+  .artistGalleryTitleWrapper {
+  padding: 0;
+ margin-top: -5px;
+  }
+  .artistGalleryTitle {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .gridWrapper {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1rem;
+  }
+
+  .customCard {
+    max-width: 100%;
+  }
+
+  .cardMedia {
+    aspect-ratio: 16 / 9;
+  }
+}

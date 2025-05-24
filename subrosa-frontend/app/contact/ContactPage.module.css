@@ -1,0 +1,31 @@
+.contactContainer {
+  margin-top: 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255 255 255 / 100%);
+  font-size: 16px;
+  font-family: Michroma, sans-serif;
+  font-weight: 400;
+}
+
+.contactTitle {
+  margin: 30px 0 0;
+  font-size: 48px;
+  text-align: center;
+  border-color: rgb(0 0 0 / 100%);
+  border-style: solid;
+  border-width: 1px;
+  font-family: Michroma, sans-serif;
+}
+
+.contactInfo {
+  text-align: center;
+  margin-top: 78px;
+  line-height: 1.5;
+}
+
+.contactLink {
+  text-decoration: underline;
+  color: inherit;
+}

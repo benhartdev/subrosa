@@ -1,0 +1,55 @@
+.logoOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block; 
+  transform: translate(15%, -45%);
+  z-index: 10;
+  transition: transform 0.3s ease, top 0.3s ease;
+  /* outline: 1px dashed red; */
+}
+
+/* Zone cliquable */
+.clickZone1 {
+  position: absolute;
+  top: 0;     
+  right: 0;   
+  width: 200px;  /* zone cliquable horizontale */
+  height:250px; /* zone cliquable verticale */
+  z-index: 15;
+  cursor: pointer;
+  background: transparent;
+  /* outline: 1px dashed rgb(213, 11, 11); */
+}
+.clickZone2 {
+  position: absolute;
+  top: 0;     
+  right: 0;   
+  width: 650px;  /* zone cliquable horizontale */
+  height:160px; /* zone cliquable verticale */
+  z-index: 15;
+  cursor: pointer;
+  background: transparent;
+  /* outline: 1px dashed rgb(234, 255, 0); */
+}
+
+@media screen and (max-width: 1024px) {
+  .logoOverlay {
+    transform: translate(5%, -60%) scale(0.85);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logoOverlay {
+    transform: translate(5%, -48%) scale(0.6);
+  }
+   .clickZone1 {
+  width: 200px;  /* zone cliquable horizontale */
+  height:180px; /* zone cliquable verticale */
+  /* outline: 1px dashed rgb(24, 202, 27); */
+}
+  .clickZone2 {
+  width: 500px;  /* zone cliquable horizontale */
+  height:140px; /* zone cliquable verticale */
+}
+}

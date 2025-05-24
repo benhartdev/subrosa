@@ -8,7 +8,7 @@ import AdminPendingWorksPanel from "../../components/admin/AdminPendingWorksPane
 import PendingArtists from "../../components/admin/PendingArtists";
 import AdminMessagesButton from "../../components/admin/AdminMessagesButton";
 
-import styles from "../../styles/AdminPage.module.css";
+import styles from "./AdminPage.module.css";
 
 import { useState } from "react"; 
 import { useRef } from "react";

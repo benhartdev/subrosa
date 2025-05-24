@@ -1,17 +1,17 @@
-.testimonials-container {
+.testimonialsContainer {
   padding: 4rem 2rem;
   background-color: #000000;
   color: #ffffff;
   text-align: center;
 }
 
-.testimonials-title {
+.testimonialsTitle {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
-.testimonials-description {
+.testimonialsDescription {
   margin-bottom: 3rem;
   font-size: 1rem;
   line-height: 1.6;
@@ -20,23 +20,22 @@
   margin-right: auto;
 }
 
-.testimonials-grid {
+.testimonialsGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
 
-.testimonial-card {
+.testimonialCard {
   background-color: #3837378f;
-
   padding: 2rem 1.5rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   max-width: 300px;
   flex: 1;
 }
 
-.testimonial-avatar {
+.testimonialAvatar {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -45,46 +44,46 @@
   margin: 0 auto 1rem;
 }
 
-.testimonial-name {
+.testimonialName {
   font-weight: bold;
   font-size: 1.1rem;
   margin: 0.5rem 0 0.25rem;
 }
 
-.testimonial-role {
+.testimonialRole {
   font-weight: 500;
   color: #0a9e0c;
   margin-bottom: 1rem;
   font-size: 0.95rem;
 }
 
-.testimonial-text {
+.testimonialText {
   font-size: 0.95rem;
   font-style: italic;
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
 
-.testimonial-stars {
+.testimonialStars {
   display: flex;
   justify-content: center;
   gap: 0.2rem;
 }
 
-.testimonial-stars i {
+.testimonialStars i {
   color: #f5c518;
   font-size: 1rem;
 }
 
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .testimonials-grid {
+  .testimonialsGrid {
     flex-direction: column;
     align-items: center;
   }
 
-  .testimonial-card {
+  .testimonialCard {
     max-width: 100%;
     margin-bottom: 1rem;
   }
-  
 }

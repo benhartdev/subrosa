@@ -4,6 +4,7 @@ import styles from './AccountForm.module.css';
 import PopupMessage from "./PopupMessage";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import SubrosaLogo from "./SubrosaLogo";
 
 const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCancel }) => {
   const router = useRouter();
@@ -174,6 +175,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
   return (
     <div className={styles.container}>
+      <SubrosaLogo />
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>
@@ -220,7 +222,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
           <input className={styles.inputForm} type="email" name="email" value={getSafeValue(formData.email)} onChange={handleChange} />
 
           <label className={styles.labelForm}>Confirmation email :</label>
-          <input className={styles.inputForm} type="email" name="confirmEmail" value={formData.confirmEmail} onChange={handleChange} />
+          <input className={styles.inputForm} type="email" name="confirmEmail" placeholder="Confirmez votre email" value={formData.confirmEmail} onChange={handleChange} />
 
           {isUser && (
             <>
@@ -273,13 +275,13 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
             </select>
 
               <label className={styles.labelForm}>Compétences techniques :</label>
-        <input className={styles.inputForm} name="technical_skills" value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
+        <input className={styles.inputForm} name="technical_skills" placeholder="Photos plexiglas - Peinture sur toile - Fine Art etc..."value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Biographie :</label>
         <textarea className={styles.inputForm} placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Interviews / Presse :</label>
-              <textarea className={styles.inputForm} name="interviews" value={getSafeValue(formData.interviews)} onChange={handleChange} />
+              <textarea className={styles.inputForm} name="interviews" placeholder="500 caractères maximum" value={getSafeValue(formData.interviews)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Site web :</label>
               <input className={styles.inputForm} name="website" value={getSafeValue(formData.website)} onChange={handleChange} />
@@ -292,7 +294,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
               <label className={styles.labelForm}>Expositions passées :</label>
                 <div className={styles.inputExpo}>
-                  <input className={styles.inputForm} value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
+                  <input className={styles.inputForm} placeholder="Janvier 2024 :  Salon d'Automne,  Grande Halle de la Vilette, Paris, France" value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
                   <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('old')}>Ajouter</button>
                 </div>
                 <ul className={styles.exposPassees}>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
@@ -300,7 +302,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
               <label className={styles.labelForm}>Expositions futures :</label>
                 <div className={styles.inputExpo}>
-                  <input className={styles.inputForm} value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
+                  <input className={styles.inputForm} placeholder="Décembre 2025 : Expo Nina's,  Galerie Sub rosa, Paris, France" value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
                   <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('future')}>Ajouter</button>
                 </div>
                 <ul className={styles.exposFutures}>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>

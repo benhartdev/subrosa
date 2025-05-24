@@ -1,5 +1,5 @@
 import LogoSubrosa from "../../components/icons/gallerie SUB logo.svg";
-import GravityButton from "../../components/GravityButton";
+import GravityButton from "../../components/Composant non utilisé/GravityButton";
 import Image from "next/image";
 
 export default function Home() {

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import SablierLoader from "./SablierLoader";
-
+import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState(null); // success | emailFail | error
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -54,12 +54,10 @@ const ContactForm = () => {
 
   return (
     <>
-      {/* Overlay avec sablier si loading */}
       {loading && <SablierLoader />}
 
-      {/* Formulaire */}
-      <form onSubmit={handleSubmit} className="contact-form">
-        <div className="input-field">
+      <form onSubmit={handleSubmit} className={styles.contactForm}>
+        <div className={styles.inputField}>
           <input
             type="text"
             name="name"
@@ -67,10 +65,10 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="form-input"
+            className={styles.formInput}
           />
         </div>
-        <div className="input-field">
+        <div className={styles.inputField}>
           <input
             type="email"
             name="email"
@@ -78,43 +76,46 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="form-input"
+            className={styles.formInput}
           />
         </div>
-        <div className="textarea-field">
-          <div className="textarea-wrapper">
+        <div className={styles.textareaField}>
+          <div className={styles.textareaWrapper}>
             <textarea
               name="message"
               placeholder="Votre message"
               value={formData.message}
               onChange={handleChange}
-              className="form-textarea"
+              className={styles.formTextarea}
               required
             />
           </div>
         </div>
-        <div className="button-group">
-          <button type="submit" className="submit-button" disabled={loading}>
+        <div className={styles.buttonGroup}>
+          <button
+            type="submit"
+            className={styles.submitButton}
+            disabled={loading}
+          >
             ENVOYER
           </button>
         </div>
       </form>
 
-      {/* Message juste après le formulaire */}
       {status && (
-        <div className="form-feedback-wrapper">
+        <div className={styles.formFeedbackWrapper}>
           {status === "success" && (
-            <p className="form-feedback success">
+            <p className={`${styles.formFeedback} ${styles.success}`}>
               ✅ Votre message a bien été envoyé.
             </p>
           )}
           {status === "emailFail" && (
-            <p className="form-feedback warning">
+            <p className={`${styles.formFeedback} ${styles.warning}`}>
               ⚠️ Message enregistré, mais l’e-mail n’a pas pu être envoyé.
             </p>
           )}
           {status === "error" && (
-            <p className="form-feedback error">
+            <p className={`${styles.formFeedback} ${styles.error}`}>
               ❌ Une erreur est survenue. Veuillez réessayer.
             </p>
           )}

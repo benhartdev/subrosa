@@ -1,5 +1,5 @@
 'use client';
-import styles from './desinscription.module.css';
+import styles from './Desinscription.module.css';
 import SubrosaLogo from '../../../components/SubrosaLogo';
 
 const DesinscriptionPage = () => {

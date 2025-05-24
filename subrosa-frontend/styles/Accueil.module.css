@@ -101,7 +101,7 @@
     transform: translate(-50%, -50%); /* Centre parfaitement */
 }
 
-.discover-artist:hover {
+.discoverArtist:hover {
     background: rgb(133 133 133);
     color: black;
 }
@@ -595,7 +595,6 @@
     margin-top: 30px; /* Réduit l’espace au-dessus du bouton */
     width: 100%;
     text-align: center;
-    
 }
 
 .viewAllBtn {
@@ -1014,4 +1013,44 @@
 }
 .testimonialsSection {
   /* styles pour .testimonials-section à compléter */
+}
+
+
+/* styles specifiques pour le composant Gallery.jsx */
+
+.homeGalleryGrid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+  justify-content: center;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .homeGalleryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.homeGalleryGrid :global(.artistGalleryItem) {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.homeGalleryGrid :global(.artworkCard) {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }

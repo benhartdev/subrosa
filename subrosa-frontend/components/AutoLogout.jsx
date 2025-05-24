@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useAuth } from '../components/context/AuthContext';
+import styles from './autoLogout.module.css';
 
 const AutoLogout = () => {
   const { logout } = useAuth();
@@ -16,13 +17,11 @@ const AutoLogout = () => {
     if (!session || session.role === 'admin') return;
 
     const handleActivity = () => {
-      // Toute activité détectée => reset
       clearTimeout(activityTimeoutRef.current);
       clearTimeout(logoutTimeoutRef.current);
       clearInterval(countdownRef.current);
       setShowWarning(false);
 
-      // Timer d’inactivité (10 sec ici pour test)
       activityTimeoutRef.current = setTimeout(() => {
         setShowWarning(true);
         setCountdown(60);
@@ -36,19 +35,16 @@ const AutoLogout = () => {
           });
         }, 1000);
 
-        // Déconnexion finale après 5 secondes d’inactivité confirmée
         logoutTimeoutRef.current = setTimeout(() => {
           logout();
-        }, 60000); // 5 sec après le warning
-      }, 600000); // 10 sec sans activité = déclenchement
+        }, 60000);
+      }, 600000);
     };
 
-    // Ajoute les écouteurs
     window.addEventListener('mousemove', handleActivity);
     window.addEventListener('click', handleActivity);
     window.addEventListener('keypress', handleActivity);
 
-    // Démarre le tout dès le début
     handleActivity();
 
     return () => {
@@ -64,18 +60,8 @@ const AutoLogout = () => {
   return (
     <>
       {showWarning && (
-        <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          backgroundColor: '#222',
-          color: '#fff',
-          padding: '15px 20px',
-          borderRadius: '8px',
-          boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-          zIndex: 1000,
-        }}>
-          <p style={{ margin: 0 }}>
+        <div className={styles.logoutWarning}>
+          <p className={styles.logoutText}>
             ⏳ Inactivité détectée : vous serez déconnecté dans {countdown} seconde{countdown > 1 ? 's' : ''}.
           </p>
         </div>

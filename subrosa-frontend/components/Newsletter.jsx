@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./Footer.module.css"; // Ou adapte si tu le places ailleurs
+import styles from "./Newsletter.module.css";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -33,19 +33,19 @@ export default function Newsletter() {
   };
 
   return (
-    <div id="newsletter" className={styles["newsletter-container"]}>
-      <label className={styles["newsletter-label"]} htmlFor="email">
+    <div id="newsletter" className={styles.newsletterContainer}>
+      <label className={styles.newsletterLabel} htmlFor="email">
         INSCRIPTION NEWSLETTER
       </label>
-      <div className={styles["newsletter"]}>
+      <div className={styles.newsletter}>
         <input
           type="email"
-          className={styles["email"]}
+          className={styles.email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="votre adresse mail"
         />
-        <button className={styles["subscribe-btn"]} onClick={handleSubscribe}>
+        <button className={styles.subscribeBtn} onClick={handleSubscribe}>
           OK
         </button>
       </div>

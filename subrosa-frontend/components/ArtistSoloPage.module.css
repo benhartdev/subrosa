@@ -1,0 +1,39 @@
+/* === Page artiste solo === */
+.artistPage {
+  background-color: black;
+  color: white;
+  padding-bottom: 4rem;
+}
+
+/* === Intro (titre + sous-titre) === */
+.artistIntro {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.artistSubtitle {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.artistFullname {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* === Conteneur & portrait de l’artiste === */
+.artistContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: black;
+}
+
+.artistFeatured {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

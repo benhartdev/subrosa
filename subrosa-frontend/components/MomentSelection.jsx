@@ -1,16 +1,14 @@
 "use client";
 import Link from "next/link";
-import "../styles/MomentSelection.css";
+import styles from "./MomentSelection.module.css";
 
 const React = require("react");
 const { useState, useEffect } = React;
-
 
 const SelectionDuMoment = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [flouActif, setFlouActif] = useState(false);
-
 
   const idsChoisis = [
     "6806b27606806385c809f0d7", // image carrée 1
@@ -23,7 +21,6 @@ const SelectionDuMoment = () => {
   ];
 
   useEffect(() => {
-    
     const fetchOeuvres = async () => {
       try {
         const res = await fetch("http://localhost:5000/api/works");
@@ -40,15 +37,9 @@ const SelectionDuMoment = () => {
     fetchOeuvres();
   }, []);
 
- 
-
-
-
-
- // 🔧 Appliquer flou navbar au hover
-const handleMouseEnter = () => setFlouActif(true);
-const handleMouseLeave = () => setFlouActif(false);
-
+  // 🔧 Appliquer flou navbar au hover
+  const handleMouseEnter = () => setFlouActif(true);
+  const handleMouseLeave = () => setFlouActif(false);
 
   const renderImg = (index, className) => {
     const item = oeuvres[index];
@@ -59,16 +50,18 @@ const handleMouseLeave = () => setFlouActif(false);
       : `http://localhost:5000${item.images[0].url}`;
 
     return (
-      <Link href={`/oeuvres/${item.slug}`} key={item._id} 
+      <Link
+        href={`/oeuvres/${item.slug}`}
+        key={item._id}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
-      <img
-        src={imageUrl}
-        alt={item.images[0].altText || "Œuvre"}
-         className={`${className} artwork-hover`}
-         
-      />
-    </Link>
+        onMouseLeave={handleMouseLeave}
+      >
+        <img
+          src={imageUrl}
+          alt={item.images[0].altText || "Œuvre"}
+          className={`${styles[className]} ${styles.artworkHover}`}
+        />
+      </Link>
     );
   };
 
@@ -76,50 +69,51 @@ const handleMouseLeave = () => setFlouActif(false);
 
   return (
     // Début de la section visible à l'écran
-<section className="selection-container">
+    <section className={styles.selectionContainer}>
 
-  {/* Titre principal centré avec déco */}
- <div className="selection-title-wrapper">
-  <span className="selection-line" />
-  <h2 className="selection-title">NOTRE SELECTION DU MOMENT</h2>
-  <span className="selection-line" />
-</div>
+      {/* Titre principal centré avec déco */}
+      <div className={styles.selectionTitleWrapper}>
+        <span className={styles.selectionLine} />
+        <h2 className={styles.selectionTitle}>NOTRE SELECTION DU MOMENT</h2>
+        <span className={styles.selectionLine} />
+      </div>
 
-  {/* Grille verticale 4 lignes d’œuvres */}
-  <div className="gallery-container">
+      {/* Grille verticale 4 lignes d’œuvres */}
+      <div className={styles.galleryContainer}>
 
-    {/* Ligne 1 : 2 œuvres carrées côte à côte */}
-    <div className="line">
-      {renderImg(0, "img-square")}   {/* image à l’index 0 */}
-      {renderImg(1, "img-square")}   {/* image à l’index 1 */}
-    </div>
+        {/* Ligne 1 : 2 œuvres carrées côte à côte */}
+        <div className={styles.line}>
+          {renderImg(0, "imgSquare")}
+          {renderImg(1, "imgSquare")}
+        </div>
 
-    {/* Ligne 2 : 2 œuvres circulaires côte à côte */}
-    <div className="line">
-      {renderImg(2, "img-round")}     {/* image à l’index 2 */}
-      {renderImg(3, "img-round")}     {/* image à l’index 3 */}
-    </div>
+        {/* Ligne 2 : 2 œuvres circulaires côte à côte */}
+        <div className={styles.line}>
+          {renderImg(2, "imgRound")}
+          {renderImg(3, "imgRound")}
+        </div>
 
-    {/* Ligne 3 : 2 œuvres horizontales (paysage) côte à côte */}
-    <div className="line_landscape">
-      {renderImg(4, "img-landscape")}  {/* image à l’index 4 */}
-      {renderImg(5, "img-landscape")}  {/* image à l’index 5 */}
-    </div>
+        {/* Ligne 3 : 2 œuvres horizontales (paysage) côte à côte */}
+        <div className={styles.lineLandscape}>
+          {renderImg(4, "imgLandscape")}
+          {renderImg(5, "imgLandscape")}
+        </div>
 
-    {/* Ligne 4 : 1 image unique centrée */}
-    <div className="line">
-      {renderImg(6, "img-gta")}       {/* image à l’index 6 */}
-    </div>
+        {/* Ligne 4 : 1 image unique centrée */}
+        <div className={styles.line}>
+          {renderImg(6, "imgGta")}
+        </div>
 
-   </div>
-     <div className="selection-title-wrapper">
-       <span className="end-selection-line" />
-    </div>
-   <div className={`nav-blur-overlay ${flouActif ? "active" : ""}`}></div>
+      </div>
 
-</section>
+      <div className={styles.selectionTitleWrapper}>
+        <span className={styles.endSelectionLine} />
+      </div>
 
-
+      <div
+        className={`${styles.navBlurOverlay} ${flouActif ? styles.navBlurOverlayActive : ""}`}
+      ></div>
+    </section>
   );
 };
 

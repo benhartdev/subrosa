@@ -1,0 +1,358 @@
+.headContainer {
+  font-family: Michroma, sans-serif;
+  position: relative; /* ✅ nécessaire pour que les enfants absolus se basent dessus */
+  width: 100%;
+  max-width: 2500px;
+  margin: 0 auto;
+  top: 7%;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texteSuperpose {
+  position: absolute;
+  top: 45%; /* ✅ modifie selon la hauteur dans l'image */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 3em;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.discoverArtist {
+    display: flex;
+    justify-content: center; /* Centre le contenu de la barre */
+    align-items: center;
+    position: absolute;
+    top: 60%; /* Positionnement vertical */
+    left: 50%; /* Positionnement horizontal */
+    padding: 12px 24px;
+    border: 1px solid rgb(255 255 255);
+    background: rgb(255 255 255);
+    color: rgb(0 0 0);
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-family: Michroma, sans-serif;
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+}
+
+.discoverArtist:hover {
+    background: rgb(133 133 133);
+    color: black;
+}
+
+.galleryHeader {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: Michroma, sans-serif;
+  margin-top: -15%;
+  z-index: 8;
+  }
+
+  .galleryContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 8;
+  }
+  
+  .galleryTitle {
+    font-family: Michroma, sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* espace entre GALLERIE et SUB ROSA ART */
+    font-size: 3rem;
+    margin: 0;
+    z-index: 8;
+  }
+  
+  .gallery-name,
+.galleryBrand {
+  white-space: nowrap;
+}
+
+  .gallerySeparator {
+    display: block;
+    z-index: 9995;
+    font-size: 48px;
+    font-family: "Protest Revolution", sans-serif;
+  }
+
+  .gallerySubtitle {
+    font-family: Michroma, sans-serif;
+    z-index: 8;
+    margin-top: 10px;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  @media (width <= 991px) {
+    .galleryHeader {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .galleryName {
+      font-size: 30px;
+    }
+  
+    .galleryBrand {
+      font-size: 60px;
+    }
+  
+    .gallerySubtitle {
+      font-size: 36px;
+    }
+  }
+  
+  @media (width <= 640px) {
+    .galleryHeader {
+      padding: 16px;
+    }
+  
+    .galleryName {
+      font-size: 24px;
+    }
+  
+    .galleryBrand {
+      font-size: 48px;
+    }
+  
+    .gallerySubtitle {
+      font-size: 28px;
+    }
+  }
+
+  .navigationFilters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    position: relative;
+    z-index: 15;
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    text-align: center;
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+  }
+
+  /* Category Filters Section */
+  .categoryFilters {
+    display: flex;
+    justify-content: center; /* Centre la barre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 100%; /* Assure que le conteneur prenne toute la largeur */
+    text-align: center;
+    flex-wrap: wrap; /* Permet de s'adapter en responsive */
+    margin-top: 30px; /* Ajuste l'espace au-dessus */
+  }
+  
+  .categoryFilters a {
+    text-decoration: none;
+    border: var(--color-grey);
+  }
+
+  .categoryFilters:hover {
+    color: var(--color-hover);
+    border: var(--color-border);
+  }
+
+   @media (width <= 991px) {
+    .categoryFilters {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+
+   /* Category Buttons */
+  .categoryButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    padding: 15px 30px; /* Espacement uniforme autour du texte */
+    border: 1px solid #928f8f;
+    color: #fff;
+    background-color: transparent;
+    min-height: 30px;
+    min-width: 150px; /* Définit une largeur minimale */
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .categoryButton:hover{
+    color: #0dbab1;
+     border: 1px solid #0dbab1;
+  }
+  
+  @media (width <= 991px) {
+    .categoryButton {
+      white-space: initial;
+    }
+  
+  }
+
+  /* Surprise Text */
+  .surpriseText {
+    width: 243px;
+    color: #fff;
+    line-height: 20px;
+    margin-top: 25px;
+  }
+
+   .titleArtistSelection {
+    font-family: 'Michroma';
+    font-size: 14px;
+    color: white;
+    justify-content: center;
+    text-align: center;
+  }
+ 
+  .titleArtistUniverse {
+    font-family: 'Michroma';
+    font-size: 34px;
+    color: white;
+    justify-content: center;
+    margin: auto;
+  }
+
+.titleArtistSelection,
+.titleArtistUniverse {
+  text-align: center;
+  font-family: 'Michroma', sans-serif;
+  color: white;
+}
+
+/* styles specifiques pour le composant Gallery.jsx */
+
+.homeGalleryGrid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+  justify-content: center;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .homeGalleryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* .homeGalleryGrid :global(.artistGalleryItem) {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.homeGalleryGrid :global(.artworkCard) {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+} */
+
+  .artistsButtonContainer {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    margin-top: 30px; /* Réduit l’espace au-dessus du bouton */
+    width: 100%;
+    text-align: center;
+}
+
+.viewAllBtn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid white;
+    background: rgb(255 255 255);
+    color: black;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 50px; /* Supprime l’espace inutile au-dessus */
+}
+
+.blogSubrosa {
+  margin-top: -12rem !important
+ }
+
+  /* Concept Section */
+  .conceptSection {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+    text-align: center;
+    background-color: #1a1717;
+  }
+  
+  .conceptContent {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .conceptTitle {
+    
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .conceptHeading {
+   
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  @media (width <= 640px) {
+    .conceptHeading {
+      font-size: 16px;
+    }
+  }
+  
+  .conceptSubtitle {
+    font-family: Michroma, sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .conceptDescription {
+    font-family: Michroma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .learnMoreBtn {
+    padding: 10px 24px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #000;
+    cursor: pointer;
+  }

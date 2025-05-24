@@ -4,10 +4,10 @@ import styles from './PopupManager.module.css';
 
 const showPopup = (message, isError = false) => {
   const overlay = document.createElement('div');
-  overlay.className = styles["popup-overlay"];
+  overlay.className = styles.popupOverlay;
 
   const popup = document.createElement('div');
-  popup.className = isError ? styles["popup-error"] : styles["popup-success"];
+  popup.className = isError ? styles.popupError : styles.popupSuccess;
   popup.innerText = message;
 
   document.body.appendChild(overlay);

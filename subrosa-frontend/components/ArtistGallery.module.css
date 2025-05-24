@@ -1,0 +1,103 @@
+/* === Galerie globale === */
+.artistGallery {
+  width: 100%;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.artistGallery a,
+.artistGallery a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Grille des œuvres === */
+.artistGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 8rem 2rem;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Éléments de la galerie === */
+.artistGalleryItem {
+  min-height: 200px;
+}
+
+/* === Carte d'œuvre === */
+.artworkCard {
+  width: 500px;
+  aspect-ratio: 3 / 4;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.artworkCard img,
+.artistGalleryImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.artworkCard:hover .artistGalleryImage {
+  transform: scale(1.03);
+}
+
+/* === Conteneur de l'image === */
+.artworkImageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* === Informations sous l’image === */
+.artworkInfo {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  line-height: 1.4;
+  color: white;
+  margin: 3rem auto 0 auto;
+  border: none;
+  outline: none;
+}
+
+.artworkInfo * {
+  border: none;
+  outline: none;
+}
+
+.artworkInfo p {
+  margin: 0;
+}
+
+/* === Titre de l’œuvre === */
+.artworkTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+/* === Séparateur blanc === */
+.artworkDivider {
+  height: 1px;
+  background-color: white;
+  margin: 0.4rem auto 0.8rem;
+}
+
+/* === Date de création ou d’ajout === */
+.artworkDate {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 0.2rem 0;
+}

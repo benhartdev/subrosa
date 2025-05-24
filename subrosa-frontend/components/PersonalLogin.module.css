@@ -16,7 +16,7 @@
   }
   
   /* TITRE */
-  #personal-space {
+  #personalSpace {
     margin: auto;
     color: white;
     font-size: 3rem;
@@ -24,13 +24,13 @@
     white-space: nowrap;
   }
   
-  #artist-pending {
+  #artistPending {
     margin: auto;
     margin-bottom: 30px;
   }
 
   /* LIEN */
-  #already-client {
+  #alreadyClient {
     width: 100%;
     font-size: 1rem;
     text-align: left;
@@ -46,7 +46,7 @@
   }
   
   /* BLOC FORMULAIRE */
-  #box-component {
+  #boxComponent {
     width: 100%;
     padding: 3rem;
     border: 2px solid white; /* bordure visible */
@@ -56,7 +56,7 @@
   }
   
   /* TEXTE INTRO */
-  #text-login {
+  #textLogin {
     font-size: 0.9rem;
     line-height: 1.6;
     text-align: center;
@@ -170,7 +170,7 @@
   
  
  
-  #box-component {
+  #boxComponent {
     border: none !important;
     border: 0.3px solid white !important;
     box-shadow: none !important;
@@ -181,7 +181,7 @@
 
   /* Bouton MDP - underline custom */
 
-.button.secondary {
+.buttonSecondary {
   position: relative;
   border: none;
   background: none;
@@ -190,7 +190,7 @@
   text-decoration: none; /* enlever le vrai underline */
 }
 
-.button.secondary::after {
+.buttonSecondary::after {
   position: absolute;
   bottom: -5px; /* 👈 règle la distance entre le texte et la ligne */
   left: 0;
@@ -201,7 +201,7 @@
 }
   
 
-  input:-webkit-autofill,
+  /* input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
@@ -209,10 +209,10 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: white !important;
   transition: background-color 9999s ease-in-out 0s;
   caret-color: white !important;
-}
+} */
 
   /* TABLEAU STATS */
-.admin-stats {
+.adminStats {
   margin: 2rem 0;
   padding: 1rem;
   border: 1px solid white;
@@ -221,18 +221,18 @@ input:-webkit-autofill:active {
   font-family: Helvetica, sans-serif;
 }
 
-.admin-stats h2 {
+.adminStats h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.admin-stats ul {
+.adminStats ul {
   list-style: none;
   padding-left: 0;
   line-height: 2;
 }
 
-.recharts-wrapper {
+.rechartsWrapper {
   padding: 1rem;
   border: 1px solid #ff4cf9;
   box-shadow: 0 0 10px rgb(255 76 249 / 20%);
@@ -240,7 +240,7 @@ input:-webkit-autofill:active {
   border-radius: 12px;
 }
 
-.admin-dashboard {
+.adminDashboard {
   padding: 2rem;
   border: 1px solid #fff;
   box-shadow: 0 0 20px rgb(255 255 255 / 10%);
@@ -249,7 +249,7 @@ input:-webkit-autofill:active {
   border-radius: 12px;
 }
 
-.admin-list {
+.adminList {
   margin: 2rem auto;
   padding: 0;
   text-align: center;
@@ -257,13 +257,13 @@ input:-webkit-autofill:active {
 }
 
 @media screen and (width <= 768px) {
-  #personal-space {
+  #personalSpace {
     font-size: 1rem; /* adapte selon ton design */
     text-align: center;
     margin-top: 5rem;
   }
 
-  #already-client {
+  #alreadyClient {
     margin: auto;
     padding: 1rem;
     font-size: 0.8rem;

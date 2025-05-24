@@ -1,4 +1,4 @@
-.popup-message.success {
+.popupMessage.success {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -17,14 +17,14 @@
     min-width: 300px;
   }
   
-  .popup-message.success::before {
+  .popupMessage.success::before {
     content: "✔️";
     display: block;
     font-size: 2rem;
     margin-bottom: 10px;
   }
   
-  .popup-message.error {
+  .popupMessage.error {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -43,7 +43,7 @@
     min-width: 300px;
   }
   
-  .popup-message.error::before {
+  .popupMessage.error::before {
     content: "❌";
     display: block;
     font-size: 2rem;

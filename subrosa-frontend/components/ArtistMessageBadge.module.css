@@ -1,14 +1,14 @@
-.message-badge-wrapper {
+.messageBadgeWrapper {
     position: relative;
     display: inline-block;
   }
   
-  .envelope-icon {
+  .envelopeIcon {
     font-size: 24px;
     color: white;
   }
   
-  .message-count {
+  .messageCount {
     position: absolute;
     top: -5px;
     right: -10px;

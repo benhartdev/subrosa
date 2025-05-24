@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../styles/popup.css";
+import styles from "./PopupMessage.module.css";
 
 const PopupMessage = ({ message, type = "info", onClose }) => {
   useEffect(() => {
@@ -10,7 +10,7 @@ const PopupMessage = ({ message, type = "info", onClose }) => {
   }, [onClose]);
 
   return (
-    <div className={`popup-message ${type}`}>
+    <div className={`${styles.popupMessage} ${styles[type]}`}>
       <p>{message}</p>
     </div>
   );

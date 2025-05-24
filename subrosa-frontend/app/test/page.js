@@ -4,7 +4,7 @@ import React from 'react';
 import PersonalLogin from '../../components/PersonalLogin';
 import '../../styles/addworkForm.css';
 
-import GalleryScroll from '../../components/GalleryScroll'
+import GalleryScroll from '../../components/Composant non utilisé/GalleryScroll'
 import AddworkForm from '../../components/AddworkForm'
 
 import Head from 'next/head'

@@ -1,78 +1,110 @@
-
 "use client";
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoadingSkeleton from "./LoadingSkeleton";
-import "../styles/artistGallery.css";
+import styles from "./Gallery.module.css";
 
 export default function Gallery({ items = [], loading, customClass = "", fieldsToShow = [], type }) {
   const pathname = usePathname();
 
   if (loading) return <LoadingSkeleton />;
-  
+
   return (
-    <div className="artist-gallery">
-      <div className="gallery-container">
-      <div className={`artist-gallery-grid ${customClass}`}>
-       {items.map((item, index) => {
+    <div className={styles.artistGallery}>
+      <div className={styles.galleryContainer}>
+        <div className={`${styles.artistGalleryGrid} ${customClass}`}>
+          {items.map((item, index) => {
+            const linkHref =
+              type === "artist"
+                ? `/artistes/${item.slug}`
+                : type === "works"
+                ? `/oeuvres/${item.slug || item.Slug || item._id}`
+                : null;
 
-        console.log("item.slug:", item.slug);
+            const imageUrl = item.image || item.images?.[0]?.url || "/placeholder.jpg";
+            const altText = item.title || item.name || "Image";
 
-          const linkHref =
-            type === "artist"
-              ? `/artistes/${item.slug}`
-              : type === "works"
-              ? `/oeuvres/${item.slug || item.Slug || item._id}`
-              : null;
-        console.log("ITEM :", item);
+            const content = (
+              <div className={styles.artistGalleryItem}>
+                <div className={styles.artworkCard}>
+                  <div className={styles.artworkImageBox}>
+                    <img
+                      src={imageUrl}
+                      alt={altText}
+                      className={`${styles.artistGalleryImage} ${styles.artworkHover}`}
+                    />
+                  </div>
+                </div>
+                <div className={styles.artworkInfo}>
+                  {fieldsToShow.includes("title") && (
+                    <h3 className={styles.artworkTitle}>{item.title || item.name || "Titre"}</h3>
+                  )}
 
-          const imageUrl = item.image || item.images?.[0]?.url || "/placeholder.jpg";
-          const altText = item.title || item.name || "Image";
+                  {pathname !== "/" && (
+                    <div className={`${styles.artworkDivider} ${styles.dividerDefault}`} />
+                  )}
 
+                  {fieldsToShow.includes("description") && item.description && (
+                    <p className={styles.artworkDescription}>{item.description}</p>
+                  )}
+                  {fieldsToShow.includes("medium") && item.medium && (
+                    <p className={styles.artworkMedium}>{item.medium}</p>
+                  )}
+                  {fieldsToShow.includes("dimensions") && item.dimensions && (
+                    <p className={styles.artworkDimensions}>
+                      {item.dimensions.height} × {item.dimensions.width}
+                      {item.dimensions.depth ? ` × ${item.dimensions.depth}` : ""}
+                      {item.dimensions.unit ? ` ${item.dimensions.unit}` : " cm"}
+                    </p>
+                  )}
+                  {fieldsToShow.includes("themes") && item.themes?.length > 0 && (
+                    <p className={styles.artworkThemes}>Thèmes : {item.themes.join(", ")}</p>
+                  )}
+                  {fieldsToShow.includes("type") && item.type && (
+                    <p className={styles.artworkType}>{item.type}</p>
+                  )}
+                  {fieldsToShow.includes("artistName") && item.artistName && (
+                    <p className={styles.artworkArtist}>{item.artistName}</p>
+                  )}
+                  {fieldsToShow.includes("price") && item.price && (
+                    <p className={styles.artworkPrice}>{item.price} €</p>
+                  )}
+                  {fieldsToShow.includes("username") && item.username && (
+                    <p className={styles.artworkUsername}>{item.username}</p>
+                  )}
 
-          const content = (
-            <div className="artist-gallery-item">
-              <div className="artwork-card">
-                <div className="artwork-image-box">
-                  <img src={imageUrl} alt={altText} className="artist-gallery-image artwork-hover" />
-               </div>
-             </div>
-            <div className="artwork-info">
-  {fieldsToShow.includes("title") && (
-    <h3 className="artwork-title">{item.title || item.name || "Titre"}</h3>)}
-  {/* Divider entre title et les autres infos – uniquement hors accueil */}
-      {pathname !== "/" && (<div className="artwork-divider divider-default" />)}
-  {fieldsToShow.includes("description") && item.description && (<p className="artwork-description">{item.description}</p>)}
-  {fieldsToShow.includes("medium") && item.medium && (<p className="artwork-medium">{item.medium}</p>)}
-  {fieldsToShow.includes("dimensions") && item.dimensions && (<p className="artwork-dimensions">
-      {item.dimensions.height} × {item.dimensions.width}
-      {item.dimensions.depth ? ` × ${item.dimensions.depth}` : ""}
-      {item.dimensions.unit ? ` ${item.dimensions.unit}` : " cm"}</p>)}
-  {fieldsToShow.includes("themes") && item.themes?.length > 0 && (<p className="artwork-themes">Thèmes : {item.themes.join(", ")}</p>)}
-  {fieldsToShow.includes("type") && item.type && (<p className="artwork-type">{item.type}</p>)}
-  {fieldsToShow.includes("artistName") && item.artistName && (<p className="artwork-artist">{item.artistName}</p>)}
-  {fieldsToShow.includes("price") && item.price && (<p className="artwork-price">{item.price} €</p>)}
-  {fieldsToShow.includes("username") && item.username && (<p className="artwork-username">{item.username}</p>)}
-   {/* Divider entre username et style uniquement sur la page d’accueil */}
-        {pathname === "/" && fieldsToShow.includes("username") && fieldsToShow.includes("style") && (<div className="artwork-divider divider-home" />)}
-  {fieldsToShow.includes("style") && item.style && (<p className="artwork-style">{item.style}</p>)}
-  {fieldsToShow.includes("date") && item.date && (<p className="artwork-date">Ajouté le{" "}
-      {new Date(item.date).toLocaleDateString("fr-FR", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",})}</p>)}
-           </div>
+                  {pathname === "/" &&
+                    fieldsToShow.includes("username") &&
+                    fieldsToShow.includes("style") && (
+                      <div className={`${styles.artworkDivider} ${styles.dividerHome}`} />
+                    )}
+
+                  {fieldsToShow.includes("style") && item.style && (
+                    <p className={styles.artworkStyle}>{item.style}</p>
+                  )}
+                  {fieldsToShow.includes("date") && item.date && (
+                    <p className={styles.artworkDate}>
+                      Ajouté le{" "}
+                      {new Date(item.date).toLocaleDateString("fr-FR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+
+            return (
+              <div key={item.id || index}>
+                {linkHref ? <Link href={linkHref}>{content}</Link> : content}
+              </div>
+            );
+          })}
         </div>
-          );
-
-  return (
-    <div key={item.id || index}>{linkHref ? <Link href={linkHref}>{content}</Link> : content}
-    </div>
-  );
-})}
       </div>
     </div>
-  </div>
   );
 }

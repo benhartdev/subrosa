@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import "../styles/PersonalLogin.css";
+import styles from './PersonalLogin.module.css';
 import "../styles/reset.css";
 import { useRouter } from 'next/navigation';
 import axios from "axios";
@@ -73,28 +73,28 @@ const PersonalLogin = () => {
   
   return (
     <main>
-      <div id="containerLogin">
+      <div className={styles.containerLogin}>
         <div>
-          <h1 id="personal-space">ESPACE PERSONNEL</h1>
-          <p id="already-client">
+          <h1 className={styles.personalSpace}>ESPACE PERSONNEL</h1>
+          <p className={styles.alreadyClient}>
             Nouveau client ? {" "}
             <a
-              href="/inscription-utilisateur"
-              className="loginLink"
+              href="/inscription"
+              className={styles.LoginLink}
             >
               Cliquez ici pour vous inscrire
             </a>
           </p>
         </div>
 
-        <div id="box-component">
-          <p id="text-login">
+        <div className={styles.BoxComponent}>
+          <p className={styles.TextLogin}>
             Si vous avez déjà commandé chez nous auparavant, veuillez saisir vos
             coordonnées ci-dessous. Si vous êtes un nouveau client, veuillez
             renseigner la section facturation.
           </p>
 
-          <form className="form" onSubmit={handleLogin}>
+          <form className={styles.form} onSubmit={handleLogin}>
             <FormInput
               label="Nom d'utilisateur *"
               type="text"
@@ -111,17 +111,17 @@ const PersonalLogin = () => {
               required
             />
 
-            <div className="buttonGroup">
-              <Button type="submit" className="button primary">
+            <div className={styles.buttonGroup}>
+              <Button type="submit" className={styles.buttonPrimary}>
                 SE CONNECTER
               </Button>
 
-              <Button type="button" className="button secondary">
+              <Button type="button" className={styles.buttonSecondary}>
                 MOT DE PASSE PERDU ?
               </Button>
             </div>
 
-            <div className="divider" />
+            <div className={styles.divider} />
           </form>
         </div>
       </div>
@@ -130,14 +130,14 @@ const PersonalLogin = () => {
 };
 
 const FormInput = ({ label, type, value, onChange, required }) => (
-  <div className="inputField">
-    <label className="label">{label}</label>
+  <div className={styles.inputField}>
+    <label className={styles.label}>{label}</label>
     <input
       type={type}
       value={value}
       onChange={onChange}
       required={required}
-      className="input"
+      className={styles.input}
     />
   </div>
 );

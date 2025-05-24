@@ -5,7 +5,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/Accueil.module.css';
+import styles from './Page.module.css';
 import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
@@ -36,13 +36,15 @@ const featuredArtists = [...items]
             <div className={styles.headContainer}>
                 <Image src="/images/FOND.jpg" alt="Image de fond" width={1920} height={1080} />
                   <div className={styles.logoContainer}>
-                    <Image
-                        src="/images/gallerie_SUB_logo2.png"
-                        alt="Logo SUB ROSA"
-                        width={500}
-                        height={500}
-                        style={{ objectFit: "contain" }}
-                    />
+                    <Link href="/">
+                        <Image
+                          src="/images/gallerie_SUB_logo2.png"
+                          alt="Logo SUB ROSA"
+                          width={500}
+                          height={500}
+                          style={{ objectFit: "contain" }}
+                        />
+                  </Link>
                  </div>
                 <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
                 <Link href="/page-gallerie?type=artist">
@@ -73,7 +75,7 @@ const featuredArtists = [...items]
                 </section>
                 <p className={styles.surpriseText}>ou<br />SURPENEZ-MOI</p>
             </div>
-              <section className="moment-selection">
+              <section>
                           <MomentSelection />
              </section>
               {/* Section Artistes à la une */}
@@ -81,11 +83,11 @@ const featuredArtists = [...items]
         <h3 className={styles.titleArtistSelection}>NOS ARTISTES COUP DE CŒUR</h3>
         <h4 className={styles.titleArtistUniverse}>Partagez leur univers…</h4>
         <Gallery
-          items={featuredArtists}
-          loading={loading}
-          type="artist"
-          customClass="home-gallery-grid"
-          fieldsToShow={["name", "style", "username"]}
+            items={featuredArtists}
+            loading={loading}
+            type="artist"
+            customClass={styles.homeGalleryGrid}
+            fieldsToShow={["name", "style", "username"]}
         />
         <div className={styles.artistsButtonContainer}>
           <Link href="/page-gallerie?type=artist">
@@ -109,7 +111,7 @@ const featuredArtists = [...items]
                     </Link>
                 </div>
             </section>
-             <section className="testimonials-section">
+             <section>
                 <TestimonialSection />
              </section>
         </div>

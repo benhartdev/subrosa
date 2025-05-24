@@ -2,16 +2,16 @@
 "use client";
 
 import React from "react";
-import "../styles/artistGallery.css";
+import styles from "./DoubleBorderContainer.module.css";
 
 export default function DoubleBorderContainer({ title, children }) {
   return (
-    <section className="artist-gallery-section">
-      <div className="artist-gallery-wrapper">
-        <div className="artist-gallery-title-wrapper">
-          <h2 className="artist-gallery-title">{title}</h2>
+    <section className={styles.artistGallerySection}>
+      <div className={styles.artistGalleryWrapper}>
+        <div className={styles.artistGalleryTitleWrapper}>
+          <h2 className={styles.artistGalleryTitle}>{title}</h2>
         </div>
-        <div className="artist-gallery-inner">
+        <div className={styles.artistGalleryInner}>
           {children}
         </div>
       </div>

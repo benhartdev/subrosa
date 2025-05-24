@@ -5,7 +5,7 @@ import AccountForm from "../../components/AccountForm";
 import styles from "../../components/AccountForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette, faUser } from "@fortawesome/free-solid-svg-icons";
-
+import SubrosaLogo from "../../components/SubrosaLogo";
 
 
 import { useEffect } from "react";
@@ -23,11 +23,13 @@ export default function InscriptionPage() {
 
   return (
     <div className={styles.formPageWrapper}>
+      
       {type === "artist" && <AccountForm type="artist" />}
       {type === "user" && <AccountForm type="user" />}
       {!type && (
         <>
           <div className={styles.inscriptionChoice}>
+            
             <h2>Quel type d'inscription souhaitez-vous ?</h2>
             <div className={styles.buttonGroup}>
               <a href="/inscription?type=artist" className={styles.inscriptionBtn}>

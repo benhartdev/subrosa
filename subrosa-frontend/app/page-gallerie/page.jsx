@@ -1,5 +1,6 @@
 import GalleryPage from "../../components/GalleryPage";
 
+
 export default function GalerieRoute({ searchParams }) {
   const param = searchParams.type || "works";
 

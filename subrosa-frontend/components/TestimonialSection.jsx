@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "../styles/TestimonialSection.css";
+import styles from "./TestimonialSection.module.css";
 
 const testimonials = [
   {
@@ -56,19 +56,19 @@ const renderStars = (stars) => {
 
 const TestimonialSection = () => {
   return (
-    <section className="testimonials-container">
-      <h3 className="testimonials-title">Témoignages</h3>
-      <p className="testimonials-description">
+    <section className={styles.testimonialsContainer}>
+      <h3 className={styles.testimonialsTitle}>Témoignages</h3>
+      <p className={styles.testimonialsDescription}>
         Ils ont vécu l’expérience SUB ROSA. Voici ce qu’ils en disent :
       </p>
-      <div className="testimonials-grid">
+      <div className={styles.testimonialsGrid}>
         {testimonials.map((t, index) => (
-          <div key={index} className="testimonial-card">
-            <img src={t.avatar} alt={t.name} className="testimonial-avatar" />
-            <h5 className="testimonial-name">{t.name}</h5>
-            <h6 className="testimonial-role">{t.role}</h6>
-            <p className="testimonial-text">“{t.text}”</p>
-            <div className="testimonial-stars">{renderStars(t.stars)}</div>
+          <div key={index} className={styles.testimonialCard}>
+            <img src={t.avatar} alt={t.name} className={styles.testimonialAvatar} />
+            <h5 className={styles.testimonialName}>{t.name}</h5>
+            <h6 className={styles.testimonialRole}>{t.role}</h6>
+            <p className={styles.testimonialText}>“{t.text}”</p>
+            <div className={styles.testimonialStars}>{renderStars(t.stars)}</div>
           </div>
         ))}
       </div>

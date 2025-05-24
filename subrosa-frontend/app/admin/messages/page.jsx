@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "../../../styles/adminMessages.module.css";
+import styles from "./AdminMessages.module.css";
 
 const AdminMessagesPage = () => {
   const [messages, setMessages] = useState([]);

@@ -1,0 +1,107 @@
+.contactForm {
+  width: 718px;
+  margin: 67px 0 200px;
+  padding: 22px 24px;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(0 0 0);
+  min-width: 320px;
+  min-height: 315px;
+  max-width: 100%;
+  font-family: Michroma, sans-serif;
+  line-height: 1;
+}
+
+.inputField {
+  width: 100%;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.inputField:last-of-type {
+  margin-bottom: 0;
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(30 30 30 / 100%);
+  min-width: 240px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.textareaField {
+  margin-top: 24px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.textareaWrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 80px;
+}
+
+.formTextarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgb(68 68 68 / 100%);
+  color: #fff;
+  background-color: rgb(30 30 30 / 100%);
+  min-width: 240px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(245 245 245 / 100%);
+  color: #1e1e1e;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  align-self: stretch;
+  background-color: rgb(245 245 245 / 100%);
+  min-width: 240px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: rgb(225 225 225 / 100%);
+}
+
+.formFeedbackWrapper {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.formFeedback {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.success {
+  color: #00ff66;
+}
+
+.warning {
+  color: #ffcc00;
+}
+
+.error {
+  color: #ff3333;
+}

@@ -1,0 +1,29 @@
+.sablierOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.805);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sablierSvg {
+  width: 480px;
+  height: auto;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}

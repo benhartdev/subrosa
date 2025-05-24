@@ -11,7 +11,7 @@ import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import MainContent from '../components/MainContent.jsx';
-import GravityButton from "../components/GravityButton";
+import GravityButton from "../components/Composant non utilisé/GravityButton";
 const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
