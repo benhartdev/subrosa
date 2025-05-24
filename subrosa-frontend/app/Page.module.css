@@ -1,10 +1,32 @@
-.headContainer {
+.galleryTitle {
+  display: block; /* ✅ Plus de flex horizontal */
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 0 auto;
+  z-index: 8;
+  }
+
+  .galleryName,
+.galleryBrand {
+  display: block; /* ✅ Chaque mot sur une ligne */
+  white-space: nowrap;
+}
+.gallerySubtitle {
   font-family: Michroma, sans-serif;
-  position: relative; /* ✅ nécessaire pour que les enfants absolus se basent dessus */
+  z-index: 8;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  text-align: center; /* ✅ Ajout nécessaire */
+}
+/* .headContainer {
+  position: relative;
   width: 100%;
   max-width: 2500px;
   margin: 0 auto;
-  top: 7%;
+  font-family: Michroma, sans-serif;
+  overflow: hidden;
 }
 
 .logoContainer {
@@ -20,7 +42,7 @@
 
 .texteSuperpose {
   position: absolute;
-  top: 45%; /* ✅ modifie selon la hauteur dans l'image */
+  top: 45%; 
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px 20px;
@@ -33,11 +55,11 @@
 
 .discoverArtist {
     display: flex;
-    justify-content: center; /* Centre le contenu de la barre */
+    justify-content: center; 
     align-items: center;
     position: absolute;
-    top: 60%; /* Positionnement vertical */
-    left: 50%; /* Positionnement horizontal */
+    top: 60%; 
+    left: 50%;
     padding: 12px 24px;
     border: 1px solid rgb(255 255 255);
     background: rgb(255 255 255);
@@ -47,7 +69,7 @@
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     font-family: Michroma, sans-serif;
-    transform: translate(-50%, -50%); /* Centre parfaitement */
+    transform: translate(-50%, -50%); 
 }
 
 .discoverArtist:hover {
@@ -75,7 +97,7 @@
     font-family: Michroma, sans-serif;
     display: flex;
     justify-content: center;
-    gap: 10px; /* espace entre GALLERIE et SUB ROSA ART */
+    gap: 10px; 
     font-size: 3rem;
     margin: 0;
     z-index: 8;
@@ -137,7 +159,90 @@
     .gallerySubtitle {
       font-size: 28px;
     }
+  } */
+.headContainer {
+  position: relative;
+  width: 100%;
+  max-width: 2500px;
+  margin: 0 auto;
+  font-family: Michroma, sans-serif;
+  overflow: hidden;
+  margin-top: 120px;
+}
+
+.headImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.headOverlayContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 2;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.logoContainer img {
+   position: relative;
+  top: -200px; /* remonte le logo */
+  max-width: 500px;
+  height: auto;
+  
+}
+
+.texteSuperpose {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.discoverArtist {
+  padding: 12px 24px;
+  border: 1px solid rgb(255 255 255);
+  background: rgb(255 255 255);
+  color: rgb(0 0 0);
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: Michroma, sans-serif;
+}
+
+.discoverArtist:hover {
+  background: rgb(133 133 133);
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .galleryTitle {
+    font-size: 1.6rem;
   }
+
+  .gallerySubtitle {
+    font-size: 1rem;
+    color: var(--color-grey)
+  }
+
+  .texteSuperpose {
+    font-size: 1rem;
+  }
+
+  .discoverArtist {
+    font-size: 0.5rem;
+    padding: 10px 18px;
+  }
+
+  .logoContainer img {
+    max-width: 110px;
+  }
+}
+
+
 
   .navigationFilters {
     display: flex;
@@ -175,6 +280,7 @@
     .categoryFilters {
       max-width: 100%;
       margin-top: 40px;
+      scale: 0.8;
     }
   }
 
@@ -240,40 +346,71 @@
 
 .homeGalleryGrid {
   display: grid;
-  gap: 1.5rem;
-  padding: 0 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 3rem 2rem;
   justify-content: center;
-  align-items: start;
+  padding: 0 1rem;
+  max-width: 1200px; 
+  margin: 4rem auto; 
+}
+
+/* Forcer toutes les cartes à respecter la taille responsive */
+.homeGalleryGrid :global(.artistGalleryItem),
+.homeGalleryGrid :global(.artworkCard) {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 3 / 4;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
-  .homeGalleryGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.homeCard {
+  width: 100% ;
+  max-width: 330px ;
+  aspect-ratio: 3 / 4;
 }
-@media (max-width: 768px) {
+
+
+
+/* Mobile & Tablette : 2 colonnes */
+@media screen and (min-width: 100px) and (max-width: 767px) {
   .homeGalleryGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+   .homeCard {
+  width: 100% ;
+  max-width: 200px ;
+  margin: 0 auto; 
 }
-@media (max-width: 500px) {
-  .homeGalleryGrid {
-    grid-template-columns: 1fr;
+ .titleArtistUniverse {
+    font-size: 24px;
+    justify-content: center;
+    margin: auto;
   }
 }
 
-/* .homeGalleryGrid :global(.artistGalleryItem) {
-  max-width: 280px;
-  margin: 0 auto;
+/* Desktop moyen : 3 colonnes */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+   .homeCard {
+  width: 100% ;
+  max-width: 330px ;
+  margin: 0 auto; 
+}
 }
 
-.homeGalleryGrid :global(.artworkCard) {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-} */
+/* Grand écran : 4 colonnes */
+@media screen and (min-width: 1200px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
   .artistsButtonContainer {
     display: flex;

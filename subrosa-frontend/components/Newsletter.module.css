@@ -7,7 +7,7 @@
 }
 
 .newsletterLabel {
-  margin: 0 auto 10px auto;
+  margin: 0 auto 0 auto;
   font-size: 14px;
   text-align: center;
 }
@@ -17,8 +17,8 @@
   flex-direction: row;
   align-items: stretch;
   width: 100%;
-  max-width: 315px;
-  padding: 10px 0 0 0;
+  max-width: 350px;
+  padding: 5px 0 0 0;
 }
 
 .newsletter input {

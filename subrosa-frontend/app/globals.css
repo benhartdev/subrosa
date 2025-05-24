@@ -78,17 +78,14 @@ body.body-accueil {
 }
 
 /*H1 etc */
-body.body-accueil h1 {
+/* body.body-accueil h1 {
   font-size: 3em;
   text-align: center;
   margin-top: 5%;
   color: white;
-}
+} */
 
-body.body-accueil img {
-  max-width: 100%;
-    height: auto;
-}
+
 
 /* NEWSLETTER */ 
 .newsletter-container {

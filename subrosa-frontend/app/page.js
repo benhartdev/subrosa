@@ -34,34 +34,41 @@ const featuredArtists = [...items]
     return (
         <div>
             <div className={styles.headContainer}>
-                <Image src="/images/FOND.jpg" alt="Image de fond" width={1920} height={1080} />
-                  <div className={styles.logoContainer}>
-                    <Link href="/">
-                        <Image
-                          src="/images/gallerie_SUB_logo2.png"
-                          alt="Logo SUB ROSA"
-                          width={500}
-                          height={500}
-                          style={{ objectFit: "contain" }}
-                        />
+              <Image
+                src="/images/FOND.jpg"
+                alt="Image de fond"
+                width={1920}
+                height={1080}
+                className={styles.headImage}
+              />
+              <div className={styles.headOverlayContent}>
+                <div className={styles.logoContainer}>
+                  <Link href="/">
+                    <Image
+                      src="/images/gallerie_SUB_logo2.png"
+                      alt="Logo SUB ROSA"
+                      width={500}
+                      height={500}
+                    />
+                 </Link>
+               </div>
+                  <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
+                  <Link href="/page-gallerie?type=artist">
+                    <button className={styles.discoverArtist}>Découvrez nos artistes</button>
                   </Link>
-                 </div>
-                <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
-                <Link href="/page-gallerie?type=artist">
-                    <button className={styles.discoverArtist}>Decouvrez nos artistes</button>
-                </Link>
+             </div>
+           </div>
+            <div className={styles.galleryHeader}>
+              <div className={styles.galleryContent}>
+                <h1 className={styles.galleryTitle}>
+                  <span className={styles.galleryName}>GALLERIE</span>
+                  <span className={styles.gallerySeparator}></span>
+                  <span className={styles.galleryBrand}>SUB ROSA ART</span>
+                </h1>
+                <p className={styles.gallerySubtitle}>gallerie d’art contemporain</p>
+              </div>
             </div>
 
-            <div className={styles.galleryHeader}>
-                <div className={styles.galleryContent}>
-                    <h1 className={styles.galleryTitle}>
-                        <span className={styles.galleryName}>GALLERIE</span>
-                        <span className={styles.gallerySeparator}></span>
-                        <span className={styles.galleryBrand}>SUB ROSA ART</span>
-                    </h1>
-                    <p className={styles.gallerySubtitle}>gallerie d’art contemporain</p>
-                </div>
-            </div>
 
             <div className={styles.navigationFilters}>
                  <Newsletter />
@@ -87,6 +94,7 @@ const featuredArtists = [...items]
             loading={loading}
             type="artist"
             customClass={styles.homeGalleryGrid}
+            customCardClass={styles.homeCard}
             fieldsToShow={["name", "style", "username"]}
         />
         <div className={styles.artistsButtonContainer}>

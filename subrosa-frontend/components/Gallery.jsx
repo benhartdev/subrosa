@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import LoadingSkeleton from "./LoadingSkeleton";
 import styles from "./Gallery.module.css";
 
-export default function Gallery({ items = [], loading, customClass = "", fieldsToShow = [], type }) {
+export default function Gallery({ items = [], loading, customClass = "", customCardClass = "", fieldsToShow = [], type }) {
   const pathname = usePathname();
 
   if (loading) return <LoadingSkeleton />;
@@ -13,7 +13,8 @@ export default function Gallery({ items = [], loading, customClass = "", fieldsT
   return (
     <div className={styles.artistGallery}>
       <div className={styles.galleryContainer}>
-        <div className={`${styles.artistGalleryGrid} ${customClass}`}>
+        <div className={`${customClass || styles.artistGalleryGrid}`}>
+
           {items.map((item, index) => {
             const linkHref =
               type === "artist"
@@ -27,7 +28,8 @@ export default function Gallery({ items = [], loading, customClass = "", fieldsT
 
             const content = (
               <div className={styles.artistGalleryItem}>
-                <div className={styles.artworkCard}>
+                <div className={`${styles.artworkCard} ${customCardClass}`}>
+
                   <div className={styles.artworkImageBox}>
                     <img
                       src={imageUrl}

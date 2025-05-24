@@ -1,8 +1,8 @@
 .artistGallery {
   width: 100%;
-  
+  padding: 2rem;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   justify-content: center;
 }
 
@@ -13,8 +13,8 @@
 /* === Grille principale === */
 .artistGalleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 8rem 2rem;
+  grid-template-columns: 1fr; /* mobile par défaut */
+  gap: 4rem 2rem;
   justify-items: center;
 }
 
@@ -25,7 +25,8 @@
 
 /* === Carte visuelle de l’œuvre === */
 .artworkCard {
-  width: 500px;
+  width: 100%;
+  max-width: 250px;
   aspect-ratio: 3 / 4;
   background-color: #000;
   display: flex;
@@ -50,8 +51,28 @@
   height: auto;
 }
 
+/* Effet sur l'image zoomée */
+.artworkHover {
+  filter: none;
+  opacity: 1;
+  transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+  transform: scale(1);
+  z-index: 9999;
+}
+
 .artworkHover:hover {
-  transform: scale(1.03);
+  filter: none;
+  opacity: 1;
+  position: relative;
+  transform: scale(1.05);
+  z-index: 9999;
+}
+
+/* Blur sur les autres images */
+.galleryContainer:has(.artworkHover:hover) .artworkHover:not(:hover) {
+  filter: blur(4px);
+  opacity: 0.1;
+  z-index: 9999;
 }
 
 /* === Infos sous l’œuvre === */
@@ -102,4 +123,23 @@
   font-size: 0.95rem;
   color: #ccc;
   margin: 0.2rem 0;
+}
+
+
+@media screen and (min-width: 480px) {
+  .artistGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artistGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artistGalleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
 import styles from "./MomentSelection.module.css";
+import React, { useState, useEffect } from "react";
 
-const React = require("react");
-const { useState, useEffect } = React;
 
 const SelectionDuMoment = () => {
   const [oeuvres, setOeuvres] = useState([]);
