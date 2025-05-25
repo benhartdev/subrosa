@@ -35,7 +35,7 @@ export default function InscriptionPage() {
         </div>
 
         <div className={styles.inscriptionChoice}>
-          <h2>Quel type d'inscription souhaitez-vous ?</h2>
+          <h2>Quel type d'inscription souhaitez-vous&nbsp;?</h2>
           <div className={styles.buttonGroup}>
             <a href="/inscription?type=artist" className={styles.inscriptionBtn}>
               <FontAwesomeIcon icon={faPalette} className={styles.icon} /> Je suis un artiste

@@ -7,3 +7,12 @@
   display: flex;
   justify-content: center;
 }
+
+.blogPage {
+  width: 100%;
+  margin-top: 10rem;
+}
+
+.blogPageDoubleBorder {
+  margin-top: -15rem;
+}

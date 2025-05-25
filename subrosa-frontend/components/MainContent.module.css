@@ -1,8 +1,8 @@
 .gridWrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  gap: 0.1rem;
+  gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1rem;
@@ -12,11 +12,14 @@
 
 .customCard {
   background-color: #fff;
-  border-radius: 4px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+/* On garde la limite pour toutes sauf la 3e */
+.customCard:not(.fullWidthCard) {
   max-width: 460px;
 }
 
@@ -45,6 +48,11 @@
   color: #555;
 }
 
+.fullWidthCard {
+  grid-column: span 2;
+}
+
+
 /* === Responsive === */
 @media screen and (max-width: 768px) {
 
@@ -56,18 +64,23 @@
     white-space: nowrap;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    
   }
 
   .gridWrapper {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    padding: 1rem;
+    grid-template-columns: 1fr; /* ✅ 1 colonne en mobile */
+  }
+
+  .fullWidthCard {
+    grid-column: span 1;
   }
 
   .customCard {
     max-width: 100%;
   }
+}
 
   .cardMedia {
     aspect-ratio: 16 / 9;
-  }
+  
 }

@@ -1,8 +1,9 @@
 import GalleryPage from "../../components/GalleryPage";
 
 
-export default function GalerieRoute({ searchParams }) {
-  const param = searchParams.type || "works";
+export default async function GalerieRoute({ searchParams }) {
+  const params = await searchParams;
+  const param = params?.type || "works";
 
   const config = {
     artist: {
