@@ -36,85 +36,83 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className={styles["header"]}>
-      <div className={styles["mainNav"]}>
-        <div className={styles["icon-wrapper"]}>
+    <header className={styles.header}>
+      <div className={styles.mainNav}>
+        <div className={styles.iconWrapper}>
           {!user ? (
-  <>
-    <Link href="/login">
-      <button className={styles["nav-icon"]}>
-        <FontAwesomeIcon icon={faSignInAlt} />
-      </button>
-    </Link>
-    <Link href="/inscription">
-      <button className={styles["nav-icon"]}>
-        <FontAwesomeIcon icon={faUserPlus} />
-      </button>
-    </Link>
-  </>
-) : (
-  <button onClick={logout} className={`${styles["nav-icon"]} ${styles["logout-icon"]}`}>
-    <FontAwesomeIcon icon={faSignOutAlt} />
-  </button>
-)}
+            <>
+              <Link href="/login" legacyBehavior>
+                <a className={styles.iconSvg}>
+                  <FontAwesomeIcon icon={faSignInAlt} />
+                </a>
+              </Link>
+              <Link href="/inscription" legacyBehavior>
+                <a className={styles.iconSvg}>
+                  <FontAwesomeIcon icon={faUserPlus} />
+                </a>
+              </Link>
+            </>
+          ) : (
+            <button onClick={logout} className={`${styles.iconSvg} ${styles.logoutIcon}`}>
+              <FontAwesomeIcon icon={faSignOutAlt} />
+            </button>
+          )}
 
-          {/* Hamburger Menu fusionné */}
           <div ref={menuRef}>
-            <button className={styles["menu-toggle"]} onClick={toggleMenu}>☰</button>
+            <button className={styles.menuToggle} onClick={toggleMenu}>☰</button>
 
             {isMenuOpen && (
               <>
-                <ul className={styles["mobile-menu"]}>
-                  <li><Link href="/" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Accueil</a></Link></li>
-                  <li><Link href="/page-gallerie?type=works" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Nos œuvres</a></Link></li>
-                  <li><Link href="/page-gallerie?type=artist" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Nos artistes</a></Link></li>
-                  <li><Link href="/blog" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Sub Rosa Blog</a></Link></li>
-                  <li><Link href="/about" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Qui sommes-nous</a></Link></li>
-                  <li><Link href="/contact" passHref legacyBehavior>
-                  <a onClick={() => setIsMenuOpen(false)}>Contact</a></Link></li>
+                <ul className={styles.mobileMenu}>
+                  <li><Link href="/" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Accueil</a></Link></li>
+                  <li><Link href="/page-gallerie?type=works" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Nos œuvres</a></Link></li>
+                  <li><Link href="/page-gallerie?type=artist" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Nos artistes</a></Link></li>
+                  <li><Link href="/blog" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Sub Rosa Blog</a></Link></li>
+                  <li><Link href="/about" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Qui sommes-nous</a></Link></li>
+                  <li><Link href="/contact" legacyBehavior>
+                    <a onClick={() => setIsMenuOpen(false)}>Contact</a></Link></li>
                   {!user ? (
                     <>
-                      <li><Link href="/login" passHref legacyBehavior>
-                       <a onClick={() => setIsMenuOpen(false)}>Se connecter</a></Link></li>
-                      <li><Link href="/inscription" passHref legacyBehavior>
-                       <a onClick={() => setIsMenuOpen(false)}>S'enregistrer</a></Link></li>
+                      <li><Link href="/login" legacyBehavior>
+                        <a onClick={() => setIsMenuOpen(false)}>Se connecter</a></Link></li>
+                      <li><Link href="/inscription" legacyBehavior>
+                        <a onClick={() => setIsMenuOpen(false)}>S'enregistrer</a></Link></li>
                     </>
                   ) : (
-                      <li>
-                      <button onClick={logout} className={styles["logout-btn"]}>
+                    <li>
+                      <button onClick={logout} className={styles.logoutBtn}>
                         Se déconnecter<br />{user.username}
                       </button>
-                     </li>
+                    </li>
                   )}
                   {user?.role === "artist" && (
-                      <li>
-                       <Link href="/ajouter-oeuvre">
-                        <button className={styles["add-work-inside-menu"]}>➕ Ajouter une œuvre</button>
+                    <li>
+                      <Link href="/ajouter-oeuvre" legacyBehavior>
+                        <a className={styles.addWorkInsideMenu}>➕ Ajouter une œuvre</a>
                       </Link>
-                     </li>
+                    </li>
                   )}
-               </ul>
-                <div className={styles["overlay"]} onClick={toggleMenu}></div>
+                </ul>
+                <div className={styles.overlay} onClick={toggleMenu}></div>
               </>
             )}
           </div>
         </div>
 
-        {/* Barre de navigation principale */}
-        <nav className={styles["navbar-wrapper"]}>
-          <ul className={styles["navbar-nav-custom"]}>
-            <li className={styles["nav-item"]}><Link href="/inscription" className={styles["nav-link"]}>Inscription</Link></li>
-            <li className={styles["nav-item"]}><Link href="/blog" className={styles["nav-link"]}>Sub Rosa Blog</Link></li>
-            <li className={styles["nav-item"]}><Link href="/page-gallerie?type=artist" className={styles["nav-link"]}>Nos artistes</Link></li>
-            <li className={styles["nav-item"]}><Link href="/" className={`${styles["nav-link"]} ${styles["nav-accueil"]}`}>Accueil</Link></li>
-            <li className={styles["nav-item"]}><Link href="/page-gallerie?type=works" className={styles["nav-link"]}>Nos œuvres</Link></li>
-            <li className={styles["nav-item"]}><Link href="/about" className={styles["nav-link"]}>Qui sommes-nous</Link></li>
-            <li className={styles["nav-item"]}><Link href="/contact" className={styles["nav-link"]}>Contact</Link></li>
+        <nav className={styles.navbarWrapper}>
+          <ul className={styles.navbarNavCustom}>
+            <li className={styles.navItem}><Link href="/inscription" legacyBehavior><a className={styles.navLink}>Inscription</a></Link></li>
+            <li className={styles.navItem}><Link href="/blog" legacyBehavior><a className={styles.navLink}>Sub Rosa Blog</a></Link></li>
+            <li className={styles.navItem}><Link href="/page-gallerie?type=artist" legacyBehavior><a className={styles.navLink}>Nos artistes</a></Link></li>
+            <li className={styles.navItem}><Link href="/" legacyBehavior><a className={`${styles.navLink} ${styles.navAccueil}`}>Accueil</a></Link></li>
+            <li className={styles.navItem}><Link href="/page-gallerie?type=works" legacyBehavior><a className={styles.navLink}>Nos œuvres</a></Link></li>
+            <li className={styles.navItem}><Link href="/about" legacyBehavior><a className={styles.navLink}>Qui sommes-nous</a></Link></li>
+            <li className={styles.navItem}><Link href="/contact" legacyBehavior><a className={styles.navLink}>Contact</a></Link></li>
           </ul>
         </nav>
       </div>

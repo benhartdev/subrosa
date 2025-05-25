@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import SubrosaLogo from "./SubrosaLogo";
 
-const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCancel }) => {
+const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCancel, showLogo = true }) => {
   const router = useRouter();
   const isAdmin = type === "admin-edit";
   const isArtist = type === "artist" || isAdmin;
@@ -175,7 +175,8 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
   return (
     <div className={styles.container}>
-      <SubrosaLogo />
+      {showLogo && <SubrosaLogo variant="inscription" />}
+
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>

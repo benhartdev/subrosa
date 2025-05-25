@@ -17,10 +17,15 @@
   align-items: flex-start;
   width: 100%;
   min-height: 100vh;
-  margin-top: 20rem;
+  margin-top: 12rem;
+  margin-bottom: 2rem;
   background-color: var(--background); /* ou noir */
   color: var(--foreground);
   border-radius: 8px;
+}
+
+.marginBottomFix {
+  margin-bottom: -17rem; /* ou la valeur que tu veux */
 }
 
 /* Conteneur du formulaire */
@@ -210,7 +215,24 @@ textarea.inputForm {
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .form {
-    padding: 1rem;
+  
+  .container {
+   position: relative;
+  width: 80%;
+  max-width: 1000px;  
+  background-color: #000000;
+  padding: 2rem;
+  margin: -2rem auto 2rem auto;
+  box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+.formTitle {
+  text-align: center;
+  color: var(--color-hover);
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 2rem auto 2rem auto;
+}
+.marginBottomFix {
+    margin-bottom: -8rem; /* ou 1rem selon le rendu que tu veux */
   }
 }

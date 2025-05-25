@@ -3,25 +3,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './SubrosaLogo.module.css';
 
-export default function SubrosaLogo() {
-  return (
-    <div className={styles.logoOverlay}>
-          <Image
-            src="/images/gallerie_SUB_logo2_fond_noir.png"
-            alt="Logo SUB ROSA"
-            width={440}
-            height={260}
-            style={{ width: '100%', height: 'auto', pointerEvents: 'auto' }}
-          />
-                  {/* Zone cliquable 1 */}
-              <Link href="/" passHref legacyBehavior>
-                <a className={styles.clickZone1}></a>
-              </Link>
+export default function SubrosaLogo({ variant }) {
+  const logoClass =
+    variant === 'inscription' ? styles.logoOverlayInscription : styles.logoOverlay;
 
-              {/* Zone cliquable 2 */}
-              <Link href="/" passHref legacyBehavior>
-                <a className={styles.clickZone2}></a>
-              </Link>
+  return (
+    <div className={logoClass}>
+      <Image
+        src="/images/gallerie_SUB_logo2_fond_noir.png"
+        alt="Logo SUB ROSA"
+        width={440}
+        height={260}
+        style={{ width: '100%', height: 'auto', pointerEvents: 'auto' }}
+      />
+
+      <Link href="/" passHref legacyBehavior>
+        <a className={styles.clickZone1}></a>
+      </Link>
+
+      <Link href="/" passHref legacyBehavior>
+        <a className={styles.clickZone2}></a>
+      </Link>
     </div>
   );
 }

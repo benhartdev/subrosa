@@ -61,12 +61,12 @@ a {
   flex: 1;
 }
 
-body.inscription-open {
+/* body.inscription-open {
   overflow-x: hidden;
 }
 
 /* styles/globals.css */
-body.body-accueil {
+/* body.body-accueil {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -75,7 +75,7 @@ body.body-accueil {
     background-color: rgb(0 0 0);
     font-family: Michroma, sans-serif;
     min-height: 100vh;
-}
+} */ 
 
 /*H1 etc */
 /* body.body-accueil h1 {

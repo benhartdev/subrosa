@@ -1,3 +1,12 @@
+.galleryHeader {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: Michroma, sans-serif;
+  margin-top: -25%;
+  z-index: 8;
+  }
+
 .galleryTitle {
   display: block; /* ✅ Plus de flex horizontal */
   text-align: center;
@@ -185,7 +194,7 @@
   color: rgba(255, 255, 255, 0.9);
   z-index: 2;
   width: 100%;
-  padding: 0 1rem;
+  
 }
 
 .logoContainer img {
@@ -197,11 +206,15 @@
 }
 
 .texteSuperpose {
+  position: relative;
+  top: -150px; /* ↖️ remonte uniquement le bloc texte + bouton */
   font-size: 2rem;
-  margin-bottom: 20px;
+ 
 }
 
 .discoverArtist {
+  position: relative;
+  top: -150px;
   padding: 12px 24px;
   border: 1px solid rgb(255 255 255);
   background: rgb(255 255 255);
@@ -431,8 +444,8 @@
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 50px; /* Supprime l’espace inutile au-dessus */
+    
+    margin-top: 0; /* Supprime l’espace inutile au-dessus */
 }
 
 .blogSubrosa {

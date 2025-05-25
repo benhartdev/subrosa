@@ -5,10 +5,8 @@ import AccountForm from "../../components/AccountForm";
 import styles from "../../components/AccountForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette, faUser } from "@fortawesome/free-solid-svg-icons";
-import SubrosaLogo from "../../components/SubrosaLogo";
-
-
 import { useEffect } from "react";
+import SubrosaLogoStatic from '../../components/SubrosaLogoStatic';
 
 export default function InscriptionPage() {
   const searchParams = useSearchParams();
@@ -17,35 +15,39 @@ export default function InscriptionPage() {
   useEffect(() => {
     document.body.classList.add("inscription-open");
     return () => {
-      document.body.classList.remove("inscription-open");
+    document.body.classList.remove("inscription-open");
     };
   }, [type]);
 
   return (
-    <div className={styles.formPageWrapper}>
-      
-      {type === "artist" && <AccountForm type="artist" />}
-      {type === "user" && <AccountForm type="user" />}
-      {!type && (
-        <>
-          <div className={styles.inscriptionChoice}>
-            
-            <h2>Quel type d'inscription souhaitez-vous ?</h2>
-            <div className={styles.buttonGroup}>
-              <a href="/inscription?type=artist" className={styles.inscriptionBtn}>
-                 <FontAwesomeIcon icon={faPalette} className={styles.icon} /> Je suis un artiste
-              </a>
-              <a href="/inscription?type=user" className={styles.inscriptionBtn}>
-                 <FontAwesomeIcon icon={faUser} className={styles.icon} /> Je suis un utilisateur
-              </a>
-            </div>
-          </div>
+  <div className={`${styles.formPageWrapper} ${!type ? styles.marginBottomFix : ''}`}>
 
-          {/* ✅ Ajout d’un espace uniquement si aucun type sélectionné */}
-          <div style={{ minHeight: "calc(100vh - 800px)" }}></div>
-        </>
-      )}
-    </div>
-  );
+    
+    {/* Affichage du formulaire s’il y a un type dans l’URL */}
+    {type === "artist" && <AccountForm type="artist" showLogo={true} />}
+    {type === "user" && <AccountForm type="user" showLogo={true} />}
+
+    {/* Affichage de l’accueil inscription avec les boutons si aucun type sélectionné */}
+    {!type && (
+      <div className={styles.inscriptionWrapper}>
+        <div className={styles.logoContainer}>
+          <SubrosaLogoStatic />
+        </div>
+
+        <div className={styles.inscriptionChoice}>
+          <h2>Quel type d'inscription souhaitez-vous ?</h2>
+          <div className={styles.buttonGroup}>
+            <a href="/inscription?type=artist" className={styles.inscriptionBtn}>
+              <FontAwesomeIcon icon={faPalette} className={styles.icon} /> Je suis un artiste
+            </a>
+            <a href="/inscription?type=user" className={styles.inscriptionBtn}>
+              <FontAwesomeIcon icon={faUser} className={styles.icon} /> Je suis un utilisateur
+            </a>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+);
 }
 

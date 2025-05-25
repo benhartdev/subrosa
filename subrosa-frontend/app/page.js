@@ -35,7 +35,7 @@ const featuredArtists = [...items]
         <div>
             <div className={styles.headContainer}>
               <Image
-                src="/images/FOND.jpg"
+                src="/images/FOND2.jpg"
                 alt="Image de fond"
                 width={1920}
                 height={1080}

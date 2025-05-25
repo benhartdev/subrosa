@@ -1,0 +1,354 @@
+/* ========== GLOBAL ========== */
+
+
+/* ========== CONTAINERS ========== */
+
+.artist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: black;
+}
+
+.artist-page {
+  background-color: black;
+  color: white;
+  padding-bottom: 4rem;
+}
+
+.artist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .artist-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 2rem;
+  }
+}
+
+/* ========== HEADERS / TITRES ========== */
+
+.artist-header,
+.artist-intro {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.artist-name,
+.artist-name-main {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.artist-fullname {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.artist-subtitle {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== BIO / INFOS ========== */
+
+.artist-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+.artist-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.artist-featured {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== IMAGE PORTRAIT ========== */
+
+.artist-image-portrait {
+  width: 500px;
+  height: 750px;
+  margin: 0 auto;
+}
+
+.artist-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ========== GALERIE ========== */
+
+.artist-gallery-section {
+  margin-top: 15rem;
+  padding: 4rem;
+  position: relative
+}
+
+.artist-gallery-title-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 0 1rem;
+  z-index: 15;
+}
+
+.artist-gallery-title {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  background-color: black; /* masque le trait blanc derrière */
+}
+
+/* CADRES & STRUCTURE */
+
+.artist-gallery-wrapper {
+  position: relative;
+  z-index: 1;
+  padding-top: 2.5rem; /* espace pour le titre */
+  padding: 0.3rem;
+  border: 1px solid #fff;
+  background-color: #000;
+  margin: 2rem auto;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+.artist-gallery-inner {
+  background-color: #000;
+  padding: 2rem;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr, 1fr));
+  gap: 2rem;
+  
+}
+
+/* GRILLE D’ŒUVRES */
+
+.artist-gallery {
+  width: 100%;
+  padding: 2rem;
+}
+
+.artist-gallery a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-gallery a:visited {
+  color: inherit;
+}
+
+.artist-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 8rem 2rem;
+  justify-items: center;
+}
+
+.artwork-card {
+  width: 500px;
+  aspect-ratio: 3 / 4;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* IMAGES DANS LES CARTES */
+
+.artist-gallery-image {
+  width: 100%;
+height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+.artwork-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.artwork-card:hover .artist-gallery-image {
+  transform: scale(1.03);
+}
+
+/* INFOS SOUS LES IMAGES */
+
+.artwork-info {
+  text-align: center;
+  width: 100%;
+  max-width: 300px; /* ou 100% si dans une grille déjà limitée */
+  line-height: 1.4;
+  color: white;
+  border: none !important;
+  outline: none !important;
+  margin: 3rem auto 0 auto;
+}
+
+.artwork-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.artwork-style {
+ padding: 0;
+}
+
+.artwork-divider {
+  height: 1px;
+  background-color: white;
+  margin: 0.4rem auto 0.8rem;
+}
+.divider-home {
+  width: 200px;
+  margin: 0.4rem auto 0.4rem;
+}
+
+.divider-default {
+  width: 100%;
+}
+
+.artwork-info p {
+  margin: 0;
+}
+.artwork-artist,
+.artwork-medium {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 0.2rem 0;
+}
+
+.artwork-username {
+ 
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+
+/* Nettoyage global */
+.artwork-info *{
+  border: none !important;
+  outline: none !important;
+}
+
+.artist-gallery-item {
+  
+  min-height: 200px !important;
+}
+
+.artwork-card img,
+.artist-gallery-image {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Section Accueil - 4 colonnes sur desktop, responsive mobile/tablette */
+.home-gallery-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+  justify-content: center;
+  align-items: start;
+  box-sizing: border-box;
+  
+}
+
+@media screen and (max-width: 1024px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.artists-button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.view-all-btn {
+  font-family: 'Michroma', sans-serif;
+  padding: 0.75rem 2rem;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.view-all-btn:hover {
+  background-color: #eeeeeeba;
+}
+
+/* Réduction de la taille des cartes sur la page d’accueil uniquement */
+.home-gallery-grid .artist-gallery-item {
+  max-width: 280px;
+  width: 100%;
+  transform-origin: top center;
+  margin: 0 auto;
+}
+/* s'assurer que cela ne déborde pas */
+
+.artist-gallery,
+.artist-gallery-grid
+ {
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.home-gallery-grid .artwork-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}

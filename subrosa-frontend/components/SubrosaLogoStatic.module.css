@@ -1,0 +1,9 @@
+.logoWrapper img {
+  
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  margin: -2rem auto -2rem auto;  /* ⬅️ ceci recentre le bloc aussi */
+  display: flex;
+  justify-content: center;
+}
