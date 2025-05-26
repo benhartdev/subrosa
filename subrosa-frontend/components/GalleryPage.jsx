@@ -6,6 +6,7 @@ import Gallery from "../components/Gallery";
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import { useGalleryData } from "../hooks/useGalleryData";
 import styles from "./GalleryPage.module.css";
+import SubrosaLogoStatic from "./SubrosaLogoStatic";
 
 export default function GalleryPage({ type, subtype, title, fieldsToShow }) {
   const { items, loading } = useGalleryData(type, subtype);
@@ -20,6 +21,9 @@ export default function GalleryPage({ type, subtype, title, fieldsToShow }) {
                     
   return (
     <main className={styles.artistPage}>
+      <div className={styles.GalleryPageLogo}>
+      <SubrosaLogoStatic />
+      </div>
         <DoubleBorderContainer title={pageTitle}>
               {items.length === 0 && !loading ? (
                   <p style={{ color: "#999", textAlign: "center", marginTop: "2rem" }}>

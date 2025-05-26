@@ -16,3 +16,38 @@
 .blogPageDoubleBorder {
   margin-top: -15rem;
 }
+
+.clickZone1,
+.clickZone2 {
+  position: absolute;
+  top: 8rem;
+  right: 34rem;
+  z-index: 15;
+  cursor: pointer;
+  background: transparent;
+  /* outline: 1px dashed rgb(19, 158, 33); */
+}
+
+.clickZone1 {
+  width: 120px;
+  height: 180px;
+}
+
+.clickZone2 {
+  width: 440px;
+  height: 120px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+  
+  .clickZone1 {
+    width: 200px;
+    height: 180px;
+  }
+  .clickZone2 {
+    width: 500px;
+    height: 140px;
+  }
+}
