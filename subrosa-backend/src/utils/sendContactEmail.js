@@ -16,10 +16,11 @@ const sendContactEmail = async (toAdmin, fromUser, messageContent) => {
     to: toAdmin,
     subject: `📨 Nouveau message de ${fromUser.name}`,
     html: `
-      <h2>Message reçu via le formulaire de contact SUB ROSA</h2>
+      <h2>Salut Ben, tu as recu un message via le formulaire de contact SUB ROSA</h2>
       <p><strong>Nom :</strong> ${fromUser.name}</p>
       <p><strong>Email :</strong> ${fromUser.email}</p>
       <p><strong>Message :</strong><br/>${messageContent}</p>
+      <p>Réponds à cette personne dans les meilleurs délais. 
     `,
   });
 
