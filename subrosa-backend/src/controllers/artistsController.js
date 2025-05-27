@@ -60,12 +60,22 @@ console.log("FICHIER 0 (artistImages) :", req.files?.artistImages?.[0]);
       twitter,
       technical_skills,
       style,
-      interviews,
+      interview,
       old_exhibitions,
       future_exhibitions,
       newsletter,
       
     } = req.body;
+
+    let parsedInterview = interview;
+if (typeof parsedInterview === 'string') {
+  try {
+    parsedInterview = JSON.parse(parsedInterview);
+  } catch (e) {
+    console.warn("❗ Impossible de parser req.body.interview");
+    parsedInterview = {};
+  }
+}
 
     // Vérification des champs requis
     if (!username || !password || !email) {
@@ -119,7 +129,7 @@ const artistImages = req.files['artistImages']?.map((file, index) => ({
       twitter,
       technical_skills,
       style,
-      interviews,
+      interview: parsedInterview,
       old_exhibitions,
       future_exhibitions,
       newsletter,

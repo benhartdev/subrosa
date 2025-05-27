@@ -125,7 +125,10 @@ const artistSchema = new mongoose.Schema({
           min: [0, "Stock >= à 0."],
           default: 0
       },
-      interviews: { type: String, trim: true, maxlength: [500, "Max 500 caractères."]},
+      interview: { question1: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
+                    question2: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
+                    question3: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
+                },
       isApproved: {type: Boolean, default: false},
       status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
       name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
