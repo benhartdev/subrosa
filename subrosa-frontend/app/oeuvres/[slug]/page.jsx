@@ -29,6 +29,8 @@ export default async function WorkSlugPage({ params }) {
           alt={work.title}
           width={600}
           height={600}
+          style={{ objectFit: "contain", width: "100%", height: "auto" }}
+          className={styles.mainArtworkImage}
         />
       </div>
 
@@ -76,6 +78,7 @@ export default async function WorkSlugPage({ params }) {
             </button> */}
           </div>
         </div>
+        
       </div>
 
       <section className={styles.artworkDetailsBis}>
@@ -127,31 +130,37 @@ export default async function WorkSlugPage({ params }) {
                 <ImYoutube />
               </a>
           </div>
+         
         </div>
+        
       </section>
 
-      <section className={styles.artworkSection}>
-        <div className={styles.contentContainer}>
-          <h3 className={styles.sectionTitle}>LES CARACTÉRISTIQUES DE L'ŒUVRE</h3>
-          <div className={styles.imageGrid}>
-            {Array.isArray(work.images) && work.images.length > 1 ? (
-              work.images.slice(1).map((img, index) => (
-                <figure className={styles.imageWrapper} key={index}>
-                  <Image
-                    src={img.url.startsWith("http") ? img.url : `http://localhost:5000${img.url}`}
-                    alt={img.altText || `Zoom ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className={styles.artworkImage}
-                  />
-                </figure>
-              ))
-            ) : (
-              <p>Aucun zoom disponible pour cette œuvre.</p>
-            )}
-          </div>
-        </div>
-      </section>
+ 
+
+  {Array.isArray(work.images) && work.images.length > 1 && (
+  <section className={styles.artworkSection}>
+    
+    <div className={styles.contentContainer}>
+       <hr className={styles.customSaparator1} />
+      <h3 className={styles.sectionTitle}>LES DETAILS DE L'ŒUVRE</h3>
+      <div className={styles.imageGrid}>
+        {work.images.slice(1).map((img, index) => (
+          <figure className={styles.imageWrapper} key={index}>
+            <Image
+              src={img.url.startsWith("http") ? img.url : `http://localhost:5000${img.url}`}
+              alt={img.altText || `Zoom ${index + 1}`}
+              width={400}
+              height={400}
+              className={styles.artworkImage}
+            />
+          </figure>
+        ))}
+      </div>
+      <hr className={styles.customSaparator2} />
+    </div>
+  </section>
+)}
+
 
       <section className={styles.artistProfileContentColumn}>
   <div className={styles.artistProfileContentWrapper}>
@@ -171,22 +180,31 @@ export default async function WorkSlugPage({ params }) {
 
       {/* Texte à droite */}
       <div className={styles.artistProfileText}>
-        <button className={styles.followButton}>
-          <span>SUIVRE L'ARTISTE</span>
-        </button>
+        
 
-        <p className={styles.artistProfileDescription}>
-          {artist?.interviews || "Interview de l'artiste non disponible."}
-        </p>
+        <section className={styles.artistInterview}>
+            <p className={styles.question1Title}>Comment êtes-vous devenu artiste ?</p>
+            <p className={styles.answer1Title}>{artist.interview?.question1}</p>
+
+            <p className={styles.question2Title}>Comment définiriez-vous votre univers ?</p>
+            <p className={styles.answer2Title}>{artist.interview?.question2}</p>
+
+            <p className={styles.question3Title}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</p>
+            <p className={styles.answer3Title}>{artist.interview?.question3}</p>
+      </section>
 
         <button className={styles.interviewButton}>
           VOIR L'INTERVIEW COMPLÈTE DE L'ARTISTE
         </button>
+        <button className={styles.followButton}>
+          SUIVRE L'ARTISTE
+        </button>
       </div>
     </div>
 
-    <hr className={styles.artistProfileDivider} />
+   
   </div>
+ 
 </section>
 
     </main>

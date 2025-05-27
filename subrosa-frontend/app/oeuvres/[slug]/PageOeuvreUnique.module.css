@@ -92,7 +92,7 @@
 }
 .purchasePrice {
     margin: 0;
-    font-size: 64px;
+    font-size: 48px;
     text-align: center;
     font-weight: 400;
     font-family: Helvetica, sans-serif;
@@ -182,7 +182,7 @@
     align-items: center;
     position: relative;
     top: -16rem;
-    right: -10rem;   
+    right: -6rem;   
     width: 600px;
 }
 .artworkDetailsBis_description {
@@ -247,29 +247,33 @@
 .sectionTitle {
     font-size: 24px;
     text-align: center;
-    margin-top: 10rem ;
+    margin-top: 1rem ;
     font-family: Michroma, sans-serif;
 }
 .imageWrapper {
-    flex: 1;
-    margin: 0;
+    width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  border: 1px solid #666565;
+  box-shadow: 3px 5px 10px #adadad60;
+  overflow: hidden;
 }
 .artworkImage {
-    margin-top: 3rem;
-    width: 700px;
-    object-fit: contain;
-    border: 1px solid #666565;
-    box-shadow: 3px 5px 10px #adadad60;
+    max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .imageGrid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
+      display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 3rem;
     margin-top: 2rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+    justify-items: center;
 }
 .artworkTitle {
     color: #fff;
@@ -280,17 +284,18 @@
 }
 .artistProfileContentColumn {
   background: #000;
-  padding: 6rem 2rem;
+  padding: 0 2rem;
   color: #fff;
   font-family: Michroma, sans-serif;
 }
 .artistProfileContentWrapper {
     max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 0 ;
   display: flex;
   flex-direction: column;
   align-items: center;
+   
 }
 .artistProfileHeader {
     position: relative;
@@ -303,7 +308,8 @@
 }
 
 .artistProfileImage {
- object-fit: cover;
+ object-fit: contain;
+ 
 }
 .artistProfileLabel {
    font-size: 14px;
@@ -331,10 +337,10 @@
 }
 .artistProfilePhotoWrapper {
  position: relative;
-  width: 320px;
+  width: 250px;
   aspect-ratio: 2 / 3;
-  border: 1px solid white;
-  box-shadow: 2px 2px 8px #ffffff20;
+  
+ 
   flex-shrink: 0;
 }
 .artistProfileText {
@@ -350,16 +356,13 @@
   color: white;
   font-size: 14px;
   font-family: Michroma, sans-serif;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 5rem;
+  text-decoration: underline;
 }
-.followButtonIcon {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
-}
+
 .artistProfileDescription {
     font-family: Afacad, sans-serif;
   font-size: 16px;
@@ -368,20 +371,135 @@
   text-align: left;
 }
 .interviewButton {
-   background: none;
-  border: none;
-  border-bottom: 1px solid white;
-  color: white;
-  font-size: 14px;
-  font-family: Michroma, sans-serif;
-  padding: 0;
-  cursor: pointer;
-  align-self: flex-start;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+ width: 70%;
+    height: 50px;
+    padding: 1rem;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+    font-family: Michroma, sans-serif;
+    line-height: 100%;
+    background-color: rgb(186 181 181 / 16%);
+    cursor: pointer;
+    margin: auto;
 }
 .artistProfileDivider {
-  border-top: 1px solid white;
+  
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 5rem;
+}
+
+.customSaparator1 {
+  border: none; 
+  width: 80%;          
+  height: 1px;          
+  background-color: rgba(116, 113, 113, 0.701);
+  margin: 0.5rem auto 5rem auto;
+}
+.customSaparator2 {
+  border: none; 
+  width: 80%;          
+  height: 1px;             
+  background-color: rgba(116, 113, 113, 0.703);
+  margin: 6rem auto;
+}
+
+.artistInterview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+.question1Title,
+.question2Title,
+.question3Title {
+    text-align: center;
+    color : var(--color-hover);
+    margin: 0.5 auto;
+}
+
+.answer1Title,
+.answer2Title,
+.answer3Title {
+    text-align: center;
+    color: #fff;
+    margin: 0rem auto;
+}
+
+@media (max-width: 768px) {
+  .artworkDetailsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .artworkInfo {
+    border-right: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .purchaseSection {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .purchaseContainer {
+    width: 70%;
+    padding: 20px;
+  }
+
+  .artworkDetailsBisContainer {
+    position: static;
+    width: 100%;
+    right: 0;
+    top: 0;
+    padding: 0 1rem;
+  }
+
+  .artworkDetailsBis {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .artworkDetailsBis_description {
+    font-size: 16px;
+  }
+
+  .artworkDetailsBis_action {
+    flex-direction: column;
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .artistProfileBody {
+    flex-direction: column;
+    gap: 2rem;
+    
+  }
+
+  .artistProfilePhotoWrapper {
+    width: 100%;
+    aspect-ratio: 2/3;
+    max-width: 300px;
+    max-height: 300px;
+    margin: -2rem auto;
+  }
+
+  .artistProfileText {
+    width: 100%;
+    max-width: 100%;
+    
+  }
 }

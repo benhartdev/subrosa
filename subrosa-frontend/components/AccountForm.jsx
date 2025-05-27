@@ -20,7 +20,8 @@ const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCa
     technical_skills: '', bio: '',
     website: '', facebook: '', instagram: '', linkedin: '', twitter: '',
     old_exhibitions: [], future_exhibitions: [],
-    interviews: '', isApproved: false, status: 'pending', newsletter: false
+    interview: { question1: '', question2: '', question3: '' },
+    isApproved: false, status: 'pending', newsletter: false
   });
 
   const [expoInput, setExpoInput] = useState('');
@@ -53,10 +54,21 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
   const handleChange = (e) => {
   const { name, value, type, checked } = e.target;
-
-  // Nouvelle valeur pour le champ modifié
   const newValue = type === 'checkbox' ? checked : value;
 
+  // Si c’est un champ imbriqué dans interview
+  if (name.startsWith("interview.")) {
+    const questionKey = name.split(".")[1];
+
+    setFormData((prevData) => ({
+      ...prevData,
+      interview: {
+        ...prevData.interview,
+        [questionKey]: newValue,
+      },
+    }));
+    return;
+  }
   // Nouvelle copie du formData avec la valeur modifiée
   const updatedData = {
     ...formData,
@@ -122,27 +134,28 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
     try {
       if (isUser) {
+        console.log("FORMDATA À ENVOYER", formData);
         await axios.post('http://localhost:5000/api/users/register', formData);
         setPopup({ type: 'success', message: '✅ Utilisateur inscrit avec succès.' });
         return;
       }
 
       const form = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (["confirmPassword", "confirmEmail"].includes(key)) return;
-         // 🔁 Si c'est un tableau de **primitifs**
-  if (Array.isArray(value) && typeof value[0] !== 'object') {
-    value.forEach(val => form.append(key, val));
-  }
-  // 🔁 Si c'est un tableau d'objets (comme images)
-  else if (Array.isArray(value) && typeof value[0] === 'object') {
-    form.append(key, JSON.stringify(value));
-  }
-  // ✅ Autre cas simple
-  else {
-    form.append(key, value);
-  }
-});
+        Object.entries(formData).forEach(([key, value]) => {
+      if (["confirmPassword", "confirmEmail"].includes(key)) return;
+
+      if (key === "interview") {
+        // ⬅️ Cas spécial : on stringifie manuellement
+        form.append("interview", JSON.stringify(value));
+      }
+      else if (Array.isArray(value) && typeof value[0] !== 'object') {
+        value.forEach(val => form.append(key, val));
+      } else if (Array.isArray(value) && typeof value[0] === 'object') {
+        form.append(key, JSON.stringify(value));
+      } else {
+        form.append(key, value);
+      }
+    });
 
       const url = isAdmin
         ? `http://localhost:5000/api/artists/${artistId}`
@@ -281,8 +294,12 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <label className={styles.labelForm}>Biographie :</label>
         <textarea className={styles.inputForm} placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
 
-              <label className={styles.labelForm}>Interviews / Presse :</label>
-              <textarea className={styles.inputForm} name="interviews" placeholder="500 caractères maximum" value={getSafeValue(formData.interviews)} onChange={handleChange} />
+              <label className={styles.labelForm}>Comment êtes-vous devenu artiste ?</label>
+              <textarea className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
+              <label className={styles.labelForm}>Comment définiriez-vous votre univers ?</label>
+              <textarea className={styles.inputForm} name="interview.question2" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} />
+              <label className={styles.labelForm}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</label>
+              <textarea className={styles.inputForm} name="interview.question3" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Site web :</label>
               <input className={styles.inputForm} name="website" value={getSafeValue(formData.website)} onChange={handleChange} />
