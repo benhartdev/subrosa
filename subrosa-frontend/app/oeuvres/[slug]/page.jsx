@@ -35,6 +35,7 @@ export default async function WorkSlugPage({ params }) {
       </div>
 
       <div className={styles.artworkDetailsContainer}>
+         <div className={styles.leftColumn}>
         <div className={styles.artworkInfo}>
           <div className={styles.artworkInfoP}>
             <p className={`${styles.artistName2} ${styles.high}`}>
@@ -52,36 +53,7 @@ export default async function WorkSlugPage({ params }) {
             </div>
           </div>
         </div>
-
-        <div className={styles.purchaseSection}>
-          <div className={styles.purchaseContainer}>
-            <h2 className={styles.purchasePrice}>
-              {work.price} {work.currency}
-            </h2>
-            <hr className={styles.purchaseDivider} />
-            <button className={styles.purchaseButton}>
-              MISE EN RELATION AVEC L'ARTISTE POUR ACHETER CETTE OEUVRE
-            </button>
-            <ul className={styles.purchaseInfo}>
-              <li>Livraison offerte (zone UE + UK)</li>
-              <li>Retour gratuit sous 15 jours</li>
-              <li>Certificat d'authenticité</li>
-              <li>Paiement sécurisé</li>
-            </ul>
-            <button className={styles.contactButton}>
-              UNE QUESTION ? CONTACTEZ-NOUS AU 0668105251
-            </button>
-            {/* A VENIR: Wishlist feature
-            
-            <button className={styles.wishlistButton}>
-              <span className={styles.wishlistText}>Ajouter à ma Wishlist</span>
-            </button> */}
-          </div>
-        </div>
-        
-      </div>
-
-      <section className={styles.artworkDetailsBis}>
+      <div className={styles.artworkDetailsBis}>
         <div className={styles.artworkDetailsBisContainer}>
           <p className={styles.artworkDetailsBisDescription}>{work.description}</p>
           <div className={styles.artworkDetailsBisAction}>
@@ -133,7 +105,37 @@ export default async function WorkSlugPage({ params }) {
          
         </div>
         
-      </section>
+      </div>
+      </div>
+        <div className={styles.purchaseSection}>
+          <div className={styles.purchaseContainer}>
+            <h2 className={styles.purchasePrice}>
+              {work.price} {work.currency}
+            </h2>
+            <hr className={styles.purchaseDivider} />
+            <button className={styles.purchaseButton}>
+              MISE EN RELATION AVEC L'ARTISTE POUR ACHETER CETTE OEUVRE
+            </button>
+            <ul className={styles.purchaseInfo}>
+              <li>Livraison offerte (zone UE + UK)</li>
+              <li>Retour gratuit sous 15 jours</li>
+              <li>Certificat d'authenticité</li>
+              <li>Paiement sécurisé</li>
+            </ul>
+            <button className={styles.contactButton}>
+              UNE QUESTION ? CONTACTEZ-NOUS AU 0668105251
+            </button>
+            {/* A VENIR: Wishlist feature
+            
+            <button className={styles.wishlistButton}>
+              <span className={styles.wishlistText}>Ajouter à ma Wishlist</span>
+            </button> */}
+          </div>
+        </div>
+        
+      </div>
+
+      
 
  
 

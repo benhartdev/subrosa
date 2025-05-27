@@ -44,10 +44,11 @@
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
+    text-align: center;
     max-height: 200px;
     text-align: center;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #ffffff60;
 
 }
 .artworkInfoP {
@@ -61,11 +62,22 @@
     font-size:18px;
 }
 .artworkDetailsContainer {
-    display: flex;
-    align-items: flex-start;
-    gap: 100px;
-     justify-content: center;
+   display: flex;
+  flex-direction: row; /* disposition horizontale */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5.5rem;
+  width: 100%;
 }
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
 .artworkTitle {
     margin: 0;
     font-size: 24px;
@@ -174,16 +186,15 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    max-width: 600px;
+    max-width:500px;
 }
 .artworkDetailsBisContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    top: -16rem;
-    right: -6rem;   
-    width: 600px;
+   display: flex;
+  flex-direction: column; /* ou column si tu veux toujours en vertical */
+  justify-content: center;
+  margin-top: 5rem;
+   /* espace entre les deux blocs */
+   
 }
 .artworkDetailsBis_description {
     width: 100%;
@@ -224,6 +235,7 @@
 .artworkDetailsBisSocialLinks {
     display: flex;
     align-items: center;
+    margin: 1rem auto;
     gap: 1.5rem;
     font-size: 2rem;
 }
@@ -238,7 +250,7 @@
     background-color: #000;
     color: #fff;
     font-family: Michroma;
-    margin: -10rem auto 0 auto;
+    
 }
 .contentContainer {
     max-width: 1200px;
@@ -247,7 +259,7 @@
 .sectionTitle {
     font-size: 24px;
     text-align: center;
-    margin-top: 1rem ;
+    margin-top: 5rem ;
     font-family: Michroma, sans-serif;
 }
 .imageWrapper {
@@ -315,7 +327,7 @@
    font-size: 14px;
   color: #ffffff80;
   text-align: center;
-  margin-bottom: 1rem;
+  margin:1rem auto 1rem;
   letter-spacing: 1px;
 }
 .artistProfileName {
@@ -328,7 +340,7 @@
 }
 .artistProfileBody {
     display: flex;
-  gap: 4rem;
+
   align-items: flex-start;
   justify-content: center;
   flex-wrap: nowrap;
@@ -337,11 +349,11 @@
 }
 .artistProfilePhotoWrapper {
  position: relative;
-  width: 250px;
-  aspect-ratio: 2 / 3;
-  
+  width: 350px;
+  height: 350px;
+  margin-left: 5rem;
  
-  flex-shrink: 0;
+  
 }
 .artistProfileText {
       flex: 1;
@@ -373,16 +385,17 @@
 .interviewButton {
  width: 70%;
     height: 50px;
-    padding: 1rem;
+   
     border: 1px solid #fff;
     color: #fff;
     font-size: 0.8rem;
     transition: background-color 0.3s ease;
     font-family: Michroma, sans-serif;
-    line-height: 100%;
+   line-height: 1.5;
     background-color: rgb(186 181 181 / 16%);
     cursor: pointer;
     margin: auto;
+    
 }
 .artistProfileDivider {
   
@@ -395,7 +408,7 @@
   width: 80%;          
   height: 1px;          
   background-color: rgba(116, 113, 113, 0.701);
-  margin: 0.5rem auto 5rem auto;
+  margin: 5rem auto 5rem auto;
 }
 .customSaparator2 {
   border: none; 
@@ -439,6 +452,8 @@
     border-bottom: 1px solid #fff;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+     width: 100%;
+    max-width: 600px;
   }
 
   .purchaseSection {
@@ -461,7 +476,8 @@
   }
 
   .artworkDetailsBis {
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
     padding: 0 1rem;
   }
 
