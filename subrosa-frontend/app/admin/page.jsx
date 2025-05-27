@@ -42,7 +42,7 @@ const AdminPage = () => {
       <AdminMessagesButton />
       <main className={styles.containerLogin} style={{ padding: "2rem", background: "black", color: "white" }}>
         <div className={styles.boxComponent}>
-          <h1 className={styles.personalSpace} style={{ fontSize: "2rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
+          <h1 className={styles.personalSpace} style={{ fontSize: "1.5rem", textAlign: "center" }}>ESPACE ADMINISTRATEUR</h1>
           <p className={styles.textLogin}>Salut Ben H, tu as fait un site de compet, maintenant faut le gerer !!!  Au boulot</p>
           <PendingArtists />
       

@@ -7,10 +7,10 @@ const AboutPage = () => {
   return (
     <div className={styles.aboutContainer}>
 
-      <h1 className={styles.aboutTitle}>QUI SOMMES-NOUS</h1>
+      <h1 className={styles.aboutTitle}>QUI&nbsp;SOMMES-NOUS</h1>
 
       <p className={styles.aboutDescription}>
-        Galerie SUB ROSA ART est une galerie d'art contemporain en ligne
+        Galerie&nbsp;SUB&nbsp;ROSA&nbsp;ART est une galerie d'art contemporain en ligne
         co-fondée par les 3 associés ci-dessous en 2025. Bien plus qu'un simple
         site web, notre volonté est d'organiser régulièrement des événements
         physiques : expositions, salons, visites d'ateliers, collaborations
@@ -32,18 +32,18 @@ const AboutPage = () => {
           <div className={styles.teamMemberPhoto}>
             <Image src="/images/moi.jpg" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>
             <div className={styles.memberRole}>
-              Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
-              en entreprise »• gestion des relations artistes/galerie•
+              Son&nbsp;rôle au&nbsp;sein&nbsp;de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
+              en entreprise » gestion des relations artistes/galerie
               conseiller auprès des artistes
             </div>
           </div>
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-              Benjamin Hoffelé alias Ben H<br />
+              Benjamin&nbsp;Hoffelé alias Ben&nbsp;H<br />
               <br />
-              FORMATION & PARCOURS<br />
-              De formation scientifique, Benjamin s'est
+              FORMATION&nbsp;&&nbsp;PARCOURS<br />
+              De&nbsp;formation scientifique, Benjamin s'est
               rapidement rapproché de l'univers artistique en devenant
               photographe en 2013. Il a occupé différents postes dans les
               métiers de l'ingenieurie concernant les moteurs a combustion
@@ -52,7 +52,7 @@ const AboutPage = () => {
               <br />
               <br />
               PASSION<br />
-              C'est sa passion pour la photo et la peinture qui lui ont
+              C'est&nbsp;sa&nbsp;passion pour la photo et la peinture qui lui ont
               permis sa rencontre avec Caterina Varchetta. Benjamin s'amuse dès
               qu'il peut à travailler des techniques de photographie et à en
               découvrir de nouvelles, expérimenter toujours des matières, des
@@ -62,7 +62,7 @@ const AboutPage = () => {
               <br />
               <br />
               ENVIES<br />
-              S'occuper des artistes, les accompagner comme ils le
+              S'occuper&nbsp;des&nbsp;artistes, les accompagner comme ils le
               méritent. Les faire connaître auprès des amateurs d'art mais aussi
               des entreprises parce que les artistes ont un rôle important à
               jouer dans notre société et donc dans nos entreprises à travers le
@@ -77,28 +77,28 @@ const AboutPage = () => {
         <div className={styles.teamGrid}>
           <div className={styles.teamMemberPhoto}>
           <Image src="/images/SAYAH.png" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            <div className={styles.memberRole}>
-              Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
-              en entreprise »• gestion des relations artistes/galerie•
+              Son&nbsp;rôle au sein de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
+              en entreprise » gestion des relations artistes/galerie
               conseiller auprès des artistes
             </div>
           </div>
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-              Sayah EL YATIM<br />
+              Sayah&nbsp;EL&nbsp;YATIM<br />
               <br />
-              FORMATION & PARCOURS<br />
+              FORMATION&nbsp;&&nbsp;PARCOURS<br />
               
-              De formation scientifique, Benjamin s'est
+              De&nbsp;formation scientifique, Benjamin s'est
               rapidement rapproché de l'univers artistique en devenant
-              photographe en 2013. Il a occupé différents postes dans les
+              photographe en&nbsp;2013. Il a occupé différents postes dans les
               métiers de l'ingenieurie concernant les moteurs a combustion
               internes pour se concentrer à partir de 2013 sur le developpement
               de son art ainsi que la mise en valeurs d'objets d'art.
               <br />
               <br />
               PASSION<br />
-              C'est sa passion pour la photo et la peinture qui lui ont
+              C'est&nbsp;sa&nbsp;passion pour la photo et la peinture qui lui ont
               permis sa rencontre avec Caterina Varchetta. Benjamin s'amuse dès
               qu'il peut à travailler des techniques de photographie et à en
               découvrir de nouvelles, expérimenter toujours des matières, des
@@ -108,7 +108,7 @@ const AboutPage = () => {
               <br />
               <br />
               ENVIES<br /> 
-              S'occuper des artistes, les accompagner comme ils le
+              S'occuper&nbsp;des&nbsp;artistes, les accompagner comme ils le
               méritent. Les faire connaître auprès des amateurs d'art mais aussi
               des entreprises parce que les artistes ont un rôle important à
               jouer dans notre société et donc dans nos entreprises à travers le
@@ -122,18 +122,18 @@ const AboutPage = () => {
         <div className={styles.teamGrid}>
           <div className={styles.teamMemberPhoto}>
           <Image src="/images/Ze.png" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            <div className={styles.memberRole}>
-              Son rôle au sein de SUB ROSA ART :• responsable du volet « Artiste
-              en entreprise »• gestion des relations artistes/galerie•
+              Son&nbsp;rôle au sein de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
+              en entreprise » gestion des relations artistes/galerie
               conseiller auprès des artistes
             </div>
           </div>
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-              ZÉ La menace<br />
+              ZÉ&nbsp;La&nbsp;mentale<br />
               <br />
-              FORMATION & PARCOURS<br />
-              De formation scientifique, Benjamin s'est
+              FORMATION&nbsp;&&nbsp;PARCOURS<br />
+              De&nbsp;formation scientifique, Benjamin s'est
               rapidement rapproché de l'univers artistique en devenant
               photographe en 2013. Il a occupé différents postes dans les
               métiers de l'ingenieurie concernant les moteurs a combustion
@@ -142,7 +142,7 @@ const AboutPage = () => {
               <br />
               <br />
               PASSION<br />
-              C'est sa passion pour la photo et la peinture qui lui ont
+              C'est&nbsp;sa&nbsp;passion pour la photo et la peinture qui lui ont
               permis sa rencontre avec Caterina Varchetta. Benjamin s'amuse dès
               qu'il peut à travailler des techniques de photographie et à en
               découvrir de nouvelles, expérimenter toujours des matières, des
@@ -152,7 +152,7 @@ const AboutPage = () => {
               <br />
               <br />
               ENVIES<br /> 
-              S'occuper des artistes, les accompagner comme ils le
+              S'occuper&nbsp;des&nbsp;artistes, les accompagner comme ils le
               méritent. Les faire connaître auprès des amateurs d'art mais aussi
               des entreprises parce que les artistes ont un rôle important à
               jouer dans notre société et donc dans nos entreprises à travers le

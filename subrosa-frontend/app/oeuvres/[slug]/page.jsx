@@ -2,6 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./PageOeuvreUnique.module.css";
+import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { ImYoutube } from "react-icons/im";
+
+
 
 export default async function WorkSlugPage({ params }) {
   const slug = params.slug;
@@ -10,36 +15,39 @@ export default async function WorkSlugPage({ params }) {
   });
   const work = await res.json();
   const artist = work.artistId;
+  const currentUrl = `https://53f4-37-167-134-78.ngrok-free.app/oeuvres/${params.slug}`;
+
 
   return (
     <main>
-      <h2>{artist?.name || "Nom inconnu"}</h2>
-      <h3>{work.title}</h3>
+      <h2 className={styles.artistName1}>{artist?.name || "Nom inconnu"}</h2>
+      <h3 className={styles.workTitle1}>{work.title}</h3>
 
       <div className={styles.image}>
         <Image
           src={work.images?.[0]?.url || "/placeholder.jpg"}
           alt={work.title}
-          width={1200}
-          height={1200}
+          width={600}
+          height={600}
         />
       </div>
 
       <div className={styles.artworkDetailsContainer}>
         <div className={styles.artworkInfo}>
           <div className={styles.artworkInfoP}>
-            <p className={`${styles.artistName} ${styles.high}`}>
+            <p className={`${styles.artistName2} ${styles.high}`}>
               {artist?.name || "Nom inconnu"}
             </p>
-            <p className={styles.workTitle}>{work.title}</p>
+            <p className={styles.workTitle2}>{work.title}</p>
             <p className={styles.workDate}>
               {work.creation_date ? new Date(work.creation_date).getFullYear() : "Date inconnue"}
             </p>
-            <p>
-              {work.medium} <br />
+            <div className={styles.workMedium}>
+            <p>{work.medium} <br />
               {`${work.dimensions?.width || "?"} x ${work.dimensions?.height || "?"} ${work.dimensions?.unit || "cm"}`} <br />
               œuvre originale et signée
             </p>
+            </div>
           </div>
         </div>
 
@@ -61,9 +69,11 @@ export default async function WorkSlugPage({ params }) {
             <button className={styles.contactButton}>
               UNE QUESTION ? CONTACTEZ-NOUS AU 0668105251
             </button>
+            {/* A VENIR: Wishlist feature
+            
             <button className={styles.wishlistButton}>
               <span className={styles.wishlistText}>Ajouter à ma Wishlist</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -73,11 +83,50 @@ export default async function WorkSlugPage({ params }) {
           <p className={styles.artworkDetailsBisDescription}>{work.description}</p>
           <div className={styles.artworkDetailsBisAction}>
             <button className={styles.artworkDetailsBisAskButton}>
-              POSER UNE QUESTION À L'ARTISTE
+              POSER&nbsp;UNE&nbsp;QUESTION&nbsp;À&nbsp;L'ARTISTE
             </button>
           </div>
           <p className={styles.artworkDetailsBisShareTitle}>PARTAGER SUR</p>
-          <div className={styles.artworkDetailsBisSocialLinks}></div>
+          <div className={styles.artworkDetailsBisSocialLinks}>
+              <a
+                href={`https://www.instagram.com/?url=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+             </a>
+
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookSquare />
+              </a>
+
+                          <a
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsTwitterX />
+              </a>
+
+                          <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+                          <a
+                href={`https://www.youtube.com/`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImYoutube />
+              </a>
+          </div>
         </div>
       </section>
 
@@ -105,29 +154,41 @@ export default async function WorkSlugPage({ params }) {
       </section>
 
       <section className={styles.artistProfileContentColumn}>
-        <div className={styles.artistProfileContentWrapper}>
-          <div className={styles.artistProfileHeader}>
-            <Image
-              src={artist?.artistImages?.[0]?.url || "/placeholder.jpg"}
-              alt={artist?.artistImages?.[0]?.altText || `Portrait de ${artist?.username}`}
-              width={600}
-              height={600}
-            />
-            <span className={styles.artistProfileLabel}>RENCONTRE AVEC L'ARTISTE</span>
-            <h2 className={styles.artistProfileName}>{artist?.name || work.artistName}</h2>
-            <button className={styles.followButton}>
-              <span className={styles.followButtonText}>SUIVRE L'ARTISTE</span>
-            </button>
-            <p className={styles.artistProfileDescription}>
-              {artist?.bio || "Biographie de l'artiste non disponible."}
-            </p>
-          </div>
-          <button className={styles.interviewButton}>
-            VOIR L'INTERVIEW COMPLÈTE DE L'ARTISTE
-          </button>
-          <hr className={styles.artistProfileDivider} />
-        </div>
-      </section>
+  <div className={styles.artistProfileContentWrapper}>
+    <span className={styles.artistProfileLabel}>RENCONTRE AVEC L'ARTISTE</span>
+    <h2 className={styles.artistProfileName}>{artist?.name || work.artistName}</h2>
+
+    <div className={styles.artistProfileBody}>
+      {/* Image à gauche */}
+      <div className={styles.artistProfilePhotoWrapper}>
+        <Image
+          src={artist?.artistImages?.[0]?.url || "/placeholder.jpg"}
+          alt={artist?.artistImages?.[0]?.altText || `Portrait de ${artist?.username}`}
+          fill
+          className={styles.artistProfileImage}
+        />
+      </div>
+
+      {/* Texte à droite */}
+      <div className={styles.artistProfileText}>
+        <button className={styles.followButton}>
+          <span>SUIVRE L'ARTISTE</span>
+        </button>
+
+        <p className={styles.artistProfileDescription}>
+          {artist?.interviews || "Interview de l'artiste non disponible."}
+        </p>
+
+        <button className={styles.interviewButton}>
+          VOIR L'INTERVIEW COMPLÈTE DE L'ARTISTE
+        </button>
+      </div>
+    </div>
+
+    <hr className={styles.artistProfileDivider} />
+  </div>
+</section>
+
     </main>
   );
 }

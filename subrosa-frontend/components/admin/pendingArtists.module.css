@@ -1,4 +1,4 @@
-.pending-container {
+.pendingContainer {
     height: auto;
     margin: auto;
     padding: 20px;
@@ -6,7 +6,7 @@
     max-width: 1000px;
   }
   
-  h1 {
+  .artistPending {
     margin: auto;
     color: fuchsia;
     font-size: 1.8rem;
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
   }
   
-  .table-wrapper {
+  .tableWrapper {
     padding: 10px;
     border: 1px solid #90c;
     box-shadow: 0 0 10px rgb(255 0 255 / 30%);
@@ -23,21 +23,21 @@
     border-radius: 6px;
   }
   
-  .pending-table {
+  .pendingTable {
     width: 100%;
     border-collapse: collapse;
     color: white;
     background-color: #111;
   }
   
-  .pending-table th,
-  .pending-table td {
+  .pendingTable th,
+  .pendingTable td {
     padding: 8px 12px;
     border: 1px solid #90c;
     text-align: center;
   }
   
-  .validate-btn {
+  .validateBtn {
     padding: 6px 12px;
     border: none;
     color: white;
@@ -47,7 +47,7 @@
     border-radius: 4px;
   }
   
-  .reject-btn {
+  .rejectBtn {
     padding: 6px 12px;
     border: none;
     color: white;

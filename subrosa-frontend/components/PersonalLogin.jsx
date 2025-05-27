@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from './PersonalLogin.module.css';
-import "../styles/reset.css";
+import styles from './PersonalLogin2.module.css';
+
 import { useRouter } from 'next/navigation';
 import axios from "axios";
 import { useAuth } from "../components/context/AuthContext.jsx";
@@ -77,7 +77,7 @@ const PersonalLogin = () => {
         <div>
           <h1 className={styles.personalSpace}>ESPACE PERSONNEL</h1>
           <p className={styles.alreadyClient}>
-            Nouveau client ? {" "}
+            Nouvel utilisateur ? {" "}
             <a
               href="/inscription"
               className={styles.LoginLink}
@@ -88,15 +88,11 @@ const PersonalLogin = () => {
         </div>
 
         <div className={styles.BoxComponent}>
-          <p className={styles.TextLogin}>
-            Si vous avez déjà commandé chez nous auparavant, veuillez saisir vos
-            coordonnées ci-dessous. Si vous êtes un nouveau client, veuillez
-            renseigner la section facturation.
-          </p>
+          
 
           <form className={styles.form} onSubmit={handleLogin}>
             <FormInput
-              label="Nom d'utilisateur *"
+              label="Nom d'utilisateur"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -104,7 +100,7 @@ const PersonalLogin = () => {
             />
 
             <FormInput
-              label="Mot de passe *"
+              label="Mot de passe"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

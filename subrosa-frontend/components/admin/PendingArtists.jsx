@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../styles/PendingArtistsPage.css';
+import styles from './PendingArtists.module.css';
 
 const PendingArtistsPage = () => {
   const [pendingArtists, setPendingArtists] = useState([]);
@@ -39,13 +39,13 @@ const PendingArtistsPage = () => {
   if (loading) return <p>Chargement...</p>;
 
   return (
-    <div className="pending-container">
-      <h1 id="artist-pending">🎨 Artistes en attente de validation</h1>
+    <div className={styles.pendingContainer}>
+      <h1 className={styles.artistPending}>Artistes en attente de validation</h1>
       {pendingArtists.length === 0 ? (
-        <p id="artist-pending">Aucun artiste en attente</p>
+        <p className={styles.artistPending}>Aucun artiste en attente</p>
       ) : (
-        <div className="table-wrapper">
-          <table className="pending-table">
+        <div className={styles.tableWrapper}>
+          <table className={styles.pendingTable}>
             <thead>
               <tr>
                 <th>Nom</th>
@@ -61,8 +61,8 @@ const PendingArtistsPage = () => {
                   <td>{artist.email}</td>
                   <td>{artist.status}</td>
                   <td>
-                    <button className="validate-btn" onClick={() => updateStatus(artist._id, 'validated')}>Valider</button>
-                    <button className="reject-btn" onClick={() => updateStatus(artist._id, 'rejected')}>Rejeter</button>
+                    <button className={styles.validateBtn} onClick={() => updateStatus(artist._id, 'validated')}>Valider</button>
+                    <button className={styles.rejectBtn} onClick={() => updateStatus(artist._id, 'rejected')}>Rejeter</button>
                   </td>
                 </tr>
               ))}

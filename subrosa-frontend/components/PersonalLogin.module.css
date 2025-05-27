@@ -1,272 +1,153 @@
 
- 
+.containerLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 100vh;
+  font-family: Michroma, sans-serif;
+  margin: 5rem auto;
+  padding-top: 0.1rem;
+  padding-bottom: 4rem;
+}
 
-
-/* CONTAINER GLOBAL */
-#containerLogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    background-color: black;
-    min-height: 100vh;
-    font-family: Michroma, sans-serif;
-    padding-top: 30rem;
-    padding-bottom: 4rem;
-  }
-  
-  /* TITRE */
-  #personalSpace {
-    margin: auto;
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  #artistPending {
-    margin: auto;
-    margin-bottom: 30px;
-  }
-
-  /* LIEN */
-  #alreadyClient {
-    width: 100%;
-    font-size: 1rem;
-    text-align: left;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    max-width: 1100px;
-    margin-left: calc((100% - 1100px) / 2);
-  }
-  
-  .loginLink {
-    color: white;
-    text-decoration: underline;
-  }
-  
-  /* BLOC FORMULAIRE */
-  #boxComponent {
-    width: 100%;
-    padding: 3rem;
-    border: 2px solid white; /* bordure visible */
-    box-shadow: none !important;
-    max-width: 1100px;
-    box-sizing: border-box;
-  }
-  
-  /* TEXTE INTRO */
-  #textLogin {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  /* FORM */
-  .form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-    border: none !important;
-    box-shadow: none !important;
-    gap: 1.2rem;
-    max-width: 1100px;
-    border-radius: 0 !important;
-  }
-  
-  /* CHAMPS */
-  .inputField {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .label {
-    width: 100%;
-    font-size: 1rem;
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 0.5rem;
-  }
-  
-  
-    .input {
-      width: 100%;
-      padding: 1rem;
-      border: none !important;
-      color: white !important;
-      font-size: 1rem;
-      text-align: center;
-      box-shadow: none !important;
-      all: unset;
-      max-width: 500px;
-      background-color: #322d2d !important; /* bordeaux foncé */
-      outline: none !important;
-      appearance: none;
-      appearance: none;
-    }
-    
-  
-  
-  /* BOUTONS */
-  .buttonGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    align-items: center;
-  }
-  
-  /* Style commun aux deux boutons */
-  .button {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid white;          /* ✅ fine bordure blanche */
-    color: white;
-    font-size: 0.95rem;
-    text-align: center;
-    box-shadow: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    max-width: 300px;
-    background-color: black;          /* ✅ fond noir par défaut */
-    cursor: pointer;
-    border-radius: 0;
-  }
-  
-  /* Hover : inversion simple */
-  .button:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  /* Supprimer le soulignement du "mot de passe perdu" */
-  .secondary {
-    border:none;
-    background: none;
-    font-size: 0.85rem;
-      box-shadow: none;
-    text-decoration: none;
-      background-color: transparent !important;
-      cursor: pointer;
-      outline: none;
-  }
-  
-  
-  /* LIGNE */
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: white;
-    opacity: 0.15;
-    margin-top: 2rem;
-  }
-  
-  /* RESET FORCE */
- 
-  
- 
- 
-  #boxComponent {
-    border: none !important;
-    border: 0.3px solid white !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-  }
-  
- 
-
-  /* Bouton MDP - underline custom */
-
-.buttonSecondary {
+.personalSpace {
   position: relative;
-  border: none;
-  background: none;
+  margin: 2rem auto;
   color: white;
-  cursor: pointer;
-  text-decoration: none; /* enlever le vrai underline */
+  font-size: 2.5rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.buttonSecondary::after {
-  position: absolute;
-  bottom: -5px; /* 👈 règle la distance entre le texte et la ligne */
-  left: 0;
-  width: 100%;
-  height: 1px;
-  content: "";
-  background-color: white;
-}
-  
-
-  /* input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  box-shadow: 0 0 0 1000px #1f1d1d inset !important;
-  -webkit-text-fill-color: white !important;
-  transition: background-color 9999s ease-in-out 0s;
-  caret-color: white !important;
-} */
-
-  /* TABLEAU STATS */
-.adminStats {
-  margin: 2rem 0;
-  padding: 1rem;
+.BoxComponent {
   border: 1px solid white;
-  background: #111;
-  color: white;
-  font-family: Helvetica, sans-serif;
+  width: 100%;
+  max-width: 700px;
+  padding: 2rem;
+  border: 1px solid white;
+  box-sizing: border-box;
 }
 
-.adminStats h2 {
-  font-size: 1.5rem;
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  gap: 1.2rem;
+  max-width: 1100px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.label {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
   margin-bottom: 1rem;
 }
 
-.adminStats ul {
-  list-style: none;
-  padding-left: 0;
-  line-height: 2;
-}
-
-.rechartsWrapper {
+.input {
+  width: 100%;
   padding: 1rem;
-  border: 1px solid #ff4cf9;
-  box-shadow: 0 0 10px rgb(255 76 249 / 20%);
-  background-color: #111;
-  border-radius: 12px;
-}
-
-.adminDashboard {
-  padding: 2rem;
-  border: 1px solid #fff;
-  box-shadow: 0 0 20px rgb(255 255 255 / 10%);
-  background-color: #111;
-  margin-top: 2rem;
-  border-radius: 12px;
-}
-
-.adminList {
-  margin: 2rem auto;
-  padding: 0;
+  border: 1px solid rgb(109, 107, 107);
+  color: white;
+  font-size: 1rem;
   text-align: center;
-  list-style: none;
+  max-width: 500px;
+  background-color: #322d2d;
+  outline: none;
 }
 
-@media screen and (width <= 768px) {
-  #personalSpace {
-    font-size: 1rem; /* adapte selon ton design */
-    text-align: center;
-    margin-top: 5rem;
-  }
+.button {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid white;         
+  color: white;
+  font-size: 0.95rem;
+  text-align: center;
+  box-shadow: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 300px;
+  background-color: black;          
+  cursor: pointer;
+  border-radius: 0;
+}
 
-  #alreadyClient {
-    margin: auto;
-    padding: 1rem;
-    font-size: 0.8rem;
-    text-align: center;
-  }
-  }
+.button:hover {
+  background-color: white;
+  color: black;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.buttonPrimary {
+  width: 50%;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
+}
+
+.buttonPrimary:hover {
+  background-color:var(--color-hover);
+  color: black;
+}
+
+.buttonSecondary {
+  border:none;
+  background: none;
+  font-size: 0.7rem;
+  margin-top: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  color: white;
+}
+
+.buttonSecondary:hover {
+  text-decoration: underline;
+  color: var(--color-hover);
+}
+
+.divider {
+  width: 30%;
+  height: 1px;
+  background-color: white;
+  opacity: 1;
+  margin: -0.5rem auto;
+}
+
+.alreadyClient {
+  width: 100%;
+  font-size: 1rem;
+  text-align: left;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  max-width: 1100px;
+  margin-left: calc((100% - 700px) / 2);
+}
+
+.LoginLink {
+  color:var(--color-hover);
+  text-decoration: underline;
+}
+
