@@ -19,14 +19,12 @@
   display: flex;
 }
 
-.infoColumnLeft {
- 
-}
+
 
 .infoColumnRight {
   display: flex;
   flex-direction: column;
-  width: 46%;
+  
 }
 
 /* === Détails de l’artiste === */
@@ -40,7 +38,7 @@
 
 .artistBio {
   justify-content: flex-end;
-  width: 1000px;
+  width: 530px;
   color: rgb(255 255 255 / 100%);
   font-size: 12px;
   font-family: Michroma, sans-serif;
@@ -59,13 +57,16 @@
   height: 20px;
 }
 
-/* Style manquant ajouté pour les expositions */
+
 .expo {
   font-family: Michroma, sans-serif;
   font-size: 14px;
   color: #fff;
   line-height: 1.4;
   text-align: center;
+  width: 100%;
+  max-width: 530px;
+  
 }
 
 /* === Bouton de suivi === */
