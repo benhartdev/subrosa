@@ -3,7 +3,7 @@
   width: 100%;
   height: auto;
   max-width: 440px;
-  margin: -2rem auto -2rem auto;  /* ⬅️ ceci recentre le bloc aussi */
+  margin: -2rem auto -2rem auto; 
   display: flex;
   justify-content: center;
 }
@@ -43,11 +43,30 @@
 @media screen and (max-width: 768px) {
   
   .clickZone1 {
-    width: 200px;
-    height: 180px;
+    width: 160px;
+    height: 100px;
   }
   .clickZone2 {
-    width: 500px;
-    height: 140px;
+    width: 300px;
+    height: 100px;
   }
+
+  .clickZone1,
+.clickZone2 {
+  position: absolute;
+  top: 5.5rem;
+  right: 5rem;
+  z-index: 15;
+  cursor: pointer;
+  background: transparent;
+  outline: 1px dashed rgb(19, 158, 33);
+}
+.logoWrapper img {
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  margin: 2rem auto -2rem auto;  /* ⬅️ ceci recentre le bloc aussi */
+  display: flex;
+  justify-content: center;
+}
 }
