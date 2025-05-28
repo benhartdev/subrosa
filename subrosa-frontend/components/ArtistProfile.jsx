@@ -67,21 +67,23 @@ const ArtistProfile = ({ artist }) => {
             src={artist.artistImages[2].url}
             alt={artist.artistImages[2].altText || `Portrait de ${artist.username}`}
             width={1000}
-            height={1000}
+            height={700}
+            style={{ objectFit: "contain", width: "100%", height: "auto" }}
+            
           />
         ) : (
           <Image
             src="/placeholder.jpg"
             alt="Image par défaut"
-            width={1000}
-            height={1000}
+            width={800}
+            height={800}
           />
         )}
       </div>
 
       <div className={styles.interviewSection}>
         <div className={styles.interviewLabel}>INTERVIEW</div>
-        <h2 className={styles.interviewTitle}>RENCONTRE AVEC BEN H</h2>
+        <h2 className={styles.interviewTitle}>RENCONTRE AVEC {artist?.username || "Nom inconnu"}</h2>
 
         <div className={styles.interviewContent}>
           <div>

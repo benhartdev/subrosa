@@ -6,9 +6,11 @@
 }
 
 .contentWrapper {
+  max-width: 1200px;
   width: 100%;
-  margin: 0;
-  padding-left: 0;
+  margin: 0 auto;
+  
+  align-items: center;
 }
 
 /* === Colonnes d'information === */
@@ -18,7 +20,7 @@
 }
 
 .infoColumnLeft {
-  margin-left: 25px;
+ 
 }
 
 .infoColumnRight {
@@ -31,7 +33,7 @@
 .artistDetails {
   height: 200px;
   padding: 10px 20px;
-  margin-left: 6px;
+  
   background: rgb(217 217 217 / 100%);
   color: black;
 }
@@ -47,9 +49,10 @@
 
 .bioText {
   font-family: Michroma, sans-serif;
-  width: 850px;
+  width: 530px;
   text-justify: inter-character all-lines;
   font-size: 16px;
+  margin-top:-0.4rem
 }
 
 .spacer {
@@ -62,6 +65,7 @@
   font-size: 14px;
   color: #fff;
   line-height: 1.4;
+  text-align: center;
 }
 
 /* === Bouton de suivi === */
@@ -70,7 +74,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  width: 100%;
+  width: 619px;
   padding: 10px;
   border: 1px solid rgb(255 255 255 / 100%);
   color: #fff;
@@ -78,6 +82,7 @@
   text-align: center;
   background-color: transparent;
   margin-top: 15px;
+ 
   min-height: 30px;
   overflow: hidden;
   font-family: Michroma, sans-serif;
@@ -93,17 +98,17 @@
 
 /* === Image principale === */
 .imageFullWidth {
-  display: flex;
-  position: relative;
-  left: 5%;
-  margin: 120px auto;
-  scale: 1.3;
+   width: 100%;
+  height: auto;
+  max-width: 1000px; /* Taille en desktop */
+  display: block;
+  margin: 3rem auto;
 }
 
 /* === Interview === */
 .interviewSection {
   position: relative;
-  left: 5%;
+  
   text-align: center;
   margin-top: 59px;
 }
@@ -125,6 +130,7 @@
   font-weight: 400;
   line-height: 1.2;
   margin-top: 13px;
+  text-transform: uppercase;
 }
 
 .interviewContent {
@@ -147,4 +153,62 @@
   line-height: 16px;
   letter-spacing: 0.5px;
   margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+
+  
+  .imageFullWidth {
+   display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 400px;
+    text-align: center;
+    margin: 2rem auto 1rem;
+  }
+.bioText {
+    max-width: 400px;
+    overflow-x: hidden;
+    margin: auto;
+    text-align: center;
+}
+  .artistBio {
+    max-width: 100%;
+    overflow-x: hidden;
+
+  }
+.infoColumns {
+    flex-direction: column; /* passe en empilé */
+    gap: 2rem;
+  }
+
+  .infoColumnLeft,
+  .infoColumnRight {
+    width: 100%; /* prend toute la largeur */
+    max-width: 500px;
+    margin: auto;
+    overflow-x: hidden;
+  box-sizing: border-box;
+  }
+
+  .artistDetails {
+    text-align: center;
+    margin: auto;
+    width: 100%; /* prend toute la largeur */
+    max-width: 400px;
+  }
+  .expo {
+  font-family: Michroma, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.4;
+  text-align: center;
+}
+.followButton {
+  width: 100%; /* prend toute la largeur */
+    max-width: 400px;
+    margin: 2rem auto;
+}
 }

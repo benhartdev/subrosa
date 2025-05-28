@@ -30,10 +30,9 @@ export default async function WorkSlugPage({ params }) {
           width={600}
           height={600}
           style={{ objectFit: "contain", width: "100%", height: "auto" }}
-          className={styles.mainArtworkImage}
-        />
+          className={styles.mainArtworkImage} />
       </div>
-
+      
       <div className={styles.artworkDetailsContainer}>
          <div className={styles.leftColumn}>
         <div className={styles.artworkInfo}>
@@ -63,48 +62,20 @@ export default async function WorkSlugPage({ params }) {
           </div>
           <p className={styles.artworkDetailsBisShareTitle}>PARTAGER SUR</p>
           <div className={styles.artworkDetailsBisSocialLinks}>
-              <a
-                href={`https://www.instagram.com/?url=${encodeURIComponent(currentUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagram />
-             </a>
+          
+              <a href={`https://www.instagram.com/?url=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer">
+              <FaInstagram /></a>
+              <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer">
+              <FaFacebookSquare /></a>
+              <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer">
+              <BsTwitterX /></a>
+              <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}`} target="_blank" rel="noopener noreferrer">
+              <FaLinkedin /></a>
+              <a href={`https://www.youtube.com/`}target="_blank" rel="noopener noreferrer">
+              <ImYoutube /></a>
 
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebookSquare />
-              </a>
-
-                          <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <BsTwitterX />
-              </a>
-
-                          <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin />
-              </a>
-                          <a
-                href={`https://www.youtube.com/`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ImYoutube />
-              </a>
           </div>
-         
         </div>
-        
       </div>
       </div>
         <div className={styles.purchaseSection}>
@@ -126,26 +97,18 @@ export default async function WorkSlugPage({ params }) {
               UNE QUESTION ? CONTACTEZ-NOUS AU 0668105251
             </button>
             {/* A VENIR: Wishlist feature
-            
             <button className={styles.wishlistButton}>
               <span className={styles.wishlistText}>Ajouter à ma Wishlist</span>
             </button> */}
           </div>
         </div>
-        
       </div>
-
-      
-
- 
 
   {Array.isArray(work.images) && work.images.length > 1 && (
   <section className={styles.artworkSection}>
-    
     <div className={styles.contentContainer}>
-       
       <h3 className={styles.sectionTitle}>LES DETAILS DE L'ŒUVRE</h3>
-      <div className={styles.imageGrid}>
+       <div className={styles.imageGrid}>
         {work.images.slice(1).map((img, index) => (
           <figure className={styles.imageWrapper} key={index}>
             <Image
@@ -158,18 +121,14 @@ export default async function WorkSlugPage({ params }) {
           </figure>
         ))}
       </div>
-      
     </div>
   </section>
 )}
-<hr className={styles.customSaparator1} />
-
-
+    <hr className={styles.customSaparator1} />
       <section className={styles.artistProfileContentColumn}>
   <div className={styles.artistProfileContentWrapper}>
     <span className={styles.artistProfileLabel}>RENCONTRE AVEC L'ARTISTE</span>
     <h2 className={styles.artistProfileName}>{artist?.name || work.artistName}</h2>
-
     <div className={styles.artistProfileBody}>
       {/* Image à gauche */}
       <div className={styles.artistProfilePhotoWrapper}>
@@ -180,7 +139,6 @@ export default async function WorkSlugPage({ params }) {
           className={styles.artistProfileImage}
         />
       </div>
-
       {/* Texte à droite */}
       <div className={styles.artistProfileText}>
         <section className={styles.artistInterview}>
@@ -200,12 +158,9 @@ export default async function WorkSlugPage({ params }) {
         </button> */}
       </div>
     </div>
-
-   
   </div>
- 
 </section>
-<hr className={styles.customSaparator2} />
+  <hr className={styles.customSaparator2} />
     </main>
   );
 }

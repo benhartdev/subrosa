@@ -8,20 +8,19 @@
 /* === Intro (titre + sous-titre) === */
 .artistIntro {
   text-align: center;
-  margin: 2rem 0;
 }
 
 .artistSubtitle {
   color: #aaa;
   font-size: 1rem;
   letter-spacing: 1px;
-  margin-bottom: 0.5rem;
+  margin: 8rem auto 0.5rem;
 }
 
 .artistFullname {
   font-size: 3.5rem;
   font-weight: 700;
-  margin-top: 0.5rem;
+  margin-top: -1rem;
 }
 
 /* === Conteneur & portrait de l’artiste === */
@@ -32,8 +31,30 @@
   background-color: black;
 }
 
-.artistFeatured {
+.artistImage1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 700px;
+  margin: -2rem auto;
+}
+
+.galleryWorks {
+  margin-top: -18rem;
+}
+
+@media screen and (max-width: 768px) {
+
+ .artistImage1 {
+ display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 400px;
+    text-align: center;
+    margin: -1rem auto;
+ }
+ .artistFullname {
+  font-size: 2rem;
+  font-weight: 700;
+ 
+}
 }

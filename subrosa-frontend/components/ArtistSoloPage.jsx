@@ -20,24 +20,28 @@ export default function ArtistSoloPage({ artist }) {
       </section>
 
       <section className={styles.artistContainer}>
-        <div className={styles.artistFeatured}>
+        <div className={styles.artistImage1}>
           <Image
             src={artist.artistImages[1]?.url || "/placeholder.jpg"}
             alt={artist.artistImages[1]?.altText || `Portrait de ${artist.username}`}
-            width={1000}
-            height={1000}
+            width={700}
+            height={700}
+             style={{ objectFit: "contain", width: "100%", height: "auto" }}
+            className={styles.mainArtworkImage} 
           />
         </div>
       </section>
 
       {artist.works?.length > 0 && (
-        <DoubleBorderContainer title="Les œuvres de l’artiste">
+        <div className={styles.galleryWorks}>
+        <DoubleBorderContainer title="Les œuvres de l’artiste" >
           <Gallery
             items={artist.works}
             fieldsToShow={["title", "medium", "dimensions"]}
             type="works"
           />
         </DoubleBorderContainer>
+        </div>
       )}
 
       <ArtistProfile bio={artist.bio} artist={artist} />
