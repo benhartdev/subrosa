@@ -1,72 +1,23 @@
-.logoWrapper img {
-  
+.logoWrapper {
   width: 100%;
-  height: auto;
-  max-width: 440px;
-  margin: -2rem auto -2rem auto; 
   display: flex;
   justify-content: center;
+  margin-top: 8rem;
 }
 
-.blogPage {
+.logoImage {
+  max-width: 440px;
   width: 100%;
-  margin-top: 10rem;
-}
-
-.blogPageDoubleBorder {
-  margin-top: -15rem;
-}
-
-.clickZone1,
-.clickZone2 {
-  position: absolute;
-  top: 8rem;
-  right: 34rem;
-  z-index: 15;
+  height: auto;
   cursor: pointer;
-  background: transparent;
-  /* outline: 1px dashed rgb(19, 158, 33); */
 }
-
-.clickZone1 {
-  width: 120px;
-  height: 180px;
-}
-
-.clickZone2 {
-  width: 440px;
-  height: 120px;
-}
-
-/* Responsive */
 
 @media screen and (max-width: 768px) {
-  
-  .clickZone1 {
-    width: 160px;
-    height: 100px;
-  }
-  .clickZone2 {
-    width: 300px;
-    height: 100px;
+  .logoWrapper {
+    margin-top: 6rem;
   }
 
-  .clickZone1,
-.clickZone2 {
-  position: absolute;
-  top: 5.5rem;
-  right: 5rem;
-  z-index: 15;
-  cursor: pointer;
-  background: transparent;
-  outline: 1px dashed rgb(19, 158, 33);
-}
-.logoWrapper img {
-  width: 100%;
-  height: auto;
-  max-width: 440px;
-  margin: 2rem auto -2rem auto;  /* ⬅️ ceci recentre le bloc aussi */
-  display: flex;
-  justify-content: center;
-}
+  .logoImage {
+    max-width: 300px;
+  }
 }

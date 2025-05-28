@@ -6,7 +6,6 @@ import styles from "../../components/AccountForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
-import SubrosaLogoStatic from '../../components/SubrosaLogoStatic';
 
 export default function InscriptionPage() {
   const searchParams = useSearchParams();
@@ -30,9 +29,8 @@ export default function InscriptionPage() {
     {/* Affichage de l’accueil inscription avec les boutons si aucun type sélectionné */}
     {!type && (
       <div className={styles.inscriptionWrapper}>
-        <div className={styles.logoContainer}>
-          <SubrosaLogoStatic />
-        </div>
+        <p className={styles.welcomeText}>Vous souhaite la bienvenue</p>
+        
 
         <div className={styles.inscriptionChoice}>
           <h2>Quel type d'inscription souhaitez-vous&nbsp;?</h2>

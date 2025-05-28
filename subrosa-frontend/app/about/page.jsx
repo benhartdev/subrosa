@@ -2,14 +2,11 @@
 import React from "react";
 import styles from "./about.module.css";
 import Image from 'next/image';
-import SubrosaLogoStatic from "../../components/SubrosaLogoStatic";
 
 const AboutPage = () => {
   return (
     <div className={styles.aboutContainer}>
-        <div className={styles.logoOverlay}>
-               <SubrosaLogoStatic />
-       </div>
+        
       <h1 className={styles.aboutTitle}>QUI&nbsp;SOMMES-NOUS</h1>
 
       <p className={styles.aboutDescription}>

@@ -10,6 +10,7 @@ import PopupManager from  '../components/PopupManager'
 // 🆕 importe Header et Footer
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SubrosaLogoStatic from "../components/SubrosaLogoStatic";
 
 export const metadata = {
   title: "SUB ROSA",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
           <AutoLogout />
              <div className="page-container">
           <Header />
+          <SubrosaLogoStatic />
           <div className="page-content main-content">
              <PopupManager /> {/* ← Injection globale */}
             {children}

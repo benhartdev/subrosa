@@ -42,7 +42,7 @@ const featuredArtists = [...items]
                 className={styles.headImage}
               />
               <div className={styles.headOverlayContent}>
-                <div className={styles.logoContainer}>
+                {/* <div className={styles.logoContainer}>
                   <Link href="/">
                     <Image
                       src="/images/gallerie_SUB_logo2.png"
@@ -51,7 +51,7 @@ const featuredArtists = [...items]
                       height={500}
                     />
                  </Link>
-               </div>
+               </div> */}
                   <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
                   <Link href="/page-gallerie?type=artist">
                     <button className={styles.discoverArtist}>Découvrez nos artistes</button>
