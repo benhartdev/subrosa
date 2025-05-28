@@ -23,7 +23,7 @@ export default async function WorkSlugPage({ params }) {
       <h2 className={styles.artistName1}>{artist?.name || "Nom inconnu"}</h2>
       <h3 className={styles.workTitle1}>{work.title}</h3>
 
-      <div className={styles.image}>
+      <div className={styles.imageWork}>
         <Image
           src={work.images?.[0]?.url || "/placeholder.jpg"}
           alt={work.title}
@@ -143,7 +143,7 @@ export default async function WorkSlugPage({ params }) {
   <section className={styles.artworkSection}>
     
     <div className={styles.contentContainer}>
-       <hr className={styles.customSaparator1} />
+       
       <h3 className={styles.sectionTitle}>LES DETAILS DE L'ŒUVRE</h3>
       <div className={styles.imageGrid}>
         {work.images.slice(1).map((img, index) => (
@@ -158,10 +158,11 @@ export default async function WorkSlugPage({ params }) {
           </figure>
         ))}
       </div>
-      <hr className={styles.customSaparator2} />
+      
     </div>
   </section>
 )}
+<hr className={styles.customSaparator1} />
 
 
       <section className={styles.artistProfileContentColumn}>
@@ -182,25 +183,21 @@ export default async function WorkSlugPage({ params }) {
 
       {/* Texte à droite */}
       <div className={styles.artistProfileText}>
-        
-
         <section className={styles.artistInterview}>
             <p className={styles.question1Title}>Comment êtes-vous devenu artiste ?</p>
             <p className={styles.answer1Title}>{artist.interview?.question1}</p>
-
             <p className={styles.question2Title}>Comment définiriez-vous votre univers ?</p>
             <p className={styles.answer2Title}>{artist.interview?.question2}</p>
-
             <p className={styles.question3Title}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</p>
             <p className={styles.answer3Title}>{artist.interview?.question3}</p>
       </section>
-
         <button className={styles.interviewButton}>
           VOIR L'INTERVIEW COMPLÈTE DE L'ARTISTE
         </button>
-        <button className={styles.followButton}>
+        {/* FEAT A VENIR */}
+        {/* <button className={styles.followButton}>
           SUIVRE L'ARTISTE
-        </button>
+        </button> */}
       </div>
     </div>
 
@@ -208,7 +205,7 @@ export default async function WorkSlugPage({ params }) {
   </div>
  
 </section>
-
+<hr className={styles.customSaparator2} />
     </main>
   );
 }

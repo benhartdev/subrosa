@@ -28,7 +28,7 @@
     text-transform: uppercase;
 }
 
-.image {
+.imageWork {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centre horizontalement */
@@ -299,6 +299,7 @@
   padding: 0 2rem;
   color: #fff;
   font-family: Michroma, sans-serif;
+  
 }
 .artistProfileContentWrapper {
     max-width: 1200px;
@@ -307,7 +308,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-   
+  
 }
 .artistProfileHeader {
     position: relative;
@@ -394,8 +395,7 @@
    line-height: 1.5;
     background-color: rgb(186 181 181 / 16%);
     cursor: pointer;
-    margin: auto;
-    
+    margin: 0 auto 5rem;
 }
 .artistProfileDivider {
   
@@ -415,16 +415,23 @@
   width: 80%;          
   height: 1px;             
   background-color: rgba(116, 113, 113, 0.703);
-  margin: 6rem auto;
+  margin: 1rem auto 5rem;
 }
 
 .artistInterview {
+  width: 100%;
+  max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
 }
-.question1Title,
+.question1Title {
+   text-align: center;
+    color : var(--color-hover);
+    margin: -0.4rem auto 0.5rem;
+}
+
 .question2Title,
 .question3Title {
     text-align: center;
@@ -437,23 +444,23 @@
 .answer3Title {
     text-align: center;
     color: #fff;
-    margin: 0rem auto;
+    margin: auto;
 }
 
 @media (max-width: 768px) {
   .artworkDetailsContainer {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
   }
 
   .artworkInfo {
     border-right: none;
-    border-bottom: 1px solid #fff;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+    margin-top: -2rem;
      width: 100%;
-    max-width: 600px;
+    max-width: 500px;
+    font-size: 0.8rem;
   }
 
   .purchaseSection {
@@ -464,21 +471,19 @@
 
   .purchaseContainer {
     width: 70%;
-    padding: 20px;
+   margin-top: -3rem;
   }
 
   .artworkDetailsBisContainer {
-    position: static;
+   
     width: 100%;
-    right: 0;
-    top: 0;
-    padding: 0 1rem;
+    margin-top: -3rem ;
   }
 
   .artworkDetailsBis {
     width: 100%;
     max-width: 600px;
-    padding: 0 1rem;
+    
   }
 
   .artworkDetailsBis_description {
@@ -488,6 +493,16 @@
   .artworkDetailsBis_action {
     flex-direction: column;
   }
+
+  .imageWork {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 400px;
+    text-align: center;
+    margin: 5rem auto;
+}
 
   .imageGrid {
     grid-template-columns: 1fr;
@@ -516,6 +531,19 @@
   .artistProfileText {
     width: 100%;
     max-width: 100%;
-    
   }
+  .artistProfileLabel {
+margin-top: -2rem;
+  }
+
+  .question1Title {
+    margin-top: 3rem;
+  }
+.customSaparator1 {
+  margin-top: 4rem;
+}
+.customSaparator2 {
+  margin: -2rem auto 2rem auto;
+}
+  
 }

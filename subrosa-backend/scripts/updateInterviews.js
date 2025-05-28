@@ -1,8 +1,11 @@
-const mongoose = require('mongoose');
+
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const path = require("path");
 const Artist = require('../src/models/Artists');
 
-dotenv.config(); // Charge les variables d'environnement (.env)
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
 
 async function updateArtistsInterviewField() {
   try {
