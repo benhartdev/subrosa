@@ -357,14 +357,15 @@
 
 /* styles specifiques pour le composant Gallery.jsx */
 
+
 .homeGalleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 3rem 2rem;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0 2rem;
   max-width: 1200px; 
-  margin: 4rem auto; 
+  margin: auto; 
 }
 
 /* Forcer toutes les cartes à respecter la taille responsive */
@@ -422,7 +423,9 @@
 @media screen and (min-width: 1200px) {
   .homeGalleryGrid {
     grid-template-columns: repeat(4, 1fr);
+    
   }
+ 
 }
 
   .artistsButtonContainer {

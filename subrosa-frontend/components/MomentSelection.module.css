@@ -138,3 +138,33 @@
   height: auto;
   object-fit: contain;
 }
+
+@media screen and (max-width: 768px) {
+
+   .imgSquare {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  .imgRound {
+    width: 330px !important;
+    height: 330px !important;
+  }
+
+  .imgLandscape {
+    width: 360px !important;
+  }
+
+  .imgGta {
+    width: 360px !important;
+  }
+
+  .line, .lineLandscape {
+    gap: 30px;
+  }
+
+  .selectionTitle {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+}

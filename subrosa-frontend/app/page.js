@@ -42,16 +42,6 @@ const featuredArtists = [...items]
                 className={styles.headImage}
               />
               <div className={styles.headOverlayContent}>
-                {/* <div className={styles.logoContainer}>
-                  <Link href="/">
-                    <Image
-                      src="/images/gallerie_SUB_logo2.png"
-                      alt="Logo SUB ROSA"
-                      width={500}
-                      height={500}
-                    />
-                 </Link>
-               </div> */}
                   <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
                   <Link href="/page-gallerie?type=artist">
                     <button className={styles.discoverArtist}>Découvrez nos artistes</button>
@@ -69,7 +59,6 @@ const featuredArtists = [...items]
               </div>
             </div>
 
-
             <div className={styles.navigationFilters}>
                  <Newsletter />
                 <section className={styles.categoryFilters}>
@@ -86,7 +75,7 @@ const featuredArtists = [...items]
                           <MomentSelection />
              </section>
               {/* Section Artistes à la une */}
-      <section className="accueil-artistes-a-la-une">
+      <section className={styles.artistHomeGallery}>
         <h3 className={styles.titleArtistSelection}>NOS ARTISTES COUP DE CŒUR</h3>
         <h4 className={styles.titleArtistUniverse}>Partagez leur univers…</h4>
         <Gallery

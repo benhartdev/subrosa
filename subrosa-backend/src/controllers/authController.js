@@ -51,6 +51,7 @@ const loginUser = async (req, res) => {
       role: user.role,
       isAdmin: user.isAdmin,
       username: user.username,
+      name: user.name,
        artistId: user.role === "artist" ? user._id : null,
     };
 

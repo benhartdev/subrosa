@@ -4,9 +4,10 @@
 }
 
 .dashboardSubtitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 3rem;
   color: #fff;
+  text-align: center;
 }
 
 .dashboardNote {

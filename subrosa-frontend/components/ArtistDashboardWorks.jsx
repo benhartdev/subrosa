@@ -41,11 +41,11 @@ const ArtistWorksSection = () => {
     fetchWorks();
   }, [user]);
 
-  if (loading) return <p style={{ color: "white" }}>Chargement des œuvres...</p>;
+  if (loading) return <p style={{ color: "white" }}>Chargement des oeuvres...</p>;
 
   return (
     <div className={styles.artistWorksSection}>
-      <h2 className={styles.dashboardSubtitle}>🎯 Œuvres validées</h2>
+      <h2 className={styles.dashboardSubtitle}>Oeuvres validées</h2>
       {validatedWorks.length > 0 ? (
         <ArtistGallery
           images={validatedWorks.map((w) => ({
@@ -61,7 +61,7 @@ const ArtistWorksSection = () => {
       )}
 
       <h2 className={styles.dashboardSubtitle} style={{ marginTop: "4rem" }}>
-        🕓 Œuvres en attente
+    Oeuvres en attente
       </h2>
       {pendingWorks.length > 0 ? (
         <ArtistGallery
