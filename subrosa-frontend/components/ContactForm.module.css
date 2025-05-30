@@ -4,7 +4,8 @@
   align-items: center;
   position: relative;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 8rem;
   padding: 0 1rem 3rem;
 }
 

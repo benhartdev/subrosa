@@ -1,6 +1,6 @@
 function checkSession(req, res) {
   if (req.session?.user) {
-    const { id, username, role } = req.session.user;
+    const { id, username, role, artistId, } = req.session.user;
 
     return res.json({
       authenticated: true,
@@ -8,6 +8,7 @@ function checkSession(req, res) {
         id,
         username,
         role,
+        artistId,
       },
     });
   } else {

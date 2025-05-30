@@ -16,6 +16,7 @@ const ArtistWorksSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+     console.log("🔎 USER DANS ArtistDashboardWorks :", user);
     if (!user || !user.artistId) return;
 
     const fetchWorks = async () => {

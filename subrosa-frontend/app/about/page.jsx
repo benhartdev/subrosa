@@ -34,6 +34,7 @@ const AboutPage = () => {
       <div className={styles.teamSection}>
         <div className={styles.teamGrid}>
           <div className={styles.teamMemberPhoto}>
+            <div className={styles.memberTitle}>BENJAMIN&nbsp;HOFFELÉ</div>
             <Image src="/images/moi_carre.jpg" className={styles.memberImage} alt="Team Member" width={800} height={800}/>
             <div className={styles.memberRole}>
               Son&nbsp;rôle au&nbsp;sein&nbsp;de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
@@ -44,7 +45,7 @@ const AboutPage = () => {
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-               <div className={styles.memberTitle}>BENJAMIN&nbsp;HOFFELÉ</div>
+               
               
               <div className={styles.descriptionTitle}>FORMATION&nbsp;&&nbsp;PARCOURS</div>
               
@@ -81,6 +82,7 @@ const AboutPage = () => {
       <div className={styles.teamSection}>
         <div className={styles.teamGrid}>
           <div className={styles.teamMemberPhoto}>
+            <div className={styles.memberTitle}>SAYAH&nbsp;EL&nbsp;YATIM</div>
           <Image src="/images/say_carre.jpg" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            
           <div className={styles.memberRole}>
               Son&nbsp;rôle au sein de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
@@ -91,7 +93,6 @@ const AboutPage = () => {
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-              <div className={styles.memberTitle}>SAYAH&nbsp;EL&nbsp;YATIM</div>
               
               <div className={styles.descriptionTitle}>FORMATION&nbsp;&&nbsp;PARCOURS</div>
               
@@ -127,6 +128,7 @@ const AboutPage = () => {
       <div className={styles.teamSection}>
         <div className={styles.teamGrid}>
           <div className={styles.teamMemberPhoto}>
+            <div className={styles.memberTitle}>ZÉ&nbsp;LA&nbsp;MENTALE</div>
           <Image src="/images/Ze_carre.jpg" className={styles.memberImage} alt="Team Member" width={1920} height={1080}/>            <div className={styles.memberRole}>
               Son&nbsp;rôle au sein de SUB&nbsp;ROSA&nbsp;ART : responsable du volet « Artiste
               en entreprise » gestion des relations artistes/galerie
@@ -136,7 +138,6 @@ const AboutPage = () => {
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-              <div className={styles.memberTitle}>ZÉ&nbsp;LA&nbsp;MENTALE</div>
               <div className={styles.descriptionTitle}>FORMATION&nbsp;&&nbsp;PARCOURS</div>
               
               <p>De&nbsp;formation scientifique, Ben H s'est

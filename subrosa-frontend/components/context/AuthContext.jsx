@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   // validation côté serveur (check-session)
   useEffect(() => {
+    console.log("🔁 Session récupérée côté client :", user);
     const checkSession = async () => {
       try {
         const res = await fetch("http://localhost:5000/api/check-session", {
@@ -28,8 +29,8 @@ export const AuthProvider = ({ children }) => {
   
         if (res.ok) {
           const data = await res.json();
-          setUser(data);
-          localStorage.setItem("user", JSON.stringify(data));
+          setUser(data.user);
+          localStorage.setItem("user", JSON.stringify(data.user));
         } else {
           setUser(null);
           localStorage.removeItem("user");

@@ -50,7 +50,8 @@ const loginUser = async (req, res) => {
       id: user._id,
       role: user.role,
       isAdmin: user.isAdmin,
-      username: user.username
+      username: user.username,
+       artistId: user.role === "artist" ? user._id : null,
     };
 
     // ✅ Sauvegarde explicite de session avant réponse
@@ -62,7 +63,7 @@ const loginUser = async (req, res) => {
 
       return res.status(200).json({
         message: "Connexion réussie",
-        user, // ⬅️ on renvoie tout l’objet de l'artiste ici
+         user: req.session.user, // ⬅️ on renvoie tout l’objet de l'artiste ici
       });
     });
   } catch (error) {

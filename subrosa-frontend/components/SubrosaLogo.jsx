@@ -1,5 +1,5 @@
 // components/SubrosaLogo.jsx
-import Image from 'next/image';
+
 import Link from 'next/link';
 import styles from './SubrosaLogo.module.css';
 
@@ -10,12 +10,10 @@ export default function SubrosaLogo({ variant }) {
   return (
      <div className={logoClass}>
       <div className={styles.logoContainer}>
-        <Image
+        <img
           src="/images/gallerie_SUB_logo2_fond_noir.png"
           alt="Logo SUB ROSA"
-          width={440}
-          height={260}
-          className={styles.logo}
+          className={styles.logoImage}
         />
 
         <Link href="/" legacyBehavior>

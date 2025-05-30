@@ -38,12 +38,7 @@ const ArtistDashboard = () => {
       <section style={{ marginTop: "4rem" }}>
       <ArtistDashboardWorks />
       </section>
-      <section style={{ marginTop: "2rem" }}>
-       
-        <ul className={styles.viewProfile}>
-          <li><Link href={`/artiste/${user._id}`}>👤 Voir mon profil public</Link></li>
-        </ul>
-      </section>
+      
     </main>
   );
 };

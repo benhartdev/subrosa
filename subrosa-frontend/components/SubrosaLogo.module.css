@@ -1,3 +1,4 @@
+
 .logoOverlay {
   position: static;
   display: inline-block;
@@ -17,6 +18,12 @@
   /* outline: 1px dashed red; */
 }
 
+.logoImage {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+
+}
 .clickZone1,
 .clickZone2 {
   position: absolute;
