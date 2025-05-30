@@ -32,8 +32,9 @@ export default function RootLayout({ children }) {
              <PopupManager /> {/* ← Injection globale */}
             {children}
          </div>
-          <Footer />
+          
             </div>
+            <Footer />
         </AuthProvider>
       </body>
     </html>

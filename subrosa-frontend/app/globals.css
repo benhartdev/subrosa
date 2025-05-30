@@ -61,6 +61,11 @@ a {
   flex: 1;
 }
 
+@media (max-width: 768px) {
+  .page-container {
+    padding-inline: 1rem;
+  }
+}
 /* body.inscription-open {
   overflow-x: hidden;
 }
@@ -88,7 +93,7 @@ a {
 
 
 /* NEWSLETTER */ 
-.newsletter-container {
+/* .newsletter-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -157,4 +162,4 @@ select:-webkit-autofill {
   -webkit-text-fill-color: #eee !important;
   box-shadow: 0 0 0px 1000px #111 inset !important;
   background-color: #111 !important;
-}
+} */

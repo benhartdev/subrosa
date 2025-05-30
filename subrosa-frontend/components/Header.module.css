@@ -1,14 +1,9 @@
 
-
-
-
 .mainNavBlurred {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.7);
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
-
-
 
 .iconWrapper .iconSvg {
   font-size: 2rem;
@@ -55,18 +50,10 @@
 	height: 70px;
 	width:100%;
 	top: 0;
-  padding: 0;
-  z-index: 9990;
-  background: linear-gradient(to top, rgb(0, 0, 0, 1), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+    padding: 0;
+    z-index: 9990;
+    background: linear-gradient(to top, rgb(0, 0, 0, 1), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
 }
-
-
-
-
-
-
-
-
 
 .navbarNavCustom {
     display: flex;
@@ -110,8 +97,6 @@
     transform: scale(1.05);
     background: none !important;
 }
-
-
 
 .mobileMenu {
     position: fixed;
@@ -195,12 +180,7 @@
     top: 0.6rem;
     right: 0.6rem;
     z-index: 9998;
-    
 }
-
-
-
-
 
 .iconSvg:hover,
 .logoutIcon:hover {
@@ -235,4 +215,16 @@
   .navbarNavCustom {
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+    .iconWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    z-index: 9998;
+}
 }
