@@ -16,12 +16,8 @@ export default function SubrosaLogo({ variant }) {
           className={styles.logoImage}
         />
 
-        <Link href="/" legacyBehavior>
-          <a className={styles.clickZone1}></a>
-        </Link>
-        <Link href="/" legacyBehavior>
-          <a className={styles.clickZone2}></a>
-        </Link>
+        <Link href="/" className={styles.clickZone1}></Link>
+        <Link href="/" className={styles.clickZone2}></Link>
       </div>
     </div>
   );

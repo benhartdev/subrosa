@@ -41,15 +41,11 @@ const Header = () => {
         <div className={styles.iconWrapper}>
           {!user ? (
             <>
-              <Link href="/login" legacyBehavior>
-                <a className={styles.iconSvg}>
-                  <FontAwesomeIcon icon={faSignInAlt} />
-                </a>
+              <Link href="/login" className={styles.iconSvg}>
+                <FontAwesomeIcon icon={faSignInAlt} />
               </Link>
-              <Link href="/inscription" legacyBehavior>
-                <a className={styles.iconSvg}>
-                  <FontAwesomeIcon icon={faUserPlus} />
-                </a>
+              <Link href="/inscription" className={styles.iconSvg}>
+                <FontAwesomeIcon icon={faUserPlus} />
               </Link>
             </>
           ) : (
@@ -64,24 +60,17 @@ const Header = () => {
             {isMenuOpen && (
               <>
                 <ul className={styles.mobileMenu}>
-                  <li><Link href="/" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Accueil</a></Link></li>
-                  <li><Link href="/page-gallerie?type=works" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Nos œuvres</a></Link></li>
-                  <li><Link href="/page-gallerie?type=artist" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Nos artistes</a></Link></li>
-                  <li><Link href="/blog" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Sub Rosa Blog</a></Link></li>
-                  <li><Link href="/about" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Qui sommes-nous</a></Link></li>
-                  <li><Link href="/contact" legacyBehavior>
-                    <a onClick={() => setIsMenuOpen(false)}>Contact</a></Link></li>
+                  <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
+                  <li><Link href="/page-gallerie?type=works" onClick={() => setIsMenuOpen(false)}>Nos œuvres</Link></li>
+                  <li><Link href="/page-gallerie?type=artist" onClick={() => setIsMenuOpen(false)}>Nos artistes</Link></li>
+                  <li><Link href="/blog" onClick={() => setIsMenuOpen(false)}>Sub Rosa Blog</Link></li>
+                  <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>Qui sommes-nous</Link></li>
+                  <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+
                   {!user ? (
                     <>
-                      <li><Link href="/login" legacyBehavior>
-                        <a onClick={() => setIsMenuOpen(false)}>Se connecter</a></Link></li>
-                      <li><Link href="/inscription" legacyBehavior>
-                        <a onClick={() => setIsMenuOpen(false)}>S'enregistrer</a></Link></li>
+                      <li><Link href="/login" onClick={() => setIsMenuOpen(false)}>Se connecter</Link></li>
+                      <li><Link href="/inscription" onClick={() => setIsMenuOpen(false)}>S'enregistrer</Link></li>
                     </>
                   ) : (
                     <li>
@@ -90,10 +79,11 @@ const Header = () => {
                       </button>
                     </li>
                   )}
+
                   {user?.role === "artist" && (
                     <li>
-                      <Link href="/ajouter-oeuvre" legacyBehavior>
-                        <a className={styles.addWorkInsideMenu}>➕ Ajouter une œuvre</a>
+                      <Link href="/ajouter-oeuvre" className={styles.addWorkInsideMenu}>
+                        ➕ Ajouter une œuvre
                       </Link>
                     </li>
                   )}
@@ -106,13 +96,13 @@ const Header = () => {
 
         <nav className={styles.navbarWrapper}>
           <ul className={styles.navbarNavCustom}>
-            <li className={styles.navItem}><Link href="/inscription" legacyBehavior><a className={styles.navLink}>Inscription</a></Link></li>
-            <li className={styles.navItem}><Link href="/blog" legacyBehavior><a className={styles.navLink}>Sub Rosa Blog</a></Link></li>
-            <li className={styles.navItem}><Link href="/page-gallerie?type=artist" legacyBehavior><a className={styles.navLink}>Nos artistes</a></Link></li>
-            <li className={styles.navItem}><Link href="/" legacyBehavior><a className={`${styles.navLink} ${styles.navAccueil}`}>Accueil</a></Link></li>
-            <li className={styles.navItem}><Link href="/page-gallerie?type=works" legacyBehavior><a className={styles.navLink}>Nos œuvres</a></Link></li>
-            <li className={styles.navItem}><Link href="/about" legacyBehavior><a className={styles.navLink}>Qui sommes-nous</a></Link></li>
-            <li className={styles.navItem}><Link href="/contact" legacyBehavior><a className={styles.navLink}>Contact</a></Link></li>
+            <li className={styles.navItem}><Link href="/inscription" className={styles.navLink}>Inscription</Link></li>
+            <li className={styles.navItem}><Link href="/blog" className={styles.navLink}>Sub Rosa Blog</Link></li>
+            <li className={styles.navItem}><Link href="/page-gallerie?type=artist" className={styles.navLink}>Nos artistes</Link></li>
+            <li className={styles.navItem}><Link href="/" className={`${styles.navLink} ${styles.navAccueil}`}>Accueil</Link></li>
+            <li className={styles.navItem}><Link href="/page-gallerie?type=works" className={styles.navLink}>Nos œuvres</Link></li>
+            <li className={styles.navItem}><Link href="/about" className={styles.navLink}>Qui sommes-nous</Link></li>
+            <li className={styles.navItem}><Link href="/contact" className={styles.navLink}>Contact</Link></li>
           </ul>
         </nav>
       </div>

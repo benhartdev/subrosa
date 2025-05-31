@@ -17,13 +17,12 @@ const ArtistProfile = ({ artist }) => {
         <div className={styles.infoColumns}>
           <div className={styles.infoColumnLeft}>
             <div className={styles.artistDetails}>
-              <p>Pays : France</p>
-              <p>Ville : Colombes</p>
-              <p>Née en : 1964</p>
-              <p>
-                Supports et techniques : Encre et acrylique sur toile et
-                impression Sérigraphie sur papier
-              </p>
+             <p><strong>Pays :</strong> {artist.country_location || "Non renseigné"}</p>
+             <p><strong>Ville :</strong> {artist.city_location || "Non renseigné"}</p>
+             <p><strong>Né(e) en :</strong> {artist.birthdate ? new Date(artist.birthdate).getFullYear() : "Ca ne se demande pas l'age !"}</p>
+             <p><strong>Style :</strong> {artist.style || "Non renseigné"}</p>
+             <p><strong>Supports et techniques :</strong> {artist.technical_skills || "Non renseigné"}</p>
+
             </div>
             <button className={styles.followButton} role="button" tabIndex={0}>
               <span className={styles.buttonText}>SUIVRE CET ARTISTE</span>
@@ -32,30 +31,28 @@ const ArtistProfile = ({ artist }) => {
 
           <div className={styles.infoColumnRight}>
             <div className={styles.artistBio}>
-              <p className={styles.bioText}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+              <p className={styles.bioText}>{artist.bio ? artist.bio.split("\n").map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                )) : "Biographie non disponible."}
               </p>
+
               <p className={styles.spacer}></p>
-              <p className={styles.expo}>PARCOURS & EXPOSITIONS</p><br />
-              <p className={styles.expo}>2020 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2019 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2019 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2019 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2018 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2017 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2017 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2016 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2016 : salon d'art contemporain, Colombes</p>
-              <p className={styles.expo}>2016 : salon d'art contemporain, Colombes</p>
+
+              <div className={styles.exposSection}>
+                  <h2>Expositions passées</h2>
+                  {(artist.old_exhibitions || []).map((expo, index) => (
+                    <p key={index} className={styles.expo}>{expo}</p>
+                  ))}
+                </div>
+                <div className={styles.exposSection}>
+                  <h2>Expositions à venir</h2>
+                  {(artist.future_exhibitions || []).map((expo, index) => (
+                    <p key={index} className={styles.expo}>{expo}</p>
+                  ))}
+                </div>
             </div>
           </div>
         </div>
@@ -83,32 +80,32 @@ const ArtistProfile = ({ artist }) => {
 
       <div className={styles.interviewSection}>
         <div className={styles.interviewLabel}>INTERVIEW</div>
-        <h2 className={styles.interviewTitle}>RENCONTRE AVEC {artist?.username || "Nom inconnu"}</h2>
+        <h2 className={styles.interviewTitle}>RENCONTRE AVEC {artist?.username?.replaceAll(" ", "\u00A0") || "Nom inconnu"}</h2>
 
         <div className={styles.interviewContent}>
           <div>
-            <p className={styles.question}>Comment êtes-vous devenue artiste ?</p>
-            <p className={styles.answer}>
-              Ma passion pour le dessin et l'illustration est venue en regardant
-              peindre le père de ma meilleure amie Pierre Fonferrier, illustrateur
-              et peintre réaliste des années 1990. [...]
+            <p className={styles.question}>Comment êtes-vous devenue artiste&nbsp;?</p>
+             <p className={styles.answer}>{artist.interview?.question1 ? artist.interview.question1.split("\n").map((line, i) => (
+                <span key={i}>{line}<br /></span>
+              )) : "Réponse non renseignée."}
             </p>
           </div>
 
           <div>
-            <p className={styles.question}>Comment définiriez-vous votre univers ?</p>
-            <p className={styles.answer}>
-              Mon univers se situe entre le dessin et la peinture, fortement
-              inspiré par les cadrages photographiques.
+            <p className={styles.question}>Comment définiriez-vous votre univers&nbsp;?</p>
+            <p className={styles.answer}>{artist.interview?.question2 ? artist.interview.question2.split("\n").map((line, i) => (
+                <span key={i}>{line}<br /></span>
+              )) : "Réponse non renseignée."}
             </p>
           </div>
 
           <div>
             <p className={styles.question}>
-              Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?
+              Quel artiste (mort ou vivant) aimeriez-vous rencontrer&nbsp;?
             </p>
-            <p className={styles.answer}>
-              David Hockney, Velasquez et Henry Cartier Bresson.
+            <p className={styles.answer}> {artist.interview?.question3 ? artist.interview.question3.split("\n").map((line, i) => (
+                <span key={i}>{line}<br /></span>
+              )) : "Réponse non renseignée."}
             </p>
           </div>
         </div>

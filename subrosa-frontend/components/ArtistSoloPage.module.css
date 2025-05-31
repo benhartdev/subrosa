@@ -12,12 +12,19 @@
 
 .artistSubtitle {
   color: #aaa;
-  font-size: 1rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
-  margin: 8rem auto 0.5rem;
+  margin: 6rem auto 1.5rem;
 }
 
-.artistFullname {
+.artistName {
+  font-size:1rem;
+  font-weight: 700;
+  margin-top: -3rem;
+  text-transform: uppercase;
+  color: var(--color-hover);
+}
+.artistUsername {
   font-size: 3.5rem;
   font-weight: 700;
   margin-top: -1rem;
@@ -38,7 +45,7 @@
 }
 
 .galleryWorks {
-  margin-top: -18rem;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 768px) {

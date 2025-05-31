@@ -5,6 +5,7 @@ import styles from "./PageOeuvreUnique.module.css";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
+import { withNoBreaks } from "../../../utils/withNoBreaks";
 
 
 
@@ -134,7 +135,7 @@ export default async function WorkSlugPage({ params }) {
       <div className={styles.artistProfilePhotoWrapper}>
         <Image
           src={artist?.artistImages?.[0]?.url || "/placeholder.jpg"}
-          alt={artist?.artistImages?.[0]?.altText || `Portrait de ${artist?.username}`}
+          alt={artist?.artistImages?.[0]?.altText || `Portrait de ${withNoBreaks(artist?.username)}`}
           fill
           className={styles.artistProfileImage}
         />

@@ -1,0 +1,114 @@
+/* Conteneur général de l'article */
+.articleGrid {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: white;
+  font-family: 'Michroma', sans-serif;
+}
+
+/* Colonne gauche et droite (miniatures) */
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 10rem;
+}
+
+/* Contenu principal (texte Markdown) */
+.mainContent {
+  line-height: 1.6;
+}
+
+/* En-tête avec titre, auteur, image principale */
+.header {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid #444;
+}
+
+/* Markdown personnalisé */
+.heading {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.paragraph {
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+.quote {
+  font-style: italic;
+  color: #0dbab1;
+  border-left: 4px solid #0dbab1;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .articleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sideColumn {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .thumbnail {
+    width: 100px;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .meta {
+    font-size: 0.8rem;
+  }
+}

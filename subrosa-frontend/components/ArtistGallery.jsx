@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import ArtistImage from "./ArtistImage";
 import styles from "./ArtistGallery.module.css";
 
 const ArtistGallery = ({ images }) => {
@@ -13,7 +12,7 @@ const ArtistGallery = ({ images }) => {
             <div className={styles.artworkCard}>
               <div className={styles.artworkImageBox}>
                 {image.src && (
-                  <ArtistImage
+                  <img
                     src={image.src}
                     alt={image.alt || `portrait d'artiste`}
                     className={styles.artistGalleryImage}

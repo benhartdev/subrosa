@@ -62,9 +62,7 @@ a {
 }
 
 @media (max-width: 768px) {
-  .page-container {
-    padding-inline: 1rem;
-  }
+ 
 }
 /* body.inscription-open {
   overflow-x: hidden;

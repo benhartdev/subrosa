@@ -29,7 +29,6 @@ export default function Gallery({ items = [], loading, customClass = "", customC
             const content = (
               <div className={styles.artistGalleryItem}>
                 <div className={`${styles.artworkCard} ${customCardClass}`}>
-
                   <div className={styles.artworkImageBox}>
                     <img
                       src={imageUrl}

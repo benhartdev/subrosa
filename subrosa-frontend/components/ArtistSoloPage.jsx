@@ -15,8 +15,8 @@ export default function ArtistSoloPage({ artist }) {
     <main className={styles.artistPage}>
       <section className={styles.artistIntro}>
         <p className={styles.artistSubtitle}>PORTRAIT</p>
-        {/* <h1 className={styles.artistNameMain}>{artist.username}</h1> */}
-        <h2 className={styles.artistFullname}>{artist.name}</h2>
+        <h2 className={styles.artistUsername}>{artist.username}</h2>
+        <h3 className={styles.artistName}>{artist.name}</h3>
       </section>
 
       <section className={styles.artistContainer}>

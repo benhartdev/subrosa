@@ -1,8 +1,8 @@
 .dashboardTitle {    
     font-size: 3rem;
     color: var(--color-hover);
-/* Format : top right bottom left */
-    margin: 250px auto 0 auto;
+
+    margin: 3rem auto 0 auto;
     text-align: center;
 }
 
@@ -38,4 +38,14 @@
   font-size: 1.2rem;
   color: white;
   font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+.dashboardTitle {    
+    font-size: 2rem;
+}
+.artIcon {
+  width: 80px;
+  height: 80px;
+}
 }

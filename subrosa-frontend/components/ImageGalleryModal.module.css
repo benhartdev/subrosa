@@ -1,0 +1,73 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.thumbnail {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  border: 1px solid #444;
+  transition: transform 0.3s ease;
+}
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.fullImage {
+  max-width: 100%;
+  max-height: 80vh;
+  border: 2px solid white;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 0 1rem;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #111;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}

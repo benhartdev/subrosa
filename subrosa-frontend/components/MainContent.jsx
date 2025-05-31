@@ -29,7 +29,7 @@ export default function MainContent({ limit }) {
 
   return (
     <div className={styles.gridWrapper}>
-      {cardData.map((card, index) => {
+       {cardData.slice(0, cardLimit).map((card, index) => {
         const isFocused = focusedCardIndex === index;
         const isBlurred = focusedCardIndex !== null && !isFocused;
 
@@ -93,6 +93,18 @@ export default function MainContent({ limit }) {
                   {card.authors.map((a) => a.name).join(", ")}
                 </p>
               </CardContent>
+              <div className={styles.viewArticleWrapper}>
+                <button
+                  className={styles.viewArticleButton}
+                  onClick={() => window.location.href = `/blog/${card.slug}`}>
+                  Lire la suite...
+                </button>
+                <button
+                  className={styles.viewAllButton}
+                  onClick={() => window.location.href = "/blog"}>
+                  Voir tous les articles
+                </button>
+               </div>
             </Card>
           </div>
         );
