@@ -135,7 +135,11 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
     try {
       if (isUser) {
         console.log("FORMDATA À ENVOYER", formData);
-        await axios.post('http://localhost:5000/api/users/register', formData);
+            await axios.post('http://localhost:5000/api/users/register', formData, {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
         setPopup({ type: 'success', message: '✅ Utilisateur inscrit avec succès.' });
         return;
       }
@@ -192,6 +196,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       <div className={styles.formWrapper}>
+        <p className={styles.formNotice}>Les champs marqués d’un astérisque (*) sont requis.</p>
         <form onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>
           <h2 className={styles.formTitle}>
             {isUser && 'Inscription Utilisateur'}
@@ -199,12 +204,12 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
             {isAdmin && 'Modification Artiste'}
           </h2>
 
-          <label className={styles.labelForm}>Nom d'utilisateur :</label>
+          <label className={styles.labelForm}>Nom d'utilisateur <span className={styles.required}>*</span></label>
             <input className={styles.inputForm} name="username" value={getSafeValue(formData.username)} onChange={handleChange} required />
 
 {!isAdmin && (
   <>
-    <label className={styles.labelForm}>Mot de passe :</label>
+    <label className={styles.labelForm}>Mot de passe  <span className={styles.required}>*</span></label>
     <input
       className={styles.inputForm}
       type="password"
@@ -215,7 +220,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
       
     />
 
-    <label className={styles.labelForm}>Confirmation du mot de passe :</label>
+    <label className={styles.labelForm}>Confirmation du mot de passe  <span className={styles.required}>*</span></label>
     <input
       className={styles.inputForm}
       type="password"
@@ -232,17 +237,17 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
 )}
 
 
-          <label className={styles.labelForm}>Email :</label>
+          <label className={styles.labelForm}>Email  <span className={styles.required}>*</span></label>
           <input className={styles.inputForm} type="email" name="email" value={getSafeValue(formData.email)} onChange={handleChange} />
 
-          <label className={styles.labelForm}>Confirmation email :</label>
+          <label className={styles.labelForm}>Confirmation email  <span className={styles.required}>*</span></label>
           <input className={styles.inputForm} type="email" name="confirmEmail" placeholder="Confirmez votre email" value={formData.confirmEmail} onChange={handleChange} />
 
           {isUser && (
             <>
-              <label className={styles.labelForm}>Nom :</label>
+              <label className={styles.labelForm}>Nom  <span className={styles.required}>*</span></label>
               <input className={styles.inputForm} name="lastName" value={getSafeValue(formData.lastName)} onChange={handleChange} required/>   
-               <label className={styles.labelForm}>Prénom :</label>
+               <label className={styles.labelForm}>Prénom  <span className={styles.required}>*</span></label>
               <input className={styles.inputForm} name="firstName" value={getSafeValue(formData.firstName)} onChange={handleChange} required/>
               <label className={styles.labelForm}>Adresse :</label>
               <input className={styles.inputForm} name="address" value={getSafeValue(formData.address)} onChange={handleChange} />
@@ -252,7 +257,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <input className={styles.inputForm} name="city_location" value={getSafeValue(formData.city_location)} onChange={handleChange} />
               <label className={styles.labelForm}>Pays :</label>
               <input className={styles.inputForm} name="country_location" value={getSafeValue(formData.country_location)} onChange={handleChange} />
-              <label className={styles.labelForm}>Téléphone :</label>
+              <label className={styles.labelForm}>Téléphone  <span className={styles.required}>*</span></label>
               <input className={styles.inputForm} name="phone" value={getSafeValue(formData.phone)} onChange={handleChange} />
             </>
           )}
@@ -262,7 +267,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <label className={styles.labelForm}>Prénom / Nom :</label>
               <input className={styles.inputForm} name="name" value={getSafeValue(formData.name)} onChange={handleChange} required />
 
-              <label className={styles.labelForm}>Date de naissance :</label>
+              <label className={styles.labelForm}>Date de naissance  <span className={styles.required}>*</span></label>
             <input className={styles.inputForm} type="date" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} required />
 
               <label className={styles.labelForm}>Pays :</label>
@@ -271,7 +276,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <label className={styles.labelForm}>Ville :</label>
         <input className={styles.inputForm} name="city_location" value={getSafeValue(formData.city_location)} onChange={handleChange} />
 
-              <label className={styles.labelForm}>Style artistique :</label>
+              <label className={styles.labelForm}>Style artistique <span className={styles.required}>*</span></label>
             <select
             name="style"
             value={getSafeValue(formData.style)} 
@@ -360,7 +365,7 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
           )}
 
           <div className={styles.buttonGroup}>
-            <button type="submit" className={styles.submitButton}>💾 Enregistrer</button>
+            <button type="submit" className={styles.submitButton}>Enregistrer</button>
             {onCancel && <button type="button" className={styles.cancelButton} onClick={onCancel}>❌ Annuler</button>}
           </div>
         </form>

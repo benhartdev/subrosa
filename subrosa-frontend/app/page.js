@@ -93,7 +93,7 @@ const featuredArtists = [...items]
         </div>
       </section>
         <section className={styles.blogSubrosa}>
-             <DoubleBorderContainer title="SubRosa Blog">
+             <DoubleBorderContainer title="SubRosa Blog" showCtaButton={true}>
                  <MainContent limit={2} />
             </DoubleBorderContainer>
        </section>

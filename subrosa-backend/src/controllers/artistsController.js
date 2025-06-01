@@ -4,6 +4,7 @@ const Artist = require('../models/Artists');
 const bcrypt = require("bcrypt");
 const sendConfirmationEmail = require('../utils/sendConfirmationEmail');
 const sendArtistStatusEmail = require('../utils/sendArtistStatusEmail');
+const NewsletterSubscriber = require('../models/NewsletterSubscriber');
 
 
 
@@ -66,7 +67,7 @@ console.log("FICHIER 0 (artistImages) :", req.files?.artistImages?.[0]);
       newsletter,
       
     } = req.body;
-
+console.log('🎯 Contenu brut de req.body:', req.body);
     let parsedInterview = interview;
 if (typeof parsedInterview === 'string') {
   try {
@@ -145,6 +146,20 @@ const artistImages = req.files['artistImages']?.map((file, index) => ({
     const savedArtist = await newArtist.save();
     console.log("✅ ARTISTE SAUVÉ AVEC SUCCÈS");
 
+     if (newsletter === true || newsletter === 'true') {
+            try {
+              const existingSubscriber = await NewsletterSubscriber.findOne({ email: savedArtist.email });
+              if (!existingSubscriber) {
+                await NewsletterSubscriber.create({ email: savedArtist.email });
+                console.log("✅ Email inscrit à la newsletter :", savedArtist.email);
+              } else {
+                console.log("ℹ️ Email déjà abonné à la newsletter :", savedArtist.email);
+              }
+            } catch (err) {
+              console.error("❌ Erreur lors de l'inscription à la newsletter :", err);
+            }
+          }
+
     await sendConfirmationEmail(savedArtist.email, savedArtist.name);
 
    // 🔐 Création de session artiste
@@ -165,19 +180,23 @@ const artistImages = req.files['artistImages']?.map((file, index) => ({
       res.status(201).json(savedArtist);
     });
   } catch (error) {
-    console.error("❌ ERREUR SAUVEGARDE ARTISTE :", {
-      message: error.message,
-      errors: error.errors || null,
-      name: error.name,
-      stack: error.stack
-    });
-  
-    res.status(500).json({
-      message: "Erreur lors de l'enregistrement de l'artiste",
-      error: error.message,
-      details: error.errors || null
-    });
+  if (error.name === 'ValidationError') {
+    const messages = Object.values(error.errors).map(err => err.message);
+    return res.status(400).json({ error: messages.join(' ') });
   }
+
+  console.error("❌ ERREUR SAUVEGARDE ARTISTE :", {
+    message: error.message,
+    errors: error.errors || null,
+    name: error.name,
+    stack: error.stack
+  });
+
+  res.status(500).json({
+    error: "Erreur lors de l'enregistrement de l'artiste",
+    details: error.errors || null
+  });
+}
 };
 
 const updateArtist = async (req, res) => {

@@ -23,7 +23,7 @@ email: {
   trim: true,
   unique: true
 },
-firstName: { type: String },
+  firstName: { type: String },
   lastName: { type: String },
   address: {
     street: { type: String },
@@ -32,15 +32,9 @@ firstName: { type: String },
     country: { type: String }
   },
   phone: { type: String },
-purchaseHistory: [{
-  artwork: { type: mongoose.Schema.Types.ObjectId, ref: 'Artwork' },
-  dateOfPurchase: { type: Date, default: Date.now },
-  price: { type: Number }
-}],
-  newsletterSubscribed: { type: Boolean, default: false },
+  newsletter: { type: Boolean, default: false },
   isAdmin: { type: Boolean, default: false },
   role: { type: String, enum: ['admin', 'user', 'artist'], default: 'user' },
-  isActive: { type: Boolean, default: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

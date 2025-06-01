@@ -29,9 +29,7 @@ const artistSchema = new mongoose.Schema({
         enum: ["artist"],
         default: "artist"
       },
-      isAdmin: {
-        type: Boolean,
-        default: false
+      isAdmin: {type: Boolean, default: false
       },
       country_location: {
           type: String,
@@ -50,17 +48,15 @@ const artistSchema = new mongoose.Schema({
       },
       birthdate: {
         type: Date,
-        required: true
+        required: [true, "La date de naissance est requise."],
       },
       style: {
-          type: String,
-         
-          enum: ['Peintre', 'Photographe', 'Sculpteur', 'Illustrateur', 'Plasticien', 'Autre'],
-          trim: true
+        type: String,
+        enum: ['Photographe', 'Peintre', 'Sculpteur', 'Illustrateur', 'Plasticien', 'Autre'],
+        required: [true, "Le style artistique est requis."]
       },
       technical_skills: {
           type: String,
-         
           trim: true,
           maxlength: [150, "Max 150 caractères."]
       },

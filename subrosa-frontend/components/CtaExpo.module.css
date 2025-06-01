@@ -1,0 +1,37 @@
+.ctaMinimal {
+  
+  text-align: center;
+  padding-right: 1rem;
+}
+
+.link {
+  font-size: 1rem;
+  color: var(--color-hover);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-style: italic;
+}
+
+.link:hover {
+  
+  transform: translateX(4px);
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .ctaMinimal {
+    margin-top: 3rem; /* Ajuste selon ton besoin */
+    padding-top: 1rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ctaMinimal {
+    text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  top: -5rem;
+  }
+}

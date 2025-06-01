@@ -1,4 +1,11 @@
+
+.pageContentWrapper {
+  min-height: auto;
+  height: auto;
+  padding-bottom: 0;
+}
 /* Conteneur général de l'article */
+
 .articleGrid {
   display: grid;
   grid-template-columns: 1fr 2.5fr 1fr;
@@ -10,6 +17,8 @@
   font-family: 'Michroma', sans-serif;
 }
 
+
+
 /* Colonne gauche et droite (miniatures) */
 .sideColumn {
   display: flex;
@@ -17,11 +26,13 @@
   gap: 3rem;
   margin-top: 10rem;
 }
+.sideColumn:empty {
+  display: none;
+}
 
 /* Contenu principal (texte Markdown) */
-.mainContent {
-  line-height: 1.6;
-}
+
+
 
 /* En-tête avec titre, auteur, image principale */
 .header {
@@ -34,7 +45,7 @@
 .title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--color-blue);
 }
 
 .meta {
@@ -48,7 +59,14 @@
   height: auto;
   object-fit: contain;
   border: 1px solid #444;
+  transition: transform 0.5s ease;
 }
+/* Hover image blog si besoin */
+/* .image:hover {
+
+   transform: scale(1.15);
+   box-shadow: 0 0 10px var(--color-blue);
+} */
 
 /* Markdown personnalisé */
 .heading {
@@ -62,12 +80,13 @@
   font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--color-blue);
 }
 
 .paragraph {
   margin-bottom: 1.5rem;
   color: #ddd;
+  
 }
 
 .quote {
@@ -78,16 +97,37 @@
   margin: 1.5rem 0;
 }
 
+/* Le wrapper centré */
+.waitIntroWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.waitIntro {
+  
+  white-space: nowrap;
+  color: var(--color-blue);
+  font-size: 2rem;
+  margin-top: -2rem;
+ 
+}
+
 /* Responsive */
 @media screen and (max-width: 1024px) {
   .articleGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
+    max-width: 400px;
   }
+
+
 
   .sideColumn {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 4rem;
   }
 
   .thumbnail {
@@ -111,4 +151,19 @@
   .meta {
     font-size: 0.8rem;
   }
+
+  .waitIntroWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.waitIntro {
+  font-style: italic;
+  white-space: nowrap;
+  color: var(--color-blue);
+  font-size: 1rem;
+  margin-top: -2rem;
+ 
+}
 }

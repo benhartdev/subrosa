@@ -99,11 +99,6 @@ export default function MainContent({ limit }) {
                   onClick={() => window.location.href = `/blog/${card.slug}`}>
                   Lire la suite...
                 </button>
-                <button
-                  className={styles.viewAllButton}
-                  onClick={() => window.location.href = "/blog"}>
-                  Voir tous les articles
-                </button>
                </div>
             </Card>
           </div>

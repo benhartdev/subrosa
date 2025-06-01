@@ -48,8 +48,8 @@ const Footer = () => {
 
       <div className={styles.footerLinks2}>
         <nav className={styles.legalLinks}>
-          <Link href="/page_CGV" className={styles.legalLink}>Conditions générales de vente</Link>
-          <Link href="/page_defiscalisation" className={styles.legalLink}>Défiscalisation / Leasing</Link>
+          <Link href="/cgv" className={styles.legalLink}>Conditions générales de vente</Link>
+          <Link href="/defiscalisation" className={styles.legalLink}>Défiscalisation / Leasing</Link>
           <Link href="#" className={styles.legalLink}>Confidentialité</Link>
           <Link href="#" className={styles.legalLink}>Mentions légales</Link>
         </nav>

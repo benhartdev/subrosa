@@ -1,14 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./LightboxGallery.module.css";
 
-export default function LightboxGallery({ images }) {
+export default function LightboxGallery({ images, externalTriggerRef = null }) {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const open = (index) => setCurrentIndex(index);
   const close = () => setCurrentIndex(null);
   const prev = () => setCurrentIndex((currentIndex - 1 + images.length) % images.length);
   const next = () => setCurrentIndex((currentIndex + 1) % images.length);
+
+  // Expose l'ouverture externe
+  useEffect(() => {
+    if (externalTriggerRef && typeof externalTriggerRef.current === "object") {
+      externalTriggerRef.current.open = open;
+    }
+  }, [externalTriggerRef]);
 
   return (
     <>

@@ -70,7 +70,7 @@ const Header = () => {
                   {!user ? (
                     <>
                       <li><Link href="/login" onClick={() => setIsMenuOpen(false)}>Se connecter</Link></li>
-                      <li><Link href="/inscription" onClick={() => setIsMenuOpen(false)}>S'enregistrer</Link></li>
+                      <li><Link href="/inscription" onClick={() => setIsMenuOpen(false)}>Inscription</Link></li>
                     </>
                   ) : (
                     <li>

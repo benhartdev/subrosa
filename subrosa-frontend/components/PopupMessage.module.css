@@ -11,7 +11,7 @@
     transform: translate(-50%, -50%);
     background-color: #1e1e1e;
     border-radius: 12px;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Michroma, sans-serif;
     animation: fadeIn 0.3s ease-out;
     max-width: 90%;
     min-width: 300px;
@@ -37,14 +37,14 @@
     transform: translate(-50%, -50%);
     background-color: #1e1e1e;
     border-radius: 12px;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Michroma, sans-serif;
     animation: fadeIn 0.3s ease-out;
     max-width: 90%;
     min-width: 300px;
   }
   
   .popupMessage.error::before {
-    content: "❌";
+    content: "⚠️";
     display: block;
     font-size: 2rem;
     margin-bottom: 10px;

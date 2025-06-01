@@ -43,6 +43,29 @@
   gap: 2rem;
 }
 
+ .viewAllWrapper {
+  text-align: center;
+  margin-top: -4rem;
+}
+
+.viewAllArticlesButton {
+  padding: 1rem 1.3rem;
+  background: transparent;
+  color:white;
+  border: 1px solid var(--color-hover);
+  font-family: 'Michroma', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewAllArticlesButton:hover {
+  background-color: var(--color-hover);
+  color: #000;
+  transform: scale(1.05);
+}
 
 @media screen and (max-width: 768px) {
   .artistGalleryTitle {

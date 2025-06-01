@@ -5,7 +5,7 @@ import "../lib/fontawesome";
 import "../components/Header.module.css";
 import "../components/Footer.module.css";
 import BodyClassManager from "../components/BodyClassManager";
-import PopupManager from "../components/PopupManager";
+import PopupMessage from "../components/PopupMessage";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LayoutClient from "./LayoutClient"; // ← ton nouveau composant client
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             <Header />
             <LayoutClient>
               <div className="page-content main-content">
-                <PopupManager />
+                <PopupMessage />
                 {children}
               </div>
             </LayoutClient>

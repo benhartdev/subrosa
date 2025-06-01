@@ -6,7 +6,16 @@ const blogData = [
   img: "/images/BLOG_expo_BenH_Cat.jpg",
   slug: "ferite-di-luce",
   authors: [{ name: "Benjamin Hoffele" }, { name: "Caterina Varchetta" }],
-content: `
+  artists: ["Ben H", "Cat"],
+  galleries: {
+    left:  ["/images/blog/BLOG_LEFT_expo_ferite_1.jpg",
+            "/images/blog/BLOG_LEFT_expo_ferite_2.jpg",
+            "/images/blog/BLOG_LEFT_expo_ferite_3.jpg",],
+    right: ["/images/blog/BLOG_RIGHT_expo_ferite_4.jpg",
+            "/images/blog/BLOG_RIGHT_expo_ferite_5.jpg",
+            "/images/blog/BLOG_RIGHT_expo_ferite_6.jpg",]
+  },
+  content: `
 ### Ferite di luce  
 **Galerie du Forez – 1er juin 2024 – Nuit Blanche de l’Art Contemporain**
 
@@ -34,19 +43,19 @@ Ce n’est ni un simple accrochage, ni une documentation : c’est une **expéri
 ---
 
 _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’Art Contemporain, le 1er juin 2024._
-`
-
-}
-,
+`},
   {
     img: "https://picsum.photos/800/450?random=2",
-    tag: "Produit",
-    title: "Des fonctionnalités innovantes qui assurent le succès",
+    tag: "Artiste Origamiste",
+    title: "Junior Fritz Jacquet",
     description:
       "Découvrez les principales fonctionnalités de notre dernière version produit, qui aident les entreprises à atteindre leurs objectifs...",
     authors: [{ name: "Erica Johns", avatar: "/static/images/avatar/6.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    artists: ["Junior Fritz Jacquet", "Ben H"],
+    galleries: null, // Pas de galerie
+    intro: "Article en cours d'ecriture",
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=3",
@@ -56,7 +65,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Benjamin Hoffelé", avatar: "/static/images/avatar/7.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=4",
@@ -66,7 +76,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Benjamin Hoffelé", avatar: "/static/images/avatar/8.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=5",
@@ -76,7 +87,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Sayah El Yatim", avatar: "/static/images/avatar/1.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=6",
@@ -86,7 +98,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Audrey Lamarque", avatar: "/static/images/avatar/3.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=7",
@@ -96,7 +109,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Clara Lefevre", avatar: "/static/images/avatar/5.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
   {
     img: "https://picsum.photos/800/450?random=8",
@@ -106,7 +120,8 @@ _L’exposition a eu lieu à la Galerie du Forez lors de la Nuit Blanche de l’
       "Restez en avance grâce aux dernières tendances et analyses en design...",
     authors: [{ name: "Jury du titre Afec", avatar: "/static/images/avatar/11.jpg" }],
     slug: "le-titre-en-slug", // SLUG page individuelle
-    content: "Voici le contenu complet de l'article..."
+    galleries: null, // Pas de galerie
+    content: ""
   },
 ];
 
