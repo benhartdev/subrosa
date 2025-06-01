@@ -118,6 +118,21 @@
 background-color: var(--color-hover);
 }
 
+.expoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.deleteExpoButton {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .icon {
   font-size: 3rem;
   margin-bottom: 0.5rem;

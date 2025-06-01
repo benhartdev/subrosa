@@ -2,12 +2,39 @@ const ContactMessage = require("../models/ContactMessage");
 const Artist = require("../models/Artists");
 const sendContactEmail = require("../utils/sendContactEmail");
 
+
+// Fonction de nettoyage
+function sanitizeMessage(input) {
+  const cleaned = input
+    .replace(/<[^>]*>?/gm, "") // supprime balises HTML
+    .replace(/https?:\/\/[^\s]+/g, "[lien supprimé]") // remplace les liens
+    .replace(/&[a-z]+;/gi, "") // supprime les entités HTML (&nbsp;, etc.)
+    .trim();
+  return cleaned;
+}
+// Mots interdit - crypto - pub etc...
+function containsBannedWords(message) {
+  const bannedWords = [
+    "crypto", "bitcoin", "gagner de l’argent", "nft",
+    "sexe", "porno", "arnaque", "casino"
+  ];
+  const lowerMessage = message.toLowerCase();
+  return bannedWords.some(word => lowerMessage.includes(word));
+}
+
 // Envoi d'un message de contact
 const sendContactMessage = async (req, res) => {
   console.log("📦 SESSION REÇUE :", req.session);
 
-  const { name, email, message } = req.body;
+  const { name, email } = req.body;
+  const message = sanitizeMessage(req.body.message);
 
+  if (containsBannedWords(message)) {
+  return res.status(400).json({
+    success: false,
+    error: "❌ Votre message contient des termes interdits.",
+  });
+  }
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Tous les champs sont requis." });
   }

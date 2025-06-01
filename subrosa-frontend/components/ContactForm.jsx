@@ -33,6 +33,7 @@ const ContactForm = () => {
       if (response.ok) {
         setStatus(data.emailSent ? "success" : "emailFail");
         setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus(null), 5000); // efface le message après 5 sec
       } else {
         setStatus("error");
       }
@@ -43,9 +44,12 @@ const ContactForm = () => {
       };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({...prev,[name]: value,}));
-  };
+  const { name, value } = e.target;
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value.trimStart().slice(0, name === "message" ? 1000 : 100), // max 1000 caractères pour le message, 100 pour le nom/email
+  }));
+};
 
   return (
     <>
@@ -64,7 +68,7 @@ const ContactForm = () => {
                   <p>ou sur RV au 06&nbsp;68&nbsp;10&nbsp;52&nbsp;51</p>
                   <p>
                     Artistes : la ligne téléphonique étant réservée aux clients et partenaires,<br />
-                    toute demande d'intégration au site merci de cliquer&nbsp;<a href="#">ici</a>.<br />
+                    toute demande d'intégration au site merci de cliquer&nbsp;<a href="/inscription" className={styles.signInWord}>ici</a>.<br />
                     Nous&nbsp;n'évaluons&nbsp;pas et ne vendons pas les œuvres sans dossier.
                   </p>
                 </div>
@@ -76,8 +80,9 @@ const ContactForm = () => {
                         placeholder="Votre nom (obligatoire)"
                         value={formData.name}
                         onChange={handleChange}
-                        required
                         className={styles.formInput}
+                        maxLength={100}
+                        required
                       />
                     </div>
                     <div className={styles.inputField}>
@@ -87,28 +92,31 @@ const ContactForm = () => {
                         placeholder="Votre email (obligatoire)"
                         value={formData.email}
                         onChange={handleChange}
-                        required
                         className={styles.formInput}
+                        maxLength={100}
+                        required
                       />
                     </div>
                     <div className={styles.textareaField}>
                       <div className={styles.textareaWrapper}>
                         <textarea
                           name="message"
-                          placeholder="Votre message"
+                          placeholder="Votre message (1000 caractères max)"
                           value={formData.message}
                           onChange={handleChange}
                           className={styles.formTextarea}
+                          maxLength={1000}
                           required
                         />
                       </div>
                     </div>
                     <div className={styles.buttonGroup}>
                       <button
-                        type="submit"
-                        className={styles.submitButton}
-                        disabled={loading}>ENVOYER
-                      </button>
+                          type="submit"
+                          className={styles.submitButton}
+                          disabled={loading}>
+                          {loading ? "ENVOI EN COURS..." : "ENVOYER"}
+                    </button>
                     </div>
                   </form>
 

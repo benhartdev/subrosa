@@ -151,9 +151,10 @@ position: relative;
    font-size: 14px;
 }
 
-.contactLink {
+.signInWord {
   text-decoration: underline;
-  color: var(--color-hover)
+  color: var(--color-hover);
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 768px) {

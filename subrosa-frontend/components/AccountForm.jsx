@@ -87,9 +87,6 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
   setFormData(updatedData);
 };
 
-
-  
-  
   const handleAddExhibition = (type) => {
     if (type === 'old' && expoInput.trim()) {
       setFormData((prev) => ({ ...prev, old_exhibitions: [...prev.old_exhibitions, expoInput.trim()] }));
@@ -99,6 +96,20 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
       setFutureExpoInput('');
     }
   };
+
+  const handleDeleteOldExhibition = (indexToRemove) => {
+  setFormData((prev) => ({
+    ...prev,
+    old_exhibitions: prev.old_exhibitions.filter((_, index) => index !== indexToRemove),
+  }));
+};
+
+const handleDeleteFutureExhibition = (indexToRemove) => {
+  setFormData((prev) => ({
+    ...prev,
+    future_exhibitions: prev.future_exhibitions.filter((_, index) => index !== indexToRemove),
+  }));
+};
 
   const validateForm = () => {
     console.log("validateForm →", { type, isAdmin, isArtist });
@@ -111,6 +122,10 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
   if (formData.password !== formData.confirmPassword) {
     setPopup({ type: 'error', message: '❌ Les mots de passe ne correspondent pas.' });
     return false;
+  }
+  if (formData.password.length < 8) {
+  setPopup({ type: 'error', message: '❌ Le mot de passe doit contenir au moins 8 caractères.' });
+  return false;
   }
   if (!formData.email || !formData.confirmEmail) {
     setPopup({ type: 'error', message: '❌ Les champs email sont requis.' });
@@ -203,38 +218,37 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
             {isArtist && !isAdmin && 'Inscription Artiste'}
             {isAdmin && 'Modification Artiste'}
           </h2>
-
           <label className={styles.labelForm}>Nom d'utilisateur <span className={styles.required}>*</span></label>
             <input className={styles.inputForm} name="username" value={getSafeValue(formData.username)} onChange={handleChange} required />
 
-{!isAdmin && (
-  <>
-    <label className={styles.labelForm}>Mot de passe  <span className={styles.required}>*</span></label>
-    <input
-      className={styles.inputForm}
-      type="password"
-      name="password"
-      placeholder="Mot de passe"
-      value={getSafeValue(formData.password)}
-      onChange={handleChange}
-      
-    />
+      {!isAdmin && (
+        <>
+          <label className={styles.labelForm}>Mot de passe <span className={styles.required}>* ( 8 caractères minimum )</span></label>
+          <input
+            className={styles.inputForm}
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            value={getSafeValue(formData.password)}
+            onChange={handleChange}
+            minLength={8}
+          />
 
-    <label className={styles.labelForm}>Confirmation du mot de passe  <span className={styles.required}>*</span></label>
-    <input
-      className={styles.inputForm}
-      type="password"
-      name="confirmPassword"
-      placeholder="Confirmez votre mot de passe"
-      value={getSafeValue(formData.confirmPassword)}
-      onChange={handleChange}
-      
-      onPaste={(e) => e.preventDefault()}
-      onCopy={(e) => e.preventDefault()}
-      onCut={(e) => e.preventDefault()}
-    />
-  </>
-)}
+          <label className={styles.labelForm}>Confirmation du mot de passe <span className={styles.required}>*</span></label>
+          <input
+            className={styles.inputForm}
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirmez votre mot de passe"
+            value={getSafeValue(formData.confirmPassword)}
+            onChange={handleChange}
+            minLength={8}
+            onPaste={(e) => e.preventDefault()}
+            onCopy={(e) => e.preventDefault()}
+            onCut={(e) => e.preventDefault()}
+          />
+        </>
+      )}
 
 
           <label className={styles.labelForm}>Email  <span className={styles.required}>*</span></label>
@@ -268,22 +282,22 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
               <input className={styles.inputForm} name="name" value={getSafeValue(formData.name)} onChange={handleChange} required />
 
               <label className={styles.labelForm}>Date de naissance  <span className={styles.required}>*</span></label>
-            <input className={styles.inputForm} type="date" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} required />
+              <input className={styles.inputForm} type="date" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} required />
 
               <label className={styles.labelForm}>Pays :</label>
-        <input className={styles.inputForm} name="country_location" value={getSafeValue(formData.country_location)} onChange={handleChange} />
+              <input className={styles.inputForm} name="country_location" value={getSafeValue(formData.country_location)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Ville :</label>
-        <input className={styles.inputForm} name="city_location" value={getSafeValue(formData.city_location)} onChange={handleChange} />
+              <input className={styles.inputForm} name="city_location" value={getSafeValue(formData.city_location)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Style artistique <span className={styles.required}>*</span></label>
+            
             <select
-            name="style"
-            value={getSafeValue(formData.style)} 
-            onChange={handleChange}               
-            className={styles.inputForm}
-            required >
-              
+                name="style"
+                value={getSafeValue(formData.style)} 
+                onChange={handleChange}               
+                className={styles.inputForm}
+                required >
                   <option value="">Choisir un style</option>
                   <option value="Photographe">Photographe</option>
                   <option value="Peintre">Peintre</option>
@@ -294,17 +308,15 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
             </select>
 
               <label className={styles.labelForm}>Compétences techniques :</label>
-        <input className={styles.inputForm} name="technical_skills" placeholder="Photos plexiglas - Peinture sur toile - Fine Art etc..."value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
-
+                  <input className={styles.inputForm} name="technical_skills" placeholder="Photos plexiglas - Peinture sur toile - Fine Art etc..."value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
               <label className={styles.labelForm}>Biographie :</label>
-        <textarea className={styles.inputForm} placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
-
+                  <textarea className={styles.inputForm} placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment êtes-vous devenu artiste ?</label>
-              <textarea className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
+                  <textarea className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment définiriez-vous votre univers ?</label>
-              <textarea className={styles.inputForm} name="interview.question2" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} />
+                  <textarea className={styles.inputForm} name="interview.question2" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} />
               <label className={styles.labelForm}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</label>
-              <textarea className={styles.inputForm} name="interview.question3" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} />
+                  <textarea className={styles.inputForm} name="interview.question3" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Site web :</label>
               <input className={styles.inputForm} name="website" value={getSafeValue(formData.website)} onChange={handleChange} />
@@ -320,16 +332,28 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
                   <input className={styles.inputForm} placeholder="Janvier 2024 :  Salon d'Automne,  Grande Halle de la Vilette, Paris, France" value={expoInput} onChange={(e) => setExpoInput(e.target.value)} />
                   <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('old')}>Ajouter</button>
                 </div>
-                <ul className={styles.exposPassees}>{formData.old_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
-
+                  <ul className={styles.exposPassees}>
+                    {formData.old_exhibitions.map((expo, i) => (
+                      <li key={i} className={styles.expoItem}>
+                        {expo}
+                        <button type="button" className={styles.deleteExpoButton} onClick={() => handleDeleteOldExhibition(i)}>❌</button>
+                      </li>
+                    ))}
+                  </ul>
 
               <label className={styles.labelForm}>Expositions futures :</label>
                 <div className={styles.inputExpo}>
                   <input className={styles.inputForm} placeholder="Décembre 2025 : Expo Nina's,  Galerie Sub rosa, Paris, France" value={futureExpoInput} onChange={(e) => setFutureExpoInput(e.target.value)} />
                   <button className={styles.buttonExpo} type="button" onClick={(e) => handleAddExhibition('future')}>Ajouter</button>
                 </div>
-                <ul className={styles.exposFutures}>{formData.future_exhibitions.map((expo, i) => <li key={i}>{expo}</li>)}</ul>
-
+                  <ul className={styles.exposFutures}>
+                    {formData.future_exhibitions.map((expo, i) => (
+                      <li key={i} className={styles.expoItem}>
+                        {expo}
+                        <button type="button" className={styles.deleteExpoButton} onClick={() => handleDeleteFutureExhibition(i)}>❌</button>
+                      </li>
+                    ))}
+                  </ul>
 
               {isAdmin && (
                 <>
