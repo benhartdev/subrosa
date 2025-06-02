@@ -6,6 +6,7 @@ import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
 import { withNoBreaks } from "../../../utils/withNoBreaks";
+import { resolveImageUrl } from "../../../utils/resolveImageUrl";
 
 
 
@@ -24,9 +25,10 @@ export default async function WorkSlugPage({ params }) {
       <h2 className={styles.artistName1}>{artist?.name || "Nom inconnu"}</h2>
       <h3 className={styles.workTitle1}>{work.title}</h3>
 
+
       <div className={styles.imageWork}>
         <Image
-          src={work.images?.[0]?.url || "/placeholder.jpg"}
+         src={resolveImageUrl(work.images?.[0]?.url)}
           alt={work.title}
           width={600}
           height={600}
@@ -113,7 +115,7 @@ export default async function WorkSlugPage({ params }) {
         {work.images.slice(1).map((img, index) => (
           <figure className={styles.imageWrapper} key={index}>
             <Image
-              src={img.url.startsWith("http") ? img.url : `http://localhost:5000${img.url}`}
+             src={resolveImageUrl(img.url)}
               alt={img.altText || `Zoom ${index + 1}`}
               width={400}
               height={400}
@@ -134,7 +136,7 @@ export default async function WorkSlugPage({ params }) {
       {/* Image à gauche */}
       <div className={styles.artistProfilePhotoWrapper}>
         <Image
-          src={artist?.artistImages?.[0]?.url || "/placeholder.jpg"}
+           src={resolveImageUrl(artist?.artistImages?.[0]?.url)}
           alt={artist?.artistImages?.[0]?.altText || `Portrait de ${withNoBreaks(artist?.username)}`}
           fill
           className={styles.artistProfileImage}

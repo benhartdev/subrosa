@@ -1,0 +1,35 @@
+.adminMessageBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 0 auto -3rem auto;
+  border-radius: 12px;
+}
+
+.newMessagesBtn {
+  
+  border: 1px solid var(--color-blue);
+  box-shadow: 0 0 20px var(--color-blue);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.adminMessageIcon {
+  font-size: 40px;
+  color: white;
+}

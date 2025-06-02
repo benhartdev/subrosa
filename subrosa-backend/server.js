@@ -11,6 +11,7 @@ const path = require('path');
 const errorHandler = require('./src/middlewares/errorHandler');
 const contactRoutes = require("./src/routes/contactRoutes");
 const newsletterRoutes = require('./src/routes/newsletterRoutes');
+const blockedIPRoutes = require("./src/routes/blockedIPRoutes");
 
 // Charge les variables d'environnement
 dotenv.config();
@@ -65,6 +66,7 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(errorHandler);
 app.use('/api', sessionRoutes);
+app.use("/api/blocked-ips", blockedIPRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -11,6 +11,7 @@ const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCa
   const isAdmin = type === "admin-edit";
   const isArtist = type === "artist" || isAdmin;
   const isUser = type === "user";
+  const [isReadOnly, setIsReadOnly] = useState(true);
 
   const [formData, setFormData] = useState({
     username: '', password: '', confirmPassword: '',
@@ -50,7 +51,6 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
     }));
   }
 }, [existingData, type]);
-
 
   const handleChange = (e) => {
   const { name, value, type, checked } = e.target;
@@ -212,12 +212,16 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       <div className={styles.formWrapper}>
         <p className={styles.formNotice}>Les champs marqués d’un astérisque (*) sont requis.</p>
-        <form onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>
+        <form readOnly={isReadOnly} autoComplete="off" onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>
           <h2 className={styles.formTitle}>
             {isUser && 'Inscription Utilisateur'}
             {isArtist && !isAdmin && 'Inscription Artiste'}
             {isAdmin && 'Modification Artiste'}
           </h2>
+          {/* Champs leurs pour contourner l'auto-completion */}
+          <input type="text" name="fake-username" autoComplete="username" style={{ display: 'none' }} />
+          <input type="password" name="fake-password" autoComplete="new-password" style={{ display: 'none' }} />
+         
           <label className={styles.labelForm}>Nom d'utilisateur <span className={styles.required}>*</span></label>
             <input className={styles.inputForm} name="username" value={getSafeValue(formData.username)} onChange={handleChange} required />
 

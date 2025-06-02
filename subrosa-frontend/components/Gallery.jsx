@@ -1,12 +1,34 @@
 "use client";
-import React from "react";
+import React, { useEffect } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoadingSkeleton from "./LoadingSkeleton";
 import styles from "./Gallery.module.css";
 
+
 export default function Gallery({ items = [], loading, customClass = "", customCardClass = "", fieldsToShow = [], type }) {
   const pathname = usePathname();
+
+  // Pagination 
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const itemsPerPage = 6;
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedItems = items.slice(startIndex, endIndex);
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   if (loading) return <LoadingSkeleton />;
 
@@ -14,8 +36,7 @@ export default function Gallery({ items = [], loading, customClass = "", customC
     <div className={styles.artistGallery}>
       <div className={styles.galleryContainer}>
         <div className={`${customClass || styles.artistGalleryGrid}`}>
-
-          {items.map((item, index) => {
+          {paginatedItems.map((item, index) => {
             const linkHref =
               type === "artist"
                 ? `/artistes/${item.slug}`
@@ -23,7 +44,14 @@ export default function Gallery({ items = [], loading, customClass = "", customC
                 ? `/oeuvres/${item.slug || item.Slug || item._id}`
                 : null;
 
-            const imageUrl = item.image || item.images?.[0]?.url || "/placeholder.jpg";
+          const rawImageUrl = item.image || item.images?.[0]?.url;
+
+          const imageUrl = rawImageUrl
+            ? rawImageUrl.startsWith("http")
+              ? rawImageUrl
+              : `http://localhost:5000${rawImageUrl.startsWith("/") ? "" : "/"}${rawImageUrl}`
+            : "/placeholder.jpg";
+
             const altText = item.title || item.name || "Image";
 
             const content = (
@@ -105,6 +133,19 @@ export default function Gallery({ items = [], loading, customClass = "", customC
             );
           })}
         </div>
+        {totalPages > 1 && (
+  <div className={styles.paginationContainer}>
+    <button onClick={handlePrev} className={styles.arrowBtn} disabled={currentPage === 1}>
+      ◀
+    </button>
+    <span className={styles.pageIndicator}>
+      Page {currentPage} / {totalPages}
+    </span>
+    <button onClick={handleNext} className={styles.arrowBtn} disabled={currentPage === totalPages}>
+      ▶
+    </button>
+  </div>
+)}
       </div>
     </div>
   );

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../../../components/context/AuthContext";
-import PendingStatusBanner from "../../../components/PendingStatusBanner";
 import ArtistDashboardWorks from "../../../components/ArtistDashboardWorks";
 import styles from "./ArtistDashboardPage.module.css";
 
@@ -35,9 +34,7 @@ const ArtistDashboard = () => {
         </div>
     </Link>
 
-      {user.status === "pending" && (
-        <PendingStatusBanner username={user.username} />
-      )}
+    
       <section style={{ marginTop: "4rem" }}>
       <ArtistDashboardWorks />
       </section>

@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AccountForm from "../../components/AccountForm";
-import "../../styles/artistEditPanel.css";
-import ArtistMessageBadge from "../../components/ArtistMessageBadge";
+import styles from "./ArtistEditPanel.module.css"; // ✅ module CSS
 
 const ArtistEditPanel = () => {
   const [artists, setArtists] = useState([]);
@@ -35,7 +34,7 @@ const ArtistEditPanel = () => {
   };
 
   const handleCancel = () => {
-    setEditingArtist(null);
+          setEditingArtist(null);
   };
 
   const handleUpdate = async (updatedArtist) => {
@@ -44,7 +43,7 @@ const ArtistEditPanel = () => {
         `http://localhost:5000/api/artists/${updatedArtist._id}`,
         updatedArtist,
         {
-          withCredentials: true // ✅ autorise l'envoi du cookie de session
+          withCredentials: true
         }
       );
       setMessage("✅ Artiste mis à jour avec succès.");
@@ -57,45 +56,46 @@ const ArtistEditPanel = () => {
   };
 
   return (
-    <div className="container-artists">
-      <h2 className="gestion-artists-title">Gestion des artistes</h2>
-      {message && <p className="message-info">{message}</p>}
+    <div className={styles.containerArtists}>
+      <h2 className={styles.gestionArtistsTitle}>Gestion des artistes</h2>
+      {message && <p className={styles.messageInfo}>{message}</p>}
 
-      <div className="artists-cards">
+      <div className={styles.artistsCards}>
         {artists.map((artist) => (
-          <div key={artist._id} className="solo-card-artist">
+          <div key={artist._id} className={styles.soloCardArtist}>
             <h3>{artist.username}</h3>
-             {artist.artistImages?.[0]?.url && (
-                <img
-                  src={artist.artistImages?.[0]?.url}
-                  alt={artist.artistImages?.[0]?.altText || artist.username}
-                  className="artist-photo"
-                />
-              )}
+            {artist.artistImages?.[0]?.url && (
+              <img
+                src={artist.artistImages?.[0]?.url}
+                alt={artist.artistImages?.[0]?.altText || artist.username}
+                className={styles.artistPhoto}
+              />
+            )}
             <p><strong>Email :</strong> {artist.email}</p>
-            <div className="buttonGroup">
-              <button className="button-modify" onClick={() => setEditingArtist(artist)}>✏️ Modifier</button>
-              <button className="button-suppr" onClick={() => handleDelete(artist._id)}>🗑️ Supprimer</button>
-              <ArtistMessageBadge messageCount={artist.messages.length} />
+            <div className={styles.buttonGroup}>
+              <button  className={styles.buttonModify} onClick={() => setEditingArtist(artist)}>Modifier</button>
+              <button className={styles.buttonSuppr} onClick={() => handleDelete(artist._id)}>Supprimer</button>
+             
             </div>
           </div>
         ))}
       </div>
-            {editingArtist && (
-              <div className="form-overlay">
-                <div className="overlay-form">
-                  <button className="close-btn" onClick={handleCancel}>✖</button>
-                  <h3 className="overlay-title">{editingArtist.username}</h3>
-                  <AccountForm
-                    existingData={editingArtist}
-                    artistId={editingArtist._id}
-                    onCancel={handleCancel}
-                    onSubmit={handleUpdate}
-                    type="admin-edit"
-                  />
-                </div>
-  </div>
-)}
+
+      {editingArtist && (
+        <div className={styles.formOverlay}>
+          <div className={styles.overlayForm}>
+            <button type="button" className={styles.closeBtn} onClick={handleCancel}>✖</button>
+            <h3 className={styles.overlayTitle}>{editingArtist.username}</h3>
+            <AccountForm
+              existingData={editingArtist}
+              artistId={editingArtist._id}
+              onCancel={handleCancel}
+              onSubmit={handleUpdate}
+              type="admin-edit"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

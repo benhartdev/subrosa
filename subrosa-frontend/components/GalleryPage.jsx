@@ -31,7 +31,7 @@ export default function GalleryPage({ type, subtype, title, fieldsToShow }) {
                               items={items}
                               loading={loading}
                               fieldsToShow={fieldsToShow}
-                              type={type}
+                              type={["nouveaute", "latest"].includes(type) ? "works" : type}
                             />
                           )}
        </DoubleBorderContainer>

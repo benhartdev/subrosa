@@ -57,12 +57,12 @@ const PendingArtistsPage = () => {
             <tbody>
               {pendingArtists.map(artist => (
                 <tr key={artist._id}>
-                  <td>{artist.name}</td>
-                  <td>{artist.email}</td>
-                  <td>{artist.status}</td>
-                  <td>
-                    <button className={styles.validateBtn} onClick={() => updateStatus(artist._id, 'validated')}>Valider</button>
-                    <button className={styles.rejectBtn} onClick={() => updateStatus(artist._id, 'rejected')}>Rejeter</button>
+                  <td data-label="Nom"><span>{artist.name}</span></td>
+                  <td data-label="Email"><span>{artist.email}</span></td>
+                  <td data-label="Statut"><span>{artist.status}</span></td>
+                  <td data-label="Actions">
+                   <button className={styles.validateBtn}>Valider</button>
+                    <button className={styles.rejectBtn}>Rejeter</button>
                   </td>
                 </tr>
               ))}

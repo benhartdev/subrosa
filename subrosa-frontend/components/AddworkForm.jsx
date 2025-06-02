@@ -204,7 +204,7 @@ useEffect(() => {
     <div className={styles.addArtworkContainer}>
   {message && <p className={styles.statusMessage}>{message}</p>}
 
-  <form className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
+  <form  autoComplete="off" className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
     <input type="hidden" name="artistId" value={formData.artistId} />
 
       <div className={styles.formRow}>

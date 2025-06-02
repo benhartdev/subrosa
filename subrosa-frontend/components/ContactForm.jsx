@@ -14,11 +14,13 @@ const ContactForm = () => {
 
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(null);
     setLoading(true);
+    setError(null);
 
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
@@ -35,12 +37,15 @@ const ContactForm = () => {
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatus(null), 5000); // efface le message après 5 sec
       } else {
+         const errorMessage = data.error || data.errors?.[0]?.msg || "Une erreur est survenue.";
+        setError(errorMessage);
         setStatus("error");
       }
       } catch (error) {console.error("Erreur de soumission :", error);
-      setStatus("error");
+        setStatus("error");
+        setError("Erreur de connexion au serveur.");
       }
-      setLoading(false);
+       setLoading(false);
       };
 
   const handleChange = (e) => {
@@ -72,7 +77,7 @@ const ContactForm = () => {
                     Nous&nbsp;n'évaluons&nbsp;pas et ne vendons pas les œuvres sans dossier.
                   </p>
                 </div>
-                  <form onSubmit={handleSubmit} className={styles.contactForm}>
+                  <form  autoComplete="off" onSubmit={handleSubmit} className={styles.contactForm}>
                     <div className={styles.inputField}>
                       <input
                         type="text"
@@ -135,7 +140,7 @@ const ContactForm = () => {
               )}
               {status === "error" && (
                 <p className={`${styles.formFeedback} ${styles.error}`}>
-                  ❌ Une erreur est survenue. Veuillez réessayer.
+                  ❌{error}
                 </p>
               )}
             </div>

@@ -2,12 +2,18 @@
 
 import React from "react";
 import styles from "./ArtistGallery.module.css";
+import { useRouter } from "next/navigation";
 
 const ArtistGallery = ({ images }) => {
+  const router = useRouter();
+  
   return (
     <div className={styles.artistGallery}>
       <div className={styles.artistGalleryGrid}>
-        {images?.map((image, index) => (
+        {images?.map((image, index) => {
+
+  return (
+          
           <div key={image.id || index} className={styles.artistGalleryItem}>
             <div className={styles.artworkCard}>
               <div className={styles.artworkImageBox}>
@@ -35,8 +41,12 @@ const ArtistGallery = ({ images }) => {
                   : "Date de création"}
               </p>
             </div>
+            <button onClick={() => router.push(`/ajout-zooms/${image.id}`)}>
+                ➕ Ajouter des zooms
+           </button>
           </div>
-        ))}
+        );
+      })}
       </div>
     </div>
   );

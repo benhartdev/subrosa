@@ -1,0 +1,68 @@
+.admin-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+  }
+  
+  .admin-section {
+    margin-bottom: 3rem;
+  }
+  
+  .admin-section h2 {
+    color: #222;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.3rem;
+  }
+  
+  
+  
+  .admin-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: background 0.3s ease;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .admin-buttons .validate {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .admin-buttons .validate:hover {
+    background-color: #27ae60;
+  }
+  
+  .admin-buttons .reject {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .admin-buttons .reject:hover {
+    background-color: #c0392b;
+  }
+  
+  .admin-buttons .disconnect {
+    background-color: #999;
+    color: white;
+  }
+  
+  .admin-buttons .disconnect:hover {
+    background-color: #666;
+  }
+  
+  .message {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #2c3e50;
+  }
+  

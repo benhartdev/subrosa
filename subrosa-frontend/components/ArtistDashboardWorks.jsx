@@ -49,6 +49,7 @@ const ArtistWorksSection = () => {
       {validatedWorks.length > 0 ? (
         <ArtistGallery
           images={validatedWorks.map((w) => ({
+            id: w._id,
             src: formatImageUrl(w.images?.[0]?.url),
             alt: w.images?.[0]?.altText || "Œuvre",
             title: w.title,
@@ -66,6 +67,7 @@ const ArtistWorksSection = () => {
       {pendingWorks.length > 0 ? (
         <ArtistGallery
           images={pendingWorks.map((w) => ({
+            id: w._id,
             src: formatImageUrl(w.images?.[0]?.url),
             alt: w.images?.[0]?.altText || "Œuvre",
             title: w.title,

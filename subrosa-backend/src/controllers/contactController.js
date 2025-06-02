@@ -1,7 +1,8 @@
 const ContactMessage = require("../models/ContactMessage");
 const Artist = require("../models/Artists");
 const sendContactEmail = require("../utils/sendContactEmail");
-
+const { validationResult } = require("express-validator");
+const BlockedIP = require("../models/BlockedIP");
 
 // Fonction de nettoyage
 function sanitizeMessage(input) {
@@ -25,6 +26,13 @@ function containsBannedWords(message) {
 // Envoi d'un message de contact
 const sendContactMessage = async (req, res) => {
   console.log("📦 SESSION REÇUE :", req.session);
+
+  // 🚨 Étape obligatoire pour traiter les erreurs de validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.warn("❌ Erreurs de validation :", errors.array());
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   const { name, email } = req.body;
   const message = sanitizeMessage(req.body.message);
@@ -58,12 +66,28 @@ const sendContactMessage = async (req, res) => {
       }
     }
 
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const userAgent = req.headers["user-agent"];
+
+    
+    // ⚠️ Vérifie si l’IP est bloquée
+    const isBlocked = await BlockedIP.findOne({ ip });
+
+    if (isBlocked) {
+      console.log("⛔ Message bloqué : IP interdite →", ip);
+      return res.status(403).json({
+        error: "⛔ Cette adresse IP est bloquée. Vous ne pouvez pas envoyer de message.",
+      });
+    }
+
     // 3. Enregistrement du message
     const newMessage = new ContactMessage({
       name,
       email,
       message,
       artistId: artist ? artist._id : null,
+      ip,
+      userAgent,
     });
 
     await newMessage.save();
@@ -105,6 +129,27 @@ const sendContactMessage = async (req, res) => {
   }
 };
 
+// Marquer un message comme lu ou non lu
+const markAsRead = async (req, res) => {
+  const { id } = req.params;
+  const { isRead } = req.body;
+
+  try {
+    const updated = await ContactMessage.findByIdAndUpdate(
+      id,
+      { isRead },
+      { new: true }
+    );
+
+    if (!updated) return res.status(404).json({ message: "Message non trouvé" });
+
+    res.status(200).json({ message: "Statut mis à jour", updated });
+  } catch (error) {
+    console.error("Erreur dans markAsRead :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+};
+
 // Récupération de tous les messages
 const getAllMessages = async (req, res) => {
   try {
@@ -134,4 +179,4 @@ const deleteMessage = async (req, res) => {
   }
 };
 
-module.exports = { sendContactMessage, getAllMessages, deleteMessage };
+module.exports = { sendContactMessage, getAllMessages, deleteMessage, markAsRead };

@@ -27,10 +27,10 @@ export default function StatsChart({ stats }) {
 
   useEffect(() => {
     const fake = [
-      { month: "Jan", artistes: 2, œuvres: 5, commandes: 1 },
-      { month: "Fév", artistes: 3, œuvres: 6, commandes: 2 },
-      { month: "Mars", artistes: 5, œuvres: 7, commandes: 3 },
-      { month: "Avr", artistes: 7, œuvres: 8, commandes: 4 },
+      { month: "Jan", artistes: 2, œuvres: 5, utlisateurs: 1 },
+      { month: "Fév", artistes: 21, œuvres: 48, utlisateurs: 254 },
+      { month: "Mars", artistes: 15, œuvres: 34, utlisateurs: 125 },
+      { month: "Avr", artistes: 38, œuvres: 75, utlisateurs: 400 },
     ];
     setMonthlyData(fake);
   }, []);
@@ -76,7 +76,7 @@ export default function StatsChart({ stats }) {
               <Legend />
               <Line type="monotone" dataKey="artistes" stroke="#ff4cf9" />
               <Line type="monotone" dataKey="œuvres" stroke="#4cfaff" />
-              <Line type="monotone" dataKey="commandes" stroke="#ffc94c" />
+              <Line type="monotone" dataKey="utlisateurs" stroke="#ffc94c" />
             </LineChart>
           </ResponsiveContainer>
         </div>
