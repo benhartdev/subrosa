@@ -286,7 +286,7 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
               <input className={styles.inputForm} name="name" value={getSafeValue(formData.name)} onChange={handleChange} required />
 
               <label className={styles.labelForm}>Date de naissance  <span className={styles.required}>*</span></label>
-              <input className={styles.inputForm} type="date" name="birthdate" value={getSafeValue(formData.birthdate)} onChange={handleChange} required />
+              <input className={styles.inputForm} type="date" name="birthdate" value={formData.birthdate ? formData.birthdate.slice(0, 10) : ''} onChange={handleChange} required />
 
               <label className={styles.labelForm}>Pays :</label>
               <input className={styles.inputForm} name="country_location" value={getSafeValue(formData.country_location)} onChange={handleChange} />

@@ -6,6 +6,7 @@ import ArtistProfile from "./ArtistProfile";
 import Gallery from "./Gallery";
 import styles from "./ArtistSoloPage.module.css"; // correction ici ✅
 import DoubleBorderContainer from "./DoubleBorderContainer";
+import { resolveImageUrl } from "../utils/resolveImageUrl";
 
 
 export default function ArtistSoloPage({ artist }) {
@@ -22,7 +23,7 @@ export default function ArtistSoloPage({ artist }) {
       <section className={styles.artistContainer}>
         <div className={styles.artistImage1}>
           <Image
-            src={artist.artistImages[1]?.url || "/placeholder.jpg"}
+            src={resolveImageUrl(artist?.artistImages?.[0]?.url)}
             alt={artist.artistImages[1]?.altText || `Portrait de ${artist.username}`}
             width={700}
             height={700}
