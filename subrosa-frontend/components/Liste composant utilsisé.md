@@ -20,7 +20,7 @@ Context
 
 ajout-oeuvre
 
- <AddworkForm />
+ <AddworkForm /> <AddZoomForm/>
 
  artiste/dashboard
 
@@ -35,7 +35,11 @@ blog
 
 <DoubleBorderContainer>
 <MainContent>
-
+<BlogPostClient>
+<CtaExpo>
+<ImageGalleryModal>
+<LightboxGallery
+>
 contact
 
 <ContactForm /> <SablierLoader />
@@ -70,7 +74,7 @@ LAYOUT
 <Footer >
 
 PAGE
-
+<SubrosaLogoStatic>
 <Newsletter />
 <MomentSelection />
 <Gallery>
@@ -78,4 +82,5 @@ PAGE
 <MainContent/>
 </DoubleBorderContainer>
 <TestimonialSection />
+<MiniBarNav>
 

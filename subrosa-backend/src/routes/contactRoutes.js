@@ -5,14 +5,14 @@ const rateLimit = require('express-rate-limit');
 const { body } = require('express-validator');
 const { sendContactMessage, getAllMessages, deleteMessage, markAsRead,} = require("../controllers/contactController");
 
-// 🎯 Anti-spam : max 3 messages par minute
-// const contactLimiter = rateLimit({
-//   windowMs: 60 * 60000, // 1 heure
-//   message: {
-//     success: false,
-//     error: '⛔ Trop de messages envoyés. Veuillez réessayer dans une minute.'
-//   }
-// });
+//  Anti-spam : max 3 messages par heure
+ const contactLimiter = rateLimit({
+  windowMs: 60 * 60000, // 1 heure
+   message: {
+    success: false,
+    error: '⛔⛔ Trop de messages envoyés. Veuillez réessayer dans une minute.⛔⛔'
+  }
+ });
 
 // 🎯 Validation des champs
 

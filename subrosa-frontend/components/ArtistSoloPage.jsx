@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import ArtistProfile from "./ArtistProfile";
 import Gallery from "./Gallery";
-import styles from "./ArtistSoloPage.module.css"; // correction ici ✅
+import styles from "./ArtistSoloPage.module.css";
 import DoubleBorderContainer from "./DoubleBorderContainer";
 import { resolveImageUrl } from "../utils/resolveImageUrl";
 

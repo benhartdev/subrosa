@@ -3,6 +3,7 @@
 import DoubleBorderContainer from "../../components/DoubleBorderContainer";
 import MainContent from "../../components/MainContent";
 import styles from '../../components/SubrosaLogoStatic.module.css';
+
 export default function BlogPage() {
   return (
    

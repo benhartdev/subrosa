@@ -56,6 +56,8 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
   const { name, value, type, checked } = e.target;
   const newValue = type === 'checkbox' ? checked : value;
 
+  
+
   // Si c’est un champ imbriqué dans interview
   if (name.startsWith("interview.")) {
     const questionKey = name.split(".")[1];
@@ -197,7 +199,7 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
           }, 1500);
         }
       } else {
-        setPopup({ type: 'error', message: `❌ Erreur : ${data.error || 'Inconnue'}` });
+        setPopup({ type: 'error', message: `❌ Erreur : ${data.error || data.message || 'Inconnue'}` });
       }
     } catch (err) {
       console.error(err);
@@ -314,13 +316,13 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
               <label className={styles.labelForm}>Compétences techniques :</label>
                   <input className={styles.inputForm} name="technical_skills" placeholder="Photos plexiglas - Peinture sur toile - Fine Art etc..."value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
               <label className={styles.labelForm}>Biographie :</label>
-                  <textarea className={styles.inputForm} placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
+                  <textarea maxLength={500} className={styles.inputForm}  placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment êtes-vous devenu artiste ?</label>
-                  <textarea className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
+                  <textarea maxLength={200} className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment définiriez-vous votre univers ?</label>
-                  <textarea className={styles.inputForm} name="interview.question2" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} />
+                  <textarea maxLength={200} className={styles.inputForm} name="interview.question2" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} />
               <label className={styles.labelForm}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</label>
-                  <textarea className={styles.inputForm} name="interview.question3" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} />
+                  <textarea maxLength={200} className={styles.inputForm} name="interview.question3" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} />
 
               <label className={styles.labelForm}>Site web :</label>
               <input className={styles.inputForm} name="website" value={getSafeValue(formData.website)} onChange={handleChange} />

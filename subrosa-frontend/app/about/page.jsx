@@ -6,30 +6,27 @@ import Image from 'next/image';
 const AboutPage = () => {
   return (
     <div className={styles.aboutContainer}>
-        
       <h1 className={styles.aboutTitle}>QUI&nbsp;SOMMES-NOUS</h1>
-
-      <p className={styles.aboutDescription}>
-        Galerie&nbsp;SUB&nbsp;ROSA&nbsp;ART est une gallerie d'art contemporain en ligne
-        co-fondée par les 3 associés ci-dessous en 2025. Bien plus qu'un simple
-        site web, notre volonté est d'organiser régulièrement des événements
-        physiques : expositions, salons, visites d'ateliers, collaborations
-        entreprises…</p> 
         <p className={styles.aboutDescription}>
-        Nous accompagnons nos artistes dans leur développement
-        artistique et commercial, et sommes novateurs dans nos liens avec les
-        entreprises. Un showroom permanent permet d'accueillir clients, artistes
-        et entreprises dans le bel immeuble historique de l'AFEC.
-        Galerie SUB ROSA ART</p>
-        <p className={styles.aboutDescription}>
-        souhaite partager sa sélection d'artistes, leur univers et leurs
-        valeurs humaines aux curieux, collectionneurs et entreprises.Galerie SUB
-        ROSA ART doit être « au cœur de la cité ».
-      </p>
+          Galerie&nbsp;SUB&nbsp;ROSA&nbsp;ART est une gallerie d'art contemporain en ligne
+          co-fondée par les 3 associés ci-dessous en 2025. Bien plus qu'un simple
+          site web, notre volonté est d'organiser régulièrement des événements
+          physiques : expositions, salons, visites d'ateliers, collaborations
+          entreprises…</p> 
+          <p className={styles.aboutDescription}>
+          Nous accompagnons nos artistes dans leur développement
+          artistique et commercial, et sommes novateurs dans nos liens avec les
+          entreprises. Un showroom permanent permet d'accueillir clients, artistes
+          et entreprises dans le bel immeuble historique de l'AFEC.
+          Galerie SUB ROSA ART</p>
+          <p className={styles.aboutDescription}>
+          souhaite partager sa sélection d'artistes, leur univers et leurs
+          valeurs humaines aux curieux, collectionneurs et entreprises.Galerie SUB
+          ROSA ART doit être « au cœur de la cité ».
+        </p>
           <hr className={styles.customSaparator} />
       <h2 className={styles.teamTitle}>NOTRE EQUIPE</h2>
 
-      
 
       <div className={styles.teamSection}>
         <div className={styles.teamGrid}>
@@ -45,8 +42,6 @@ const AboutPage = () => {
 
           <div className={styles.teamMemberInfo}>
             <div className={styles.memberDescription}>
-               
-              
               <div className={styles.descriptionTitle}>FORMATION&nbsp;&&nbsp;PARCOURS</div>
               
               <p>De&nbsp;formation scientifique, Ben H s'est

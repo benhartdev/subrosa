@@ -24,9 +24,11 @@ const ArtistProfile = ({ artist }) => {
              <p><strong>Supports et techniques :</strong> {artist.technical_skills || "Non renseigné"}</p>
 
             </div>
-            <button className={styles.followButton} role="button" tabIndex={0}>
+            {/* FEAT A VENIR */}
+            {/* <div className={styles.artistImage}>
+            {/* <button className={styles.followButton} role="button" tabIndex={0}>
               <span className={styles.buttonText}>SUIVRE CET ARTISTE</span>
-            </button>
+            </button> */}
           </div>
 
           <div className={styles.infoColumnRight}>

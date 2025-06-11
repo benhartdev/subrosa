@@ -10,7 +10,6 @@ export default function LightboxGallery({ images, externalTriggerRef = null }) {
   const prev = () => setCurrentIndex((currentIndex - 1 + images.length) % images.length);
   const next = () => setCurrentIndex((currentIndex + 1) % images.length);
 
-  // Expose l'ouverture externe
   useEffect(() => {
     if (externalTriggerRef && typeof externalTriggerRef.current === "object") {
       externalTriggerRef.current.open = open;

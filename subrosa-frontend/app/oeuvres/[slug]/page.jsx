@@ -8,7 +8,7 @@ import { ImYoutube } from "react-icons/im";
 import { withNoBreaks } from "../../../utils/withNoBreaks";
 import { resolveImageUrl } from "../../../utils/resolveImageUrl";
 
-
+export const dynamic = 'force-dynamic';
 
 export default async function WorkSlugPage({ params }) {
   const slug = params.slug;
@@ -152,10 +152,11 @@ export default async function WorkSlugPage({ params }) {
             <p className={styles.question3Title}>Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?</p>
             <p className={styles.answer3Title}>{artist.interview?.question3}</p>
       </section>
-        <button className={styles.interviewButton}>
+      {/* FEAT A VENIR */}
+        {/* <button className={styles.interviewButton}>
           VOIR L'INTERVIEW COMPLÈTE DE L'ARTISTE
-        </button>
-        {/* FEAT A VENIR */}
+        </button> */}
+        
         {/* <button className={styles.followButton}>
           SUIVRE L'ARTISTE
         </button> */}
@@ -167,3 +168,4 @@ export default async function WorkSlugPage({ params }) {
     </main>
   );
 }
+

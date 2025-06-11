@@ -9,7 +9,7 @@ const getStats = async (req, res) => {
     const pendingArtists = await Artist.countDocuments({ isApproved: false });
     const totalUsers = await User.countDocuments();
     const totalWorks = await Artwork.countDocuments();
-    const totalOrders = 0; // temporaire
+    const totalOrders = 0; 
 
     res.json({
       totalArtists,

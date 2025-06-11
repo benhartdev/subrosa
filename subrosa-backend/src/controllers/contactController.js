@@ -17,7 +17,7 @@ function sanitizeMessage(input) {
 function containsBannedWords(message) {
   const bannedWords = [
     "crypto", "bitcoin", "gagner de l’argent", "nft",
-    "sexe", "porno", "arnaque", "casino"
+    "sexe", "porno", "casino"
   ];
   const lowerMessage = message.toLowerCase();
   return bannedWords.some(word => lowerMessage.includes(word));
@@ -27,7 +27,7 @@ function containsBannedWords(message) {
 const sendContactMessage = async (req, res) => {
   console.log("📦 SESSION REÇUE :", req.session);
 
-  // 🚨 Étape obligatoire pour traiter les erreurs de validation
+  // 🚨 Étape pour traiter les erreurs de validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.warn("❌ Erreurs de validation :", errors.array());

@@ -80,22 +80,7 @@
 }
 
 .menuToggle {
-    display: block;
-    font-size: 0.8rem;
-    padding:1rem 1.2rem;
-    border: 1px solid white;
-    background: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.menuToggle:hover {
-    color: #0dbab1;
-    border: 1px solid #0dbab1;
-    transform: scale(1.05);
-    background: none !important;
+  display: none;
 }
 
 .mobileMenu {
@@ -215,6 +200,24 @@
   .navbarNavCustom {
     display: none;
   }
+  .menuToggle {
+    display: block;
+    font-size: 0.8rem;
+    padding:1rem 1.2rem;
+    border: 1px solid white;
+    background: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.menuToggle:hover {
+    color: #0dbab1;
+    border: 1px solid #0dbab1;
+    transform: scale(1.05);
+    background: none !important;
+}
 }
 
 @media (max-width: 768px) {

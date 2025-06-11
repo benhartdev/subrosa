@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import ArtistSoloPage from "../../../components/ArtistSoloPage";
 
-// ✅ récupère correctement les params de l'URL
+// ✅✅✅récupèrer correctement les params de l'URL ✅✅✅
 export default async function ArtistPage({ params }) {
       const slug = (await params).slug;
 
@@ -19,7 +19,7 @@ export default async function ArtistPage({ params }) {
   );
 }
 
-// ✅ Appel du backend
+// ✅✅✅ Appel du backend ✅✅✅
 async function getArtist(slug) {
   try {
 

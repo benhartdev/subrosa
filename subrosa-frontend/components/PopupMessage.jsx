@@ -28,8 +28,6 @@ const PopupMessage = ({ message, type = "info", onClose }) => {
   );
 };
 
-PopupMessage.defaultProps = {
-  onClose: () => {},
-};
+
 
 export default PopupMessage;
