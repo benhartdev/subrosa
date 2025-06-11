@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Présentation SUB ROSA ART</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+  <style>
+   .reveal {
+  background-color: #000;
+  color: white;
+}
+
+.intro-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+/* Rose suspendue — ne descend pas jusqu'en bas */
+.rose {
+  width: 180px;      /* x2 la largeur */
+  height: auto;     /* garantit le ratio */
+  position: absolute;
+  top: -500px;  
+  opacity: 0;
+  animation: slideRoseDown 4s ease-out forwards;
+  animation-delay: 5s;
+  scale: 1.3; /* x1.5 la taille */
+}
+
+@keyframes slideRoseDown {
+  to {
+    top: -250px;
+    opacity: 1;
+  }
+}
+
+/* Logo centré */
+.logo {
+  width: 400px;
+  margin-top: 120px;
+   margin-left: -30px; /* décalage vers la gauche */
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 2.5s;
+}
+
+/* Bloc texte */
+.text {
+  
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 4s;
+}
+
+.titre {
+  font-size: 0.7em;
+
+}
+
+.auteur {
+  font-size: 0.9em;
+  font-weight: normal;
+  color:rgb(14, 180, 180);
+}
+.auteur2 {
+  font-size: 0.7em;
+  font-weight: normal;
+ 
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1 - INTRO -->
+      <section class="intro">
+  		<div class="intro-wrapper">
+			<!-- Rose au-dessus du logo -->
+			<img src="images/rose.jpg" class="rose" alt="Rose suspendue" />
+			<!-- Logo -->
+			<img src="images/gallerie_SUB_logo2_fond_noir.png" class="logo" alt="Logo Sub Rosa Art" />
+			<!-- Texte -->
+			<div class="text">
+			<div class="titre">Présentation pour le titre DWWM</div>
+			<div class="auteur2">par</div>
+			<div class="auteur">BENJAMIN HOFFELE</div>
+		</div>
+ 		</div>
+	  </section>
+
+
+      <!-- SLIDE 2 - Exemple vide à remplir -->
+      <section>
+        <h2>Contexte</h2>
+        <p class="fragment fade-up">Projet de fin de formation DWWM</p>
+        <p class="fragment fade-up">Objectif : Créer une galerie d'art en ligne</p>
+        <p class="fragment fade-up">Technos : React, Next.js, Node.js, MongoDb<p>
+      </section>
+      <!-- SLIDE 3 - Exemple vide à remplir -->
+      <section>
+							<img src="images/rose.jpg" alt="Logo Sub Rosa Art" width="90" height="auto">
+        <h2>Présentation de l'entreprise</h2>
+        <img src="images/AFEC" alt="Logo Afec" width="200" height="200">
+        <img src="images/sub_rosa_art_logo.png" alt="Logo Sub Rosa Art" width="200" height="200">
+        <p class="fragment fade-up">Mon parcours</p>
+        <p class="fragment fade-up">La création<p>
+      </section>
+      <!-- SLIDE 4 - Exemple vide à remplir -->
+      <section>
+					<img src="images/rose.jpg" alt="Logo Sub Rosa Art" width="90" height="auto">
+        <h2>Expression des besoins de SUB ROSA ART</h2>
+        <p class="fragment fade-up">Mettre en valeurs les oeuvres</p>
+        <p class="fragment fade-up">Sortir du lot</p>
+        <p class="fragment fade-up">Mettre en relations les acteurs de l'art<p>
+        <p class="fragment fade-up">Artistes, visiteurs, collectionneurs et entreprises<p>
+      </section>
+
+      <!-- SLIDE 4 - Exemple vide à remplir -->
+      <section>
+							<img src="images/rose.jpg" alt="Logo Sub Rosa Art" width="90" height="auto">
+        <h2>Contraintes du projet</h2>
+        <p class="fragment fade-up">Créer les outils de la plateforme</p>
+        <p class="fragment fade-up">Inscription, interface, espace securisé<p>
+        <p class="fragment fade-up">Présenter mon regard sur l'art<p>
+        <p class="fragment fade-up">Entretien post-validation</p>
+        <p class="fragment fade-up">future editorial des univers artistiques<p>
+        <p class="fragment fade-up">Donner l'envie d'acheter<p>
+      </section>
+
+      <!-- SLIDE 5 - Exemple vide à remplir -->
+      <section>
+        <h2>Environnement humain</h2>
+        <p class="fragment fade-up">70 heures de code / semaine</p>
+        <p class="fragment fade-up">Projet complet seul</p>
+        <p class="fragment fade-up"><p>
+      </section>
+
+      <!-- SLIDE 6 - Exemple vide à remplir -->
+      <section>
+        <h2>Environnement technique</h2>
+        <p class="fragment fade-up">Concéption et design</p>
+        <p class="fragment fade-up">Technos utilisées</p>
+        <p class="fragment fade-up">Versionning<p>
+        <p class="fragment fade-up">Docs techniques<p>
+      </section>
+
+      <!-- SLIDE 7 - Exemple vide à remplir -->
+      <section>
+        <h2>Objectif qualité</h2>
+		<p class="fragment fade-up">Definir un MVP</p>
+        <p class="fragment fade-up">Code clair et maintenable</p>
+        <p class="fragment fade-up">Responsive</p>
+        <p class="fragment fade-up">Me rapprocher au mieux d'une experience<p>
+      </section>
+      <section>
+        <h2>Parlons MVP</h2>
+		<p class="fragment fade-up">Definir un MVP</p>
+		<img src="images/maquette1" alt="Logo Sub Rosa Art" width="90" height="auto">
+        <p class="fragment fade-up">Avais-je bien compris ?</p>
+        <p class="fragment fade-up">Minimum, minimum, minimum !!!</p>
+		<img src="images/maquette1" alt="Logo Sub Rosa Art" width="90" height="auto">
+        <p class="fragment fade-up">MVP validé, je peux maintenant ?<p>
+      </section>
+      <section>
+        <h2>Et bien NON !</h2>
+		<p class="fragment fade-up">Conflits CSS...</p>
+        <p class="fragment fade-up">logique mal repartie...</p>
+		<p class="fragment fade-up">Composant redondant...<p></p>
+        <p class="fragment fade-up">Crash en tout genre...</p>
+      </section>
+      <section>
+        <h2>Un refactoring s'impose !</h2>
+		<p class="fragment fade-up">comprehension du terme "dette technique"</p>
+		<p class="fragment fade-up">restructuration du code</p>
+        <p class="fragment fade-up">nettoyage du code mort</p>
+		<p class="fragment fade-up">Réorganisation composants React en éléments réutilisables<p></p>
+        <p class="fragment fade-up">migration vers des fichiers CSS modules</p>
+        <p class="fragment fade-up">Un des moments les plus instructif !</p> <!-- creation d'une base plus saine, facile a maintenir et faire evoluer -->
+	  </section>
+		<!-- SLIDE 8 - Exemple vide à remplir -->
+      <section>
+        <h2>Réalisation des élements significatifs Front-end</h2>
+        <p class="fragment fade-up">Créations d'une galerie avec effet de hover</p><!-- pas de champs a remplir / pas d'injections possibles XSS + pas d'oeuvres non validées par mes soins possible -->
+        <p class="fragment fade-up">Création d’une page blog avec texte en markdown et galerie de photos.</p><!-- identificaation des artistes, galerie laterale, contenu plus riche. Page slug, redirection page artiste, utilisation composant dynamique pour affichage contenu, via blogData et par la suite Bdd via interface -->
+        <p class="fragment fade-up">Technos : React, Next.js(App Router), Blogdata et prochainement Bdd et interface d'ajout de contenu<p>
+      </section>
+      <!-- SLIDE 9 - Exemple vide à remplir -->
+      <section>
+        <h2>Maquettes de l’application web et web mobile</h2>
+        <img src="images/maquette_figma_Hover.png" alt="maquette figma galerie page accueil">
+        <img src="images/maquette_figma_blog.png" alt="maquette figma page blog">
+      </section>
+      <!-- SLIDE 10 - Exemple vide à remplir -->
+      <section>
+        <h2>Schéma de l'app<h2>
+        <img src="images/Aperçu_minimal des_connexions.jpg" alt=" le schéma de l’enchaînement des maquettes de l’application">
+      </section>
+      <!-- SLIDE 11 - Exemple vide à remplir -->
+      <section>
+        <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
+        
+        <img src="images/Capture_ecran_hover-train.png" alt="Capture ecran effet hover photo train">
+        <img src="images/Capture_ecran_photo-mobile.png" alt="maquette figma page blog">
+        <img src="images/Capture_ecran_desktop_BLOG.png" alt="maquette figma page blog">
+        <img src="images/Capture_ecran_mobile-BLOG.png" alt="maquette figma page blog">
+        
+	</section>
+      <!-- SLIDE 12 - Exemple vide à remplir -->
+      <section>
+        <h2>Extrait de code d'interfaces utilisateur statiques</h2>
+        <img src="images/extrait_code_page_statique_ABOUT.png" alt="maquette figma page blog">
+        <img src="images/extrait-code-page-statique-INSCRIPTION.png" alt="maquette figma page blog">
+      </section>
+      <!-- SLIDE 13 - Exemple vide à remplir -->
+      <section>
+        <h2> extraits de code d'interfaces utilisateur dynamique </h2>
+        <img src="images/ANNEXE_23.png" alt="maquette figma page blog">
+        <img src="images/ANNEXE_24.png" alt="maquette figma page blog">
+        <img src="images/ANNEXE_25.png" alt="maquette figma page blog">
+        <img src="images/ANNEXE_26.png" alt="maquette figma page blog">
+      </section>
+      <!-- SLIDE 14 - Exemple vide à remplir -->
+      <section>
+        <h2>Eléments de sécurité coté Front-end </h2>
+        <p class="fragment fade-up">Masquage des mots de passe</p>
+        <p class="fragment fade-up">Validation des formulaires côté client</p>
+        <!-- <p class="fragment fade-up">Déconnexion automatique / expiration de session<p>
+			<img src="images/ANNEXE_26.png" alt="maquette figma page blog"> -->
+        <p class="fragment fade-up">Suppression des informations sensibles dans le code : les console.log<p>
+        <p class="fragment fade-up">Aucune données sensible dans localStorage, sessionStorage, cookies<p>
+      </section>
+      <!-- SLIDE 15 - Exemple vide à remplir -->
+      <section>
+        <h2>Front-end, jeu d'essai le plus représentatif, </h2>
+        <img src="images/Correspondance_masquage_MDP.png" alt="maquette figma page blog">
+       <img src="images/MAX_caractere_textarea.png" alt="maquette figma page blog">
+       <img src="images/test_mail_existant.png" alt="maquette figma page blog">
+        
+      </section>
+      <!-- SLIDE 16 - Exemple vide à remplir -->
+      <section>
+        <h2>Présentation de la veille sur les vulnérabilités de sécurité</h2>
+        <p class="fragment fade-up">METTRE LIEN SITE SECURITE !</p>
+        <p class="fragment fade-up">IL RESTE DES FAILLES A TROUVER, CHERCHE !!!</p>
+        <p class="fragment fade-up">Failles potentiellement corrigées A VENIR, DODO !</p>
+      </section>
+    
+      <!-- SLIDE 18 - Exemple vide à remplir -->
+      <section>
+        <h2>synthèse et conclusion</h2>
+        <p class="fragment fade-up">satisfactions</p>
+        <p class="fragment fade-up">difficultés rencontrées</p>
+      </section>
+      <section>
+        <h2>TEST</h2>
+        <p class="fragment fade-up">satisfactions</p>
+        <p class="fragment fade-up">difficultés rencontrées</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+  </script>
+</body>
+</html>
