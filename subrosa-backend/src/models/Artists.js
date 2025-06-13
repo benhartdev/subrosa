@@ -8,13 +8,13 @@ const artistSchema = new mongoose.Schema({
           required: [true, "Le username de l'artiste est requis."],
           match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
           trim: true,
-          minlength: [4, "Le nom doit contenir au moins 4 caractères."]
+          minlength: [4, "Le username doit contenir au moins 4 caractères."]
     }, 
       password: {
           type: String,
           required: [true, "Le mdp de l'artiste est requis."],
           trim: true,
-          minlength: [4, "Le nom doit contenir au moins 4 caractères."]
+          minlength: [4, "Le mdp doit contenir au moins 4 caractères."]
     },
       name: {
           type: String,
@@ -111,23 +111,12 @@ const artistSchema = new mongoose.Schema({
         match: [/^https?:\/\/(www\.)?twitter\.com\/[A-Za-z0-9_.-]+$/, "Lien Twitter invalide."],
         trim: true
       },
-      numer_of_Artworks: {
-          type: Number,
-          min: [0, "Oeuvres > 0."],
-          default: 0
-      },
-      number_of_artworks_in_stock: {
-          type: Number,
-          min: [0, "Stock >= à 0."],
-          default: 0
-      },
       interview: { question1: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
                     question2: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
                     question3: { type: String, trim: true, maxlength: [200, "Max 200 caractères."]},
                 },
       isApproved: {type: Boolean, default: false},
       status: { type: String, enum: ['pending', 'validated', 'rejected'], default: 'pending'},
-      name: String, images: [{ url: String, alt: String, uploadedAt: { type: Date, default: Date.now }}],
       works: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Work' }],
       artistImages: [{url: { type: String },altText: { type: String },uploadedAt: { type: Date, default: Date.now }}],
       newsletter: { type: Boolean, default: true },

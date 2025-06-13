@@ -316,7 +316,7 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
               <label className={styles.labelForm}>Compétences techniques :</label>
                   <input className={styles.inputForm} name="technical_skills" placeholder="Photos plexiglas - Peinture sur toile - Fine Art etc..."value={getSafeValue(formData.technical_skills)} onChange={handleChange} />
               <label className={styles.labelForm}>Biographie :</label>
-                  <textarea maxLength={500} className={styles.inputForm}  placeholder="500 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
+                  <textarea maxLength={2000} className={styles.inputForm}  placeholder="2000 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment êtes-vous devenu artiste ?</label>
                   <textarea maxLength={200} className={styles.inputForm} name="interview.question1" placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} />
               <label className={styles.labelForm}>Comment définiriez-vous votre univers ?</label>

@@ -37,11 +37,6 @@ const getFeaturedArtists = async (req, res) => {
 };
 
 const createArtist = async (req, res) => {
-  console.log("===== [DEBUG] createArtist =====");
-console.log("BODY FIELDS :", req.body);
-console.log("FILES REÇUS :", req.files);
-console.log("FICHIER 0 (images) :", req.files?.images?.[0]);
-console.log("FICHIER 0 (artistImages) :", req.files?.artistImages?.[0]);
   try {
       
     const {
@@ -89,9 +84,9 @@ if (typeof parsedInterview === 'string') {
       return res.status(400).json({ message: "Artiste déjà existant avec ce nom ou cet email" });
     }
 
-    console.log("🔐 Mot de passe original reçu :", password);
+    
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("🔐 Hash généré :", hashedPassword);
+    
 
     // Images des œuvres
 const rawAlts = req.body.alts || [];
@@ -305,7 +300,7 @@ const getArtistBySlug = async (req, res) => {
   .populate({
     path: "works",
     model: "work",
-    match: { isApproved: true }, // ⚠️ adapte selon ton nom de modèle exact
+    match: { isApproved: true },
   });
 
     if (!artist) {

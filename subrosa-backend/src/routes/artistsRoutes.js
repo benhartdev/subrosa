@@ -7,7 +7,7 @@ const upload = require('../middlewares/multerConfig');
 const ensureValidatedArtist = require('../middlewares/ensureValidatedArtist');
 const { getOwnProfile } = require('../controllers/artistsController');
 const { updateArtistImages } = require('../controllers/artistsController');
-
+const rateLimit = require("express-rate-limit");
 // ------------------ Endpoints publics ------------------
 
 // Retourne la liste complète des artistes (pour le public)
@@ -17,7 +17,13 @@ router.get('/', artistsController.getAllArtists);
 router.get('/featured', artistsController.getFeaturedArtists);
 
 // Inscription d'un nouvel artiste (accessible publiquement)
-router.post('/register', upload.fields([
+const createArtistLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 heure
+    max: 5, // Limite à 5 requêtes par heure
+    message: "Trop de tentatives d'inscription. Veuillez réessayer plus tard."
+});
+router.post('/register',createArtistLimiter,
+     upload.fields([
     { name: 'images', maxCount: 20 },
     { name: 'artistImages', maxCount: 3 },
 ]), artistsController.createArtist);

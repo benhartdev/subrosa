@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: [true, "Le username de l'artiste est requis."],
+    required: [true, "Le username de l'utilisateur est requis."],
     match: [/^[A-Za-zÀ-ÿ0-9'’\- ]+$/, "Le nom ne peut contenir que des lettres (y compris accentuées), chiffres, tirets, apostrophes et espaces."],
     trim: true,
     unique: true,
@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
 password: {
   type: String,
   required: [true, "Le mdp de l'artiste est requis."],
-  minlength: [4, "Le nom doit contenir au moins 4 caractères."]
+  minlength: [4, "Le mdp doit contenir au moins 4 caractères."]
 },
 email: {
   type: String,

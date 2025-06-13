@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
-const Work = require("../src/models/work"); // ⚠️ adapte si le chemin du modèle est différent
+const Work = require("../src/models/work");
 require("dotenv").config();
 
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/subrosa-art";
