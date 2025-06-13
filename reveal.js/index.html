@@ -78,6 +78,14 @@
   font-weight: normal;
  
 }
+.fragment.blur {
+    filter: blur(30px);
+      transition: transform 1s ease, filter 0.5s ease, opacity 0.3s ease;
+
+  }
+  .fragment.blur.visible {
+    filter: none;
+  }
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -108,8 +116,11 @@
       <section>
         <h2>Contexte</h2>
         <p class="fragment fade-up">Projet de fin de formation DWWM</p>
-        <p class="fragment fade-up">Objectif : Créer une galerie d'art en ligne</p>
-        <p class="fragment fade-up">Technos : React, Next.js, Node.js, MongoDb<p>
+        <p class="fragment fade-up">Objectif : Une galerie d'art en ligne</p>
+        <p class="fragment fade-up">Technologies : React, Next.js, Node.js, MongoDb<p>
+           <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <!-- SLIDE 3 - la présentation de l’entreprise et du service -->
       <section>
@@ -119,6 +130,9 @@
         <img src="images/sub_rosa_art_logo.png" alt="Logo Sub Rosa Art" width="200" height="200">
         <p class="fragment fade-up">Mon parcours</p>
         <p class="fragment fade-up">La création<p>
+            <aside class="notes">
+        Motoriste - photographe - développeur
+    </aside>
       </section>
       <!-- SLIDE 4 - l’expression des besoins du projet -->
       <section>
@@ -128,17 +142,24 @@
         <p class="fragment fade-up">Sortir du lot</p>
         <p class="fragment fade-up">Mettre en relations les acteurs de l'art<p>
         <p class="fragment fade-up">Artistes, visiteurs, collectionneurs et entreprises<p>
-      </section>
+         <aside class="notes">
+        Faire queleus chose de beau, de different et de fonctionnel
+        creer un espace pour les artistes, etre accrocheur pour les collectionneurs en proposant des trucs differents, des vrais truc beau, pas une foire aux artiste raté, et seduire les entreprise avec des install monumentale, expo interne, mecenat etc. ex junior fritz jacquet
+    </aside>
+        </section>
       <!-- SLIDE 5 - les contraintes du projet, les livrables attendus -->
       <section>
 							<img src="images/rose.jpg" alt="Logo Sub Rosa Art" width="90" height="auto">
         <h2>Contraintes du projet</h2>
-        <p class="fragment fade-up">Créer les outils de la plateforme</p>
+        <p class="fragment fade-up">Les outils de la plateforme</p>
         <p class="fragment fade-up">Inscription, interface, espace securisé<p>
-        <p class="fragment fade-up">Présenter mon regard sur l'art<p>
+        <p class="fragment fade-up">Mon regard sur l'art<p>
         <p class="fragment fade-up">Entretien post-validation</p>
-        <p class="fragment fade-up">future editorial des univers artistiques<p>
+        <p class="fragment fade-up">futur editorial des univers artistiques<p>
         <p class="fragment fade-up">Donner l'envie d'acheter<p>
+          <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <!-- SLIDE 6 - l’environnement humain et technique, les objectifs de qualité -->
       <section>
@@ -146,15 +167,21 @@
         <p class="fragment fade-up">70 heures de code / semaine</p>
         <p class="fragment fade-up">Projet complet seul</p>
         <p class="fragment fade-up"><p>
+          <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
 
       <!-- SLIDE 7 - l’environnement humain et technique, les objectifs de qualité -->
       <section>
         <h2>Environnement technique</h2>
         <p class="fragment fade-up">Concéption et design</p>
-        <p class="fragment fade-up">Technos utilisées</p>
-        <p class="fragment fade-up">Versionning<p>
+        <p class="fragment fade-up">Technologies utilisées</p>
+        <p class="fragment fade-up">Versionement<p>
         <p class="fragment fade-up">Docs techniques<p>
+          <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <!-- SLIDE 8 - l’environnement humain et technique, les objectifs de qualité -->
       <section>
@@ -163,6 +190,9 @@
         <p class="fragment fade-up">Code clair et maintenable</p>
         <p class="fragment fade-up">Responsive</p>
         <p class="fragment fade-up">Me rapprocher au mieux d'une experience<p>
+          <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <section>
         <h2>Parlons MVP</h2>
@@ -172,6 +202,9 @@
         <p class="fragment fade-up">Minimum, minimum, minimum !!!</p>
 		<img src="images/maquette1" alt="Logo Sub Rosa Art" width="90" height="auto">
         <p class="fragment fade-up">MVP validé, je peux maintenant ?<p>
+          <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <section>
         <h2>Et bien NON !</h2>
@@ -179,6 +212,9 @@
         <p class="fragment fade-up">logique mal repartie...</p>
 		<p class="fragment fade-up">Composant redondant...<p></p>
         <p class="fragment fade-up">Crash en tout genre...</p>
+        <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <section>
         <h2>Un refactoring s'impose !</h2>
@@ -188,21 +224,27 @@
 		<p class="fragment fade-up">Réorganisation composants React en éléments réutilisables<p></p>
         <p class="fragment fade-up">migration vers des fichiers CSS modules</p>
         <p class="fragment fade-up">Un des moments les plus instructif !</p> <!-- creation d'une base plus saine, facile a maintenir et faire evoluer -->
-	  </section>
+	 <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
+      </section>
 		<!-- SLIDE 9 - les réalisations du candidat comportant les éléments les plus significatifs coté front-end, en argumentant ses choix, y compris pour la sécurité : -->
       <section>
-        <h2>Réalisation des élements significatifs Front-end</h2>
-        <p class="fragment fade-up">Créations d'une galerie avec effet de hover</p><!-- pas de champs a remplir / pas d'injections possibles XSS + pas d'oeuvres non validées par mes soins possible -->
-        <p class="fragment fade-up">Création d’une page blog avec texte en markdown et galerie de photos.</p><!-- identificaation des artistes, galerie laterale, contenu plus riche. Page slug, redirection page artiste, utilisation composant dynamique pour affichage contenu, via blogData et par la suite Bdd via interface -->
+        <h2>Elements significatifs Front-end</h2>
+        <p class="fragment fade-up">Une galerie avec effet de hover</p><!-- pas de champs a remplir / pas d'injections possibles XSS + pas d'oeuvres non validées par mes soins possible -->
+        <p class="fragment fade-up">Une page blog avec texte en markdown et galerie de photos.</p><!-- identificaation des artistes, galerie laterale, contenu plus riche. Page slug, redirection page artiste, utilisation composant dynamique pour affichage contenu, via blogData et par la suite Bdd via interface -->
         <p class="fragment fade-up">Formulaire d'inscription artiste / utilisateur</p><!-- Besoin d'avoir plein d'infos pour pouvoir creer page slug artiste complete, pour cerner l'univers de l'artiste rapidement, sur quel support il travaille avant validation. Ajout d'oeuvre par la suite. -->
-        <p class="fragment fade-up">Technos : React, Next.js(App Router), Blogdata et prochainement Bdd et interface d'ajout de contenu<p>
-      </section>
+        <p class="fragment fade-up">Technologies : React, Next.js(App Router), Blogdata et prochainement Bdd et interface d'ajout de contenu<p>
+      <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
+        </section>
 
       <section>
         <h2>Eléments de sécurité coté Front-end </h2>
         <p class="fragment fade-up">Validation des formulaires côté client</p>
         <p class="fragment fade-up">Déconnexion automatique / expiration de session<p>
-        <p class="fragment fade-up">Suppression des informations sensibles dans le code : console.log<p>
+        <p class="fragment fade-up">Informations sensibles dans le code : console.log<p>
         <p class="fragment fade-up">Aucune données sensible dans localStorage, sessionStorage, cookies<p>
       </section>
 
@@ -212,7 +254,20 @@
       </section>
       <section>
         <h2>Front-end, jeu d'essai le plus représentatif, </h2>
-        <img src="images/MAX_caractere_textarea.png" alt="maquette figma page blog">
+        <!-- <img src="images/MAX_caractere_textarea.png" alt="maquette figma page blog"> -->
+             <pre><code class="language-js" data-line-numbers="3,6,9,12">
+&lt;label className={styles.labelForm}&gt;Biographie :&lt;/label&gt;
+&lt;textarea maxLength={2000}  placeholder="2000 caractères maximum" name="bio" value={getSafeValue(formData.bio)} onChange={handleChange} /&gt;
+
+&lt;label className={styles.labelForm}&gt;Comment êtes-vous devenu artiste ?&lt;/label&gt;
+&lt;textarea maxLength={200}  placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question1)} onChange={handleChange} /&gt;
+
+&lt;label className={styles.labelForm}&gt;Comment définiriez-vous votre univers ?&lt;/label&gt;
+&lt;textarea maxLength={200}   placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question2)} onChange={handleChange} /&gt;
+
+&lt;label className={styles.labelForm}&gt;Quel artiste (mort ou vivant) aimeriez-vous rencontrer ?&lt;/label&gt;                  
+&lt;textarea maxLength={200}   placeholder="200 caractères maximum" value={getSafeValue(formData.interview.question3)} onChange={handleChange} /&gt;
+    </code></pre>
       </section>
       <section>
         <h2>Front-end, jeu d'essai le plus représentatif, </h2>
@@ -223,94 +278,218 @@
       <!-- SLIDE 10 - la présentation de maquettes de l’application -->
       <section>
         <h2>Maquettes de l’application web et web mobile</h2>
-        <img src="images/maquette_figma_Hover.png" alt="maquette figma galerie page accueil">
+      <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
+      </section>
+      <section>
+                <img src="images/maquette_figma_Hover.png" >
       </section>
       <section>
         <h2>Maquettes de l’application web et web mobile</h2>
+      </section>
+      <section>
         <img src="images/maquette_figma_blog.png" alt="maquette figma page blog">
       </section>
 
       <!-- SLIDE 11 - le schéma de l’enchaînement des maquettes de l’application  -->
       <section>
-        <h2>Schéma de l'app<h2>
+        <h2>Schéma de l'application<h2>
         <img src="images/Aperçu_minimal des_connexions.jpg" alt=" le schéma de l’enchaînement des maquettes de l’application">
+      <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
 
       <!-- SLIDE 12 - les captures d’écran d’interfaces utilisateur  -->
       <section>
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
+	    </section>
+      <section>
         <img src="images/Capture_ecran_hover-train.png" alt="Capture ecran effet hover photo train">
 	    </section>
       <section>
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
-        <img src="images/Capture_ecran_photo-mobile.png" alt="maquette figma page blog">
+	    </section>
+      <section>
+        <div style="border: 10px solid #999; border-radius: 20px; padding: 5px; background: black; display: inline-block;">
+  <img src="images/Capture_ecran_photo-mobile.png" style="max-height: 60vh; object-fit: contain;" />
+</div>
 	    </section>
       <section>
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
+	    </section>
+      <section>
+        
         <img src="images/Capture_ecran_desktop_BLOG.png" alt="maquette figma page blog">
 	    </section>
       <section>
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
-        <img src="images/Capture_ecran_mobile-BLOG.png" alt="maquette figma page blog">
+	    </section>
+      <section>
+         <div style="border: 10px solid #999; border-radius: 20px; padding: 5px; background: black; display: inline-block;">
+  <img src="images/Capture_ecran_mobile-BLOG.png" style="max-height: 60vh; object-fit: contain;" />
+</div>
 	    </section>
       <!-- SLIDE 12 - des extraits de code d’interfaces utilisateur statiques  -->
       <section>
         <h2>Extrait de code d'interfaces utilisateur statiques</h2>
-        <img src="images/extrait_code_page_statique_ABOUT.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/extrait_code_page_statique_ABOUT.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <section>
         <h2>Extrait de code d'interfaces utilisateur statiques</h2>
-        <img src="images/extrait-code-page-statique-INSCRIPTION.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/extrait-code-page-statique-INSCRIPTION.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <!-- SLIDE 13 - des extraits de code de la partie dynamique d’interfaces utilisateur  -->
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
-        <img src="images/ANNEXE_23.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/ANNEXE_23.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
-        <img src="images/ANNEXE_24.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/ANNEXE_24.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
-        <img src="images/ANNEXE_25.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/ANNEXE_25.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
-        <img src="images/ANNEXE_26.png" alt="maquette figma page blog">
+      </section>
+      <section>
+        <img src="images/ANNEXE_26.png" style="max-height: 60vh; object-fit: contain;">
       </section>
       <!-- SLIDE 14 - Exemple vide à remplir -->
       <section>
-        <h2>Réalisation des élements significatifs Back-end</h2>
-        <p class="fragment fade-up">Protection des routes avec middlewares (isAdmin, isArtist, isAuthenticated)</p><!-- protéger l'accès aux routes sensibles, Gestion des roles, Pas de crud possible sur fonctionnalité admin, redirection suivant Role. Fichier unique, lisible coherent et securité renforcé + Hashage de mots de passe avec bcrypt-->
-        <p class="fragment fade-up">Validation des entrées, limitation des requêtes, filtrage de contenu </p><!--  sécuriser le formulaire de contact, qui est une porte d’entrée potentielle aux abus (spam, attaques XSS, flood) + Une validation stricte des champs (express-validator),
+        <h2>Elements significatifs Back-end</h2>
+        <p>
+    <span class="fragment custom blur">
+      <span class="fragment fade-out">Routes avec middlewares (isAdmin, isArtist, isAuthenticated)</span>
+    </span>
+  </p><!-- protéger l'accès aux routes sensibles, Gestion des roles, Pas de crud possible sur fonctionnalité admin, redirection suivant Role. Fichier unique, lisible coherent et securité renforcé + Hashage de mots de passe avec bcrypt-->
+         <p>
+    <span class="fragment custom blur">
+      <span class="fragment fade-out">Validation des entrées, limitation des requêtes, filtrage de contenu </span>
+    </span>
+  </p><!--  sécuriser le formulaire de contact, qui est une porte d’entrée potentielle aux abus (spam, attaques XSS, flood) + Une validation stricte des champs (express-validator),
 Une limitation des requêtes par IP (express-rate-limit),
 Un filtrage actif du contenu (nettoyage HTML, blocage de mots interdits),
 Un système de blocage d’IP en cas d’abus.  + protéger la base de données, et préserver l'intégrité de mon service de messagerie.
   -->
-        <p class="fragment fade-up">Gestion des statuts pending, validated, rejected pour artistes et œuvres</p><!--  -->
-        <p class="fragment fade-up">Technos : Express-session, bcrypt, Express-validator, Express-rate-limit, MongoDB<p>
+         <p>
+    <span class="fragment custom blur">
+      <span class="fragment fade-out">Statuts pending, validated, rejected pour artistes et œuvres</span>
+    </span>
+  </p><!--  -->
+         <p>
+    <span class="fragment custom blur">
+      <span class="fragment fade-out">Technologies : Express-session, bcrypt, Express-validator, Express-rate-limit, MongoDB</span>
+    </span>
+  </p>
       </section>
       <!-- SLIDE 15 - Exemple vide à remplir -->
-      
+       <section>
+        <h2> Base de données - Schéma conceptuel </h2>
+      </section>
+       <section>
+        <img src="images/schema simplifié relation.jpg" style="max-height: 60vh; object-fit: contain;">
+      </section>
+       <section>
+        <h2> Base de données - Schéma physique </h2>
+      </section>
+       <section>
+        <img src="images/relation FORM MODEL.jpg" style="max-height: 60vh; object-fit: contain;">
+      </section>
       <!-- SLIDE 16 - Exemple vide à remplir -->
       <section>
-        <h2>Présentation de la veille sur les vulnérabilités de sécurité</h2>
-        <p class="fragment fade-up">METTRE LIEN SITE SECURITE !</p>
-        <p class="fragment fade-up">IL RESTE DES FAILLES A TROUVER, CHERCHE !!!</p>
-        <p class="fragment fade-up">Failles potentiellement corrigées A VENIR, DODO !</p>
+        <h2>extraits de code de composants métier</h2>
+               <img src="images/code composant metier.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+        <h2>extraits de code de composants métier</h2>
+               <img src="images/code composant metier approval.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+        <h2>extraits de code de composants d’accès aux données</h2>
+                <img src="images/code acces aux donnees.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+        <h2>extraits de code de composants d’accès aux données</h2>
+                <img src="images/code acces aux donnees2.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+        <h2>Eléments de sécurité</h2>
+                <img src="images/Securite.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+    
+                <img src="images/Securite2.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+       
+                <img src="images/Securite3.png" style="max-height: 60vh; object-fit: contain;">
+
+      </section>
+      <section>
+        <h2> jeu d’essai de la fonctionnalité la plus représentative cote back-end</h2>
+        
+      </section>
+      <section>
+        <h2>Veille sur les vulnérabilités de sécurité</h2>
+        <p class="fragment fade-up">OWASP (Open Web Application Security Project)</p>
+        <p class="fragment fade-up">Node.js Security Best Practices, guide complet </p>
+        <p class="fragment fade-up">Snyk Learn, Apprentissage interactif des failles (XSS, SQLi, etc.)</p>
+        <p class="fragment fade-up">IL RESTE DES FAILLES A TROUVER, work in progress !!!</p>
+        
+      </section>
+      <section>
+        <h2>Validation email + double opt-in (bonus RGPD)</h2>
+         <p class="fragment fade-up">J'envoie déjà un email de confirmation</p>
+         <p class="fragment fade-up">Je pourrais générer un token dans un champ emailVerified = false</p>
+         <p class="fragment fade-up">Envoyer un lien de validation</p>
+         <p class="fragment fade-up">La validation de ce lien activerais le compte</p>
+
       </section>
       <!-- SLIDE 18 - Exemple vide à remplir -->
       <section>
         <h2>synthèse et conclusion</h2>
         <p class="fragment fade-up">satisfactions</p>
-        <p class="fragment fade-up">difficultés rencontrées</p>
+        <p class="fragment fade-up">Plaisirs de voir le resultat de tant de travail</p>
+        <p class="fragment fade-up">Pouvoir ajouter encore plein de features</p>
+        <p class="fragment fade-up">Artistes present sur la plateforme en attente de production</p>
+        
+        <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
       <section>
-        <h2>TEST</h2>
-        <p class="fragment fade-up">satisfactions</p>
-        <p class="fragment fade-up">difficultés rencontrées</p>
+        <h2><p class="fragment fade-up">difficultés rencontrées</p></h2>
+        <p class="fragment fade-up">Dette technique</p>
+        <p class="fragment fade-up">Problemes sur les dates</p>
+        <p class="fragment fade-up">Problemes de SLUG</p>
+        <p class="fragment fade-up">Apprehender les technologies</p>
+        
+        <aside class="notes">
+        Vazy raconte ta vie et fais pas chier
+    </aside>
       </section>
+      
     </div>
   </div>
 
@@ -320,9 +499,27 @@ Un système de blocage d’IP en cas d’abus.  + protéger la base de données,
   <script src="plugin/highlight/highlight.js"></script>
   <script>
     Reveal.initialize({
+      transition: "convex", // Animation des slides ('none', 'fade', 'slide', 'convex', 'concave', 'zoom')
+    backgroundTransition: "zoom",
       hash: true,
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+       showNotes: true,
     });
   </script>
+  <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <label for="theme-selector">Thème :</label>
+    <select id="theme-selector">
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="league">League</option>
+        <option value="night">Night</option>
+        <option value="solarized">Solarized</option>
+    </select>
+</div>
+<script>
+  document.getElementById('theme-selector').addEventListener('change', function(e) {
+      document.querySelector('link[href^="dist/theme/"]').href = "dist/theme/" + e.target.value + ".css";
+  });
+</script>
 </body>
 </html>
