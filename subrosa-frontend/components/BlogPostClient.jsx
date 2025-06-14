@@ -7,12 +7,16 @@ import ReactMarkdown from "react-markdown";
 import styles from "../app/blog/[slug]/BlogPost.module.css";
 
 export default function BlogPostClient({ post, leftImages, rightImages }) {
-  const leftRef = useRef({});
+ const leftRef = useRef({});
+  const rightRef = useRef({});
+  const allRef = useRef({}); // ref pour la galerie combinée
   const handleClick = (e) => {
     e.preventDefault();
-    leftRef.current?.open?.(0);
+    allRef.current?.open?.(0); // ouvre la galerie combinée
   };
 
+  const allImages = [...leftImages, ...rightImages];
+  
   return (
     <div className={styles.pageContentWrapper}>
     <div className={styles.articleGrid}>
@@ -24,8 +28,6 @@ export default function BlogPostClient({ post, leftImages, rightImages }) {
       )}
 
       <main className={styles.mainContent}>
-             
-              
         <ReactMarkdown
           components={{
             h2: (props) => <h2 className={styles.heading} {...props} />,
@@ -39,11 +41,15 @@ export default function BlogPostClient({ post, leftImages, rightImages }) {
       </main>
           {rightImages.length > 0 && (
             <aside className={styles.sideColumn}>
-              <CtaExpo />
-              <LightboxGallery images={rightImages} />
+              <CtaExpo onClick={handleClick} />
+              <LightboxGallery images={rightImages} externalTriggerRef={rightRef}  />
             </aside>
           )}
     </div>
+
+     {/* Galerie lightbox commune */}
+      <LightboxGallery images={allImages} externalTriggerRef={allRef} />
+
      {post.intro && (
              <div className={styles.waitIntroWrapper}>
               <p className={styles.waitIntro}>{post.intro}</p>
