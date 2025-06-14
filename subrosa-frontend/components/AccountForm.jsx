@@ -189,7 +189,15 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
         credentials: 'include'
       });
 
-      const data = await response.json();
+              // ⚠️ Essaye de parser seulement si c’est bien du JSON
+        let data = {};
+        const contentType = response.headers.get("content-type");
+
+        if (contentType && contentType.includes("application/json")) {
+          data = await response.json();
+        } else {
+          data = { error: await response.text() }; // fallback texte brut (ex: "Too many requests")
+        }
 
       if (response.ok) {
         setPopup({ type: 'success', message: '✅ Formulaire soumis avec succès !' });

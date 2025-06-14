@@ -1,7 +1,7 @@
 "use client";
 
 import AddworkForm from "../../components/AddworkForm";
-import styles from "../../components/addWorkForm.module.css";
+import styles from "../../components/AddWorkForm.module.css";
 
 export default function AjouterOeuvrePage() {
   return (
