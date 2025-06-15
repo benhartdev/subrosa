@@ -15,6 +15,11 @@ const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCa
   const [isReadOnly, setIsReadOnly] = useState(true);
   const { login } = useAuth(); 
   const [showPassword, setShowPassword] = useState(false);
+ const [images, setImages] = useState([
+  { file: null, altText: '' },
+  { file: null, altText: '' },
+  { file: null, altText: '' }
+]);
   
   const [formData, setFormData] = useState({
     username: '', password: '', confirmPassword: '',
@@ -59,7 +64,29 @@ const getSafeValue = (val) => (typeof val === 'string' ? val : '');
   const { name, value, type, checked } = e.target;
   const newValue = type === 'checkbox' ? checked : value;
 
-  
+  const handleImageChange = (e, index) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const updatedImages = [...images];
+  updatedImages[index] = {
+    file,
+    preview: URL.createObjectURL(file),
+  };
+  setImages(updatedImages);
+};
+
+const handleAltTextChange = (index, altText) => {
+    const newImages = [...images];
+    newImages[index].altText = altText;
+    setImages(newImages);
+  };
+
+
+const handleRemoveImage = (index) => {
+  const updatedImages = [...images];
+  updatedImages[index] = null;
+  setImages(updatedImages);
+};
 
   // Si c’est un champ imbriqué dans interview
   if (name.startsWith("interview.")) {
@@ -197,6 +224,20 @@ console.log("📄 formData envoyé =", formData);
       }
     });
 
+// ➕ Ajoute les 3 images au FormData
+ images.forEach((img, index) => {
+  if (img?.file) {
+    form.append('artistImages', img.file);
+    form.append(`altText[${index}]`, img.altText);
+  }
+});
+
+// ✅ Ajoute les altText en JSON string
+  const artistAlts = images.map((img) => img.altText);
+  form.append('artistAlts', JSON.stringify(artistAlts));
+
+
+
       const url = isAdmin
         ? `http://localhost:5000/api/artists/${artistId}`
         : 'http://localhost:5000/api/artists/register';
@@ -241,7 +282,7 @@ console.log("📄 formData envoyé =", formData);
       {popup && <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />}
       <div className={styles.formWrapper}>
         <p className={styles.formNotice}>Les champs marqués d’un astérisque (*) sont requis.</p>
-        <form readOnly={isReadOnly} autoComplete="off" onSubmit={handleSubmit} noValidate className={styles.form + ' ' + styles[type]}>
+        <form readOnly={isReadOnly} autoComplete="off" onSubmit={handleSubmit} encType="multipart/form-data" noValidate className={styles.form + ' ' + styles[type]}>
           <h2 className={styles.formTitle}>
             {isUser && 'Inscription Utilisateur'}
             {isArtist && !isAdmin && 'Inscription Artiste'}
@@ -413,8 +454,6 @@ console.log("📄 formData envoyé =", formData);
                     <option value="validated">Validé</option>
                     <option value="rejected">Rejeté</option>
                   </select>
-
-                 
                 </>
               )}
             </>
@@ -431,11 +470,72 @@ console.log("📄 formData envoyé =", formData);
                   type="checkbox"
                   name="newsletter"
                   checked={formData.newsletter}
-                  onChange={handleChange}
-                />
+                  onChange={handleChange}/>
                    <label htmlFor="newsletter">Recevoir la newsletter</label>
             </div>
           )}
+
+{isArtist && (
+  <>
+    <label className={styles.labelForm}>Photos de présentation</label>
+    <div className={styles.imageRow}>
+      {[0, 1, 2].map((index) => (
+        <div key={index} className={styles.imageBoxArtist}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (!file) return;
+              const updated = [...images];
+              updated[index] = {
+                ...(updated[index] || {}),
+                file,
+                preview: URL.createObjectURL(file),
+              };
+              setImages(updated);
+            }}
+          />
+          {images[index]?.preview && (
+            <>
+              <img
+                src={images[index].preview}
+                altText={`Preview ${index + 1}`}
+                className={styles.previewImage}
+              />
+              <button
+                type="button"
+                className={styles.removeImageButton}
+                onClick={() => {
+                  const updated = [...images];
+                  updated[index] = null;
+                  setImages(updated);
+                }}
+              >
+                ❌
+              </button>
+            </>
+          )}
+          <input
+            type="text"
+            placeholder="Texte alternatif"
+            value={images[index]?.altText || ''}
+            onChange={(e) => {
+              const updated = [...images];
+              updated[index] = {
+                ...(updated[index] || {}),
+                altText: e.target.value,
+              };
+              setImages(updated);
+            }}
+            className={styles.altInput}
+          />
+        </div>
+      ))}
+    </div>
+  </>
+)}
+
 
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.submitButton}>Enregistrer</button>

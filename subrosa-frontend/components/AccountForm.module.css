@@ -181,7 +181,6 @@ background-color: var(--color-hover);
   background-color: #0f0f0f;         /* fond noir doux */
   color: #eee;                    /* texte clair */
   border: 1px solid #444;         /* bordure discrète */
-
   transition: border 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
 }
@@ -274,7 +273,67 @@ textarea.inputForm {
   width: 20px;
   height: 20px;
   accent-color: var(--color-hover); /* Améliore l'aspect du check sur fond noir */
+margin: 0;
 }
+
+.imageRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.imageBoxArtist {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
+  border: 1px solid #444;
+  padding: 1rem;
+  width: 300px;
+}
+
+.imageBoxArtist input[type="file"] {
+  width: 100%;
+  height: 20px;
+  background-color: #000;
+  color: rgb(255, 255, 255);
+  border: 1px solid #333;
+  font-family: Michroma, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.previewImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #333;
+  margin-bottom: 0.5rem;
+}
+
+.altInput {
+  width: 95%;
+  padding: 8px;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #333;
+  font-family: Michroma, sans-serif;
+}
+
+.removeImageButton {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
 
 
 /* Responsive */
@@ -305,7 +364,36 @@ textarea.inputForm {
  text-align: center;
   color: var(--color-hover)
 }
+
 .inscriptionBtn {
   margin-bottom: 1rem;
+}
+
+.imageRow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageBoxArtist {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .newsletterRow {
+  justify-content: flex-start !important;
+    text-align: left;
+    padding-left: 0;
+  
+}
+
+.newsletterRow input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-hover); /* Améliore l'aspect du check sur fond noir */
+}
+.labelForm {
+  font-size: 0.9rem;
+  margin: 2rem auto 0.1rem auto;
+  
 }
 }
