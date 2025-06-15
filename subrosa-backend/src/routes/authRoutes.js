@@ -1,12 +1,14 @@
 // routes/authRoutes.js
 const express = require('express');
 const router = express.Router();
-const { loginUser, logout } = require('../controllers/authController');
+const { loginUser, logout, forgotPassword, resetPassword } = require('../controllers/authController');
 const { checkSession } = require('../controllers/sessionController');
 
 
 router.post('/login', loginUser);
 router.post('/logout', logout);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password', resetPassword);
 
 router.get('/me', (req, res) => {
   if (req.session?.user) {

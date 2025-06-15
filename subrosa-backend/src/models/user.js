@@ -23,6 +23,8 @@ email: {
   trim: true,
   unique: true
 },
+resetPasswordToken: { type: String },
+resetPasswordExpires: { type: Date },
   firstName: { type: String },
   lastName: { type: String },
   address: {

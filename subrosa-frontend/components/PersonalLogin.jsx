@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from './PersonalLogin2.module.css';
-
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from "axios";
 import { useAuth } from "../components/context/AuthContext.jsx";
@@ -112,9 +112,12 @@ const PersonalLogin = () => {
                 SE CONNECTER
               </Button>
 
-              <Button type="button" className={styles.buttonSecondary}>
-                MOT DE PASSE PERDU ?
-              </Button>
+                 
+              <Link href="/mot-de-passe-oublie">
+                  <Button type="button" className={styles.buttonSecondary}>
+                    MOT DE PASSE OUBLIÉ ?
+                  </Button>
+              </Link>
             </div>
 
             <div className={styles.divider} />

@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 }
 
-.page-content {
+.pageContent {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -51,114 +51,36 @@ a {
 }
 
 /* structure de base */
-.page-container {
+.pageContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 /* contenu principal qui pousse le footer */
-.main-content {
+.mainContent {
   flex: 1;
 }
 
 @media (max-width: 768px) {
- 
+ .pageContent {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* body.inscription-open {
-  overflow-x: hidden;
-}
 
-/* styles/globals.css */
-/* body.body-accueil {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    color: white;
-    background-color: rgb(0 0 0);
-    font-family: Michroma, sans-serif;
-    min-height: 100vh;
-} */ 
-
-/*H1 etc */
-/* body.body-accueil h1 {
-  font-size: 3em;
-  text-align: center;
-  margin-top: 5%;
-  color: white;
-} */
-
-
-
-/* NEWSLETTER */ 
-/* .newsletter-container {
+/* structure de base */
+.pageContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  min-height: 30vh;
 }
 
-.newsletter {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch; 
-  width: 100%;           
-  max-width: 315px;
-  padding: 10px 0 0 0;
-}
-
-.newsletter input {
-  flex: 1;                 
-  padding: 10px;
-  border: 1px solid white;
-  background: black;
-  color: white;
-  font-size: 1em;
-  border-right: none;
-  min-width: 0; 
-}
-
-.newsletter button {
-   padding: 10px 15px;
-  border: 1px solid white;
-  background: black;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-  white-space: nowrap;    
-}
-
-.newsletter button:hover {
-    background: rgb(255, 255, 255);
-    color: black;
-}
-
-.subscribe-btn {
-    margin-top:0;
-}
-.email {
-    margin: auto;
-}
-
-.logoContainer {
-  display: inline-block;
-  width: auto;
+/* contenu principal qui pousse le footer */
+.mainContent {
+  flex: 0;
   height: auto;
-  cursor: pointer;
+  min-height: unset;
 }
-
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #eee !important; 
-  box-shadow: 0 0 0px 1000px #111 inset !important;
-  background-color: #111 !important;
-  transition: background-color 0s ease-in-out 0s;
 }
-
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-text-fill-color: #eee !important;
-  box-shadow: 0 0 0px 1000px #111 inset !important;
-  background-color: #111 !important;
-} */

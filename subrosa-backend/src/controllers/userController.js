@@ -16,13 +16,11 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'Un utilisateur avec cet email ou ce nom existe déjà.' });
     }
 
-    // Hash du mot de passe
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
       email,
       username,
-      password: hashedPassword,
+      password,
       ...otherFields,
     });
     console.log("➡️ Je vais sauvegarder l’utilisateur :", newUser);
