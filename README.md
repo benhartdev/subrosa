@@ -2,7 +2,7 @@
 
 **Galerie d’art en ligne** — Projet personnel de Benjamin Hoffelé
 
-SUB ROSA ART est une plateforme immersive de mise en relation entre artistes et amateurs d'art.  
+SUB ROSA ART est une plateforme immersive de mise en relation entre artistes, collectionneurs, entreprises et amateurs d'art.  
 Elle permet de découvrir, de visualiser et de contacter des artistes contemporains pour l'acquisition d'œuvres, sans passer par une vente directe.
 
 ---
@@ -155,55 +155,7 @@ Elle permet de découvrir, de visualiser et de contacter des artistes contempora
 
 Structure simplifiée + détails sur les dossiers essentiels (`backend/src`, `frontend/app`) :
 
-subrosa/
-├── docs/
-├── reveal.js/
-├── subrosa-backend/
-│ ├── config/
-│ ├── scripts/
-│ ├── src/
-│ │  ├── controllers/  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│adminController.js    
-│ │  ├── middlewares/  ───────────────────────────────────────────────────────────────────────────────────────│authMiddleware.js             │artistsController.js    
-│ │  ├── models/       ──────────────────────────────────────────────────────────│Artists.js                  │ensureValidatedArtist.js      │authController.js    
-│ │  ├── routes/       ─────────────────────────────────│adminRoutes.js          │BlockedIP.js                │errorHandler.js               │contactController.js    
-│ │  └── utils/        ───│sendArtistStatusEmail.js     │artistsRoutes.js        │ContactMessage.js           │filterByApproval.js           │newsletterController.js    
-│ │                       │sendConfirmationEmail.js     │authRoutes.js           │NewsletterSubscriber.js     │multerConfig.js               │sessionController.js    
-│ │                       │sendContactEmail.js          │blockedIPRoutes.js      │Order.js                    └uploadsOwner.js               │uploadController .js    
-│ └── uploads/            └sendNewsletterEmail.js       │contactRoutes.js        │user.js                                                    └userController.js    
-│                                                       │newsletterRoutes.js     └work.js                      
-│                                                       │sessionRoutes.js        
-│                                                       │uploadRoutes.js         
-│                                                       │userRoutes.js           
-│                                                       └worksRoutes.js          
-├── subrosa-frontend/
-│  │
-│  │── app/
-│  │  ├── about/ ─────────────────────────────────────────────────────────────────────────────────────────────────────── ├── page.jsx
-│  │  ├── admin/ ────────────────────────────────────────────────────────────────────────────────├messages/              └── about.module.css
-│  │  ├── ajout-oeuvre/ ─────────────── page.jsx                                                 │    ├── page.jsx
-│  │  ├── ajout-zooms/[id] ──────────── page.jsx                                                 │    └── AdminMessages.module.css
-│  │  ├── artiste/ ───────────────────────────────────────────────────├dashboard/                │ page.jsx
-│  │  ├── artistes/[slug] ───────────── page.jsx                             ├── page.jsx        └ AdminPage.module.css
-│  │  ├── blog/[slug] ────────────────────────────────├── page.jsx           └── ArtistDashboardPage.module.css
-│  │  ├── cgv/ ──────────────────────── page.jsx      └── BlogPost.module.css
-│  │  ├── contact/ ───────────────────────────────────────────────────────────────├── page.jsx                             
-│  │  ├── defiscalisation/ ───────────────────────────├── page.jsx                └── ContactPage.module.css       
-│  │  ├── inscription/ ───────────────├── head.jsx    └── Defiscalisation.module.css
-│  │  │── login/ ───── page.jsx       └── page.jsx       
-│  │  ├── newsletter/ ────────────────────────────────────────────────────────────────├── desinscription/
-│  │  ├── oeuvres/[slug] ────────────────────────────├── page.jsx                         ├── page.jsx
-│  │  └── page-gallerie/ ─────────────┐ page.jsx     └── PageOeuvreUnique.module.css      └── desinscription.module.css 
-│  │                                                
-│  ├── components/ 
-│  ├── data/                      
-│  ├── hooks/                     
-│  ├── lib/
-│  ├── public/
-│  │ ├── fonts/
-│  │ ├── images/
-│  ├── services/
-│  ├── styles/
-│  ├── utils/
+![Structure du projet](./docs/Structure-simplifiée-SUB-ROSA-ART.png)
 
 ## 🚀 Lancer le projet localement
 
@@ -281,8 +233,11 @@ Ce projet est la propriété exclusive de Benjamin Hoffelé, développeur et aut
 
 Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF complet) :
 
-[![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
+## 📁 Structure du projet
 
+![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)
+![Dossier de projet PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
+![Structure du projet](./docs/Structure-simplifiée-SUB-ROSA-ART.png)
 
 #### ✅ 4. **Crédits / Auteur / Licence**
 
