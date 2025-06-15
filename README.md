@@ -244,7 +244,7 @@ Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF co
 
 <!-- ![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png) -->
 <p align="center">
-  <img src="./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png" alt="Aperçu du dossier de projet SUB ROSA ART" width="700" />
+  <img src="./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png" alt="Aperçu du dossier de projet SUB ROSA ART" width="500" />
 </p>
 
 #### ✅ 4. **Crédits / Auteur / Licence**
