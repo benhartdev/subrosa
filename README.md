@@ -203,13 +203,10 @@ Ensuite, remplace les valeurs génériques par tes vraies informations confident
 
 Avant de démarrer le projet en local, vous devez :
 
-    Avoir Node.js LTS et npm installés
-
-    Avoir accès à une base de données MongoDB (locale ou distante via MongoDB Atlas)
-
-    Créer un fichier .env dans le dossier subrosa-backend à partir de .env.example
-
-    Ne pas oublier d’autoriser votre IP dans MongoDB Atlas si vous êtes en hébergement distant
+- Avoir Node.js LTS et npm installés
+- Avoir accès à une base de données MongoDB (locale ou distante via MongoDB Atlas)
+- Créer un fichier .env dans le dossier subrosa-backend à partir de .env.example
+- Ne pas oublier d’autoriser votre IP dans MongoDB Atlas si vous êtes en hébergement distant
 
 
 
@@ -217,19 +214,19 @@ Avant de démarrer le projet en local, vous devez :
 
 Ce projet est la propriété exclusive de Benjamin Hoffelé, développeur et auteur du concept SUB ROSA ART.
 
-    📌 Aucun choix de licence open source n’a été effectué à ce stade, le projet étant personnel et encore en développement.
+- 📌 Aucun choix de licence open source n’a été effectué à ce stade, le projet étant personnel et encore en développement.
 
-    🔒 Toute utilisation, diffusion ou reproduction partielle ou totale sans autorisation est strictement interdite.
+- 🔒 Toute utilisation, diffusion ou reproduction partielle ou totale sans autorisation est strictement interdite.
 
-    🎨 Cependant, une partie des composants UI (effets de survol artistiques, éléments graphiques) seront publiés sur CodePen dans un esprit de partage et d’inspiration.
+- 🎨 Cependant, une partie des composants UI (effets de survol artistiques, éléments graphiques) seront publiés sur CodePen dans un esprit de partage et d’inspiration.
 
-    🧾 Toute tentative de clonage ou d’exploitation commerciale sans autorisation fera l’objet de poursuites.
+- 🧾 Toute tentative de clonage ou d’exploitation commerciale sans autorisation fera l’objet de poursuites.
 
 
 
 ## 📄 Présentation de soutenance
 
-    📄 [Télécharger le dossier de présentation au format PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
+- 📄 [Télécharger le dossier de présentation au format PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
 
 "Vous pouvez le télécharger et l’ouvrir dans un lecteur PDF classique, ou le visionner via vscode en installant l'extension "vscode-pdf" de tomoki1207."
 
