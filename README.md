@@ -238,6 +238,7 @@ Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF co
 ## 📁 Structure du projet
 
 ![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)
+
 ![Dossier de projet PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
 
 #### ✅ 4. **Crédits / Auteur / Licence**
