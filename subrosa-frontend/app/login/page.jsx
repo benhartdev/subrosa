@@ -8,7 +8,6 @@ import PersonalLogin from '../../components/PersonalLogin';
 import '../../styles/inscription-artiste.css';
 >>>>>>> BLOG
 
-
 const ArtistLogin = () => {
   return (
     <div>
