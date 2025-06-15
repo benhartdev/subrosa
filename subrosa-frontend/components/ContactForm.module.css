@@ -57,6 +57,12 @@ position: relative;
   box-sizing: border-box;
 }
 
+.formInput:focus {
+  outline: none; /* supprime l’outline par défaut */
+  border: 1px solid var(--color-hover); /* ou n’importe quelle couleur */
+  box-shadow: 0 0 5px var(--color-hover); /* optionnel pour effet lumineux */
+ background-color: #313131;
+}
 .textareaField {
   margin-top: 24px;
   width: 100%;
@@ -80,6 +86,13 @@ position: relative;
   min-width: 240px;
   font-family: inherit;
   resize: vertical;
+}
+
+.formTextarea:focus {
+  outline: none; /* supprime l’outline par défaut */
+  border: 1px solid var(--color-hover); /* ou n’importe quelle couleur */
+  box-shadow: 0 0 5px var(--color-hover); /* optionnel pour effet lumineux */
+ background-color: #313131;
 }
 
 .buttonGroup {

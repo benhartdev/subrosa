@@ -11,10 +11,13 @@ import styles from './Header.module.css';
 console.log("Header fusionné est chargé.");
 
 const Header = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isLoading } = useAuth();
+  if (isLoading) return null;
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
+
+ 
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -40,19 +43,22 @@ const Header = () => {
       <div className={styles.mainNav}>
         <div className={styles.iconWrapper}>
           {!user ? (
-            <>
-              <Link href="/login" className={styles.iconSvg}>
-                <FontAwesomeIcon icon={faSignInAlt} />
-              </Link>
-              <Link href="/inscription" className={styles.iconSvg}>
-                <FontAwesomeIcon icon={faUserPlus} />
-              </Link>
-            </>
-          ) : (
-            <button onClick={logout} className={`${styles.iconSvg} ${styles.logoutIcon}`}>
-              <FontAwesomeIcon icon={faSignOutAlt} />
-            </button>
-          )}
+  <>
+    <Link href="/login" className={styles.iconSvg}>
+      <FontAwesomeIcon icon={faSignInAlt} />
+    </Link>
+    <Link href="/inscription" className={styles.iconSvg}>
+      <FontAwesomeIcon icon={faUserPlus} />
+    </Link>
+  </>
+) : (
+  <div className={styles.userInfoBlock}>
+    <button onClick={logout} className={`${styles.iconSvgLogout} ${styles.logoutIcon}`}>
+      <FontAwesomeIcon icon={faSignOutAlt} />
+    </button>
+    <div className={styles.usernameDesktop}>{user.username}</div>
+  </div>
+)}
 
           <div ref={menuRef}>
             <button className={styles.menuToggle} onClick={toggleMenu}>☰</button>
@@ -78,6 +84,7 @@ const Header = () => {
                         Se déconnecter<br />{user.username}
                       </button>
                     </li>
+                    
                   )}
 
                   {user?.role === "artist" && (

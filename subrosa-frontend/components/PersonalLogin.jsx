@@ -6,10 +6,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from "axios";
 import { useAuth } from "../components/context/AuthContext.jsx";
+import PopupMessage from "../components/PopupMessage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const PersonalLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [popup, setPopup] = useState(null);
   const router = useRouter();
   const { login } = useAuth();
 
@@ -17,7 +22,6 @@ const PersonalLogin = () => {
     e.preventDefault();
   
     try {
-      console.log("Tentative de login avec", username, password);
   
       const res = await axios.post(
         "http://localhost:5000/api/auth/login",
@@ -26,21 +30,16 @@ const PersonalLogin = () => {
       );
   
       if (!res || !res.data) {
-        alert("Réponse invalide du serveur.");
+        setPopup({ type: 'error', message: "Réponse invalide du serveur." });
         return;
       }
   
       const { user } = res.data;
-      console.log("👤 Utilisateur reçu :", user);
-  
       login(user); // AuthContext
   
       if (user && user._id && user.role === "artist") {
         localStorage.setItem("artist", JSON.stringify(user));
-        console.log("✅ ArtistId stocké :", user._id);
-      } else {
-        console.warn("⚠️ Données manquantes, user non stocké :", user);
-      }
+      } 
   
       // 🛑 NOUVEAU : on attend que la session soit bien active
       const verifySession = await fetch("http://localhost:5000/api/check-session", {
@@ -65,8 +64,10 @@ const PersonalLogin = () => {
       }
       
     } catch (error) {
-      console.error("❌ Erreur lors de la connexion :", error);
-      alert("Erreur de connexion : " + (error.response?.data?.message || "Inconnue"));
+      setPopup({
+        type: 'error',
+        message: "Erreur de connexion : " + (error.response?.data?.message || "Inconnue")
+      });
     }
   };
   
@@ -75,23 +76,25 @@ const PersonalLogin = () => {
     <main>
       <div className={styles.containerLogin}>
         <div>
-          <h1 className={styles.personalSpace}>ESPACE PERSONNEL</h1>
+           <h1 className={styles.personalSpace}>ESPACE PERSONNEL</h1>
           <p className={styles.alreadyClient}>
             Nouvel utilisateur ? {" "}
-            <a
-              href="/inscription"
-              className={styles.LoginLink}
-            >
+            <a href="/inscription" className={styles.LoginLink}>
               Cliquez ici pour vous inscrire
             </a>
           </p>
         </div>
 
         <div className={styles.BoxComponent}>
-          
+           {popup && (
+            <PopupMessage type={popup.type} message={popup.message} onClose={() => setPopup(null)} />
+          )}
 
-          <form className={styles.form} onSubmit={handleLogin}>
+         <form className={styles.form} onSubmit={handleLogin} autoComplete="off">
+            <input type="text" name="fake-username" autoComplete="username" style={{ display: "none" }} />
+            <input type="password" name="fake-password" autoComplete="new-password" style={{ display: "none" }} />
             <FormInput
+            
               label="Nom d'utilisateur"
               type="text"
               value={username}
@@ -99,13 +102,26 @@ const PersonalLogin = () => {
               required
             />
 
-            <FormInput
-              label="Mot de passe"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            
+              <label className={styles.label}>Mot de passe</label>
+              <div className={styles.passwordWrapper}>
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        className={styles.inputFull}
+                        placeholder="********"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                    />
+                    <button
+                        type="button"
+                        className={styles.eyeButton}
+                        onClick={() => setShowPassword(prev => !prev)}
+                    >
+                         👁
+                    </button>
+                    </div>
+           
 
             <div className={styles.buttonGroup}>
               <Button type="submit" className={styles.buttonPrimary}>

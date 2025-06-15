@@ -50,7 +50,7 @@ const ResetPasswordPage = () => {
                     <input
                         type={showPassword ? 'text' : 'password'}
                         className={styles.input}
-                        placeholder="••••••••"
+                        placeholder="********"
                         value={newPassword}
                         onChange={e => setNewPassword(e.target.value)}
                         required
@@ -60,7 +60,7 @@ const ResetPasswordPage = () => {
                         className={styles.eyeButton}
                         onClick={() => setShowPassword(prev => !prev)}
                     >
-                        {showPassword ? '🙈' : '👁'}
+                         👁
                     </button>
                     </div>
                     <label className={styles.label}>Confirmer le mot de passe</label>
@@ -68,7 +68,7 @@ const ResetPasswordPage = () => {
                     <input
                         type={showConfirm ? 'text' : 'password'}
                         className={styles.input}
-                        placeholder="••••••••"
+                        placeholder="********"
                         value={confirmPassword}
                         onChange={e => setConfirmPassword(e.target.value)}
                         required
@@ -78,7 +78,7 @@ const ResetPasswordPage = () => {
                         className={styles.eyeButton}
                         onClick={() => setShowConfirm(prev => !prev)}
                     >
-                        {showConfirm ? '🙈' : '👁'}
+                         👁
                     </button>
                     </div>
           </div>

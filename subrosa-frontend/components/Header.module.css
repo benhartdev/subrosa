@@ -7,6 +7,17 @@
 
 .iconWrapper .iconSvg {
   font-size: 2rem;
+  background-color: transparent;
+  
+  border: none;
+}
+
+.iconWrapper .iconSvgLogout {
+  font-size: 2rem;
+  background-color: transparent;
+  color: rgb(161, 28, 5);
+  border: none;
+  margin-top: 0.3rem;
 }
 
 .navbarNavCustom .navLink {
@@ -79,6 +90,20 @@
     font-weight: bold;
 }
 
+.userInfoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usernameDesktop {
+  font-size: 1rem;
+  color: var(--color-blue);
+ 
+  white-space: nowrap;
+  
+}
+
 .menuToggle {
   display: none;
 }
@@ -118,16 +143,7 @@
     color: var(--color-hover);
 }
 
-.logoutBtn {
-    margin-top: 1px;
-    border: 1px solid white;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.453);
-}
+
 
 .logoutBtn:hover {
     color: #ad0404;

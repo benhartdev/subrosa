@@ -1,4 +1,30 @@
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
+.inputForm {
+  width: 100%;
+  padding-right: 40px; /* pour laisser la place à l’icône 👁️ */
+}
+
+.togglePassword {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #999;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+}
+
+.togglePassword:hover {
+  color: white;
+}
 .welcomeText {
   font-size: 3rem;
   margin-top: -10rem;
@@ -54,7 +80,7 @@
   background-color: #000000;
   padding: 2rem;
   margin: 4rem auto;
-  box-shadow: 0 0 5px rgb(255, 255, 255);
+  border: 1px solid #444; /* bordure discrète */
 }
 
 .formWrapper {
@@ -155,7 +181,7 @@ background-color: var(--color-hover);
   background-color: #0f0f0f;         /* fond noir doux */
   color: #eee;                    /* texte clair */
   border: 1px solid #444;         /* bordure discrète */
-  border-radius: 4px;
+
   transition: border 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
 }

@@ -5,6 +5,7 @@ import PopupMessage from "./PopupMessage";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import SubrosaLogo from "./SubrosaLogo";
+import { useAuth } from "../components/context/AuthContext";
 
 const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCancel, showLogo = true }) => {
   const router = useRouter();
@@ -12,7 +13,9 @@ const AccountForm = ({ type = "artist", artistId = null, existingData = {}, onCa
   const isArtist = type === "artist" || isAdmin;
   const isUser = type === "user";
   const [isReadOnly, setIsReadOnly] = useState(true);
-
+  const { login } = useAuth(); 
+  const [showPassword, setShowPassword] = useState(false);
+  
   const [formData, setFormData] = useState({
     username: '', password: '', confirmPassword: '',
     email: '', confirmEmail: '',
@@ -147,19 +150,35 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("📍 Submit déclenché");
+console.log("👤 isUser =", isUser);
+console.log("📄 formData envoyé =", formData);
     if (!validateForm()) return;
 
     try {
-      if (isUser) {
-        console.log("FORMDATA À ENVOYER", formData);
-            await axios.post('http://localhost:5000/api/users/register', formData, {
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            });
-        setPopup({ type: 'success', message: '✅ Utilisateur inscrit avec succès.' });
-        return;
+     if (isUser) {
+  try {
+    const response = await axios.post('http://localhost:5000/api/users/register', formData, {
+      headers: {
+        'Content-Type': 'application/json'
       }
+    });
+
+    console.log("✅ Réponse du serveur :", response.data);
+    setPopup({ type: 'success', message: '✅ Utilisateur inscrit avec succès.' });
+
+    login(response.data.user);
+
+    setTimeout(() => {
+      console.log("🔁 Redirection vers l’accueil...");
+      router.push('/');
+    }, 3000);
+  } catch (err) {
+    console.error("❌ Erreur dans l’inscription utilisateur :", err);
+    setPopup({ type: 'error', message: 'Erreur lors de l’inscription utilisateur.' });
+  }
+   return;
+}
 
       const form = new FormData();
         Object.entries(formData).forEach(([key, value]) => {
@@ -238,20 +257,28 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
       {!isAdmin && (
         <>
           <label className={styles.labelForm}>Mot de passe <span className={styles.required}>* ( 8 caractères minimum )</span></label>
-          <input
-            className={styles.inputForm}
-            type="password"
-            name="password"
-            placeholder="Mot de passe"
-            value={getSafeValue(formData.password)}
-            onChange={handleChange}
-            minLength={8}
-          />
-
+          <div className={styles.passwordWrapper}>
+            <input
+              className={styles.inputForm}
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Mot de passe"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <button
+              type="button"
+              className={styles.togglePassword}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+               👁
+            </button>
+          </div>
           <label className={styles.labelForm}>Confirmation du mot de passe <span className={styles.required}>*</span></label>
+           <div className={styles.passwordWrapper}>
           <input
             className={styles.inputForm}
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="confirmPassword"
             placeholder="Confirmez votre mot de passe"
             value={getSafeValue(formData.confirmPassword)}
@@ -261,6 +288,14 @@ const handleDeleteFutureExhibition = (indexToRemove) => {
             onCopy={(e) => e.preventDefault()}
             onCut={(e) => e.preventDefault()}
           />
+          <button
+    type="button"
+    className={styles.togglePassword}
+    onClick={() => setShowPassword(!showPassword)}
+  >
+     👁
+  </button>
+  </div>
         </>
       )}
 
