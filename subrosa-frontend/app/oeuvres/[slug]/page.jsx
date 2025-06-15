@@ -59,9 +59,10 @@ export default async function WorkSlugPage({ params }) {
         <div className={styles.artworkDetailsBisContainer}>
           <p className={styles.artworkDetailsBisDescription}>{work.description}</p>
           <div className={styles.artworkDetailsBisAction}>
-            <button className={styles.artworkDetailsBisAskButton}>
+            {/* A VENIR: Contact artist feature*/}
+            {/* <button className={styles.artworkDetailsBisAskButton}>
               POSER&nbsp;UNE&nbsp;QUESTION&nbsp;À&nbsp;L'ARTISTE
-            </button>
+            </button> */}
           </div>
           <p className={styles.artworkDetailsBisShareTitle}>PARTAGER SUR</p>
           <div className={styles.artworkDetailsBisSocialLinks}>

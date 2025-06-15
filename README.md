@@ -1,194 +1,297 @@
-# subrosa
-"SUB ROSA ART - Boutique en ligne d'œuvres d'art" développée avec Next.js (React) pour le Front-end et Node.js, Express, MongoDB pour le Back-end. L'objectif est de proposer une plateforme élégante et fonctionnelle pour vendre des photographies personnelles et des œuvres d'art (tableaux, sculptures, photos).
+#  SUB ROSA ART
+
+**Galerie d’art en ligne** — Projet personnel de Benjamin Hoffelé
+
+SUB ROSA ART est une plateforme immersive de mise en relation entre artistes et amateurs d'art.  
+Elle permet de découvrir, de visualiser et de contacter des artistes contemporains pour l'acquisition d'œuvres, sans passer par une vente directe.
+
+---
+
+## 📌 Fonctionnalités principales
+
+### 🎨 Gestion des artistes
+- Formulaire public d’inscription artiste avec upload de 3 images
+- Statut `pending` pour validation manuelle par l’administrateur (avec email de notification)
+- Création automatique d’un slug dynamique (`/artistes/[slug]`)
+- Page artiste solo : portrait, biographie, œuvres associées
+- Dashboard dédié aux artistes validés
+
+### 🖼️ Gestion des œuvres
+- Ajout d’œuvres par artistes connectés (même non validés mais avec limitation)
+- Statut `pending` pour validation admin
+- Upload multi-images avec descriptions
+- Champs complets : médium, dimensions, thèmes, couleur dominante, type, prix, stock, etc.
+- Galerie publique filtrable (Peinture, Photographie, Sculpture etc.)
+
+### 🔒 Authentification et rôles
+- Gestion des rôles : `admin`, `artist`, `user`
+- Sessions sécurisées via `express-session`
+- Redirections dynamiques selon le rôle
+- Middleware de protection des routes
+
+### 🛒 Mise en relation & navigation
+- Système de mise en relation (pas de vente directe pour le moment)
+- Service d’essai des œuvres (avec retour possible)
+- Mises en avant, newsletters, suggestions d’œuvres
+- Barre de navigation intelligente et responsive
+
+### 📰 Blog
+- Système d’articles dynamiques avec slug (`/blog/[slug]`)
+- Affichage latéral de miniatures cliquables
+- Bouton "Lire la suite", bouton "Voir tous les articles"
+- Intégration de textes, images, et effets CSS visuels
+
+### 📨 Newsletter
+- Formulaire d’inscription à la newsletter
+- Email de bienvenue automatique
+- Lien de désinscription
+- Protection contre doublons et IP abusives
+
+### 🧮 Espace d’administration
+- Validation ou rejet des status "pending" 
+- Suppression -  artistes / œuvres
+- Modification des infos enregistrées pour les artistes
+- Affichage des statistiques (camemberts, histogrammes)
+- Gestion des messages - Marqué LU/NON LU, repondre, supprimer, bloquer IP
+
+### ⚙️ Sécurité & robustesse
+
+- ✅ **Upload sécurisé** via `Multer`, avec restrictions sur le type de fichiers acceptés et le dossier cible `/uploads`
+- 🔒 **Protection contre le spam** et les abus :
+  - `express-rate-limit` sur le formulaire d'inscription des artistes (limité à 5 essais/heure en production)
+  - Blocage des IP suspectes en base (prévu)
+- 🔐 **Authentification renforcée** :
+  - Sessions gérées via `express-session` avec cookies `httpOnly`
+  - Détection et redirection selon les rôles (`admin`, `artist`, `user`)
+  - Accès frontend conditionné selon le statut de l’utilisateur
+- 🧮 **Validation multi-niveaux** :
+  - Vérifications côté frontend (champs requis, formats, longueurs)
+  - Vérifications côté backend (schémas Mongoose, regex, etc.)
+- 📁 **Sécurisation des données** :
+  - Pas de mot de passe en clair (hash avec `bcrypt`)
+  - Fichier `.env` jamais versionné (`.gitignore`)
+  - Séparation des secrets (email, MongoDB URI, clés Stripe, etc.)
+- 🧱 **Protection de l’architecture** :
+  - Middlewares de rôle : accès uniquement autorisé aux routes spécifiques (`isAdmin`, `isArtist`, etc.)
+  - Vérification des droits avant toute action (modification, suppression)
+- 🧰 **Sécurité anticipée pour la production** :
+  - Headers HTTP sécurisés avec `helmet` (prévu)
+  - Validation des emails (newsletter, inscriptions)
+  - 🔜 **Suppression des routes non utilisées** à venir (en cours de refactoring)
 
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### 🎯 Accessibilité et UX
+- Navigation fluide, animations douces
+- Responsive complet desktop / tablette / mobile
+- Affichage conditionnel des boutons selon rôle
+- Design aéré, typographies élégantes, effets d’apparition
 
-## Getting Started
 
-First, run the development server:
+---
+
+## 🛠️ Technologies utilisées
+
+### Frontend (📦 subrosa-frontend)
+- **Next.js 13+** avec App Router (`/app`)
+- **React** + composants dynamiques (`useEffect`, `useContext`, etc.)
+- **CSS Modules** pour chaque composant ou page
+- **Font Awesome** (icônes responsives personnalisées)
+- **Fetch API** sécurisée (`credentials: include`)
+- **Images optimisées** depuis `public/` (mise en page contrôlée)
+- **Gestion des slugs** dynamiques avec `[slug].jsx`
+- **Gestion des rôles frontend** (redirection et protection)
+- **Effets CSS** (galerie, blog, animations d’apparition)
+
+### Backend (📦 `subrosa-backend`)
+- **Node.js** (LTS) + **Express.js**
+- **MongoDB** (Atlas) via **Mongoose**
+- **Multer** : upload d’images `.jpg`, `.jpeg`, `.png`, `.svg` (stockage local `/uploads`)
+- **Express-session** : gestion des sessions (admin, artiste)
+- **bcrypt** : hachage des mots de passe
+- **Express-rate-limit** : limitation du nombre de requêtes
+- **Express-validator** : validation des champs côté serveur
+- **Nodemailer** : envoi d’emails (validation, newsletter)
+- **Axios** : communication sécurisée entre frontend et backend
+- **Cors** : autorisation des échanges inter-domaines
+- **Cookie-parser** : gestion des cookies `httpOnly`
+- **Dotenv** : variables d’environnement sécurisées
+- **Nodemon** : redémarrage automatique en développement
+- **Slugify** : génération de slugs lisibles depuis des chaînes
+- **Body-parser** : traitement des données `POST`, `PUT`
+- **Path**, **Fs** : gestion de fichiers, renommage, accès système
+- **Helmet** (prévu) : sécurisation des headers HTTP
+- **Architecture MVC** : `controllers`, `routes`, `models`, `middlewares`, `utils`
+
+### Fonctionnalités côté serveur
+- 🔁 **API REST complète** : artistes, œuvres, utilisateurs, messages
+- 🔐 **Authentification différenciée** : `admin`, `artist`, `user`
+- 🧱 **Protection des routes** : middlewares (`isAdmin`, `isArtist`, `isAuthenticated`)
+- 📂 **Upload avancé** : renommage, vérification MIME, enregistrement DB
+- 🎯 **Gestion des statuts** : `pending`, `validated`, `rejected` pour artistes et œuvres
+- 📬 **Formulaire contact** : enregistrement, recherche, suppression, blocage IP
+- 📊 **Tableaux de bord** : statistiques (total œuvres, artistes, newsletter, en attente)
+
+### Sécurité & Bonnes pratiques
+- 🔐 Séparation des rôles (`admin`, `artist`, `user`)
+- 🧱 Middleware par type de rôle
+- 🛡️ Sécurisation des routes sensibles
+- 🧮 Validation frontend et backend des données
+- 🚫 Pas de données sensibles stockées en clair
+- 📁 `.env` ignoré (`non versionné` via `.gitignore`)
+- 🔒 Cookies `httpOnly` + redirection par rôle
+- 🧰 Suppression des routes inutilisées (prévu)
+- 🧠 Protection anti-flood : limitation des formulaires
+
+### Outils de développement
+- **Postman** (test des routes API)
+- **MongoDB Compass** (visualisation de la base)
+- **GitHub + Issues + Branches** (workflow pro)
+- **Reveal.js** (présentation orale de soutenance)
+
+
+---
+
+## 📁 Structure du projet
+
+Structure simplifiée + détails sur les dossiers essentiels (`backend/src`, `frontend/app`) :
+
+subrosa/
+├── docs/
+├── reveal.js/
+├── subrosa-backend/
+│ ├── config/
+│ ├── scripts/
+│ ├── src/
+│ │  ├── controllers/  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│adminController.js    
+│ │  ├── middlewares/  ───────────────────────────────────────────────────────────────────────────────────────│authMiddleware.js             │artistsController.js    
+│ │  ├── models/       ──────────────────────────────────────────────────────────│Artists.js                  │ensureValidatedArtist.js      │authController.js    
+│ │  ├── routes/       ─────────────────────────────────│adminRoutes.js          │BlockedIP.js                │errorHandler.js               │contactController.js    
+│ │  └── utils/        ───│sendArtistStatusEmail.js     │artistsRoutes.js        │ContactMessage.js           │filterByApproval.js           │newsletterController.js    
+│ │                       │sendConfirmationEmail.js     │authRoutes.js           │NewsletterSubscriber.js     │multerConfig.js               │sessionController.js    
+│ │                       │sendContactEmail.js          │blockedIPRoutes.js      │Order.js                    └uploadsOwner.js               │uploadController .js    
+│ └── uploads/            └sendNewsletterEmail.js       │contactRoutes.js        │user.js                                                    └userController.js    
+│                                                       │newsletterRoutes.js     └work.js                      
+│                                                       │sessionRoutes.js        
+│                                                       │uploadRoutes.js         
+│                                                       │userRoutes.js           
+│                                                       └worksRoutes.js          
+├── subrosa-frontend/
+│  │
+│  │── app/
+│  │  ├── about/ ─────────────────────────────────────────────────────────────────────────────────────────────────────── ├── page.jsx
+│  │  ├── admin/ ────────────────────────────────────────────────────────────────────────────────├messages/              └── about.module.css
+│  │  ├── ajout-oeuvre/ ─────────────── page.jsx                                                 │    ├── page.jsx
+│  │  ├── ajout-zooms/[id] ──────────── page.jsx                                                 │    └── AdminMessages.module.css
+│  │  ├── artiste/ ───────────────────────────────────────────────────├dashboard/                │ page.jsx
+│  │  ├── artistes/[slug] ───────────── page.jsx                             ├── page.jsx        └ AdminPage.module.css
+│  │  ├── blog/[slug] ────────────────────────────────├── page.jsx           └── ArtistDashboardPage.module.css
+│  │  ├── cgv/ ──────────────────────── page.jsx      └── BlogPost.module.css
+│  │  ├── contact/ ───────────────────────────────────────────────────────────────├── page.jsx                             
+│  │  ├── defiscalisation/ ───────────────────────────├── page.jsx                └── ContactPage.module.css       
+│  │  ├── inscription/ ───────────────├── head.jsx    └── Defiscalisation.module.css
+│  │  │── login/ ───── page.jsx       └── page.jsx       
+│  │  ├── newsletter/ ────────────────────────────────────────────────────────────────├── desinscription/
+│  │  ├── oeuvres/[slug] ────────────────────────────├── page.jsx                         ├── page.jsx
+│  │  └── page-gallerie/ ─────────────┐ page.jsx     └── PageOeuvreUnique.module.css      └── desinscription.module.css 
+│  │                                                
+│  ├── components/ 
+│  ├── data/                      
+│  ├── hooks/                     
+│  ├── lib/
+│  ├── public/
+│  │ ├── fonts/
+│  │ ├── images/
+│  ├── services/
+│  ├── styles/
+│  ├── utils/
+
+## 🚀 Lancer le projet localement
+
+### Prérequis :
+- Node.js v18+
+- MongoDB local ou distant
+- `npm` ou `yarn`
+
+### 📦 Installation
 
 ```bash
+# 1. Cloner le repo
+git clone https://github.com/benhartdev/subrosa.git
+cd subrosa
+
+# 2. Installer le backend
+cd subrosa-backend
+npm install
+
+# 4. Lancer le backend
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 3. Installer le frontend
+cd ../subrosa-frontend
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 3. Lancer le frontend
+npm run dev
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Configuration de l'environnement (.env)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pour faire fonctionner le projet en local, vous devez créer un fichier .env à la racine du dossier subrosa-backend.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ce fichier contient toutes les variables d’environnement nécessaires au bon fonctionnement du backend.
+Un fichier exemple est fourni : .env.example
 
-## Deploy on Vercel
+Ensuite, remplace les valeurs génériques par tes vraies informations confidentielles.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+⚠️ **Ne jamais pousser ton fichier `.env` sur GitHub**. Il est déjà ignoré via `.gitignore`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-===============================================================================
+## 📜 Prérequis
 
-1️⃣ Fonctionnalités essentielles (MVP)
+Avant de démarrer le projet en local, vous devez :
 
-		🖥️ Front-end élégant et UX optimisée
+    Avoir Node.js LTS et npm installés
 
-✔ Page d'accueil immersive : avec une mise en avant des œuvres et artistes.
-✔ Navigation intuitive : filtres efficaces pour chercher par thème, couleur, prix, support, etc.
-✔ Pages oeuvres et artistes bien structurées : affichage clair avec descriptions, prix, options d'achat.
+    Avoir accès à une base de données MongoDB (locale ou distante via MongoDB Atlas)
 
+    Créer un fichier .env dans le dossier subrosa-backend à partir de .env.example
 
-		⚙️ Back-end solide et gestion des œuvres
+    Ne pas oublier d’autoriser votre IP dans MongoDB Atlas si vous êtes en hébergement distant
 
-✔ Gestion des œuvres et artistes :
 
-    Ajouter/modifier/supprimer une oeuvre.
-    Gérer un catalogue dynamique.
-    Associer une œuvre à plusieurs critères (taille, support, prix, etc.).
+   ##  👮 Droits d’auteur & distribution
 
-✔ Système de panier et paiement sécurisé :
+Ce projet est la propriété exclusive de Benjamin Hoffelé, développeur et auteur du concept SUB ROSA ART.
 
-    Ajout/suppression d'œuvres dans le panier.
-    Intégration d’un service de paiement sécurisé (Stripe, PayPal).
-    Facturation et suivi des commandes.
+    📌 Aucun choix de licence open source n’a été effectué à ce stade, le projet étant personnel et encore en développement.
 
-✔ Gestion des utilisateurs :
+    🔒 Toute utilisation, diffusion ou reproduction partielle ou totale sans autorisation est strictement interdite.
 
-    Inscription/Login (artistes et acheteurs).
-    Authentification sécurisée (OAuth, Google, Facebook).
-    Historique des achats et suivi des commandes.
+    🎨 Cependant, une partie des composants UI (effets de survol artistiques, éléments graphiques) seront publiés sur CodePen dans un esprit de partage et d’inspiration.
 
-		🛍️ Expérience client et découverte des œuvres
+    🧾 Toute tentative de clonage ou d’exploitation commerciale sans autorisation fera l’objet de poursuites.
 
-✔ Blog et newsletter :
 
-    Articles sur les artistes, tendances en art, événements et promotions.
-    Inscription pour recevoir des actualités et offres.
 
-		🔗 Services connectés & API
+## 📄 Présentation de soutenance
 
+    📄 [Télécharger le dossier de présentation au format PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
 
+"Vous pouvez le télécharger et l’ouvrir dans un lecteur PDF classique, ou le visionner via vscode en installant l'extension "vscode-pdf" de tomoki1207."
 
-✔ SEO & Référencement :
+Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF complet) :
 
-    Liens vers les sites des artistes pour générer du trafic.
-    Optimisation des fiches œuvres pour le référencement Google.
+[![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
 
-✔ Suivi des ventes et analytics pour les artistes :
 
-    Dashboard avec statistiques de ventes et de trafic.
-    Création de créneaux de promotion (Noël, fêtes, promos flash).
+#### ✅ 4. **Crédits / Auteur / Licence**
 
+```markdown
+### 👤 Benjamin Hoffelé (BenHartDev)
 
+Projet réalisé par Benjamin Hoffelé dans le cadre du titre professionnel de Développeur Web/Web Mobile.
 
-		2️⃣ Priorisation du MVP (Roadmap initiale)
+### ⚖️ Licence
 
-
-💡 L’objectif est d’avoir une première version prête à être testée en quelques semaines.
-
-	💎 Phase 1 : Lancement du MVP 
-
-✅ Création d'un front-end élégant avec les pages principales (Accueil, Artistes, Œuvres, Panier...).
-✅ Back-end avec gestion des œuvres et des artistes.
-✅ Panier et paiement sécurisé (Stripe/PayPal).
-✅ Système d’inscription et authentification.
-✅ SEO et intégration des liens des artistes.
-
-	🚀 Phase 2 : Expérience utilisateur avancée 
-
-✔ Recherche avancée par couleur dominante (avec détection automatique).
-✔ Fonction "essayer chez soi" (intégration visuelle des œuvres).
-✔ Statistiques et suivi pour les artistes.
-✔ Blog & newsletter avec système d’abonnement aux artistes.
-✔ Filtres et recommandations intelligentes :
-
-    Recherche par couleurs dominantes (extraction des couleurs via vision par ordinateur).
-    Recherche par thème, technique, support, taille, prix.
-    Affichage des œuvres similaires ou suggérées.
-    
-✔ Mode "essayer chez soi" : possibilité de visualiser une oeuvre dans un intérieur via une image de l'utilisateur.
-✔ Fonction "essayer chez soi" :
-
-    Upload d’une photo de son intérieur et insertion d’une œuvre.
-    Ajustement automatique de la perspective.
-
-✔ Abonnement aux artistes :
-
-    Un système de type réseau social pour suivre des artistes et être informé des nouveautés.
-
-	🌟 Phase 3 : Automatisation & mise en relation 
- 
- ✔ Intégration avec un labo d’impression :
-
-    Envoi automatique de commandes vers un partenaire d’impression.
-    Choix du support d’impression (papier, plexiglas, toile, etc.).
-    API d’un labo photo pour le suivi des impressions.
-
- ✔ Suivi des ventes et analytics pour les artistes :
-
-    Dashboard avec statistiques de ventes et de trafic.
-    Création de créneaux de promotion (Noël, fêtes, promos flash).
-
-
-
-✔ Gestion avancée des abonnements (suivi des artistes, notifications).
-✔ Système de promo et gestion des ventes optimisées (offres spéciales).
-✔ Filtrage simple des œuvres (par thème, prix, support).
-
-
-
-		3️⃣ Technologies 
-
-
-🔹 Front-end (interface utilisateur)
-
-    Framework : React.js, Next.js (pour le SEO).
-    UI/UX : CSS, JS
-    Effets visuels : Three.js (si besoin de 3D pour visualisation des oeuvres).
-
-🔹 Back-end (gestion des données et API)
-
-    Framework : Node.js avec Express.js 
-    Base de données :  MongoDB
-    Stockage des images : Local storage
-
-🔹 Paiement et Sécurité
-
-    Stripe ou PayPal pour le paiement sécurisé.
-    OAuth (Google, Facebook, GitHub) pour l'authentification.
-
-🔹 Services connectés
-
-    API d’un labo photo (via partenaires comme WhiteWall, Saal Digital, etc.).
-    Google Analytics & Matomo pour suivre le trafic.
-
-
-
-
-		🎯 Conclusion
-
-MVP essentiel : 
-
-✅ Une boutique en ligne attrayante et élegante.
-✅ Une bonne expérience d’achat avec paiement sécurisé.
-✅ Un système simple mais efficace pour les artistes.
-✅ Une première version rapide pour tester le marché avant d’ajouter des fonctionnalités avancées.
-
-🔥 Prochaines étapes :
-
-1️⃣ Définir les besoins précis du front-end et back-end.
-2️⃣ Choisir les bonnes technologies (React/Vue, Node.js, Stripe, etc.).
-3️⃣ Développer le prototype.
-4️⃣ Tester avec un premier groupe d’artistes.
-5️⃣ Optimiser et ajouter les fonctionnalités avancées.
-
+Ce projet est protégé par les droits d’auteur © SUB ROSA ART – 2025.
+Reproduction interdite sans accord préalable.

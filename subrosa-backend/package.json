@@ -1,4 +1,5 @@
 {
+  
   "name": "subrosa-art-backend",
   "version": "1.0.0",
   "main": "index.js",
@@ -11,8 +12,8 @@
     "import:users": "node scripts/importCollection.js users Subrosa-art.users.json"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Hoffelé Benjamin <ben.hoffele.photographe@outlook.fr>",
+  "license": "",
   "description": "",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
