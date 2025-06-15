@@ -240,9 +240,8 @@ Ce projet est la propriété exclusive de Benjamin Hoffelé, développeur et aut
 
 Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF complet) :
 
-## 📁 Structure du projet
+## 📁 Aperçu du dossier de projet
 
-<!-- ![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png) -->
 <p align="center">
   <img src="./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png" alt="Aperçu du dossier de projet SUB ROSA ART" width="500" />
 </p>
