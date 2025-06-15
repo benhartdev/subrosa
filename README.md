@@ -210,6 +210,7 @@ Avant de démarrer le projet en local, vous devez :
 
     Ne pas oublier d’autoriser votre IP dans MongoDB Atlas si vous êtes en hébergement distant
 
+---
 
    ##  👮 Droits d’auteur & distribution
 
