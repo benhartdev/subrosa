@@ -1,3 +1,11 @@
+
+<p align="center">
+  <img src="./docs/gallerie_SUB_logo2_blanc_600x227.png" alt="Logo SUB ROSA ART" width="600" height="227"/>
+</p>
+
+
+
+
 #  SUB ROSA ART
 
 **Galerie d’art en ligne** — Projet personnel de Benjamin Hoffelé
@@ -236,7 +244,6 @@ Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF co
 
 ![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)
 
-![Dossier de projet PDF](./docs/SUB-ROSA-ART-by-Benjamin-Hoffelé.pdf)
 
 #### ✅ 4. **Crédits / Auteur / Licence**
 
