@@ -43,7 +43,15 @@ const registerUser = async (req, res) => {
     // Envoie un e-mail de bienvenue
     await sendConfirmationEmail(email, username);
 
-    res.status(201).json({ message: 'Utilisateur enregistré avec succès' });
+    res.status(201).json({ 
+  message: 'Utilisateur enregistré avec succès',
+  user: {
+    _id: savedUser._id,
+    username: savedUser.username,
+    email: savedUser.email,
+    role: 'user' // si tu veux définir un rôle par défaut
+  }
+});
   } catch (error) {
     console.error('Erreur dans registerUser :', error);
     res.status(500).json({ message: "Erreur serveur lors de l'inscription" });
