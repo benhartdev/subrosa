@@ -185,7 +185,7 @@ npm install
 # 3. Lancer le frontend
 npm run dev
 
-```bash
+```
 
 ## 🛠️ Configuration de l'environnement (.env)
 
