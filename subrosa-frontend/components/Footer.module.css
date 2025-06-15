@@ -252,7 +252,6 @@
     padding: 10px;
   }
 
-<<<<<<< HEAD
   .infoBannerItem {
     font-size: 10px;
   }
@@ -269,28 +268,6 @@
   }
 
   .socialLinks {
-=======
-  .info-banner_item {
-    font-size: 10px;
-  }
-
-  .footer-links {
-    width: 100%;
-    gap: 40px;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
-  .payment-section {
-    order: 2;
-    width: 100%;
-  }
-  
-  .social-links {
->>>>>>> BLOG
     justify-content: center;
     width: 100%;
     order: 3;
@@ -298,7 +275,6 @@
 }
 
 @media (width <= 640px) {
-<<<<<<< HEAD
   .infoBanner {
     height: auto;
   }
@@ -315,24 +291,10 @@
   }
 
   .infoBannerItem {
-=======
-  .info-banner {
-    height: auto;
-  }
-
-  .info-banner_container {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-  }
-
-  .info-banner_item {
->>>>>>> BLOG
     font-size: 10px;
     max-width: 100%;
   }
 
-<<<<<<< HEAD
   .footerLinks {
     justify-content: center;
     flex-wrap: wrap;
@@ -340,31 +302,18 @@
   }
 
   .footerColumn {
-=======
-  .footer-links {
-    flex-direction: column;
-    }
-
-  .footer-column {
->>>>>>> BLOG
     align-items: center;
   }
 
   .footer {
     padding: 20px;
   }
-<<<<<<< HEAD
 
   .legalLinks {
-=======
-  
-  .legal-links {
->>>>>>> BLOG
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
   }
-<<<<<<< HEAD
 
   .socialLinks {
     margin-top: 30px;
@@ -391,14 +340,3 @@
     width: 20%;
   }
 }
-=======
-  
-  .social-links {
-    margin-top: 30px;
-  }
-}
-
-
-
-
->>>>>>> BLOG
