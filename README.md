@@ -242,8 +242,10 @@ Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF co
 
 ## 📁 Structure du projet
 
-![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png)
-
+<!-- ![Aperçu de la présentation](./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png) -->
+<p align="center">
+  <img src="./docs/Apercu-Dossier-de-projet-SUB-ROSA-ART.png" alt="Aperçu du dossier de projet SUB ROSA ART" width="700" />
+</p>
 
 #### ✅ 4. **Crédits / Auteur / Licence**
 
