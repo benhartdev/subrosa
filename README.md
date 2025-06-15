@@ -185,6 +185,7 @@ npm install
 # 3. Lancer le frontend
 npm run dev
 
+```bash
 
 ## 🛠️ Configuration de l'environnement (.env)
 
@@ -210,7 +211,7 @@ Avant de démarrer le projet en local, vous devez :
 
     Ne pas oublier d’autoriser votre IP dans MongoDB Atlas si vous êtes en hébergement distant
 
----
+
 
    ##  👮 Droits d’auteur & distribution
 
@@ -242,7 +243,7 @@ Voici un aperçu du document de soutenance (cliquez pour télécharger le PDF co
 
 #### ✅ 4. **Crédits / Auteur / Licence**
 
-```markdown
+
 ### 👤 Benjamin Hoffelé (BenHartDev)
 
 Projet réalisé par Benjamin Hoffelé dans le cadre du titre professionnel de Développeur Web/Web Mobile.
