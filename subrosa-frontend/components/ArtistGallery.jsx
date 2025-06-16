@@ -41,7 +41,7 @@ const ArtistGallery = ({ images }) => {
                   : "Date de création"}
               </p>
             </div>
-            <button onClick={() => router.push(`/ajout-zooms/${image.id}`)}>
+            <button className={styles.addworkButton} onClick={() => router.push(`/ajout-zooms/${image.id}`)}>
                 ➕ Ajouter des zooms
            </button>
           </div>

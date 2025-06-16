@@ -26,7 +26,9 @@ const ArtistEditPanel = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet artiste ?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/artists/${id}`);
+      await axios.delete(`http://localhost:5000/api/admin/artists/${id}`, {
+  withCredentials: true,
+});
       fetchArtists();
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);

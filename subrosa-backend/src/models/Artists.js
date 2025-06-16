@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require("bcrypt");
 
 const artistSchema = new mongoose.Schema({
 
@@ -121,6 +121,8 @@ const artistSchema = new mongoose.Schema({
       artistImages: [{url: { type: String },altText: { type: String },uploadedAt: { type: Date, default: Date.now }}],
       newsletter: { type: Boolean, default: true },
       messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ContactMessage' }],
+      resetPasswordToken: { type: String },
+      resetPasswordExpires: { type: Date },
       createdAt: { type: Date, default: Date.now },
     });
     
@@ -151,6 +153,17 @@ const artistSchema = new mongoose.Schema({
   next();
 });
 
+artistSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  try {
+    const hash = await bcrypt.hash(this.password, 10);
+    this.password = hash;
+    next();
+  } catch (err) {
+    return next(err);
+  }
+});
 
     module.exports = mongoose.model('Artist', artistSchema, 'Artists');
 
