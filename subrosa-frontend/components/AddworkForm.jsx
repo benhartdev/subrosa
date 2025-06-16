@@ -216,6 +216,7 @@ useEffect(() => {
           <option value="Sculpture">Sculpture</option>
           <option value="Peinture">Peinture</option>
           <option value="Illustration">Illustration</option>
+          <option value="Edition d'art">Edition d'art</option>
         </select>
       </div>
     
