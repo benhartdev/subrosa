@@ -115,6 +115,25 @@
   margin: 0.2rem 0;
 }
 
+.addworkButton {
+  padding: 8px 24px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid var(--color-blue);
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.addworkButton:hover {
+  background-color: var(--color-blue);
+  color: #111;
+ border: 1px solid rgb(255, 255, 255);
+}
+
+
 @media screen and (max-width: 768px) {
  .artworkCard {
   width: 480px;
