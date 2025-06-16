@@ -18,14 +18,14 @@ router.get('/featured', artistsController.getFeaturedArtists);
 
 // Inscription d'un nouvel artiste (accessible publiquement)
 const createArtistLimiter = rateLimit({
-    windowMs: 60 * 60 * 1000, // 1 heure
+    windowMs: 60 * 60 * 3000, // 1 heure
       max: process.env.NODE_ENV === 'development' ? 100 : 5,
     message: "Trop de tentatives d'inscription. Veuillez réessayer plus tard."
 });
 
 router.post('/register',createArtistLimiter,
      upload.fields([
-    { name: 'images', maxCount: 20 },
+    { name: 'images', maxCount: 50 },
     { name: 'artistImages', maxCount: 3 },
 ]), artistsController.createArtist);
 

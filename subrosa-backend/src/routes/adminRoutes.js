@@ -7,9 +7,12 @@ const Order = require("../models/Order");
 const { ensureAdmin } = require("../middlewares/authMiddleware");
 const adminController = require("../controllers/adminController");
 const { getPendingArtists } = require("../controllers/artistsController");
+const { deleteArtist } = require("../controllers/adminController");
 
 router.get('/stats', ensureAdmin, adminController.getStats);
 router.get("/artists/pending", ensureAdmin, getPendingArtists);
+// DELETE ARTIST
+router.delete("/artists/:id", ensureAdmin, deleteArtist);
 
 
 // GET artistes en attente
@@ -96,6 +99,8 @@ router.get("/works", ensureAdmin, async (req, res) => {
     }
   });
   
+
+
 //   GET commandes
   router.get("/orders", ensureAdmin, async (req, res) => {
     try {

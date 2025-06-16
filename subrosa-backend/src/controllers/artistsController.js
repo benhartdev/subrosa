@@ -98,14 +98,23 @@ const images = req.files['images']?.map((file, index) => ({
 })) || [];
 
 // Images de l'artiste
+console.log('DEBUG ALTS >>>', req.body.artistAlts); // 👈 Ici !
 const rawArtistAlts = req.body.artistAlts || [];
-const artistAlts = Array.isArray(rawArtistAlts) ? rawArtistAlts : [rawArtistAlts];
+let artistAlts = [];
+try {
+  artistAlts = JSON.parse(req.body.artistAlts || '[]');
+} catch (err) {
+  console.error('❌ Impossible de parser artistAlts', err);
+  artistAlts = [];
+}
+  console.log("🎯 artistAlts reçus :", req.body.artistAlts);
+console.log("📸 fichiers reçus :", req.files["artistImages"]);
 const artistImages = req.files['artistImages']?.map((file, index) => ({
   url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
-  alt: artistAlts[index] || '',
+  altText: artistAlts[index] || '',
   caption: ''
 })) || [];
-    
+    console.log("🎯 artistImages finale ===>", artistImages);
 
     // Création de l'artiste avec le mot de passe sécurisé + images
     const newArtist = new Artist({
