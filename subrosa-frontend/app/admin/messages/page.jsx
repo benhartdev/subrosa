@@ -143,11 +143,13 @@ const AdminMessagesPage = () => {
       <p className={styles.metaInfo}><strong>IP :</strong> {msg.ip || "N/A"}</p>
       <p className={styles.metaInfo}><strong>Navigateur :</strong> {formatUserAgent(msg.userAgent)}</p>
       
-      <p className={`${styles.artistStatus} ${msg.artistId ? styles.linked : styles.unlinked}`}>
-        {msg.artistId?.username
-          ? `✅ ${msg.artistId.username}`
-          : "⚠️ Message orphelin"}
-      </p>
+        <p className={`${styles.artistStatus} ${msg.artistId ? styles.linked : msg.suspectedArtistEmailMatch ? styles.suspect : styles.unlinked}`}>
+         {msg.artistId?.username
+        ? `✅ ${msg.artistId.username}`
+        : msg.suspectedArtistEmailMatch
+        ? "⚠️ Email connu d’un artiste (non loggué)"
+        : "⚠️ Message orphelin"}
+       </p>
 
       <div className={styles.actions}>
         

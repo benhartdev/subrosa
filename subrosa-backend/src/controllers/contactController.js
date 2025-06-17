@@ -56,15 +56,19 @@ const sendContactMessage = async (req, res) => {
       console.log("🎯 Artiste connecté :", artist?.username);
     }
 
-    // 2. Sinon, tentative de liaison via l'email
-    if (!artist) {
-      artist = await Artist.findOne({ email });
-      if (artist) {
-        console.log("🎯 Artiste trouvé via email :", artist.username);
-      } else {
-        console.log("❌ Aucun artiste trouvé avec l'email :", email);
-      }
-    }
+    let suggestedArtist = null;
+
+  // Si l'utilisateur est connecté
+  if (req.session?.user?.role === "artist") {
+    artist = await Artist.findById(req.session.user.id);
+    console.log("🎯 Artiste connecté :", artist?.username);
+  } else {
+  // Tentative de correspondance par email (sans rattachement)
+  suggestedArtist = await Artist.findOne({ email });
+  if (suggestedArtist) {
+    console.log("💡 Email connu d’un artiste :", suggestedArtist.username);
+  }
+}
 
     const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
     const userAgent = req.headers["user-agent"];
@@ -80,12 +84,16 @@ const sendContactMessage = async (req, res) => {
       });
     }
 
+    const suspectedArtistEmailMatch = !!suggestedArtist && !artist;
+
     // 3. Enregistrement du message
     const newMessage = new ContactMessage({
       name,
       email,
       message,
       artistId: artist ? artist._id : null,
+      suggestedArtistId: suggestedArtist ? suggestedArtist._id : null,
+      suspectedArtistEmailMatch,
       ip,
       userAgent,
     });

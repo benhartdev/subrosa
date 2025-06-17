@@ -47,6 +47,23 @@
      text-align: center;
   }
   
+  .artistStatus.suspect {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  animation: pulseWarning 1s infinite;
+}
+
+@keyframes pulseWarning {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 10, 10, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(255, 167, 38, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 167, 38, 0);
+  }
+}
   .messageCard {
     border: 1px solid #444;
     padding: 1rem;
