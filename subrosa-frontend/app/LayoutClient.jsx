@@ -11,6 +11,7 @@ export default function LayoutClient({ children }) {
 
   const shouldHideLogo =
     pathname === "/contact" ||
+    pathname === "/" ||
     (pathname === "/inscription" &&
       (type === "artist" || type === "user"));
 

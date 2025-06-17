@@ -1,3 +1,4 @@
+
 .galleryHeader {
   position: relative;
   text-align: center;
@@ -8,7 +9,7 @@
   }
 
 .galleryTitle {
-  display: block; /* ✅ Plus de flex horizontal */
+  display: block; 
   text-align: center;
   font-size: 2.2rem;
   line-height: 1.2;
@@ -16,10 +17,10 @@
   z-index: 8;
   }
 
-  .galleryName,
-.galleryBrand {
-  display: block; /* ✅ Chaque mot sur une ligne */
+  .galleryName {
+  display: block;
   white-space: nowrap;
+  color: var(--color-blue)
 }
 .gallerySubtitle {
   font-family: Michroma, sans-serif;
@@ -27,148 +28,10 @@
   margin-top: 10px;
   font-size: 1.6rem;
   letter-spacing: 2px;
-  text-align: center; /* ✅ Ajout nécessaire */
-}
-/* .headContainer {
-  position: relative;
-  width: 100%;
-  max-width: 2500px;
-  margin: 0 auto;
-  font-family: Michroma, sans-serif;
-  overflow: hidden;
-}
-
-.logoContainer {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.texteSuperpose {
-  position: absolute;
-  top: 45%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 3em;
   text-align: center;
-  border-radius: 8px;
-  z-index: 2;
+  color: var(--color-blue)
 }
 
-.discoverArtist {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    position: absolute;
-    top: 60%; 
-    left: 50%;
-    padding: 12px 24px;
-    border: 1px solid rgb(255 255 255);
-    background: rgb(255 255 255);
-    color: rgb(0 0 0);
-    font-size: 1em;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    font-family: Michroma, sans-serif;
-    transform: translate(-50%, -50%); 
-}
-
-.discoverArtist:hover {
-    background: rgb(133 133 133);
-    color: black;
-}
-
-.galleryHeader {
-  position: relative;
-  text-align: center;
-  color: white;
-  font-family: Michroma, sans-serif;
-  margin-top: -15%;
-  z-index: 8;
-  }
-
-  .galleryContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 8;
-  }
-  
-  .galleryTitle {
-    font-family: Michroma, sans-serif;
-    display: flex;
-    justify-content: center;
-    gap: 10px; 
-    font-size: 3rem;
-    margin: 0;
-    z-index: 8;
-  }
-  
-  .gallery-name,
-.galleryBrand {
-  white-space: nowrap;
-}
-
-  .gallerySeparator {
-    display: block;
-    z-index: 9995;
-    font-size: 48px;
-    font-family: "Protest Revolution", sans-serif;
-  }
-
-  .gallerySubtitle {
-    font-family: Michroma, sans-serif;
-    z-index: 8;
-    margin-top: 10px;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-
-  @media (width <= 991px) {
-    .galleryHeader {
-      width: 100%;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .galleryName {
-      font-size: 30px;
-    }
-  
-    .galleryBrand {
-      font-size: 60px;
-    }
-  
-    .gallerySubtitle {
-      font-size: 36px;
-    }
-  }
-  
-  @media (width <= 640px) {
-    .galleryHeader {
-      padding: 16px;
-    }
-  
-    .galleryName {
-      font-size: 24px;
-    }
-  
-    .galleryBrand {
-      font-size: 48px;
-    }
-  
-    .gallerySubtitle {
-      font-size: 28px;
-    }
-  } */
 .headContainer {
   position: relative;
   width: 100%;
@@ -176,7 +39,6 @@
   margin: 0 auto;
   font-family: Michroma, sans-serif;
   overflow: hidden;
-  
 }
 
 .headImage {
@@ -194,67 +56,66 @@
   color: rgba(255, 255, 255, 0.9);
   z-index: 2;
   width: 100%;
-  
 }
 
-.logoContainer img {
-   position: relative;
-  top: -200px; /* remonte le logo */
-  max-width: 500px;
+.logoHome {
+  width: 20vw;              /* Taille fluide : 20% de la largeur de la fenêtre */
+  max-width:1500px;         /* Jamais plus grand que 250px */
+  min-width: 600px;         /* Jamais plus petit que 120px */
   height: auto;
-  
+  margin-top: -8%;
+  margin-bottom: 140px;
+}
+
+.logoWrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.scramblerWrapper {
+  position: absolute;
+  top: 120px; /* Ajuste au besoin */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  pointer-events: none; /* pour ne pas gêner les clics */
+}
+
+.buttonWrapper {
+  position: relative;
+  z-index: 2;
 }
 
 .texteSuperpose {
-  position: relative;
+  position: absolute;
   top: -150px; /* ↖️ remonte uniquement le bloc texte + bouton */
   font-size: 2rem;
- 
 }
 
 .discoverArtist {
   position: relative;
-  top: -150px;
-  padding: 12px 24px;
-  border: 1px solid rgb(255 255 255);
-  background: rgb(255 255 255);
-  color: rgb(0 0 0);
+  top: -70px;
+  padding: 4px 9px 8px;
+  border: 1px solid rgb(145, 141, 141);
+  background: rgb(54, 54, 54);
+  color: rgb(255, 255, 255);
   font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-family: Michroma, sans-serif;
+  margin-bottom: 4rem;
 }
 
 .discoverArtist:hover {
-  background: rgb(133 133 133);
-  color: black;
+  background-color: transparent ;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  box-shadow:inset 0 0 10px var(--color-blue);
 }
-
-@media screen and (max-width: 768px) {
-  .galleryTitle {
-    font-size: 1.6rem;
-  }
-
-  .gallerySubtitle {
-    font-size: 1rem;
-    color: var(--color-grey)
-  }
-
-  .texteSuperpose {
-    font-size: 1rem;
-  }
-
-  .discoverArtist {
-    font-size: 0.5rem;
-    padding: 10px 18px;
-  }
-
-  .logoContainer img {
-    max-width: 110px;
-  }
-}
-
 
 
   .navigationFilters {
@@ -276,27 +137,23 @@
     width: 100%; /* Assure que le conteneur prenne toute la largeur */
     text-align: center;
     flex-wrap: wrap; /* Permet de s'adapter en responsive */
-    margin-top: 30px; /* Ajuste l'espace au-dessus */
+    margin-top: 40px; /* Ajuste l'espace au-dessus */
+    
   }
   
   .categoryFilters a {
     text-decoration: none;
     border: var(--color-grey);
+    
+  }
+  .categoryFilters a:hover {
+    text-decoration: none;
+    
+    box-shadow: inset 0 0 15px var(--color-blue);
   }
 
-  .categoryFilters:hover {
-    color: var(--color-hover);
-    border: var(--color-border);
-  }
-
-   @media (width <= 991px) {
-    .categoryFilters {
-      max-width: 100%;
-      margin-top: 40px;
-      scale: 0.8;
-    }
-  }
-
+  
+  
    /* Category Buttons */
   .categoryButton {
     display: flex;
@@ -317,12 +174,7 @@
      border: 1px solid #0dbab1;
   }
   
-  @media (width <= 991px) {
-    .categoryButton {
-      white-space: initial;
-    }
-  
-  }
+ 
 
   /* Surprise Text */
   .surpriseText {
@@ -390,44 +242,6 @@
 
 
 
-/* Mobile & Tablette : 2 colonnes */
-@media screen and (min-width: 100px) and (max-width: 767px) {
-  .homeGalleryGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-   .homeCard {
-  width: 100% ;
-  max-width: 200px ;
-  margin: 0 auto; 
-}
- .titleArtistUniverse {
-    font-size: 24px;
-    justify-content: center;
-    margin: auto;
-  }
-}
-
-/* Desktop moyen : 3 colonnes */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .homeGalleryGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-   .homeCard {
-  width: 100% ;
-  max-width: 330px ;
-  margin: 0 auto; 
-}
-}
-
-/* Grand écran : 4 colonnes */
-@media screen and (min-width: 1200px) {
-  .homeGalleryGrid {
-    grid-template-columns: repeat(4, 1fr);
-    
-  }
- 
-}
-
   .artistsButtonContainer {
     display: flex;
     justify-content: center; /* Centre le bouton horizontalement */
@@ -439,11 +253,11 @@
 
 .viewAllBtn {
     display: inline-block;
-    padding: 15px 30px;
-    border: 2px solid white;
-    background: rgb(255 255 255);
-    color: black;
-    font-size: 1.2em;
+    padding: 12px 20px;
+    border: 1px solid white;
+    background: rgba(99, 73, 73, 0);
+    color: rgb(255, 255, 255);
+    font-size: 0.8em;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -451,6 +265,12 @@
     margin-top: 0; /* Supprime l’espace inutile au-dessus */
 }
 
+.viewAllBtn:hover {
+    background-color: transparent;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    box-shadow: inset 0 0 10px var(--color-blue);
+}
 .blogSubrosa {
   margin-top: -1rem;
  }
@@ -483,11 +303,6 @@
     margin-bottom: 20px;
   }
   
-  @media (width <= 640px) {
-    .conceptHeading {
-      font-size: 16px;
-    }
-  }
   
   .conceptSubtitle {
     font-family: Michroma, sans-serif;
@@ -510,3 +325,125 @@
     background-color: #000;
     cursor: pointer;
   }
+
+  
+
+@media screen and (max-width: 768px) {
+  .galleryTitle {
+    font-size: 1.6rem;
+  }
+
+  .gallerySubtitle {
+    font-size: 1rem;
+    color: var(--color-grey)
+  }
+
+  .texteSuperpose {
+    font-size: 1rem;
+  }
+
+  .discoverArtist {
+    font-size: 0.5rem;
+    padding: 10px 18px;
+  }
+
+  .logoContainer img {
+    max-width: 110px;
+  }
+}
+@media (width <= 991px) {
+    .categoryButton {
+      white-space: initial;
+    }
+  
+}
+ @media (width <= 991px) {
+    .categoryFilters {
+      max-width: 100%;
+      margin-top: 40px;
+      scale: 0.8;
+    }
+  }
+
+/* Mobile & Tablette : 2 colonnes */
+@media screen and (min-width: 100px) and (max-width: 767px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+   .homeCard {
+  width: 100% ;
+  max-width: 200px ;
+  margin: 0 auto; 
+}
+ 
+.galleryName {
+  margin-top: 30%;
+}
+
+.gallerySubtitle {
+    margin-top: 0%;
+}
+
+  .logoHome {
+  width: 5vw;              /* Taille fluide : 20% de la largeur de la fenêtre */
+  max-width: 1000px;         /* Jamais plus grand que 250px */
+  min-width: 400px;         /* Jamais plus petit que 120px */
+  height: auto;
+  margin-top: 40%;
+  
+}
+
+.scramblerWrapper {
+display: none;
+}
+.logoWrapper {
+  height: 500px;
+}
+
+.discoverArtist {
+display: none;
+}
+
+.categoryFilters {
+  display: flex;
+    flex-direction: column;         /* 🔁 Met les enfants en colonne */
+    align-items: center;            /* Centre les enfants horizontalement */
+    justify-content: center;        /* Centre verticalement si besoin */
+                      /* Espace entre les boutons */
+   margin-top: 1rem;
+  text-align: center;
+  
+}
+.categoryButton {
+    width: 250px;                 /* Prend toute la largeur de son parent */
+         /* Fixe une largeur cohérente pour tous */
+  text-align: center;
+  padding: 18px;
+  box-sizing: border-box;      /* ✅ inclut padding dans width */
+  }
+ .selectionContainer {
+
+padding: 0 20px 60px 20px;
+  
+}}
+
+/* Desktop moyen : 3 colonnes */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+   .homeCard {
+  width: 100% ;
+  max-width: 330px ;
+  margin: 0 auto; 
+}
+}
+
+/* Grand écran : 4 colonnes */
+@media screen and (min-width: 1200px) {
+  .homeGalleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+    
+  }
+ 
+}

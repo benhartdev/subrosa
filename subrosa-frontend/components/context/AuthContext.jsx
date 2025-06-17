@@ -11,12 +11,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // lecture du localStorage
-  useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (stored) setUser(JSON.parse(stored));
-  }, []);
-
   // validation côté serveur (check-session)
   useEffect(() => {
     console.log("🔁 Session récupérée côté client :", user);
@@ -30,10 +24,8 @@ export const AuthProvider = ({ children }) => {
         if (res.ok) {
           const data = await res.json();
           setUser(data.user);
-          localStorage.setItem("user", JSON.stringify(data.user));
         } else {
           setUser(null);
-          localStorage.removeItem("user");
         }
       } catch (err) {
         console.error("Erreur de vérification de session :", err);
@@ -49,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
+
   };
 
   const logout = async () => {
@@ -59,7 +51,7 @@ export const AuthProvider = ({ children }) => {
         credentials: "include",
       });
       setUser(null);
-      localStorage.removeItem("user");
+     
       window.location.href = "/";
     } catch (err) {
       console.error("Erreur de déconnexion :", err);
@@ -68,7 +60,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user, isLoading, login, logout }}>
-      {children}
+      {isLoading ? <p>Chargement…</p> : children}
     </AuthContext.Provider>
   );
 };

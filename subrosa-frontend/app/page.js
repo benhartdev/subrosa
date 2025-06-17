@@ -12,6 +12,7 @@ import TestimonialSection from '../components/TestimonialSection';
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import MainContent from '../components/MainContent.jsx';
 import Newsletter from "../components/Newsletter";
+import TextScrambler from "../components/TextScrambler";
 const MomentSelection = require("../components/MomentSelection");
 
 const HomePage = () => {
@@ -32,7 +33,9 @@ const featuredArtists = [...items]
                      .slice(0, 4);
 
     return (
-        <div>
+      
+          <div>
+              
             <div className={styles.headContainer}>
               <Image
                 src="/images/FOND2.jpg"
@@ -41,19 +44,37 @@ const featuredArtists = [...items]
                 height={1080}
                 className={styles.headImage}
               />
+              
               <div className={styles.headOverlayContent}>
-                  <p className={styles.texteSuperpose}>Nos artistes vous ouvrent leur univers...</p>
-                  <Link href="/page-gallerie?type=artist">
-                    <button className={styles.discoverArtist}>Découvrez nos artistes</button>
-                  </Link>
+               
+               <div className={styles.logoWrapper}>
+                    <Image
+                      src="/images/gallerie_SUB_logo2_blanc.png"
+                      alt="Logo Sub Rosa"
+                      width={500}
+                      height={0}
+                      className={styles.logoHome}
+                      priority
+                    />
+                  </div>
+
+                  <div className={styles.scramblerWrapper}>
+                    <TextScrambler />
+                  </div>
+
+                  <div className={styles.buttonWrapper}>
+                    <Link href="/page-gallerie?type=artist">
+                      <button className={styles.discoverArtist}>Découvrez nos artistes</button>
+                    </Link>
+                  </div>
              </div>
            </div>
             <div className={styles.galleryHeader}>
               <div className={styles.galleryContent}>
                 <h1 className={styles.galleryTitle}>
-                  <span className={styles.galleryName}>GALLERIE</span>
+                  <span className={styles.galleryName}>GALERIE SUB ROSA ART</span>
                   <span className={styles.gallerySeparator}></span>
-                  <span className={styles.galleryBrand}>SUB ROSA ART</span>
+                  <span className={styles.galleryBrand}></span>
                 </h1>
                 <p className={styles.gallerySubtitle}>gallerie d’art contemporain</p>
               </div>
@@ -103,7 +124,7 @@ const featuredArtists = [...items]
                     <h3 className={styles.conceptHeading}>UNE NOUVELLE VISION DE L’ART CONTEMPORAIN</h3>
                     <p className={styles.conceptSubtitle}>Dissimulé sous la rose...</p>
                     <p className={styles.conceptDescription}>Mis en valeur par des artistes, pour des artistes</p>
-                    <Link href="/concept">
+                    <Link href="/about">
                         <button className={styles.learnMoreBtn}>EN SAVOIR PLUS</button>
                     </Link>
                 </div>

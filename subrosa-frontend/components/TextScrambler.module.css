@@ -1,0 +1,17 @@
+
+.dud2RomanConverter {
+  font-size: 1.3rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.808);
+  margin: 0; 
+  padding: 0;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  background: transparent;
+  
+}
+.dud {
+  opacity: 0.5;
+  color: #aaa;
+}

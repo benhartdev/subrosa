@@ -78,7 +78,9 @@ export default function MainContent({ limit }) {
                 image={card.img}
                 className={styles.cardMedia}
               />
-              <CardContent className={styles.customCardContent}>
+              <CardContent className={styles.customCardContent} sx={{
+    border: '1px solid gray',
+  }}>
                 <Typography gutterBottom variant="caption">
                   {card.tag}
                 </Typography>

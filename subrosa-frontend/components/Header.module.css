@@ -205,7 +205,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 120px;
+    height: 60px;
     z-index: 9990;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.3);
@@ -245,5 +245,16 @@
     top: 0.5rem;
     right: 2rem;
     z-index: 9998;
+}
+.logoutIcon {
+  color: white; /* Ajouté pour le rendre visible */
+  background: none;
+  border: none;
+}
+
+.navBlurOverlay {
+   
+    height: 60px;
+   
 }
 }

@@ -77,9 +77,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 120px;
+  height: 100%;
   width: 100vw;
-  z-index: 9990;
+  z-index: 9995;
   backdrop-filter: blur(6px);
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -167,4 +167,12 @@
     font-size: 12px;
     padding: 0 10px;
   }
+  .selectionContainer {
+    padding: 0 20px 60px 20px;
+  }
+  .navBlurOverlay {
+ z-index: 9995;
+  height: 100%;
+  
+}
 }

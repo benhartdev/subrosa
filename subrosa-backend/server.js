@@ -1,6 +1,7 @@
 // server.js
 const express = require('express');
 const session = require('express-session');
+const MongoStore = require("connect-mongo");
 const cors = require('cors');
 const app = express();
 
@@ -37,12 +38,16 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      ttl: 60 * 60 * 2, // ⏱️ 2h en secondes côté serveur
+    }),
   name: "connect.sid",
   cookie: {
     secure: false, // passer à true en production avec HTTPS
     httpOnly: true,
     sameSite: 'lax',
-    maxAge: 1000 * 60 * 180, // 180 minutes
+    maxAge: 1000 * 60 * 60 * 2, // 120 minutes
   }
 }));
 
