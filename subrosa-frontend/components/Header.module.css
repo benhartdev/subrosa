@@ -183,6 +183,12 @@
     z-index: 9998;
 }
 
+.logoutIcon {
+  color: white; /* Ajouté pour le rendre visible */
+  background: none;
+  border: none;
+}
+
 .iconSvg:hover,
 .logoutIcon:hover {
     color: #0dbab1;
