@@ -67,7 +67,7 @@ const featuredArtists = [...items]
                     <Link href="/page-gallerie?type=photographie"><button className={styles.categoryButton}>PHOTOGRAPHIES</button></Link>
                     <Link href="/page-gallerie?type=peinture"><button className={styles.categoryButton}>PEINTURES</button></Link>
                     <Link href="/page-gallerie?type=sculpture"><button className={styles.categoryButton}>SCULPTURES</button></Link>
-                    <Link href="/page-gallerie?type=edition_art"><button className={styles.categoryButton}>EDITION D_ART</button></Link>
+                    <Link href="/page-gallerie?type=edition_art"><button className={styles.categoryButton}>ÉDITION D'ART</button></Link>
                 </section>
                 <p className={styles.surpriseText}>ou<br />SURPENEZ-MOI</p>
             </div>

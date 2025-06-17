@@ -170,3 +170,27 @@ export default async function WorkSlugPage({ params }) {
   );
 }
 
+// ✅ Fonction pour le SSG, pour pré-générer les pages dynamiques, rapide et SEO friendly
+//  et pour récupérer tous les slugs d'œuvres approuvées
+async function getAllWorkSlugs() {
+  try {
+    const res = await fetch("http://localhost:5000/api/works", {
+      cache: "no-store",
+    });
+
+    const works = await res.json();
+
+    return works
+      .filter((work) => work.isApproved)
+      .map((work) => ({ slug: work.slug }));
+  } catch (error) {
+    console.error("Erreur dans getAllWorkSlugs:", error);
+    return [];
+  }
+}
+
+// ✅ Fonction spéciale Next.js pour pré-générer les pages dynamiques
+export async function generateStaticParams() {
+  return await getAllWorkSlugs();
+}
+

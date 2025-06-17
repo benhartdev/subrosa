@@ -31,3 +31,27 @@ async function getArtist(slug) {
     return null;
   }
 }
+
+
+// ✅ Fonction utilitaire pour récupérer tous les slugs
+async function getAllArtistSlugs() {
+  try {
+    const res = await fetch("http://localhost:5000/api/artists", {
+      cache: "no-store",
+    });
+
+    const artists = await res.json();
+
+    return artists.map((artist) => ({
+      slug: artist.slug,
+    }));
+  } catch (error) {
+    console.error("Erreur dans getAllArtistSlugs:", error);
+    return [];
+  }
+}
+
+// ✅ Fonction pour le SSG, pour pré-générer les pages dynamiques, rapide et SEO friendly
+export async function generateStaticParams() {
+  return await getAllArtistSlugs(); // pas besoin de .map ici
+}
