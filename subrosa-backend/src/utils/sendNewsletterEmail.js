@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const nodemailer = require('nodemailer');
-console.log("EMAIL_HOST =", process.env.EMAIL_HOST);
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
@@ -32,7 +31,6 @@ const sendWelcomeEmail = async (email) => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log(`✅ Email de bienvenue envoyé à ${email} | ID: ${info.messageId}`);
   } catch (err) {
     console.error("❌ Erreur dans sendWelcomeEmail :", err.message);
     throw err; // ← ne masque pas l’erreur
@@ -57,7 +55,6 @@ const sendUnsubscribeConfirmation = async (email) => {
   };
 
   const info = await transporter.sendMail(mailOptions);
-  console.log(`✅ Email de désinscription envoyé à ${email} | ID: ${info.messageId}`);
 };
 
 // 🔁 Export des deux fonctions

@@ -19,4 +19,3 @@ const clean = extended.map((artist) => {
 });
 
 fs.writeFileSync("scripts/clean_artists.json", JSON.stringify(clean, null, 2), "utf-8");
-console.log("✅ Fichier converti : clean_artists.json");

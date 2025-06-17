@@ -172,12 +172,7 @@ router.post('/by-admin/:artistId', ensureAdmin, async (req, res) => {
 
 // ✅ Nouvelle route artiste avec upload d’une seule oeuvre avec plusieurs images de celle ci
 router.post('/artist/add', upload.array('images', 10), async (req, res) => {
-  console.log("🧠 SESSION ACTUELLE :", req.session); 
-  console.log("🎯 ARTIST CONNECTÉ :", req.session.user);
   try {
-    console.log('📥 Données reçues :');
-    console.log('🟡 req.body =>', req.body);
-    console.log('🖼️ req.files =>', req.files);
 
     // ✅ Vérification présence fichiers image
     if (!req.files || req.files.length === 0) {
@@ -326,7 +321,6 @@ router.post('/add', ensureAdmin, async (req, res) => {
 // Route POST JSON protégée (admin uniquement) pour ajout direct d'œuvre
 router.post("/json", ensureAdmin, async (req, res) => {
   try {
-     console.log("✅ Données reçues :", req.body);
     const newWork = new Work(req.body);
     const savedWork = await newWork.save();
     res.status(201).json(savedWork);
@@ -360,7 +354,6 @@ router.get('/slug/:slug', async (req, res) => {
 // route PATCH pour mettre à jour une œuvre - images
 router.patch('/:id/images', ensureAdmin, async (req, res) => {
   try {
-    console.log("🟡 Body reçu :", req.body);
     const { newImages } = req.body;
 
     if (!Array.isArray(newImages) || newImages.length === 0) {

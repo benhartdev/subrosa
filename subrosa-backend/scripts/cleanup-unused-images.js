@@ -10,7 +10,6 @@ const UPLOADS_DIR = path.join(__dirname, "../uploads"); // adapte si besoin
 
 async function main() {
   await mongoose.connect(process.env.MONGO_URI);
-  console.log("📡 Connecté à MongoDB.");
 
   const usedImages = new Set();
 
@@ -40,10 +39,8 @@ async function main() {
   unusedFiles.forEach((filename) => {
     const filePath = path.join(UPLOADS_DIR, filename);
     fs.unlinkSync(filePath);
-    console.log(`🗑️ Supprimé : ${filename}`);
   });
 
-  console.log(`✅ ${unusedFiles.length} fichiers supprimés, ${usedImages.size} utilisés conservés.`);
   process.exit();
 }
 

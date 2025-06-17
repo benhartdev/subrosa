@@ -62,7 +62,6 @@ const createArtist = async (req, res) => {
       newsletter,
       
     } = req.body;
-console.log('🎯 Contenu brut de req.body:', req.body);
     let parsedInterview = interview;
 if (typeof parsedInterview === 'string') {
   try {
@@ -98,7 +97,6 @@ const images = req.files['images']?.map((file, index) => ({
 })) || [];
 
 // Images de l'artiste
-console.log('DEBUG ALTS >>>', req.body.artistAlts); // 👈 Ici !
 const rawArtistAlts = req.body.artistAlts || [];
 let artistAlts = [];
 try {
@@ -107,14 +105,11 @@ try {
   console.error('❌ Impossible de parser artistAlts', err);
   artistAlts = [];
 }
-  console.log("🎯 artistAlts reçus :", req.body.artistAlts);
-console.log("📸 fichiers reçus :", req.files["artistImages"]);
 const artistImages = req.files['artistImages']?.map((file, index) => ({
   url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
   altText: artistAlts[index] || '',
   caption: ''
 })) || [];
-    console.log("🎯 artistImages finale ===>", artistImages);
 
     // Création de l'artiste avec le mot de passe sécurisé + images
     const newArtist = new Artist({
@@ -145,19 +140,15 @@ const artistImages = req.files['artistImages']?.map((file, index) => ({
       alts,
       artistImages 
     });
-    console.log("✅ ARTISTE À SAUVEGARDER :", newArtist);
     // Sauvegarde + envoi d'email
     const savedArtist = await newArtist.save();
-    console.log("✅ ARTISTE SAUVÉ AVEC SUCCÈS");
 
      if (newsletter === true || newsletter === 'true') {
             try {
               const existingSubscriber = await NewsletterSubscriber.findOne({ email: savedArtist.email });
               if (!existingSubscriber) {
                 await NewsletterSubscriber.create({ email: savedArtist.email });
-                console.log("✅ Email inscrit à la newsletter :", savedArtist.email);
               } else {
-                console.log("ℹ️ Email déjà abonné à la newsletter :", savedArtist.email);
               }
             } catch (err) {
               console.error("❌ Erreur lors de l'inscription à la newsletter :", err);
@@ -269,7 +260,6 @@ const getPendingArtists = async (req, res) => {
 };
 
 const updateArtistStatus = async (req, res) => {
-  console.log("🧠 SESSION ADMIN :", req.session);
   try {
     const { id } = req.params;
     const { status } = req.body;

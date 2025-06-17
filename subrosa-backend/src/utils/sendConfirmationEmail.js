@@ -12,7 +12,6 @@ const sendConfirmationEmail = async (toEmail, artistName) => {
       },
     });
 
-    console.log("✉️ Tentative d'envoi de mail à :", toEmail);
     
     await transporter.sendMail({
       from: `"SUB ROSA ART" <${process.env.EMAIL_USER}>`,
@@ -28,7 +27,6 @@ const sendConfirmationEmail = async (toEmail, artistName) => {
       `,
     });
 
-    console.log(`✅ Email de confirmation envoyé à ${toEmail}`);
   } catch (error) {
     console.error("❌ Erreur lors de l'envoi de l'email :", error);
   }

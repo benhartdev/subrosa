@@ -23,7 +23,6 @@ const run = async () => {
     { new: true }
   );
 
-  console.log('✅ Mise à jour réussie :', result);
   await mongoose.disconnect();
 };
 

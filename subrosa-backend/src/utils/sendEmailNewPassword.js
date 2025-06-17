@@ -18,7 +18,6 @@ const sendPasswordResetConfirmationEmail = async (email, name) => {
       html: `<p>Bonjour ${name},</p><p>Votre mot de passe a bien été modifié.</p>`,
     });
 
-    console.log("✉️ Email de confirmation envoyé :", info.messageId);
   } catch (err) {
     console.error("❌ Impossible d’envoyer l’email de confirmation :", err.message);
   }

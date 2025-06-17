@@ -23,7 +23,6 @@ const registerUser = async (req, res) => {
       password,
       ...otherFields,
     });
-    console.log("➡️ Je vais sauvegarder l’utilisateur :", newUser);
     const savedUser = await newUser.save(); // ✅ stocker le résultat
 
       if (req.body.newsletter === true || req.body.newsletter === 'true') {
@@ -31,9 +30,7 @@ const registerUser = async (req, res) => {
           const existingSubscriber = await NewsletterSubscriber.findOne({ email: savedUser.email });
           if (!existingSubscriber) {
             await NewsletterSubscriber.create({ email: savedUser.email });
-            console.log("✅ Email inscrit à la newsletter :", savedUser.email);
           } else {
-            console.log("ℹ️ Email déjà abonné à la newsletter :", savedUser.email);
           }
         } catch (err) {
           console.error("❌ Erreur lors de l'inscription à la newsletter :", err);

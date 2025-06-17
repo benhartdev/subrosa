@@ -27,7 +27,6 @@ function convertExtendedJSON(inputPath) {
 
   const outputPath = path.join(__dirname, "clean_artists.json");
   fs.writeFileSync(outputPath, JSON.stringify(clean, null, 2), "utf-8");
-  console.log("✅ Fichier converti : clean_artists.json");
   return clean;
 }
 
@@ -35,10 +34,8 @@ function convertExtendedJSON(inputPath) {
 async function importToMongo(artists) {
   try {
     await mongoose.connect(MONGO_URI);
-    console.log("✅ Connexion à MongoDB réussie");
 
     const result = await Artist.insertMany(artists);
-    console.log(`✅ ${result.length} artistes importés avec succès !`);
 
     mongoose.disconnect();
   } catch (err) {

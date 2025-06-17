@@ -8,15 +8,11 @@ const { sendPasswordResetConfirmationEmail } = require("../utils/sendEmailNewPas
 
 const loginUser = async (req, res) => {
   let { username, password } = req.body;
-  console.log("📥 Login reçu :", username);
 
    // 🔍 Sécurisation basique : trim des espaces
   username = username?.trim();
   password = password?.trim();
 
-  console.log("📥 Tentative de login");
-  console.log("→ Username reçu :", `"${username}"`);
-  console.log("→ Password reçu :", `"${password}"`);
 
   try {
     // ✅ ADMIN via .env
@@ -54,12 +50,9 @@ const loginUser = async (req, res) => {
       return res.status(401).json({ message: "Utilisateur introuvable." });
     }
 
-    console.log("✅ Utilisateur trouvé :", user.username);
-    console.log("→ Password hashé en base :", user.password);
 
     const validPassword = await bcrypt.compare(password, user.password);
 
-     console.log("🧪 Résultat de la comparaison bcrypt :", validPassword);
 
     if (!validPassword) {
       return res.status(401).json({ message: "Mot de passe incorrect." });
@@ -95,9 +88,6 @@ const loginUser = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  console.log("🔐 Déconnexion reçue :", req.session.user);
-  console.log("🔐 Déconnexion reçue :", req.session.artist);
-  console.log("🔐 Déconnexion reçue :", req.session.admin);
 
 
   req.session.destroy(err => {
@@ -116,13 +106,11 @@ const forgotPassword = async (req, res) => {
     const cleanEmail = email.trim().toLowerCase();
 
     // 🔍 Recherche d'abord dans les artistes
-    console.log("🔍 Recherche dans ARTIST...");
     let user = await Artist.findOne({ email: cleanEmail });
     let accountType = "artist";
 
     // 🔍 Sinon, recherche dans les utilisateurs
     if (!user) {
-      console.log("🔍 Aucun artist trouvé. Recherche dans USER...");
       user = await User.findOne({ email: cleanEmail });
       accountType = "user";
     }
@@ -141,24 +129,15 @@ const forgotPassword = async (req, res) => {
     user.resetPasswordToken = token;
     user.resetPasswordExpires = expires;
 
-    console.log("🧪 Avant save :", {
-  email: user.email,
-  token: token,
-  username: user.username,
-  resetPasswordToken: user.resetPasswordToken,
-  resetPasswordExpires: user.resetPasswordExpires
-});
+
 
     // ✅ Sauvegarde
    const saved = await user.save();
-console.log("✅ Champs enregistrés dans MongoDB :", saved.resetPasswordToken, saved.resetPasswordExpires);
 
     // ✅ Envoi de l’email
     const resetLink = `http://localhost:3000/reset-password?token=${token}`;
     await sendResetEmail(user.email, user.username, resetLink);
 
-    console.log(`✅ ${accountType.toUpperCase()} trouvé : ${user.email}`);
-    console.log("🔑 Token enregistré :", token);
 
     res.status(200).json({ message: "Email de réinitialisation envoyé." });
 
@@ -177,7 +156,6 @@ const resetPassword = async (req, res) => {
   }
 
   try {
-    console.log("🔍 Recherche avec token :", token);
     let account = await Artist.findOne({ resetPasswordToken: token });
     let accountType = "artist";
 
@@ -211,7 +189,6 @@ const resetPassword = async (req, res) => {
       console.warn("❌ Impossible d’envoyer l’email de confirmation :", emailErr.message);
     }
 
-    console.log("✅ Mot de passe mis à jour avec succès");
     return res.status(200).json({
       message: `Mot de passe réinitialisé avec succès pour le ${accountType}.`
     });

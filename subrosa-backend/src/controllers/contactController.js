@@ -25,7 +25,6 @@ function containsBannedWords(message) {
 
 // Envoi d'un message de contact
 const sendContactMessage = async (req, res) => {
-  console.log("📦 SESSION REÇUE :", req.session);
 
   // 🚨 Étape pour traiter les erreurs de validation
   const errors = validationResult(req);
@@ -53,7 +52,6 @@ const sendContactMessage = async (req, res) => {
     // 1. Si l'utilisateur connecté est un artiste
     if (req.session?.user?.role === "artist") {
       artist = await Artist.findById(req.session.user.id);
-      console.log("🎯 Artiste connecté :", artist?.username);
     }
 
     let suggestedArtist = null;
@@ -61,12 +59,10 @@ const sendContactMessage = async (req, res) => {
   // Si l'utilisateur est connecté
   if (req.session?.user?.role === "artist") {
     artist = await Artist.findById(req.session.user.id);
-    console.log("🎯 Artiste connecté :", artist?.username);
   } else {
   // Tentative de correspondance par email (sans rattachement)
   suggestedArtist = await Artist.findOne({ email });
   if (suggestedArtist) {
-    console.log("💡 Email connu d’un artiste :", suggestedArtist.username);
   }
 }
 
@@ -78,7 +74,6 @@ const sendContactMessage = async (req, res) => {
     const isBlocked = await BlockedIP.findOne({ ip });
 
     if (isBlocked) {
-      console.log("⛔ Message bloqué : IP interdite →", ip);
       return res.status(403).json({
         error: "⛔ Cette adresse IP est bloquée. Vous ne pouvez pas envoyer de message.",
       });
@@ -99,7 +94,6 @@ const sendContactMessage = async (req, res) => {
     });
 
     await newMessage.save();
-    console.log("✅ Message enregistré :", newMessage._id);
 
     // 4. Liaison du message à l'artiste via $push pour eviter erreur silencieuse mongoose, sur l'update de la date qui bloquait
     if (artist) {
@@ -108,19 +102,16 @@ const sendContactMessage = async (req, res) => {
         { $push: { messages: newMessage._id } },
         { new: true }
       );
-      console.log("📥 Message lié à l'artiste :", artist.username);
     }
 
     // 5. Envoi des emails
     let emailSent = true;
     try {
-      console.log("✉️ Destinataire confirmation :", email);
       await sendContactEmail(
         "ben.hoffele.photographe@outlook.fr",
         { name, email },
         message
       );
-      console.log("📤 Email envoyé avec succès");
     } catch (emailErr) {
       emailSent = false;
       console.warn("⚠️ Erreur lors de l’envoi de l’email :", emailErr.message);
@@ -165,7 +156,6 @@ const getAllMessages = async (req, res) => {
       .sort({ createdAt: -1 })
       .populate("artistId", "username artistImages");
 
-    console.log("📦 Messages récupérés :", messages.length);
     res.json(messages);
   } catch (error) {
     console.error("❌ Erreur getAllMessages :", error);

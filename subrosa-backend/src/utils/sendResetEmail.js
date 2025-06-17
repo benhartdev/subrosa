@@ -28,7 +28,6 @@ const sendResetEmail = async (email, username, resetLink) => {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log(`✅ Email de reset envoyé à ${email}`);
   } catch (error) {
     console.error("❌ Erreur envoi email reset :", error);
   }

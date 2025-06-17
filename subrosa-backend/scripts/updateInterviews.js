@@ -5,7 +5,6 @@ const path = require("path");
 const Artist = require('../src/models/Artists');
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
-console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
 
 async function updateArtistsInterviewField() {
   try {
@@ -14,7 +13,6 @@ async function updateArtistsInterviewField() {
       useUnifiedTopology: true,
     });
 
-    console.log("✅ Connecté à MongoDB");
 
     const artistsWithoutInterview = await Artist.find({
       $or: [
@@ -23,7 +21,6 @@ async function updateArtistsInterviewField() {
       ]
     });
 
-    console.log(`🎯 Artistes à mettre à jour : ${artistsWithoutInterview.length}`);
 
     const updates = await Promise.all(
       artistsWithoutInterview.map(artist =>
@@ -43,10 +40,8 @@ async function updateArtistsInterviewField() {
       )
     );
 
-    console.log(`✅ ${updates.length} artistes mis à jour avec un champ interview structuré.`);
 
     await mongoose.disconnect();
-    console.log("🔌 Déconnecté de MongoDB");
   } catch (error) {
     console.error("❌ Erreur lors de la mise à jour :", error);
   }

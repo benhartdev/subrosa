@@ -14,7 +14,6 @@ async function importArtists() {
       useUnifiedTopology: true,
     });
 
-    console.log("✅ Connexion à MongoDB réussie");
 
     const filePath = path.join(__dirname, "clean_artists.json");
 
@@ -25,7 +24,6 @@ async function importArtists() {
     // await Artist.deleteMany();
 
     const result = await Artist.insertMany(artists);
-    console.log(`✅ ${result.length} artistes importés avec succès !`);
 
     mongoose.disconnect();
   } catch (err) {

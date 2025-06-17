@@ -41,7 +41,6 @@ function cleanExtendedJSON(data) {
 async function importCollection() {
   try {
     await mongoose.connect(MONGO_URI);
-    console.log(`✅ Connecté à MongoDB`);
 
     const filePath = path.join(__dirname, fileName);
     const jsonData = fs.readFileSync(filePath, "utf-8");
@@ -49,7 +48,6 @@ async function importCollection() {
 
     const cleanData = cleanExtendedJSON(rawData);
     const result = await Model.insertMany(cleanData);
-    console.log(`✅ ${result.length} documents importés dans la collection "${modelName}"`);
 
     await mongoose.disconnect();
   } catch (err) {

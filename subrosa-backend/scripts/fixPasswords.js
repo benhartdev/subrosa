@@ -15,11 +15,9 @@ async function fixPlainPasswords() {
       const hashed = await bcrypt.hash(artist.password, 10);
       artist.password = hashed;
       await artist.save();
-      console.log(`✅ Mot de passe hashé pour ${artist.username}`);
     }
   }
 
-  console.log('✔️ Tous les mots de passe sont maintenant hashés.');
   process.exit();
 }
 

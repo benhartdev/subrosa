@@ -8,11 +8,8 @@ const ensureAuthenticated = (req, res, next) => {
 
 // Middleware pour restreindre aux administrateurs uniquement
 const ensureAdmin = (req, res, next) => {
-  console.log("🔒 [ensureAdmin] Vérification de la session...");
-  console.log("🧾 Session actuelle :", req.session);
 
   if (req.session?.user?.role === 'admin') {
-    console.log("✅ [ensureAdmin] Accès admin accordé à :", req.session.user.username);
     return next();
   }
 

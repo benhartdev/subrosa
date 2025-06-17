@@ -27,7 +27,6 @@ const getStats = async (req, res) => {
 
 const deleteArtist = async (req, res) => {
   const { id } = req.params;
-  console.log("🧨 Suppression demandée pour :", id);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     console.warn("❌ ID invalide :", id);

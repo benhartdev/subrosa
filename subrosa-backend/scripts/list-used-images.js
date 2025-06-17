@@ -31,7 +31,6 @@ async function main() {
   const outputPath = path.join(__dirname, "used-images.txt");
   fs.writeFileSync(outputPath, Array.from(usedImages).join("\n"), "utf-8");
 
-  console.log(`✅ ${usedImages.size} images utilisées listées dans used-images.txt`);
   process.exit();
 }
 
