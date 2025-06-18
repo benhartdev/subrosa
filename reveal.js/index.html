@@ -279,17 +279,17 @@
       <section>
         <h2>Maquettes de l’application web et web mobile</h2>
       <aside class="notes">
-        Vazy raconte ta vie et fais pas chier
+       blog
     </aside>
       </section>
       <section>
-                <img src="images/maquette_figma_Hover.png" >
+                <img src="images/maquette_figma_Hover.png" style="max-height:  80vh; object-fit: contain;" >
       </section>
       <section>
         <h2>Maquettes de l’application web et web mobile</h2>
       </section>
       <section>
-        <img src="images/maquette_figma_blog.png" alt="maquette figma page blog">
+        <img src="images/maquette_figma_blog.png" alt="maquette figma page blog" style="max-height:  90vh; object-fit: contain;">
       </section>
 
       <!-- SLIDE 11 - le schéma de l’enchaînement des maquettes de l’application  -->
@@ -306,14 +306,14 @@
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
 	    </section>
       <section>
-        <img src="images/Capture_ecran_hover-train.png" alt="Capture ecran effet hover photo train">
+        <img src="images/Capture_ecran_hover-train.png" alt="Capture ecran effet hover photo train" style="max-height:  80vh; object-fit: contain;">
 	    </section>
       <section>
         <h2>Captures d'écran d'interfaces utilisateur, web et web mobile</h2>
 	    </section>
       <section>
         <div style="border: 10px solid #999; border-radius: 20px; padding: 5px; background: black; display: inline-block;">
-  <img src="images/Capture_ecran_photo-mobile.png" style="max-height: 60vh; object-fit: contain;" />
+  <img src="images/Capture_ecran_photo-mobile.png" style="max-height:  80vh; object-fit: contain;" />
 </div>
 	    </section>
       <section>
@@ -328,7 +328,7 @@
 	    </section>
       <section>
          <div style="border: 10px solid #999; border-radius: 20px; padding: 5px; background: black; display: inline-block;">
-  <img src="images/Capture_ecran_mobile-BLOG.png" style="max-height: 60vh; object-fit: contain;" />
+  <img src="images/Capture_ecran_mobile-BLOG.png" style="max-height: 80vh; object-fit: contain;" />
 </div>
 	    </section>
       <!-- SLIDE 12 - des extraits de code d’interfaces utilisateur statiques  -->
@@ -336,65 +336,61 @@
         <h2>Extrait de code d'interfaces utilisateur statiques</h2>
       </section>
       <section>
-        <img src="images/extrait_code_page_statique_ABOUT.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/extrait_code_page_statique_ABOUT.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <section>
         <h2>Extrait de code d'interfaces utilisateur statiques</h2>
       </section>
       <section>
-        <img src="images/extrait-code-page-statique-INSCRIPTION.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/extrait-code-page-statique-INSCRIPTION.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <!-- SLIDE 13 - des extraits de code de la partie dynamique d’interfaces utilisateur  -->
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
       </section>
       <section>
-        <img src="images/ANNEXE_23.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/ANNEXE_23.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
       </section>
       <section>
-        <img src="images/ANNEXE_24.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/ANNEXE_24.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
       </section>
       <section>
-        <img src="images/ANNEXE_25.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/ANNEXE_25.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <section>
         <h2> extraits de code d'interfaces utilisateur dynamique </h2>
       </section>
       <section>
-        <img src="images/ANNEXE_26.png" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/ANNEXE_26.png" style="max-height: 90vh; object-fit: contain;">
       </section>
       <!-- SLIDE 14 - Exemple vide à remplir -->
       <section>
         <h2>Elements significatifs Back-end</h2>
         <p>
-    <span class="fragment custom blur">
-      <span class="fragment fade-out">Routes avec middlewares (isAdmin, isArtist, isAuthenticated)</span>
-    </span>
+    <span class="fragment custom blur">Routes avec middlewares (isAdmin, isArtist, isAuthenticated)</span>
+     
   </p><!-- protéger l'accès aux routes sensibles, Gestion des roles, Pas de crud possible sur fonctionnalité admin, redirection suivant Role. Fichier unique, lisible coherent et securité renforcé + Hashage de mots de passe avec bcrypt-->
          <p>
-    <span class="fragment custom blur">
-      <span class="fragment fade-out">Validation des entrées, limitation des requêtes, filtrage de contenu </span>
-    </span>
+    <span class="fragment custom blur">Validation des entrées, limitation des requêtes, filtrage de contenu </span>
+    
   </p><!--  sécuriser le formulaire de contact, qui est une porte d’entrée potentielle aux abus (spam, attaques XSS, flood) + Une validation stricte des champs (express-validator),
 Une limitation des requêtes par IP (express-rate-limit),
 Un filtrage actif du contenu (nettoyage HTML, blocage de mots interdits),
 Un système de blocage d’IP en cas d’abus.  + protéger la base de données, et préserver l'intégrité de mon service de messagerie.
   -->
          <p>
-    <span class="fragment custom blur">
-      <span class="fragment fade-out">Statuts pending, validated, rejected pour artistes et œuvres</span>
-    </span>
+    <span class="fragment custom blur">Statuts pending, validated, rejected pour artistes et œuvres</span>
+      
   </p><!--  -->
          <p>
-    <span class="fragment custom blur">
-      <span class="fragment fade-out">Technologies : Express-session, bcrypt, Express-validator, Express-rate-limit, MongoDB</span>
-    </span>
+    <span class="fragment custom blur">Technologies : Express-session, bcrypt, Express-validator, Express-rate-limit, MongoDB</span>
+    
   </p>
       </section>
       <!-- SLIDE 15 - Exemple vide à remplir -->
@@ -402,13 +398,13 @@ Un système de blocage d’IP en cas d’abus.  + protéger la base de données,
         <h2> Base de données - Schéma conceptuel </h2>
       </section>
        <section>
-        <img src="images/schema simplifié relation.jpg" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/schema simplifié relation.jpg" style="max-height: 90vh; object-fit: contain;">
       </section>
        <section>
         <h2> Base de données - Schéma physique </h2>
       </section>
        <section>
-        <img src="images/relation FORM MODEL.jpg" style="max-height: 60vh; object-fit: contain;">
+        <img src="images/relation FORM MODEL.jpg" style="max-height: 90vh; object-fit: contain;">
       </section>
       <!-- SLIDE 16 - Exemple vide à remplir -->
       <section>

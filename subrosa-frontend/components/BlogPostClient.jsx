@@ -58,3 +58,4 @@ export default function BlogPostClient({ post, leftImages, rightImages }) {
     </div>
   );
 }
+g
