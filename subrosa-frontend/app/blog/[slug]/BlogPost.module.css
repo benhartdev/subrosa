@@ -4,6 +4,11 @@
   height: auto;
   padding-bottom: 0;
 }
+
+.hidden {
+  display: none;
+}
+
 /* Conteneur général de l'article */
 
 .articleGrid {

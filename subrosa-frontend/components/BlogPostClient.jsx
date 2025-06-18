@@ -47,8 +47,8 @@ export default function BlogPostClient({ post, leftImages, rightImages }) {
           )}
     </div>
 
-     {/* Galerie lightbox commune */}
-      <LightboxGallery images={allImages} externalTriggerRef={allRef} />
+     {/* Galerie lightbox commune
+      <LightboxGallery images={allImages} externalTriggerRef={allRef} /> */}
 
      {post.intro && (
              <div className={styles.waitIntroWrapper}>
