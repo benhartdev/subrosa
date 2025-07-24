@@ -9,6 +9,7 @@ import styles from './Page.module.css';
 import Gallery from "../components/Gallery";
 import { useGalleryData } from "../hooks/useGalleryData";
 import TestimonialSection from '../components/TestimonialSection';
+// import NewTestimonial from '../components/NewTestimonial';
 import DoubleBorderContainer from "../components/DoubleBorderContainer";
 import MainContent from '../components/MainContent.jsx';
 import Newsletter from "../components/Newsletter";
@@ -109,6 +110,7 @@ const featuredArtists = [...items]
                 </div>
             </section>
              <section>
+                {/* <NewTestimonial /> */}
                 <TestimonialSection />
              </section>
         </div>
